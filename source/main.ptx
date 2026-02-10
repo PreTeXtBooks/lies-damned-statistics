@@ -1700,7 +1700,215 @@
         </section>
         <section xml:id="sec-one-variable-exercises">
           <title>Exercises</title>
-          <p/>
+          
+          <exercise>
+            <statement>
+              <p>
+                A product development manager at the campus bookstore wants to make sure
+                that the backpacks being sold there are strong enough to carry the heavy books
+                students carry around campus. The manager decides she will collect some data
+                on how heavy are the bags/packs/suitcases students are carrying around at
+                the moment, by stopping the next 100 people she meets at the center of campus
+                and measuring.
+              </p>
+              <p>
+                What are the individuals in this study? What is the population? Is there a
+                sample <mdash/> what is it? What is the variable? What kind of variable is this?
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                During a blood drive on campus, 300 donated blood. Of these, 136 had blood
+                of type <m>O</m>, 120 had blood of type <m>A</m>, 32 of type <m>B</m>, and the rest of type
+                <m>AB</m>.
+              </p>
+              <p>
+                Answer the same questions as in the previous exercise for this new situation.
+              </p>
+              <p>
+                Now make at least two visual representations of these data.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Go to <url href="https://en.wikipedia.org/wiki/Heights_of_presidents_and_presidential_candidates_of_the_United_States">the <term>Wikipedia</term> page</url> for <q>Heights of
+                Presidents and Presidential Candidates of the United States</q> and look only at
+                the heights of the presidents themselves, in centimeters (<em>cm</em>).
+              </p>
+              <p>
+                Make a histogram with these data using bins of width 5. Explain how you are
+                handling the edge cases in your histogram.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Suppose you go to the supermarket every week for a year and buy a bag of
+                flour, packaged by a major national flour brand, which is labelled as weighing
+                <m>1kg</m>. You take the bag home and weigh it on an extremely accurate scale
+                that measures to the nearest <m>{1/100}^{th}</m> of a gram. After the 52 weeks of
+                the year of flour buying, you make a histogram of the accurate weights of the
+                bags. What do you think that histogram will look like? Will it be symmetric
+                or skewed left or right (which one?), where will its center be, will it show
+                a lot of variation/spread or only a little? Explain why you think each of
+                the things you say.
+              </p>
+              <p>
+                What about if you buy a <m>1kg</m> loaf of bread from the local artisanal bakery
+                <mdash/> what would the histogram of the accurate weights of those loaves look like
+                (same questions as for histogram of weights of the bags of flour)?
+              </p>
+              <p>
+                If you said that those histograms were symmetric, can you think of a
+                measurement you would make in a grocery store or bakery which would be
+                skewed; and if you said the histograms for flour and loaf weights were skewed,
+                can you think of one which would be symmetric? (Explain why, always, of
+                course.) [If you think one of the two above histograms was skewed and one was
+                symmetric (with explanation), you don't need to come up with another one here.]
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Twenty sacks of grain weigh a total of <m>1003kg</m>. What is the mean<idx>mean</idx>
+                weight per sack?
+              </p>
+              <p>
+                Can you determine the median<idx>median</idx> weight per sack from the given
+                information? If so, explain how. If not, give two examples of datasets with
+                the same total weight be different medians.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                For the dataset <m>\{6, -2, 6, 14, -3, 0, 1, 4, 3, 2, 5\}</m>, which we will call
+                <m>DS_1</m>, find the mode(s)<idx>mode</idx>, mean<idx>mean</idx>, and
+                median<idx>median</idx>.
+              </p>
+              <p>
+                Define <m>DS_2</m> by adding <m>3</m> to each number in <m>DS_1</m>. What are the
+                mode(s)<idx>mode</idx>, mean<idx>mean</idx>, and median<idx>median</idx> of <m>DS_2</m>?
+              </p>
+              <p>
+                Now define <m>DS_3</m> by subtracting <m>6</m> from each number in <m>DS_1</m>. What are the
+                mode<idx>mode</idx>(s), mean<idx>mean</idx>, and median<idx>median</idx> of <m>DS_3</m>?
+              </p>
+              <p>
+                Next, define <m>DS_4</m> by multiplying every number in <m>DS_1</m> by 2. What are the
+                mode<idx>mode</idx>(s), mean<idx>mean</idx>, and median<idx>median</idx> of <m>DS_4</m>?
+              </p>
+              <p>
+                Looking at your answers to the above calculations, how do you think the
+                mode<idx>mode</idx>(s), mean<idx>mean</idx>, and median<idx>median</idx> of datasets
+                must change when you add, subtract, multiply or divide all the numbers by the
+                same constant? Make a specific conjecture!
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                There is a very hard mathematics competition in which college students in the
+                US and Canada can participate called the
+                <term>William Lowell Putnam Mathematical Competition</term>. It consists of a
+                six-hour long test with twelve problems, graded 0 to 10 on each problem, so the
+                total score could be anything from 0 to 120.
+              </p>
+              <p>
+                The median<idx>median</idx> score last year on the Putnam exam was 0 (as it often
+                is, actually). What does this tell you about the scores of the students who
+                took it? Be as precise as you can. Can you tell what fraction (percentage)
+                of students had a certain score or scores? Can you figure out what the
+                quartiles<idx>quartile</idx> must be?
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Find the range<idx>range</idx>, <m>IQR</m><idx><m>IQR</m>, inter-quartile range</idx>, and
+                standard deviation<idx>standard deviation</idx> of the following sample dataset:
+              </p>
+              <me>
+                DS_1 = \{0, 0, 0, 0, 0, .5, 1, 1, 1, 1, 1\}\quad .
+              </me>
+              <p>
+                Now find the range<idx>range</idx>, <m>IQR</m><idx><m>IQR</m>, inter-quartile range</idx>,
+                and standard deviation<idx>standard deviation</idx> of the following sample data:
+              </p>
+              <me>
+                DS_2 = \{0, .5, 1, 1, 1, 1, 1, 1, 1, 1, 1\}\quad .
+              </me>
+              <p>
+                Next find the range<idx>range</idx>, <m>IQR</m><idx><m>IQR</m>, inter-quartile range</idx>,
+                and standard deviation<idx>standard deviation</idx> of the following sample data:
+              </p>
+              <me>
+                DS_3 = \{0, 0, 0, 0, 0, 0, 0, 0, 0, .5, 1\}\quad .
+              </me>
+              <p>
+                Finally, find the range<idx>range</idx>,
+                <m>IQR</m><idx><m>IQR</m>, inter-quartile range</idx>, and standard
+                deviation<idx>standard deviation</idx> of sample data <m>DS_4</m>,
+                consisting of 98 0s, one .5, and one 1 (so like <m>DS_3</m> except with 0 occurring
+                98 times instead of 9 time).
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                What must be true about a dataset if its range<idx>range</idx> is 0? Give the
+                most interesting example of a dataset with range of 0 and the property you
+                just described that you can think of.
+              </p>
+              <p>
+                What must be true about a dataset if its
+                <m>IQR</m><idx><m>IQR</m>, inter-quartile range</idx> is 0? Give the most interesting
+                example of a dataset with <m>IQR</m> of 0 and the property you just described that
+                you can think of.
+              </p>
+              <p>
+                What must be true about a dataset if its standard
+                deviation<idx>standard deviation</idx> is 0? Give the most interesting example
+                of a dataset with standard deviation of 0 and the property you just described
+                that you can think of.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Here are some boxplots<idx>boxplot, box-and-whisker plot</idx> of test scores,
+                out of 100, on a standardized test given in five different classes <mdash/> the
+                same test, different classes. For each of these plots, <m>A - E</m>, describe
+                qualitatively (in the sense of §1.4.2) but in as much detail as
+                you can, what must have been the histogram<idx>histogram</idx> for the data
+                behind this boxplot. Also sketch a possible such histogram, for each case.
+              </p>
+              <p>
+                [Figure: Boxplot showing test scores for classes A through E - placeholder for converted figure]
+              </p>
+            </statement>
+          </exercise>
+          
         </section>
       </chapter>
 
