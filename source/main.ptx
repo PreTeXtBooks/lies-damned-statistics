@@ -3432,7 +3432,6 @@
         </section>
         <section xml:id="sec-RVs">
           <title>Random Variables</title>
-          <p/>
           <subsection xml:id="ssec-DoRVsaFEs">
             <title>Definition and First Examples</title>
             
@@ -3961,7 +3960,148 @@
         </section>
         <section xml:id="sec-probability-exercises">
           <title>Exercises</title>
-          <p/>
+
+          <exercise>
+            <statement>
+              <p>A basketball player shoots four free throws, and you write down the sequence of hits and misses. Write down the sample space for thinking of this whole thing as a random experiment.</p>
+
+              <p>In another game, a basketball player shoots four free throws, and you write down the number of baskets she makes. Write down the sample space for this different random experiment.</p>
+            </statement>
+          </exercise>
+
+          <exercise>
+            <statement>
+              <p>You take a normal, six-sided die, paint over all the sides, and then write the letter <term>A</term> on all six sides. You then roll the die. What is the sample space of this experiment? Also, list all the possible events for this experiment. <em>[Hint: it may help to look at <xref ref="eg-events1"/>.]</em></p>
+
+              <p>Now you paint it over again, and write <term>A</term> on half the sides and <term>B</term> on the other half. Again, say what is the sample space and list all possible events.</p>
+
+              <p>One more time you paint over the sides, then write <term>A</term> on one third of the faces, <term>B</term> on one third of the other faces, and <term>C</term> on the remaining third. Again, give the sample space and all events.</p>
+
+              <p>Make a conjecture about how many events there will be if the sample space has <m>n</m> outcomes in it.</p>
+            </statement>
+          </exercise>
+
+          <exercise>
+            <statement>
+              <p>Describe a random experiment whose sample space will be the set of all points on the (standard, 2-dimensional, <m>xy</m>-) plane.</p>
+            </statement>
+          </exercise>
+
+          <exercise>
+            <statement>
+              <p>The most common last [family] name in the world seems to be Wang [or the variant Wong]. Approximately 1.3% of the global population has this last name.</p>
+
+              <p>The most common first name in the world seems to be Mohammad [or one of several variants]. Some estimates suggest that perhaps as many as 2% of the global population has this first name.</p>
+
+              <p>Can you tell, from the above information, what percentage of the world population has the name <q>Mohammad Wang?</q> If so, why and what would it be? If not, why not, and can you make any guess about what that percentage would be, anyway?</p>
+
+              <p><em>[Hint: think of all the above percentages as probabilities, where the experiment is picking a random person on Earth and asking their name. Carefully describe some events for this experiment, relevant to this problem, and say what their probabilities are. Tell how combining events will or will not compute the probability of the desired event, corresponding to the desired percentage.]</em></p>
+
+              <p><em>[Note: don't bet on the numbers given in this problem being too accurate <mdash/> they might be, but there is a wide range of published values for them in public information from different sources, so probably they are only a very crude approximation.]</em></p>
+            </statement>
+          </exercise>
+
+          <exercise>
+            <statement>
+              <p>Suppose that when people have kids, the chance of having a boy or a girl is the same. Suppose also that the sexes of successive children in the same family are independent. [Neither of these is exactly true in real life, but let's pretend for this problem.]</p>
+
+              <p>The Wang family has two children. If we think of the sexes of these children as the result of a random experiment, what is the sample space? Note that we're interested in birth order as well, so that should be apparent from the sample space.</p>
+
+              <p>What are the probabilities of each of the outcomes in your sample space? Why?</p>
+
+              <p>Now suppose we know that at least one of the Wang children is a boy. Given this information, what is the probability that the Wangs have two boys?</p>
+
+              <p>Suppose instead that we know that the Wangs' older child is a boy. What is the probability, given this different information, that both Wang children are boys?</p>
+
+              <p>To solve this, clearly define events in words and with symbols, compute probabilities, and combine these to get the desired probability. Explain everything you do, of course.</p>
+            </statement>
+          </exercise>
+
+          <exercise>
+            <statement>
+              <p>Imagine you live on a street with a stop light at both ends of the block. You watch cars driving down the street and notice which ones have to stop at the <m>1^{\text{st}}</m> and/or <m>2^{\text{nd}}</m> light (or none). After counting cars and stops for a year, you have seen what a very large number <mdash/> call it <m>N</m> <mdash/> of cars did. Now imagine you decide to think about the experiment <q><em>pick a car on this street from the last year at random and notice at which light or lights it has to stop</em>.</q></p>
+
+              <p>Let <m>A</m> be the event <q><em>the car had to stop at the <m>1^{\text{st}}</m> light</em></q> and <m>B</m> be the event <q><em>the car had to stop at the <m>2^{\text{nd}}</m> light</em>.</q> What else would you have to count, over your year of data collection, to estimate the probabilities of <m>A</m> and of <m>B</m>? Pick some numbers for all of these variables and show what the probabilities would then be.</p>
+
+              <p>Make a Venn diagram of this situation. Label each of the four connected regions of this diagram (the countries, if this were a map) with a number from <m>\textcircled{1}</m> to <m>\textcircled{4}</m>, then provide a key which gives, for each of these numbered regions, <term>both</term> a formula in terms of <m>A</m>, <m>B</m>, unions, intersections, and/or complements, and then <term>also</term> a description entirely in words which do not mention <m>A</m> or <m>B</m> or set operations at all. Then put a decimal number in each of the regions indicating the probability of the corresponding event.</p>
+
+              <p>Wait <mdash/> for one of the regions, you can't fill in the probability yet, with the information you've collected so far. What else would you have had to count over the data-collection year to estimate this probability? Make up a number and show what the corresponding probability would then be, and add that number to your Venn diagram.</p>
+
+              <p>Finally, using the probabilities you have chosen, are the events <m>A</m> and <m>B</m> independent? Why or why not? Explain in words what this means, in this context.</p>
+            </statement>
+          </exercise>
+
+          <exercise xml:id="exc-EClottery">
+            <statement>
+              <p>Here is a table of the prizes for the <term>EnergyCube</term> Lottery:</p>
+
+              <p><em>[Table: Prize | Odds of winning
+              $1,000,000 | 1 in 12,000,000
+              $50,000 | 1 in 1,000,000
+              $100 | 1 in 10,000
+              $7 | 1 in 300
+              $4 | 1 in 25]</em></p>
+
+              <p>We want to transform the above into the [probability] distribution of a random variable <m>X</m>.</p>
+
+              <p>First of all, let's make <m>X</m> represent the <term>net gain</term> a Lottery player would have for the various outcomes of playing <mdash/> note that the ticket to play costs $2. How would you modify the above numbers to take into account the ticket costs?</p>
+
+              <p>Next, notice that the above table gives winning <term>odds</term>, not probabilities. How will you compute the probabilities from those odds? Recall that saying something has odds of <q>1 in <m>n</m></q> means that it tends to happen about once out of <m>n</m> runs of the experiment. You might use the word <em>frequentist</em> somewhere in your answer here.</p>
+
+              <p>Finally, something is missing from the above table of outcomes. What prize <mdash/> actually the most common one! <mdash/> is missing from the table, and how will you figure out its probability?</p>
+
+              <p>After giving all of the above explanations, now write down the full, formal, probability distribution for this <q>net gain in <term>EnergyCube</term> Lottery plays</q> random variable, <m>X</m>.</p>
+
+              <p>In this problem, some of the numbers are quite small and will disappear entirely if you round them. So use a calculator<idx>calculator</idx> or computer to compute everything here and keep as much accuracy as your device shows for each step of the calculation.</p>
+            </statement>
+          </exercise>
+
+          <exercise>
+            <statement>
+              <p>Continuing with the same scenario as in the previous <xref ref="exc-EClottery"/>, with the <term>EnergyCube</term> Lottery: What would be your expectation of the average gain per play of this Lottery? Explain fully, of course.</p>
+
+              <p>So if you were to play every weekday for a school year (so: five days a week for the 15 weeks of each semester, two semesters in the year), how much would you expect to win or lose in total?</p>
+
+              <p>Again, use as much accuracy as your computational device has, at every step of these calculations.</p>
+            </statement>
+          </exercise>
+
+          <exercise>
+            <statement>
+              <p>Last problem in the situation of the above <xref ref="exc-EClottery"/> about the <term>EnergyCube</term> Lottery: Suppose your friend plays the lottery and calls you to tell you that she won <ellipsis/> but her cell phone runs out of charge in the middle of the call, and you don't know how much she won. Given the information that she won, what is the probability that she won more than $1,000?</p>
+
+              <p>Continue to use as much numerical accuracy as you can.</p>
+            </statement>
+          </exercise>
+
+          <exercise xml:id="exc-dartboardtriangle">
+            <statement>
+              <p>Let's make a modified version of <xref ref="eg-triangleDistr"/>. You are again throwing darts at a dartboard, but you notice that you are very left-handed so your throws pull to the right much more than they pull to the left. What this means is that it is not a very good model of your dart throws just to notice how far they are from the center of the dartboard, it would be better to notice the <m>x</m>-coordinate of where the dart hits, measuring (in <m>cm</m>) with the center of the board at <m>x</m> location <m>0</m>. This will be your new choice of RV, which you will still call <m>X</m>.</p>
+
+              <p>You throw repeatedly at the board, measure <m>X</m>, and find out that you <em>never</em> hit more than <m>10cm</m> to the right of the center, while you are more accurate to the left and never hit more than <m>5cm</m> in that direction. You do hit the middle (<m>X=0</m>) the most often, and you guess that the probability decreases linearly to those edges where you never hit.</p>
+
+              <p>Explain why your <m>X</m> is a <em>continuous</em><idx>continuous random variable</idx> RV, and what its interval <m>[x_{\min},x_{\max}]</m> of values is.</p>
+
+              <p>Now sketch the graph of the probability density function for <m>X</m>. <em>[Hint: it will be a triangle, with one side along the interval of values <m>[x_{\min},x_{\max}]</m> on the <m>x</m>-axis, and its maximum at the center of the dartboard.]</em> Make sure that you put tick marks and numbers on the axes, enough so that the coordinates of the corners of the triangular graph can be seen easily. <em>[Another hint: it is a useful fact that the total area under the graph of any probability density function is <m>1</m>.]</em></p>
+
+              <p>What is the probability that your next throw will be in the bull's-eye, whose radius, remember, is <m>1.5cm</m> and which therefore stretches from <m>x</m> coordinate <m>-1.5</m> to <m>x</m>-coordinate <m>1.5</m>?</p>
+            </statement>
+          </exercise>
+
+          <exercise>
+            <statement>
+              <p>Here's our last discussion of dartboards [maybe?]: One of the problems with the probability density function approaches from <xref ref="eg-triangleDistr"/> and <xref ref="exc-dartboardtriangle"/> is the assumption that the functions were <em>linear</em> (at least in pieces). It would be much more sensible to assume they were more <em>bell-shaped</em>, maybe like the Normal distribution.</p>
+
+              <p>Suppose your friend Mohammad Wang is an excellent dart-player. He throws at a board and you measure the <m>x</m>-coordinate of where the dart goes, as in <xref ref="exc-dartboardtriangle"/> with the center corresponding to <m>x=0</m>. You notice that his darts are rarely <mdash/> only 5% of the time in total! <mdash/> more than <m>5cm</m> from the center of the board.</p>
+
+              <p>Fill in the blanks: <q>MW's dart hits' <m>x</m>-coordinates are an RV <m>X</m> which is Normally distributed with mean <m>\mu_X=</m>______ and standard deviation <m>\sigma_X=</m>______.</q> Explain, of course.</p>
+
+              <p>How often does MW completely miss the dartboard? Its radius is <m>10cm</m>.</p>
+
+              <p>How often does he hit the bull's-eye? Remember its radius is <m>1.5cm</m>, meaning that it stretches from <m>x</m> coordinate <m>-1.5</m> to <m>x</m>-coordinate <m>1.5</m>.</p>
+            </statement>
+          </exercise>
+        </section>
         </section>
       </chapter>
 
