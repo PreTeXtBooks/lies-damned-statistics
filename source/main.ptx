@@ -1602,7 +1602,7 @@
                   <xref ref="eg-subscriptssums"/> is
                   <md>
                     <mrow>x_{min}\amp=-3.1415</mrow>
-                    <mrow>Q_1\amp=-1.9575</mrow>
+                    <mrow>Q_1\amp=-1.19575</mrow>
                     <mrow>\text{median}\amp=1</mrow>
                     <mrow>Q_3\amp=9.5</mrow>
                     <mrow>x_{max}\amp=17</mrow>
@@ -1634,11 +1634,11 @@
                   <li><p>a rectangle (the <em>box</em>) is drawn parallel to the axis, stretching
                   from values <m>Q_1</m><idx><h>notation</h><h><m>Q_1</m>, first quartile</h></idx> to
                   <m>Q_3</m><idx><h>notation</h><h><m>Q_3</m>, third quartile</h></idx> on the axis</p></li>
-                  <li><p>an addition line is drawn, parallel to the sides of the box at locations
-                  <m>x_{min}</m> and <m>x_{max}</m>, at the axis coordinate of the median<idx>median</idx> of
+                  <li><p>an addition line is drawn, parallel to the sides of the box, 
+                  at the axis coordinate of the median<idx>median</idx> of
                   the data</p></li>
-                  <li><p>lines are drawn parallel to the axis from the middle of sides of the box
-                  at the locations <m>x_{min}</m> and <m>x_{max}</m> 
+                  <li><p>lines are drawn parallel to the axis from the middle of the sides of the box
+                  (at the locations <m>Q_1</m> and <m>Q_3</m>)
                   out to the axis coordinates
                   <m>x_{min}</m><idx><h>notation</h><h><m>x_{min}</m>, minimum value in dataset</h></idx> and
                   <m>x_{max}</m><idx><h>notation</h><h><m>x_{max}</m>, maximum value in dataset</h></idx>, where these
