@@ -29,26 +29,371 @@
         <title>One-Variable Statistics: Basics</title>
         <section xml:id="sec-TIPVS">
           <title>Terminology: Individuals/Population/Variables/Samples</title>
-          <p/>
+          <p>
+            Oddly enough, it is often a lack of clarity about <em>who</em> [or <em>what</em>]
+            <em>you are looking at</em> which makes a lie out of statistics. Here are the
+            terms, then, to keep straight:
+          </p>
+
+          <definition xml:id="def-individual-population">
+            <idx>individual in a statistical study</idx>
+            <idx>population of a statistical study</idx>
+            <statement>
+              <p>
+                The units which are the objects of a statistical study are called the
+                <term>individuals</term> in that study,
+                while the collection of all such individuals is called the
+                <term>population</term> of the study.
+              </p>
+            </statement>
+          </definition>
+
+          <p>
+            Note that while the term <q>individuals</q> sounds like it is talking about
+            people, the individuals in a study could be things, even abstract things like
+            events.
+          </p>
+
+          <example xml:id="eg-votersind">
+            <title>Individuals in Election Study</title>
+            <idx>voters</idx>
+            <statement>
+              <p>
+                The individuals in a study about a democratic election might be
+                <em>the voters</em>. But if you are going to make an accurate
+                prediction of who will win the election, it is important to be more precise
+                about what exactly is the population of all of those individuals [voters]
+                that you intend to study: is it <em>all eligible voters</em>, <em>all
+                registered voters</em>, <em>the people who actually voted</em>, <em>etc.</em>
+              </p>
+            </statement>
+          </example>
+
+          <example xml:id="eg-flipsind">
+            <title>Individuals in Coin Flip Study</title>
+            <statement>
+              <p>
+                If you want to study if a coin is <q>fair</q> or not, you would flip it repeatedly.
+                The individuals would then be <em>flips of that coin</em>, and the population
+                might be something like <em>all the flips ever done in the past and all that
+                will ever be done in the future</em>. These individuals are quite abstract, and
+                in fact it is impossible ever to get your hands on all of them (the ones in the
+                future, for example).
+              </p>
+            </statement>
+          </example>
+
+          <example xml:id="eg-studentstakingtestsind">
+            <title>Individuals in Homework Study</title>
+            <statement>
+              <p>
+                Suppose we're interested in studying whether doing more homework helps students
+                do better in their studies. So shouldn't the individuals be the students?
+                Well, which students? How about we look only at college students. Which
+                college students? OK, how about students at 4-year colleges and universities
+                in the United States, over the last five years<mdash/>after all, things might be
+                different in other countries and other historical periods.
+              </p>
+              <p>
+                Wait, a particular student might sometimes do a lot of homework and sometimes
+                do very little. And what exactly does <q>do better in their studies</q> mean? So
+                maybe we should look at each student in each class they take, then we can look
+                at the homework they did for that class and the success they had in it.
+              </p>
+              <p>
+                Therefore, the individuals in this study would be <em>individual experiences
+                that students in US 4-year colleges and universities had in the last five
+                years</em>, and population of the study would essentially be the collection of all
+                the names on all class rosters of courses in the last five years at all US
+                4-year colleges and universities.
+              </p>
+            </statement>
+          </example>
+
+          <p>
+            When doing an actual scientific study, we are usually not interested so much
+            in the individuals themselves, but rather in
+          </p>
+
+          <definition xml:id="def-variable">
+            <idx>variable</idx>
+            <idx><h>variable</h><h>categorical</h></idx>
+            <idx><h>variable</h><h>quantitative</h></idx>
+            <statement>
+              <p>
+                A <term>variable</term> in a statistical study is the answer of a question the
+                researcher is asking about each individual. There are two types:
+                <ul>
+                  <li>
+                    <p>
+                      A <term>categorical variable</term> is one whose
+                      values have a finite number of possibilities.
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      A <term>quantitative variable</term> is one whose
+                      values are numbers (so, potentially an infinite number of possibilities).
+                    </p>
+                  </li>
+                </ul>
+              </p>
+            </statement>
+          </definition>
+
+          <p>
+            The variable is something which (as the name says) <em>varies</em>, in the sense
+            that it can have a different value for each individual in the population
+            (although that is not necessary).
+          </p>
+
+          <example xml:id="eg-votersvar">
+            <title>Variable in Election Study</title>
+            <statement>
+              <p>
+                In <xref ref="eg-votersind"/>, the variable most likely would be <em>who they
+                voted for</em>, a categorical variable with only possible values <q>Mickey Mouse</q>
+                or <q>Daffy Duck</q> (or whoever the names on the ballot were).
+              </p>
+            </statement>
+          </example>
+
+          <example xml:id="eg-flipsvar">
+            <title>Variable in Coin Flip Study</title>
+            <statement>
+              <p>
+                In <xref ref="eg-flipsind"/>, the variable most likely would be <em>what face
+                of the coin was facing up after the flip</em>, a categorical variable with values
+                <q>heads</q> and <q>tails.</q>
+              </p>
+            </statement>
+          </example>
+
+          <example xml:id="eg-studentstakingtestsvar">
+            <title>Variables in Homework Study</title>
+            <statement>
+              <p>
+                There are several variables we might use in
+                <xref ref="eg-studentstakingtestsind"/>. One might be <em>how many homework
+                problems did the student do in that course</em>. Another could be <em>how many
+                hours total did the student spend doing homework over that whole semester, for
+                that course</em>. Both of those would be quantitative
+                variables.
+              </p>
+              <p>
+                A categorical variable for the same
+                population would be <em>what letter grade did the student get in the course</em>,
+                which has possible values <term>A</term>, <term>A-</term>, <term>B+</term>, <ellipsis/>, <term>D-</term>, <term>F</term>.
+              </p>
+            </statement>
+          </example>
+
+          <p>
+            In many [most?] interesting studies, the population is too large for it to be
+            practical to go observe the values of some interesting variable. Sometimes it
+            is not just impractical, but actually impossible<mdash/>think of the example we gave
+            of all the flips of the coin, even the ones in the future. So instead, we
+            often work with
+          </p>
+
+          <definition xml:id="def-sample">
+            <idx>sample</idx>
+            <statement>
+              <p>
+                A <term>sample</term> is a subset of a population under study.
+              </p>
+            </statement>
+          </definition>
+
+          <p>
+            Often we use the variable
+            <m>N</m> to indicate the
+            size of a whole population and the variable
+            <m>n</m> for the size of a sample;
+            as we have said, usually <m>n \lt N</m>.
+          </p>
+
+          <p>
+            Later we shall discuss how to pick a good sample, and how much we can learn
+            about a population from looking at the values of a variable of interest only
+            for the individuals in a sample. For the rest of this chapter, however, let's
+            just consider what to do with these sample values.
+          </p>
         </section>
         <section xml:id="sec-VRoDICV">
           <title>Visual Representation of Data, I: Categorical Variables</title>
-          <p/>
+          <p>
+            Suppose we have a population and variable in which we are interested. We get
+            a sample, which could be large or small, and look at the values of our
+            variable for the individuals in that sample. We shall informally refer to
+            this collection of values as a <term>dataset</term>.
+          </p>
+
+          <p>
+            In this section, we suppose also that the variable we are looking at is
+            categorical. Then we can summarize the dataset by telling which categorical
+            values did we see for the individuals in the sample, and how often we saw
+            those values.
+          </p>
+
+          <p>
+            There are two ways we can make pictures of this information: <em>bar charts</em>
+            and <em>pie charts</em>.
+          </p>
           <subsection xml:id="ssec-BCIFC">
             <title>Bar Charts I: Frequency Charts</title>
-            <p/>
+            <p>
+              We can take the values which we saw for individuals in the sample along the
+              <m>x</m>-axis of a graph, and over each such label make a box whose height indicates
+              how many individuals had that value<mdash/>the <term>frequency</term> of occurrence of
+              that value.
+            </p>
+
+            <p>
+              This is called a <term>bar chart</term>. As with all graphs, you
+              should <em>always label all axes.</em> The <m>x</m>-axis will be labeled with some
+              description of the variable in question, the <m>y</m>-axis label will always be
+              <q>frequency</q> (or some synonym like <q>count</q> or <q>number of times</q>).
+            </p>
+
+            <example xml:id="eg-flipsbarchartfreq">
+              <title>Frequency Bar Chart for Coin Flips</title>
+              <statement>
+                <p>
+                  In <xref ref="eg-flipsvar"/>, suppose we took a sample consisting of the
+                  next 10 flips of our coin. Suppose further that 4 of the flips came up
+                  heads<mdash/>write it as <q>H</q><mdash/>and 6 came up tails, T. Then the corresponding
+                  bar chart would show bars for H with height 4 and T with height 6.
+                </p>
+                <p>
+                  <em>[Figure showing frequency bar chart with H at 4 and T at 6 would go here]</em>
+                </p>
+              </statement>
+            </example>
+          </subsection>
           </subsection>
           <subsection xml:id="ssec-BCIIRFC">
             <title>Bar Charts II: Relative Frequency Charts</title>
-            <p/>
+            <p>
+              There is a variant of the above kind of bar chart which actually looks nearly
+              the same but changes the labels on the <m>y</m>-axis. That is, instead of making
+              the height of each bar be how many times each categorical value occurred, we
+              could make it be <em>what fraction of the sample had that categorical
+              value</em><mdash/>the <term>relative frequency</term>. This fraction is often displayed as a
+              percentage.
+            </p>
+
+            <example xml:id="eg-flipsbarchartrelfreq">
+              <title>Relative Frequency Bar Chart for Coin Flips</title>
+              <statement>
+                <p>
+                  The relative frequency version of the above bar chart in
+                  <xref ref="eg-flipsbarchartfreq"/> would show bars for H at height 0.4 (or 40%)
+                  and T at height 0.6 (or 60%).
+                </p>
+                <p>
+                  <em>[Figure showing relative frequency bar chart would go here]</em>
+                </p>
+              </statement>
+            </example>
+          </subsection>
           </subsection>
           <subsection xml:id="ssec-BCIIIC">
             <title>Bar Charts III: Cautions</title>
-            <p/>
+            <p>
+              Notice that with bar charts (of either frequency or relative frequency) the
+              variable values along the <m>x</m>-axis <em>can appear in any order whatsoever</em>.
+              This means that any conclusion you draw from looking at the bar chart must
+              not depend upon that order. For example, it would be foolish to say that the
+              graph in <xref ref="eg-flipsbarchartfreq"/> <q>shows an increasing
+              trend,</q> since it would make just as much sense to put the bars in the other
+              order and then <q>show a decreasing trend</q><mdash/>both are meaningless.
+            </p>
+
+            <p>
+              For relative frequency bar charts, in particular, note that the total of
+              the heights of all the bars must be <m>1</m> (or <m>100\%</m>). If it is more, something
+              is weird; if it is less, some data has been lost.
+            </p>
+
+            <p>
+              Finally, it makes sense for both kinds of bar charts for the <m>y</m>-axis to
+              run from the logical minimum to maximum. For frequency charts, this means it
+              should go from <m>0</m> to <m>n</m> (the sample size). For relative frequency charts,
+              it should go from <m>0</m> to <m>1</m> (or <m>100\%</m>). Skimping on how much of this
+              appropriate <m>y</m>-axis is used is a common trick to lie with statistics.
+            </p>
+
+            <example xml:id="eg-flipsbarchartrelfreqbadyaxis">
+              <title>Misleading Bar Chart with Bad Y-Axis</title>
+              <statement>
+                <p>
+                  The coin we looked at in <xref ref="eg-flipsbarchartfreq"/> and
+                  <xref ref="eg-flipsbarchartrelfreq"/> could well be a fair coin<mdash/>it didn't
+                  show exactly half heads and half tails, but it was pretty close. Someone who
+                  was trying to claim, deceptively, that the coin was not fair might have shown
+                  only a portion of the <m>y</m>-axis, making the difference appear much more dramatic.
+                </p>
+                <p>
+                  <em>[Figure showing bar chart with restricted y-axis from 0.3 to 0.6 would go here]</em>
+                </p>
+                <p>
+                  This is actually, in a strictly technical sense, a correct graph. But, looking
+                  at it, one might conclude that T seems to occur more than twice as often as
+                  H, so the coin is probably not fair<ellipsis/> until a careful examination of the
+                  <m>y</m>-axis shows that even though the bar for T is more than twice as high as the
+                  bar for H, that is an artifact of how much of the <m>y</m>-axis is being shown.
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              In summary, bar charts actually don't have all that much use in sophisticated
+              statistics, but are extremely common in the popular press (and on web sites
+              and so on).
+            </p>
+          </subsection>
           </subsection>
           <subsection xml:id="ssec-PC">
             <title>Pie Charts</title>
-            <p/>
+            <p>
+              Another way to make a picture with categorical data is to use the fractions
+              from a relative frequency bar chart, but not for the heights of bars, instead
+              for the sizes of wedges of a pie.
+            </p>
+
+            <example xml:id="eg-flipspiechart">
+              <title>Pie Chart for Coin Flips</title>
+              <statement>
+                <p>
+                  Here's a pie chart with the relative frequency data from
+                  <xref ref="eg-flipsbarchartrelfreq"/>. It would show a pie divided into two
+                  wedges: one for H taking up 40% of the pie, and one for T taking up 60%.
+                </p>
+                <p>
+                  <em>[Figure showing pie chart would go here]</em>
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              Pie charts are widely used, but actually they are almost never a good choice.
+              In fact, do an Internet search for the phrase <q>pie charts are bad</q> and there
+              will be many hits. Many of the arguments are quite insightful.
+            </p>
+
+            <p>
+              When you see a pie chart, it is either an attempt (misguided, though) by
+              someone to be folksy and friendly, or it is a sign that the author is quite
+              unsophisticated with data visualization, or, worst of all, it might be a sign
+              that the author is trying to use mathematical methods in a deceptive way.
+            </p>
+
+            <p>
+              In addition, all of the cautions we mentioned above for bar charts of
+              categorical data apply, mostly in exactly the same way, for pie charts.
+            </p>
+          </subsection>
           </subsection>
         </section>
         <section xml:id="sec-VRoDIIQV">
