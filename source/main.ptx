@@ -487,7 +487,7 @@
                   Continuing with the score data in Example <xref ref="eg-stemandleafplot"/> and
                   putting all data values <m>x</m> satisfying <m>20\le x&lt;30</m> in the first bar,
                   values <m>x</m> satisfying <m>30\le x&lt;40</m> in the second,
-                  values <m>x</m> satisfying <m>40\le x&lt;50</m> in the second, <em>etc.</em> <mdash/> that is,
+                  values <m>x</m> satisfying <m>40\le x&lt;50</m> in the third, <em>etc.</em> <mdash/> that is,
                   put data values on the edges in the bar to the right <mdash/> we get the
                   figure
                 </p>
@@ -502,7 +502,7 @@
               it is important that they are all the same size and that how they handle the
               edge cases (whether the left or right bar gets a data value on edge), but
               they could be any size. We call the successive ranges of the <m>x</m> coordinates
-              which get put together for each bar the called
+              which get put together for each bar
               <term>bins</term> or
               <term>classes</term>, and it is up to the statistician
               to chose whichever bins <mdash/> where they start and how wide they are <mdash/> shows the
