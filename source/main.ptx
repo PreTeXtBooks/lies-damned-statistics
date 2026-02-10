@@ -1916,19 +1916,338 @@
         <title>Bi-variate Statistics: Basics</title>
         <section xml:id="sec-TERoID">
           <title>Terminology: Explanatory/Response or Independent/Dependent</title>
-          <p/>
+          <p>
+            All of the discussion so far has been for studies which have a single
+            variable.  We may collect the values of this variable for a large population,
+            or at least the largest sample we can afford to examine, and we may display
+            the resulting data in a variety of graphical ways, and summarize it in a
+            variety of numerical ways.  But in the end all this work can only show a
+            single characteristic of the individuals.  If, instead, we want to study a
+            <em>relationship</em>, we need to collect two (at least) variables and develop
+            methods of descriptive statistics which show the relationships between the
+            values of these variables.
+          </p>
+          <p>
+            Relationships in data require at least two variables.  While more complex
+            relationships can involve more, in this chapter we will start the project of
+            understanding <em>bivariate data</em><idx>bivariate data</idx>, data where we make
+            two observations for each individual, where we have exactly two variables.
+          </p>
+          <p>
+            If there is a relationship between the two variables we are studying, the
+            most that we could hope for would be that that relationship is due to the
+            fact that one of the variables <em>causes</em> the other.  In this situation,
+            we have special names for these variables
+          </p>
+          <definition xml:id="def-explanatoryresponsevars">
+            <statement>
+              <p>
+                In a situation with bivariate data, if one variable can take on any value
+                without (significant) constraint it is called the <term>independent variable</term><idx>independent variable</idx><idx><h>variable</h><h>independent</h></idx>, while the second
+                variable, whose value is (at least partially) controlled by the first, is called
+                the <term>dependent variable</term><idx>dependent variable</idx><idx><h>variable</h><h>dependent</h></idx>.
+              </p>
+              <p>
+                Since the value of the dependent variable depends upon the value of the
+                independent variable, we could also say that it is explained by the
+                independent variable.  Therefore the independent variable is also called the
+                <term>explanatory variable</term><idx>explanatory variable</idx><idx><h>variable</h><h>explanatory</h></idx> and the dependent variable is then called the
+                <term>response variable</term><idx>response variable</idx><idx><h>variable</h><h>response</h></idx>
+              </p>
+              <p>
+                Whenever we have bivariate data and we have made a choice of which variable
+                will be the independent and which the dependent, we write <m>x</m> for the
+                independent and <m>y</m> for the dependent variable.
+              </p>
+            </statement>
+          </definition>
+          <example xml:id="eg-depindepvars1">
+            <statement>
+              <p>
+                Suppose we have a large warehouse of many different boxes of products ready to
+                ship to clients.  Perhaps we have packed all the products in boxes which are
+                perfect cubes, because they are stronger and it is easier to stack them
+                efficiently.  We could do a study where
+              </p>
+              <ul>
+                <li><p>the <em>individuals</em> would be the boxes of product;</p></li>
+                <li><p>the <em>population</em> would be all the boxes in our warehouse;</p></li>
+                <li><p>the <em>independent variable</em> would be, for a particular box, the
+                length of its side in <em>cm</em>;</p></li>
+                <li><p>the <em>dependent variable</em> would be, for a particular box, the cost
+                to the customer of buying that item, in US dollars.</p></li>
+              </ul>
+              <p>
+                We might think that the size <em>determines</em> the cost, at least approximately,
+                because the larger boxes contain larger products into which went more raw
+                materials and more labor, so the items would be more expensive.  So, at least
+                roughly, the size may be anything, it is a free or <em>independent</em> choice,
+                while the cost is (approximately) determined by the size, so the cost is
+                <em>dependent</em>.  Otherwise said, the size <em>explains</em> and the cost is the
+                <em>response</em>.  Hence the choice of those variables.
+              </p>
+            </statement>
+          </example>
+          <example xml:id="eg-depindepvars3">
+            <statement>
+              <p>
+                Suppose we have exactly the same scenario as above, but now we want to make the
+                different choice where
+              </p>
+              <ul>
+                <li><p>the <em>dependent variable</em> would be, for a particular box, the volume
+                of that box.</p></li>
+              </ul>
+            </statement>
+          </example>
+          <p>
+            There is one quite important difference between the two examples above: in
+            one case (the cost), knowing the length of the side of a box give us a hint
+            about how much it costs (bigger boxes cost more, smaller boxes cost less) but
+            this knowledge is imperfect (sometimes a big box is cheap, sometimes a small
+            box is expensive); while in the other case (the volume), knowing the length of
+            the side of the box perfectly tells us the volume.  In fact, there is a
+            simple geometric formula that the volume <m>V</m> of a cube of side length <m>s</m> is
+            given by <m>V=s^3</m>.
+          </p>
+          <p>
+            This motivates a last preliminary definition
+          </p>
+          <definition xml:id="def-deterministic">
+            <idx>deterministic</idx>
+            <statement>
+              <p>
+                We say that the relationship between two variables is <term>deterministic</term> if
+                knowing the value of one variable completely determines the value of the
+                other.  If, instead, knowing one value does not completely determine the other,
+                we say the variables have a
+                <term>non-deterministic relationship</term>.<idx>non-deterministic</idx>
+              </p>
+            </statement>
+          </definition>
         </section>
         <section xml:id="sec-scatterplots">
           <title>Scatterplots</title>
-          <p/>
+          <p>
+            When we have bivariate data, the first thing we should always do is draw a
+            graph of this data, to get some feeling about what the data is showing us and
+            what statistical methods it makes sense to try to use.  The way to do this is
+            as follows
+          </p>
+          <definition xml:id="def-scatterplot">
+            <idx>scatterplot</idx>
+            <statement>
+              <p>
+                Given bivariate quantitative data, we make the <term>scatterplot</term> of this
+                data as follows:  Draw an <m>x</m>- and a <m>y</m>-axis, and label them with descriptions
+                of the independent and dependent variables, respectively.  Then, for each
+                individual in the dataset, put a dot on the graph at location <m>(x,y)</m>, if
+                <m>x</m> is the value of that individual's independent variable and <m>y</m> the value
+                of its dependent variable.
+              </p>
+            </statement>
+          </definition>
+          <p>
+            After making a scatterplot, we usually describe it qualitatively in three
+            respects:
+          </p>
+          <definition xml:id="def-scattershape">
+            <statement>
+              <p>
+                If the cloud of data points in a scatterplot generally lies near some curve,
+                we say that the scatterplot has [approximately] that
+                <term>shape</term><idx><h>shape</h><h>scatterplot</h></idx>.
+              </p>
+              <p>
+                A common shape we tend to find in scatterplots is that it is
+                <term>linear</term><idx>linear association</idx>
+              </p>
+              <p>
+                If there is no visible shape, we say the scatterplot is
+                <term>amorphous</term><idx>amorphous, for scatterplots or associations</idx>, or
+                <term>has no clear shape</term>.
+              </p>
+            </statement>
+          </definition>
+          <definition xml:id="def-scatterstrength">
+            <statement>
+              <p>
+                When a scatterplot has some visible shape <mdash/> so that we do not describe it as
+                amorphous <mdash/> how close the cloud of data points is to that curve is called the
+                <term>strength</term><idx>strength of an association</idx> of that association.  In this
+                context, a <term>strong</term><idx>strong association</idx> [linear, <em>e.g.,</em>]
+                association means that the dots are close to the named curve [line,
+                <em>e.g.,</em>], while a <term>weak</term><idx>weak association</idx> association means
+                that the points do not lie particularly close to any of the named curves
+                [line, <em>e.g.,</em>].
+              </p>
+            </statement>
+          </definition>
+          <definition xml:id="def-scatterdirection">
+            <statement>
+              <p>
+                In case a scatterplot has a fairly strong linear association, the
+                <term>direction</term><idx>direction of a linear association</idx> of the association
+                described whether the line is increasing or decreasing.  We say the
+                association is <term>positive</term><idx>positive linear association</idx> if the line
+                is increasing and <term>negative</term><idx>negative linear association</idx> if it is
+                decreasing.
+              </p>
+            </statement>
+          </definition>
+          <p>
+            [Note that the words <em>positive</em> and <em>negative</em> here can be thought of
+            as describing the <em>slope</em><idx>slope of a line</idx> of the line which we are
+            saying is the underlying relationship in the scatterplot.]
+          </p>
         </section>
         <section xml:id="sec-correlation">
           <title>Correlation</title>
-          <p/>
+          <p>
+            As before (in §§<xref ref="sec-NDoDIMotC"/> and <xref ref="sec-NDoDIMoS"/>), when we moved
+            from describing histograms with words (like <em>symmetric</em>) to describing them
+            with numbers (like the <em>mean</em>), we now will build a numeric measure of
+            the strength and direction of a linear association in a scatterplot.
+          </p>
+          <definition xml:id="def-corrcoeff">
+            <idx>correlation coefficient, <m>r</m></idx>
+            <idx><h sortby="r">r, correlation coefficient</h></idx>
+            <statement>
+              <p>
+                Given bivariate quantitative data <m>\{(x_1,y_1), \dots , (x_n,y_n)\}</m> the
+                <term>[Pearson] correlation coefficient</term>
+                of this dataset is
+              </p>
+              <me>
+                r=\frac{1}{n-1}\sum \frac{(x_i-\overline{x})}{s_x}\frac{(y_i-\overline{y})}{s_y}
+              </me>
+              <p>
+                where <m>s_x</m> and <m>s_y</m> are the standard deviations of the <m>x</m> and <m>y</m>,
+                respectively, datasets by themselves.
+              </p>
+            </statement>
+          </definition>
+          <assemblage xml:id="fact-corrcoefff">
+            <title>Fact</title>
+            <p>
+              For any bivariate quantitative dataset <m>\{(x_1,y_1), \dots ,(x_n,y_n)\}</m> with
+              correlation coefficient <m>r</m>, we have
+            </p>
+            <ol>
+              <li><p><m>-1\le r\le 1</m> is always true;</p></li>
+              <li><p>if <m>|r|</m> is near <m>1</m> <mdash/> meaning that <m>r</m> is near <m>\pm 1</m> <mdash/> then the
+                    linear association between <m>x</m> and <m>y</m> is <em>strong</em></p></li>
+              <li><p>if <m>r</m> is near <m>0</m> <mdash/> meaning that <m>r</m> is positive or negative, but near
+                    <m>0</m> <mdash/> then the linear association between <m>x</m> and <m>y</m> is <em>weak</em></p></li>
+              <li><p>if <m>r>0</m> then the linear association between <m>x</m> and <m>y</m> is positive,
+                    while if <m>r&lt;0</m> then the linear association between <m>x</m> and <m>y</m> is
+                    negative</p></li>
+              <li><p><m>r</m> is the same no matter what units are used for the variables <m>x</m> and
+                    <m>y</m> <mdash/> meaning that if we change the units in either variable, <m>r</m> will
+                    not change</p></li>
+              <li><p><m>r</m> is the same no matter which variable is begin used as the explanatory
+                    and which as the response variable <mdash/> meaning that if we switch the roles
+                    of the <m>x</m> and the <m>y</m> in our dataset, <m>r</m> will not change.</p></li>
+            </ol>
+          </assemblage>
+          <p>
+            It is also nice to have some examples of correlation coefficients, such as
+          </p>
+          <p>
+            [Figure: Scatterplot range showing various correlation coefficients - placeholder for converted figure]
+          </p>
+          <p>
+            Many electronic tools which compute the correlation coefficient <m>r</m> of a
+            dataset also report its square, <m>r^2</m>.  There reason is explained in the
+            following
+          </p>
+          <assemblage xml:id="fact-rsquared">
+            <title>Fact</title>
+            <p>
+              If <m>r</m> is the correlation coefficient between two variables <m>x</m> and <m>y</m> in some
+              quantitative dataset, then its square <m>r^2</m> it the fraction (often described as
+              a percentage) of the variation of <m>y</m> which is associated with variation in <m>x</m>.
+            </p>
+          </assemblage>
+          <example xml:id="eg-rsquared">
+            <statement>
+              <p>
+                If the square of the correlation coefficient between the independent variable
+                <em>how many hours a week a student studies statistics</em> and the dependent
+                variable <em>how many points the student gets on the statistics final exam</em>
+                is <m>.64</m>, then 64% of the variation in scores for that class is cause by
+                variation in how much the students study.  The remaining 36% of the variation
+                in scores is due to other random factors like whether a student was coming
+                down with a cold on the day of the final, or happened to sleep poorly the
+                night before the final because of neighbors having a party, or some other
+                issues different just from studying time.
+              </p>
+            </statement>
+          </example>
         </section>
         <section xml:id="sec-bivariate-exercises">
           <title>Exercises</title>
-          <p/>
+          <exercise>
+            <statement>
+              <p>
+                Suppose you pick 50 random adults across the United States in
+                January 2017 and measure how tall they are.  For each of them, you also get
+                accurate information about how tall their (biological) parents are.  Now, using
+                as your individuals these 50 adults and as the two variables their heights and
+                the average of their parents' heights, make a sketch of what you think the
+                resulting scatterplot would look like.  Explain why you made the choice you did
+                of one variable to be the explanatory and the other the response variable.
+                Tell what are the shape, strength, and direction you see in this scatterplot, if
+                it shows a deterministic or non-deterministic association, and why you think
+                those conclusions would be true if you were to do this exercise with real data.
+              </p>
+              <p>
+                Is there any time or place other than right now in the United States where you
+                think the data you would collect as above would result in a scatterplot that
+                would look fairly different in some significant way?  Explain!
+              </p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>
+                It actually turns out that it is not true that the more a
+                person works, the more they produce <ellipsis/> at least not always.  Data on workers
+                in a wide variety of industries show that working more hours produces more of
+                that business's product for a while, but then after too many hours of work,
+                keeping on working makes for almost no additional production.
+              </p>
+              <p>
+                Describe how you might collect data to investigate this relationship, by
+                telling what individuals, population, sample, and variables you would use.
+                Then, assuming the truth of the above statement about what other research in
+                this area has found, make an example of a scatterplot that you think might
+                result from your suggested data collection.
+              </p>
+            </statement>
+          </exercise>
+          <exercise>
+            <statement>
+              <p>
+                Make a scatterplot of the dataset consisting of the following
+                pairs of measurements:
+              </p>
+              <me>
+                \left\{(8,16), (9,9), (10,4), (11,1), (12,0), (13,1), (14,4), (15,9), (16,16)\right\} .
+              </me>
+              <p>
+                You can do this quite easily by hand (there are only nine points!).  Feel free
+                to use an electronic device to make the plot for you, if you have one you know
+                how to use, but copy the resulting picture into the homework you hand in, either
+                by hand or cut-and-paste into an electronic version.
+              </p>
+              <p>
+                Describe the scatterplot, telling what are the shape, strength, and direction.
+                What do you think would be the correlation coefficient of this dataset?  As
+                always, explain all of your reasoning!
+              </p>
+            </statement>
+          </exercise>
         </section>
       </chapter>
 
