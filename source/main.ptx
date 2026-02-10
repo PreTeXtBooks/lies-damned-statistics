@@ -693,22 +693,404 @@
         </section>
         <section xml:id="sec-NDoDIMotC">
           <title>Numerical Descriptions of Data, I: Measures of the Center</title>
-          <p/>
+          <p>
+            Oddly enough, there are several measures of central tendency, as ways to
+            define the middle of a dataset are called.  There is different work to be
+            done to calculate each of them, and they have different uses, strengths, and
+            weaknesses.
+          </p>
+
+          <p>
+            For this whole section we will assume we have collected <m>n</m> numerical values,
+            the values of our quantitative
+            variable<idx>quantitative variable</idx><idx>variable!quantitative</idx> for the
+            sample we were able to study.  When we write formulæ with these values,
+            we can't give them variable names that look like <m>a, b, c, \dots</m>, because we
+            don't know where to stop (and what would we do if <m>n</m> were more than 26?).
+            Instead, we'll use the variables <m>x_1, x_2, \dots, x_n</m> to represent the data
+            values.
+          </p>
+
+          <p>
+            One more very convenient bit of notation, once we have started writing an
+            unknown number (<m>n</m>) of numbers <m>x_1, x_2, \dots, x_n</m>, is a way of writing
+            their sum:
+          </p>
+
+          <definition xml:id="def-summation">
+            <idx>summation notation, <m>\Sigma</m></idx>
+            <idx><m>\Sigma</m>, summation notation</idx>
+            <idx>pig, yellow</idx>
+            <statement>
+              <p>
+                If we have <m>n</m> numbers which we write <m>x_1, \dots, x_n</m>, then we use the
+                shorthand <term>summation notation</term> <m>\sum x_i</m> to represent the sum
+                <m>\sum x_i = x_1 + \dots + x_n</m>.  <fn>Sometimes you will see this written
+                instead <m>\sum_{i=1}^n x_i</m>.  Think of the <q><m>\sum_{i=1}^n{}</m></q>
+                as a little computer program which with <m>i=1</m>, increases it one step at a time
+                until it gets all the way to <m>i=n</m>, and adds up whatever is to the right.  So,
+                for example, <m>\sum_{i=1}^3 2i</m> would be <m>(2*1)+(2*2)+(2*3)</m>, and so has the value <m>12</m>.</fn>
+              </p>
+            </statement>
+          </definition>
+
+          <example xml:id="eg-subscriptssums">
+            <statement>
+              <p>
+                If our dataset were <m>\{1, 2, 17, -3.1415, 3/4\}</m>, then <m>n</m> would be 5 and the
+                variables <m>x_1, \dots, x_5</m> would be defined with values <m>x_1=1</m>, <m>x_2=2</m>,
+                <m>x_3=17</m>, <m>x_4=-3.1415</m>, and <m>x_5=3/4</m>.
+              </p>
+
+              <p>
+                In addition<fn>no pun intended</fn>, we would have <m>\sum x_i = x_1+x_2+x_3+x_4+x_5=1+2+17-3.1415+ 3/4=17.6085</m>.
+              </p>
+            </statement>
+          </example>
+
           <subsection xml:id="ssec-Mode">
             <title>Mode</title>
-            <p/>
+            <p>
+              Let's first discuss probably the simplest measure of central tendency, and in
+              fact one which was foreshadowed by terms like <q>unimodal.</q>
+            </p>
+
+            <definition xml:id="def-mode">
+              <idx>mode</idx>
+              <statement>
+                <p>
+                  A <term>mode</term> of a dataset <m>x_1, \dots, x_n</m> of <m>n</m> numbers is one of the
+                  values <m>x_i</m> which occurs at least as often in the dataset as any other value.
+                </p>
+              </statement>
+            </definition>
+
+            <p>
+              It would be nice to say this in a simpler way, something like <q>the mode is
+              the value which occurs the most often in the dataset,</q> but there may not be
+              a single such number.
+            </p>
+
+            <example xml:id="eg-mode">
+              <statement>
+                <p>
+                  Continuing with the data from <xref ref="eg-stemandleafplot"/>, it is easy to
+                  see, looking at the stem-and-leaf plot, that both 73 and 90 are modes.
+                </p>
+
+                <p>
+                  Note that in some of the histograms we made using these data and different bin
+                  widths, the bins containing 73 and 90 were of the same height, while in others
+                  they were of different heights.  This is an example of how it can be quite hard
+                  to see on a histogram where the mode is... or where the mode<term>s are</term>.
+                </p>
+              </statement>
+            </example>
           </subsection>
+
           <subsection xml:id="ssec-Mean">
             <title>Mean</title>
-            <p/>
+            <p>
+              The next measure of central tendency, and certainly the one heard most often
+              in the press, is simply the average.  However, in statistics, this is given a
+              different name.
+            </p>
+
+            <definition xml:id="def-mean">
+              <idx>mean</idx>
+              <idx>average!see: {mean}</idx>
+              <statement>
+                <p>
+                  The <term>mean</term> of a dataset <m>x_1, \dots, x_n</m> of <m>n</m> numbers is given by the
+                  formula <m>\left(\sum x_i\right)/n</m>.
+                </p>
+
+                <p>
+                  If the data come from a sample, we use the notation
+                  <m>\overline{x}</m><idx><m>\overline{x}</m>, sample mean</idx> for the 
+                  <term>sample mean</term><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx>.
+                </p>
+
+                <p>
+                  If <m>\{x_1, \dots, x_n\}</m> is all of the data from an entire population, we use
+                  the notation <m>\mu_X</m> [this is the Greek letter <q>mu,</q> pronounced <q>mew,</q> to
+                  rhyme with <q>new.</q>] for the
+                  <term>population mean</term><idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx>.
+                </p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-mean1">
+              <statement>
+                <p>
+                  Since we've already computed the sum of the data in
+                  <xref ref="eg-subscriptssums"/> to be <m>17.6085</m> and there were <m>5</m> values in
+                  the dataset, the mean is <m>\overline{x}=17.6085/5 = 3.5217</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>.
+                </p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-mean2">
+              <statement>
+                <p>
+                  Again using the data from <xref ref="eg-stemandleafplot"/>, we can calculate
+                  the mean <m>\overline{x}=\left(\sum x_i\right)/n =2246/30=74.8667</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>.
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              Notice that the mean in the two examples above was not one of the data values.
+              This is true quite often.  What that means is that the phrase <q>the average
+              <em>whatever</em>,</q> as in <q>the average American family has <m>X</m></q> or <q>the
+              average student does <m>Y</m>,</q> is not talking about any particular family, and
+              we should not expect any particular family or student to have or do that
+              thing.  Someone with a statistical education should mentally edit every
+              phrase like that they hear to be instead something like <q>the mean of the
+              variable <m>X</m> on the population of all American families is ...,</q> or <q>the
+              mean of the variable <m>Y</m> on the population of all students is ...,</q> or
+              whatever.
+            </p>
           </subsection>
+
           <subsection xml:id="ssec-Median">
             <title>Median</title>
-            <p/>
+            <p>
+              Our third measure of central tendency is not the result of arithmetic, but
+              instead of putting the data values in increasing order.
+            </p>
+
+            <definition xml:id="def-median">
+              <idx>median</idx>
+              <statement>
+                <p>
+                  Imagine that we have put the values of a dataset <m>\{x_1, \dots, x_n\}</m> of <m>n</m>
+                  numbers in increasing (or at least non-decreasing) order, so that
+                  <m>x_1\le x_2\le \dots \le x_n</m>.  Then if <m>n</m> is odd, the <term>median</term> of
+                  the dataset is the middle value, <m>x_{(n+1)/2}</m>, while if <m>n</m> is even,
+                  the median is the mean  of the two middle numbers,
+                  <m>\frac{x_{n/2}+x_{(n/2)+1}}{2}</m>.
+                </p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-median1">
+              <statement>
+                <p>
+                  Working with the data in <xref ref="eg-subscriptssums"/>, we must first put
+                  them in order, as <m>\{-3.1415, 3/4, 1, 2, 17\}</m>, so the median of this
+                  dataset is the middle value, <m>1</m>.
+                </p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-median2">
+              <statement>
+                <p>
+                  Now let us find the median of the data from <xref ref="eg-stemandleafplot"/>.
+                  Fortunately, in that example, we made a stem-and-leaf plot and even put the
+                  leaves in order, so that starting at the bottom and going along the rows of
+                  leaves and then up to the next row, will give us all the values in order!
+                  Since there are 30 values, we count up to the <m>15^{th}</m> and <m>16^{th}</m> values,
+                  being 76 and 77, and from this we find that the median of the dataset is
+                  <m>\frac{76+77}{2}=76.5</m>.
+                </p>
+              </statement>
+            </example>
           </subsection>
+
           <subsection xml:id="ssec-SaWoTMoCT">
             <title>Strengths and Weaknesses of These Measures of Central Tendency</title>
-            <p/>
+            <p>
+              The weakest of the three measures above is the mode<idx>mode</idx>.  Yes, it is
+              nice to know which value happened most often in a dataset (or which values all
+              happened equally often and more often then all other values).  But this often
+              does not necessarily tell us much about the over-all structure of the data.
+            </p>
+
+            <example xml:id="eg-modeweak">
+              <idx>mode</idx>
+              <statement>
+                <p>
+                  Suppose we had the data
+                  <me>
+                    \begin{matrix}
+                    86 &amp; 80 &amp; 25 &amp; 77 &amp; 73 &amp; 76 &amp; 100 &amp; 90 &amp; 67 &amp; 93\\
+                    94 &amp; 83 &amp; 72 &amp; 75 &amp; 79 &amp; 70 &amp; 91 &amp; 82 &amp; 71 &amp; 95\\
+                    40 &amp; 58 &amp; 68 &amp; 69 &amp; 100 &amp; 78 &amp; 87 &amp; 25 &amp; 92 &amp; 74
+                    \end{matrix}
+                  </me>
+                  with corresponding stem-and-leaf plot
+                </p>
+
+                <p>
+                  [PLACEHOLDER: Table with stem-and-leaf plot showing stems 2-10 with leaves]
+                </p>
+
+                <p>
+                  This would have a histogram with bins of width 10 that looks exactly like the
+                  one in <xref ref="eg-scoreshistbytens"/> <mdash/> so the center of the histogram
+                  would seem, visually, still to be around the bar over the 80s <mdash/> but now
+                  there is a unique mode of 25.
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              What this example shows is that a small change in some of the data values,
+              small enough not to change the histogram at all, can change the mode(s)
+              drastically.  It also shows that the location of the mode says very little
+              about the data in general or its shape, the mode is based entirely on a 
+              possibly accidental coincidence of some values in the dataset, no matter if
+              those values are in the <q>center</q> of the histogram or not.
+            </p>
+
+            <p>
+              The mean<idx>mean</idx> has a similar problem: a small change in the data, in the
+              sense of adding only one new data value, but one which is very far away from
+              the others, can change the mean quite a bit.  Here is an example.
+            </p>
+
+            <example xml:id="eg-mean3">
+              <statement>
+                <p>
+                  Suppose we take the data from <xref ref="eg-stemandleafplot"/> but change only
+                  one value <mdash/> such as by changing the 100 to a 1000, perhaps by a simple typo
+                  of the data entry.  Then if we calculate the mean, we get
+                  <m>\overline{x}=\left(\sum x_i\right)/n =3146/30=104.8667</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>, which is quite
+                  different from the mean of original dataset.
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              A data value which seems to be quite different from all (or the great majority
+              of) the rest is called an <em>outlier</em><idx>outlier</idx><fn>This is a very
+              informal definition of an outlier.  Below we will have an extremely precise
+              one.</fn>  What we have just seen is that
+              <term>the mean is very sensitive to outliers</term><idx>sensitive to outliers</idx>.
+              This is a serious defect, although otherwise it is easy to compute, to work
+              with, and to prove theorems about.
+            </p>
+
+            <p>
+              Finally, the median<idx>median</idx> is somewhat tedious to compute, because
+              the first step is to put all the data values in order, which can be very
+              time-consuming.  But, once that is done, throwing in an outlier tends to move
+              the median only a little bit.  Here is an example.
+            </p>
+
+            <example xml:id="eg-median3">
+              <statement>
+                <p>
+                  If we do as in <xref ref="eg-mean3"/> and change the data value of 100 in the
+                  dataset of <xref ref="eg-stemandleafplot"/> to 1000, but leave all of the other
+                  data values unchanged, it does not change the median at all since the 1000 is
+                  the new largest value, and that does not change the two middle values at all.
+                </p>
+
+                <p>
+                  If instead we take the data of <xref ref="eg-stemandleafplot"/> and simply add
+                  another value, 1000, without taking away the 100, that does change the media:
+                  there are now an odd number of data values, so the median is the middle one
+                  after they are put in order, which is 78.  So the median has changed by only
+                  half a point, from 77.5 to 78.   And his would even be true if the value we
+                  were adding to the dataset were 1000000 and not just 1000!
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              In other words,
+              <term>the median is very insensitive to outliers</term><idx>insensitive to outliers</idx>.
+              Since, in practice, it is very easy for datasets to have a few random, bad
+              values (typos, mechanical errors, <em>etc.</em>), which are often outliers, it
+              is usually smarter to use the median than the mean.
+            </p>
+
+            <p>
+              As one final point, note that as we mentioned in <xref ref="ssec-Mean"/>, the
+              word <q>average,</q> the unsophisticated version of <q>mean,</q> is often incorrectly
+              used as a modifier of the individuals in some population being studied (as in
+              <q>the average American ...</q>), rather than as a modifier of the variable in
+              the study (<q>the average income...</q>), indicating a fundamental misunderstanding
+              of what the mean <em>means</em>.  If you look a little harder at this
+              misunderstanding, though, perhaps it is based on the idea that we are looking
+              for the center, the <q>typical</q> value of the variable.
+            </p>
+
+            <p>
+              The mode might seem like a good way <mdash/> it's the most frequently occurring
+              value.  But we have seen how that is somewhat flawed.
+            </p>
+
+            <p>
+              The mean might also seem like a good way <mdash/> it's the <q>average,</q> literally.
+              But we've also seen problems with the mean.
+            </p>
+
+            <p>
+              In fact, the median is probably closest to the intuitive idea of <q>the center
+              of the data.</q>  It is, after all, a value with the property that both above
+              and below that value lie half of the data values.
+            </p>
+
+            <p>
+              One last example to underline this idea:
+            </p>
+
+            <example xml:id="eg-meanmedianincome">
+              <idx>mean</idx>
+              <idx>median</idx>
+              <idx>income distribution</idx>
+              <idx>Great Recession</idx>
+              <statement>
+                <p>
+                  The period of economic difficulty for world markets in the late 2000s and early
+                  2010s is sometimes called the <term>Great Recession</term>.  Suppose a politician says
+                  that we have come out of that time of troubles, and gives as proof the fact
+                  that the average family income has increased from the low value it had during
+                  the Great Recession back to the values it had before then, and perhaps is even
+                  higher than it was in 2005.
+                </p>
+
+                <p>
+                  It is possible that in fact people are better off, as the increase in this
+                  average <mdash/> mean <mdash/> seems to imply.  But it is also possible that while the mean
+                  income has gone up, the <em>median</em> income is still low.  This would happen
+                  if the histogram of incomes recently still has most of the tall bars down
+                  where the variable (family income) is low, but has a few, very high outliers.
+                  In short, if the super-rich have gotten even super-richer, that will make the
+                  mean (average) go up, even if most of the population has experienced stagnant
+                  or decreasing wages <mdash/> but the median will tell what is happening to most of
+                  the population.
+                </p>
+
+                <p>
+                  So when a politician uses the evidence of the average (mean) as suggested here,
+                  it is possible they are trying to hide from the pubic the reality of what is
+                  happening to the rich and the not-so-rich.  It is also possible that this
+                  politician is simply poorly educated in statistics and doesn't realize what is
+                  going on.  You be the judge ... but pay attention so you know what to ask about.
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              The last thing we need to say about the strengths and weaknesses of our
+              different measures of central tendency is a way to use the weaknesses of the
+              mean and median to our advantage.  That is, since the mean is sensitive to
+              outliers<idx>sensitive to outliers</idx>, and pulled in the direction of those outliers, while the median is
+              not, we can use the difference between the two to tell us which way a histogram
+              is skewed.
+            </p>
+
+            <p>
+              <term>Fact:</term> If the mean of a dataset is larger than the median, then histograms of that
+              dataset will be right-skewed<idx>right-skewed histogram, dataset, or distribution</idx><idx>skewed histogram, dataset, or distribution!right</idx>.  Similarly, if the mean is less than the median,
+              histograms will be left-skewed<idx>left-skewed histogram, dataset, or distribution</idx><idx>skewed histogram, dataset, or distribution!left</idx>.
+              <idx>mean</idx><idx>median</idx><idx>skewed histogram, dataset, or distribution</idx>
+            </p>
           </subsection>
         </section>
         <section xml:id="sec-NDoDIMoS">
