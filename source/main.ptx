@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pretext xml:lang="en-US">
+  <book xml:id="ldlos">
+    <title>Lies, Damned Lies, or Statistics</title>
+    <subtitle>How to Tell the Truth with Statistics</subtitle>
+    <author>
+      <personname>
+        <firstname>Jonathan</firstname>
+        <middlename>A.</middlename>
+        <surname>Poritz</surname>
+      </personname>
+    </author>
+
+    <frontmatter>
+      <preface xml:id="release-notes">
+        <title>Release Notes</title>
+        <p/>
+      </preface>
+      <preface xml:id="preface">
+        <title>Preface</title>
+        <p/>
+      </preface>
+    </frontmatter>
+
+    <part xml:id="part-DS">
+      <title>Descriptive Statistics</title>
+
+      <chapter xml:id="chap-1VS">
+        <title>One-Variable Statistics: Basics</title>
+        <section xml:id="sec-TIPVS">
+          <title>Terminology: Individuals/Population/Variables/Samples</title>
+          <p/>
+        </section>
+        <section xml:id="sec-VRoDICV">
+          <title>Visual Representation of Data, I: Categorical Variables</title>
+          <p/>
+          <subsection xml:id="ssec-BCIFC">
+            <title>Bar Charts I: Frequency Charts</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-BCIIRFC">
+            <title>Bar Charts II: Relative Frequency Charts</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-BCIIIC">
+            <title>Bar Charts III: Cautions</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-PC">
+            <title>Pie Charts</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-VRoDIIQV">
+          <title>Visual Representation of Data, II: Quantitative Variables</title>
+          <p/>
+          <subsection xml:id="ssec-SalP">
+            <title>Stem-and-leaf Plots</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-FHistograms">
+            <title>[Frequency] Histograms</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-RFHistograms">
+            <title>[Relative Frequency] Histograms</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-HtTAH">
+            <title>How to Talk About Histograms</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-NDoDIMotC">
+          <title>Numerical Descriptions of Data, I: Measures of the Center</title>
+          <p/>
+          <subsection xml:id="ssec-Mode">
+            <title>Mode</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-Mean">
+            <title>Mean</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-Median">
+            <title>Median</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-SaWoTMoCT">
+            <title>Strengths and Weaknesses of These Measures of Central Tendency</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-NDoDIMoS">
+          <title>Numerical Descriptions of Data, II: Measures of Spread</title>
+          <p/>
+          <subsection xml:id="ssec-Range">
+            <title>Range</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-QuartilesIQR">
+            <title>Quartiles and the IQR</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-VarStdDev">
+            <title>Variance and Standard Deviation</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-SaWoTMoS">
+            <title>Strengths and Weaknesses of These Measures of Spread</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-AFDoO">
+            <title>A Formal Definition of Outliers -- the 1.5 IQR Rule</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-TF-NSaB">
+            <title>The Five-Number Summary and Boxplots</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-one-variable-exercises">
+          <title>Exercises</title>
+          <p/>
+        </section>
+      </chapter>
+
+      <chapter xml:id="chap-bivariate-basics">
+        <title>Bi-variate Statistics: Basics</title>
+        <section xml:id="sec-TERoID">
+          <title>Terminology: Explanatory/Response or Independent/Dependent</title>
+          <p/>
+        </section>
+        <section xml:id="sec-scatterplots">
+          <title>Scatterplots</title>
+          <p/>
+        </section>
+        <section xml:id="sec-correlation">
+          <title>Correlation</title>
+          <p/>
+        </section>
+        <section xml:id="sec-bivariate-exercises">
+          <title>Exercises</title>
+          <p/>
+        </section>
+      </chapter>
+
+      <chapter xml:id="chap-linear-regression">
+        <title>Linear Regression</title>
+        <section xml:id="sec-TLSRL">
+          <title>The Least Squares Regression Line</title>
+          <p/>
+        </section>
+        <section xml:id="sec-AaIoLSRLs">
+          <title>Applications and Interpretations of LSRLs</title>
+          <p/>
+        </section>
+        <section xml:id="sec-Cs">
+          <title>Cautions</title>
+          <p/>
+          <subsection xml:id="ssec-S2O">
+            <title>Sensitivity to Outliers</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-causation">
+            <title>Causation</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-extrapolation">
+            <title>Extrapolation</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-SP">
+            <title>Simpson's Paradox</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-linear-regression-exercises">
+          <title>Exercises</title>
+          <p/>
+        </section>
+      </chapter>
+    </part>
+
+    <part xml:id="part-GD">
+      <title>Good Data</title>
+
+      <chapter xml:id="chap-probability-theory">
+        <title>Probability Theory</title>
+        <section xml:id="sec-defsforprob">
+          <title>Definitions for Probability</title>
+          <p/>
+          <subsection xml:id="ssec-SSSOaPMs">
+            <title>Sample Spaces, Set Operations, and Probability Models</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-VDs">
+            <title>Venn Diagrams</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-FPMs">
+            <title>Finite Probability Models</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-condprob">
+          <title>Conditional Probability</title>
+          <p/>
+        </section>
+        <section xml:id="sec-RVs">
+          <title>Random Variables</title>
+          <p/>
+          <subsection xml:id="ssec-DoRVsaFEs">
+            <title>Definition and First Examples</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-D4DRVs">
+            <title>Distributions for Discrete RVs</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-expectation4DRVs">
+            <title>Expectation for Discrete RVs</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-DF4CRVs">
+            <title>Density Functions for Continuous RVs</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-TND">
+            <title>The Normal Distribution</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-probability-exercises">
+          <title>Exercises</title>
+          <p/>
+        </section>
+      </chapter>
+
+      <chapter xml:id="chap-bringing-home-data">
+        <title>Bringing Home the Data</title>
+        <section xml:id="sec-SoaSPC">
+          <title>Studies of a Population Parameter</title>
+          <p/>
+        </section>
+        <section xml:id="sec-SoC">
+          <title>Studies of Causality</title>
+          <p/>
+          <subsection xml:id="ssec-CGs">
+            <title>Control Groups</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-human-subject-experiments-placebo-effect">
+            <title>Human-Subject Experiments: The Placebo Effect</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-blinding">
+            <title>Blinding</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-CiaRCTs">
+            <title>Combining it all: RCTs</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-CLVs">
+            <title>Confounded Lurking Variables</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-EE">
+          <title>Experimental Ethics</title>
+          <p/>
+          <subsection xml:id="ssec-DNH">
+            <title>"Do No Harm"</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-IC">
+            <title>Informed Consent</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-Confidentiality">
+            <title>Confidentiality</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-EOIRB">
+            <title>External Oversight [IRB]</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-bringing-home-exercises">
+          <title>Exercises</title>
+          <p/>
+        </section>
+      </chapter>
+    </part>
+
+    <part xml:id="part-IS">
+      <title>Inferential Statistics</title>
+
+      <chapter xml:id="chap-IS">
+        <title>Basic Inferences</title>
+        <section xml:id="sec-CLT">
+          <title>The Central Limit Theorem</title>
+          <p/>
+        </section>
+        <section xml:id="sec-BCIs">
+          <title>Basic Confidence Intervals</title>
+          <p/>
+          <subsection xml:id="ssec-CIcautions">
+            <title>Cautions</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-BHT">
+          <title>Basic Hypothesis Testing</title>
+          <p/>
+          <subsection xml:id="ssec-tFSoHT">
+            <title>The Formal Steps of Hypothesis Testing</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-HSiSEfpvs">
+            <title>How Small is Small Enough, for p-values?</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-calculations-hypothesis-testing-population-means">
+            <title>Calculations for Hypothesis Testing of Population Means</title>
+            <p/>
+          </subsection>
+          <subsection xml:id="ssec-HTcautions">
+            <title>Cautions</title>
+            <p/>
+          </subsection>
+        </section>
+        <section xml:id="sec-basic-inferences-exercises">
+          <title>Exercises</title>
+          <p/>
+        </section>
+      </chapter>
+    </part>
+  </book>
+</pretext>
