@@ -807,7 +807,7 @@
 
                 <p>
                   If the data come from a sample, we use the notation
-                  <m>\overline{x}</m><idx><m>\overline{x}</m>, sample mean</idx> for the 
+                  <m>\overline{x}</m><idx><m>\overline{x}</m>, sample mean</idx> for the
                   <term>sample mean</term><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx>.
                 </p>
 
@@ -940,7 +940,7 @@
               What this example shows is that a small change in some of the data values,
               small enough not to change the histogram at all, can change the mode(s)
               drastically.  It also shows that the location of the mode says very little
-              about the data in general or its shape, the mode is based entirely on a 
+              about the data in general or its shape, the mode is based entirely on a
               possibly accidental coincidence of some values in the dataset, no matter if
               those values are in the <q>center</q> of the histogram or not.
             </p>
