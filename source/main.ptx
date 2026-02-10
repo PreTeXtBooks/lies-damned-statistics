@@ -782,7 +782,7 @@
                   Note that in some of the histograms we made using these data and different bin
                   widths, the bins containing 73 and 90 were of the same height, while in others
                   they were of different heights.  This is an example of how it can be quite hard
-                  to see on a histogram where the mode is... or where the mode<term>s are</term>.
+                  to see on a histogram where the mode is<ellipsis/> or where the <term>modes</term> are.
                 </p>
               </statement>
             </example>
@@ -1528,7 +1528,7 @@
                   <me>
                     x>Q_3+1.5\,IQR=88+1.5\cdot18=115\ .
                   </me>
-                  Looking at the stemplot in <xref ref="tab-stemplot1"/>, we conclude that the data
+                  Looking at the stemplot in <xref ref="eg-stemandleafplot"/>, we conclude that the data
                   values <m>25</m>, <m>25</m>, and <m>40</m> are the outliers in this dataset.
                 </p>
               </statement>
@@ -1634,7 +1634,7 @@
                   <li><p>a rectangle (the <em>box</em>) is drawn parallel to the axis, stretching
                   from values <m>Q_1</m><idx><h>notation</h><h><m>Q_1</m>, first quartile</h></idx> to
                   <m>Q_3</m><idx><h>notation</h><h><m>Q_3</m>, third quartile</h></idx> on the axis</p></li>
-                  <li><p>an addition line is drawn, parallel to the sides of the box, 
+                  <li><p>an additional line is drawn, parallel to the sides of the box, 
                   at the axis coordinate of the median<idx>median</idx> of
                   the data</p></li>
                   <li><p>lines are drawn parallel to the axis from the middle of the sides of the box
