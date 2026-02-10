@@ -1095,30 +1095,607 @@
         </section>
         <section xml:id="sec-NDoDIMoS">
           <title>Numerical Descriptions of Data, II: Measures of Spread</title>
-          <p/>
           <subsection xml:id="ssec-Range">
             <title>Range</title>
-            <p/>
+            <p>
+              The simplest<mdash/>and least useful<mdash/>measure of the spread<idx>spread of a histogram, dataset, or distribution</idx> of
+              some data is literally how much space on the <m>x</m>-axis the histogram takes up.
+              To define this, first a bit of convenient notation:
+            </p>
+
+            <definition xml:id="def-xminxmax">
+              <idx><h>notation</h><h><m>x_{min}</m>, minimum value in dataset</h></idx>
+              <idx><h>notation</h><h><m>x_{max}</m>, maximum value in dataset</h></idx>
+              <statement>
+                <p>
+                  Suppose <m>x_1, \dots, x_n</m> is some quantitative dataset.  We shall write
+                  <m>x_{min}</m> for the smallest and <m>x_{max}</m> for the largest values in the dataset.
+                </p>
+              </statement>
+            </definition>
+
+            <p>
+              With this, we can define our first measure of spread<idx>spread of a histogram, dataset, or distribution</idx>
+            </p>
+
+            <definition xml:id="def-range">
+              <idx>range</idx>
+              <statement>
+                <p>
+                  Suppose <m>x_1, \dots, x_n</m> is some quantitative dataset.  The <term>range</term> of
+                  this data is the number <m>x_{max}-x_{min}</m>.
+                </p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-spread1">
+              <statement>
+                <p>
+                  Using again the statistics test scores data from
+                  <xref ref="eg-stemandleafplot"/>, we can read off from the stem-and-leaf plot
+                  that <m>x_{min}=25</m> and <m>x_{max}=100</m>, so the range is <m>75(=100-25)</m>.
+                </p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-spread2">
+              <statement>
+                <p>
+                  Working now with the made-up data in <xref ref="eg-subscriptssums"/>, which
+                  was put into increasing order in <xref ref="eg-median1"/>, we can see that
+                  <m>x_{min}=-3.1415</m> and <m>x_{max}=17</m>, so the range is <m>20.1415(=17-(-3.1415))</m>.
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              The thing to notice here is that since the idea of outliers is that they are
+              outside of the normal behavior of the dataset, if there are any outliers they
+              will definitely be what value gets called <m>x_{min}</m> or <m>x_{max}</m> (or both).  So
+              <term>the range is supremely sensitive to outliers</term><idx>sensitive to outliers</idx>: if there are any outliers,
+              the range will be determined exactly by them, and not by what the typical data
+              is doing.
+            </p>
           </subsection>
           <subsection xml:id="ssec-QuartilesIQR">
-            <title>Quartiles and the IQR</title>
-            <p/>
+            <title>Quartiles and the <m>IQR</m></title>
+            <p>
+              Let's try to find a substitute for the range which is not so sensitive to
+              outliers.  We want to see how far apart not the maximum and minimum of the
+              whole dataset are, but instead how far apart are the typical larger
+              values in the dataset and the typical smaller values.  How can we measure
+              these typical larger and smaller?  One way is to define these in terms of the
+              typical<mdash/>central<mdash/>value of the upper half of the data and the typical
+              value of the lower half of the data.  Here is the definition we shall use for
+              that concept:
+            </p>
+
+            <definition xml:id="def-quartile">
+              <idx>quartile</idx>
+              <idx>upper half data</idx>
+              <idx>lower half data</idx>
+              <statement>
+                <p>
+                  Imagine that we have put the values of a dataset <m>\{x_1, \dots, x_n\}</m> of <m>n</m>
+                  numbers in increasing (or at least non-decreasing) order, so that <m>x_1\le
+                  x_2\le \dots \le x_n</m>.  If <m>n</m> is odd, call the
+                  <term>lower half data</term><idx>lower half data</idx> all the values
+                  <m>\{x_1, \dots, x_{(n-1)/2}\}</m> and the <term>upper half data</term><idx>upper half data</idx>
+                  all the values <m>\{x_{(n+3)/2}, \dots, x_n\}</m>; if <m>n</m> is even, the
+                  <term>lower half data</term> will be the values <m>\{x_1, \dots, x_{n/2}\}</m> and the
+                  <term>upper half data</term> all the values <m>\{x_{(n/2)+1}, \dots, x_n\}</m>.
+                </p>
+
+                <p>
+                  Then the <term>first quartile</term><idx>first quartile</idx><idx>quartile</idx>, written
+                  <m>Q_1</m><idx><h>notation</h><h><m>Q_1</m>, first quartile</h></idx>, is the median of the lower half data,
+                  and the <term>third quartile</term><idx>third quartile</idx><idx>quartile</idx>, written
+                  <m>Q_3</m><idx><h>notation</h><h><m>Q_3</m>, third quartile</h></idx>, is the median of the upper half data.
+                </p>
+              </statement>
+            </definition>
+
+            <p>
+              Note that the first quartile is halfway through the lower half of the data.
+              In other words, it is a value such that one quarter of the data is smaller.
+              Similarly, the third quartile is halfway through the upper half of the data,
+              so it is a value such that three quarters of the data is small. Hence the
+              names <q>first</q> and <q>third quartiles.</q>
+            </p>
+
+            <p>
+              We can build a outlier-insensitive<idx>insensitive to outliers</idx> measure of spread<idx>spread of a histogram, dataset, or distribution</idx> out of the
+              quartiles.
+            </p>
+
+            <definition xml:id="def-IQR">
+              <idx><h>notation</h><h><m>IQR</m>, inter-quartile range</h></idx>
+              <idx>inter-quartile range, <m>IQR</m></idx>
+              <statement>
+                <p>
+                  Given a quantitative dataset, its <term>inter-quartile range</term> or <term><m>IQR</m></term> is
+                  defined by <m>IQR=Q_3-Q_1</m>.
+                </p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-iqr1">
+              <statement>
+                <p>
+                  Yet again working with the statistics test scores data from
+                  <xref ref="eg-stemandleafplot"/>, we can count off the lower and upper half
+                  datasets from the stem-and-leaf plot, being respectively
+                  <me>
+                    \text{Lower}=\{25, 25, 40, 58, 68, 69, 69, 70, 70, 71, 73, 73, 73, 74, 76\}
+                  </me>
+                  and
+                  <me>
+                    \text{Upper} = \{77, 78, 80, 83, 83, 86, 87, 88, 90, 90, 90, 92, 93, 95, 100\}\ .
+                  </me>
+                  It follows that, for these data, <m>Q_1=70</m> and <m>Q_3=88</m>, so <m>IQR=18(=88-70)</m>.
+                </p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-iqr2">
+              <statement>
+                <p>
+                  Working again with the made-up data in <xref ref="eg-subscriptssums"/>, which
+                  was put into increasing order in <xref ref="eg-median1"/>, we can see that the
+                  lower half data is <m>\{-3.1415, .75\}</m>, the upper half is
+                  <m>\{2, 17\}</m>, <m>Q_1=-1.19575(=\frac{-3.1415+.75}{2})</m>, <m>Q_3=9.5(=\frac{2+17}{2})</m>,
+                  and <m>IQR=10.69575(=9.5-(-1.19575))</m>.
+                </p>
+              </statement>
+            </example>
           </subsection>
           <subsection xml:id="ssec-VarStdDev">
             <title>Variance and Standard Deviation</title>
-            <p/>
+            <p>
+              We've seen a crude measure of spread<idx>spread of a histogram, dataset, or distribution</idx>, like the crude measure
+              <q>mode</q><idx>mode</idx> of central tendency.  We've also seen a better measure
+              of spread, the <m>IQR</m><idx><h>notation</h><h><m>IQR</m>, inter-quartile range</h></idx>, which is
+              insensitive<idx>insensitive to outliers</idx> to outliers like the median<idx>median</idx> (and built out of
+              medians).  It seems that, to fill out the parallel triple of measures, there
+              should be a measure of spread which is similar to the mean.  Let's try to
+              build one.
+            </p>
+
+            <p>
+              Suppose the data is sample data.  Then how far a particular data value <m>x_i</m>
+              is from the sample mean <m>\overline{x}</m><idx>sample mean, <m>\overline{x}</m></idx><idx><h>mean</h><h>sample</h></idx><idx><h>notation</h><h><m>\overline{x}</m>, sample mean</h></idx>
+              is just <m>x_i-\overline{x}</m>.  So the mean displacement from the mean, the mean
+              of <m>x_i-\overline{x}</m>, should be a good measure of variability, shouldn't it?
+            </p>
+
+            <p>
+              Unfortunately, it turns out that the mean of
+              <m>x_i-\overline{x}</m><idx>sample mean, <m>\overline{x}</m></idx><idx><h>mean</h><h>sample</h></idx><idx><h>notation</h><h><m>\overline{x}</m>, sample mean</h></idx> is always 0.  This
+              is because when <m>x_i>\overline{x}</m>, <m>x_i-\overline{x}</m> is positive, while
+              when <m>x_i&lt;\overline{x}</m>, <m>x_i-\overline{x}</m> is negative, and it turns out
+              that the positives always exactly cancel the negatives (see if you can prove
+              this algebraically, it's not hard).
+            </p>
+
+            <p>
+              We therefore need to make the numbers
+              <m>x_i-\overline{x}</m><idx>sample mean, <m>\overline{x}</m></idx><idx><h>mean</h><h>sample</h></idx><idx><h>notation</h><h><m>\overline{x}</m>, sample mean</h></idx> positive before
+              taking their mean.  One way to do this is to square them all.  Then we take
+              something which is almost the mean of these squared numbers to get another
+              measure of spread<idx>spread of a histogram, dataset, or distribution</idx> or variability:
+            </p>
+
+            <definition xml:id="def-varstddevsamp">
+              <idx>variance</idx>
+              <idx>sample variance, <m>S_x^2</m></idx>
+              <idx><h>notation</h><h><m>S_x^2</m>, sample variance</h></idx>
+              <idx><h>notation</h><h><m>S_x</m>, sample standard deviation</h></idx>
+              <idx>standard deviation</idx>
+              <idx>sample standard deviation, <m>S_x</m></idx>
+              <statement>
+                <p>
+                  Given sample data <m>x_1, \dots, x_n</m> from a sample of size
+                  <m>n</m>, the <term>sample variance</term> is defined as
+                  <me>
+                    S_x^2 = \frac{\sum \left(x_i-\overline{x}\right)^2}{n-1} .
+                  </me>
+                  <idx><h>notation</h><h><m>\overline{x}</m>, sample mean</h></idx>
+                  Out of this, we then define the <term>sample standard deviation</term>
+                  <me>
+                    S_x = \sqrt{S_x^2} = \sqrt{\frac{\sum \left(x_i-\overline{x}\right)^2}{n-1}} .
+                  </me>
+                  <idx><h>notation</h><h><m>\overline{x}</m>, sample mean</h></idx>
+                </p>
+              </statement>
+            </definition>
+
+            <p>
+              Why do we take the square root in that sample standard deviation?  The answer
+              is that the measure we build should have the property that if all the numbers
+              are made twice as big, then the measure of spread<idx>spread of a histogram, dataset, or distribution</idx> should also be
+              twice as big.  Or, for example, if we first started working with data measured
+              in feet and then at some point decided to work in inches, the numbers would
+              all be 12 times as big, and it would make sense if the measure of spread were
+              also 12 times as big.
+            </p>
+
+            <p>
+              The variance does not have this property: if the data are all doubled, the
+              variance increases by a factor of 4.  Or if the data are all multiplied by 12,
+              the variance is multiplied by a factor of 144.
+            </p>
+
+            <p>
+              If we take the square root of the variance, though, we get back to the nice
+              property of doubling data doubles the measure of spread<idx>spread of a histogram, dataset, or distribution</idx>,
+              <em>etc.</em>  For this reason, while we have defined the variance on its own
+              and some calculators, computers, and on-line tools will tell the variance
+              whenever you ask them to computer 1-variable statistics, we will in this
+              class only consider the variance a stepping stone on the way to the real
+              measure of spread of data, the standard deviation.
+            </p>
+
+            <p>
+              One last thing we should define in this section.  For technical reasons that
+              we shall not go into now, the definition of standard deviation is slightly
+              different if we are working with population data and not sample data:
+            </p>
+
+            <definition xml:id="def-varstddevpop">
+              <idx>variance</idx>
+              <idx>population variance, <m>\sigma_X^2</m></idx>
+              <idx><h>notation</h><h><m>\sigma_X^2</m>, population variance</h></idx>
+              <idx><h>notation</h><h><m>\sigma_X</m>, population standard deviation</h></idx>
+              <idx>standard deviation</idx>
+              <idx>population standard deviation, <m>\sigma_X</m></idx>
+              <statement>
+                <p>
+                  Given data <m>x_1, \dots, x_n</m> from an entire population of size <m>n</m>, the
+                  <term>population variance</term> is defined as
+                  <me>
+                    \sigma_X^2 = \frac{\sum \left(x_i-\mu_X\right)^2}{n} .
+                  </me>
+                  Out of this, we then define the <term>population standard deviation</term>
+                  <me>
+                    \sigma_X = \sqrt{\sigma_X^2} =
+                    \sqrt{\frac{\sum \left(x_i-\mu_X\right)^2}{n}} .
+                  </me>
+                </p>
+              </statement>
+            </definition>
+
+            <p>
+              [This letter <m>\sigma</m> is the lower-case Greek letter sigma, whose upper case
+              <m>\Sigma</m> you've seen elsewhere.]
+            </p>
+
+            <p>
+              Now for some examples.  Notice that to calculate these values, we shall
+              always use an electronic tool like a calculator<idx>calculator</idx> or a
+              spreadsheet<idx><h>spreadsheet</h><see><term>LibreOffice Calc</term> and <term>MS Excel</term></see></idx>
+              that has a built-in variance<idx>variance</idx> and standard
+              deviation<idx>standard deviation</idx> program<mdash/>experience shows that it is
+              nearly impossible to get all the calculations entered correctly into a
+              non-statistical calculator, so we shall not even try.
+            </p>
+
+            <example xml:id="eg-varstd1">
+              <statement>
+                <p>
+                  For the statistics test scores data from <xref ref="eg-stemandleafplot"/>,
+                  entering them into a spreadsheet and using <c>VAR.S</c><idx><h>VAR.S</h><h>sample variance in spreadsheets</h></idx> and
+                  <c>STDEV.S</c><idx><h>STDEV.S</h><h>sample standard deviation in spreadsheets</h></idx> for
+                  the sample variance and standard deviation<idx><h>notation</h><h><m>S_x</m>, sample standard deviation</h></idx><idx>standard deviation</idx><idx>sample standard deviation, <m>S_x</m></idx><idx>sample variance, <m>S_x^2</m></idx><idx><h>notation</h><h><m>S_x^2</m>, sample variance</h></idx> and
+                  <c>VAR.P</c><idx><h>VAR.P</h><h>population variance in spreadsheets</h></idx> and <c>STDEV.P</c><idx><h>STDEV.P</h><h>population standard deviation in spreadsheets</h></idx>
+                  for population variance and population standard deviation<idx>variance</idx><idx>population variance, <m>\sigma_X^2</m></idx><idx><h>notation</h><h><m>\sigma_X^2</m>, population variance</h></idx><idx><h>notation</h><h><m>\sigma_X</m>, population standard deviation</h></idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx>, we get
+                  <md>
+                    <mrow>S_x^2 \amp = 331.98</mrow>
+                    <mrow>S_x \amp = 18.22</mrow>
+                    <mrow>\sigma_X^2 \amp = 330.92</mrow>
+                    <mrow>\sigma_X \amp = 17.91</mrow>
+                  </md>
+                </p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-varstd2">
+              <statement>
+                <p>
+                  Similarly, for the data in <xref ref="eg-subscriptssums"/>, we find in the same
+                  way that
+                  <md>
+                    <mrow>S_x^2 \amp = 60.60</mrow>
+                    <mrow>S_x \amp = 7.78</mrow>
+                    <mrow>\sigma_X^2 \amp = 48.48</mrow>
+                    <mrow>\sigma_X \amp = 6.96</mrow>
+                  </md>
+                </p>
+              </statement>
+            </example>
           </subsection>
           <subsection xml:id="ssec-SaWoTMoS">
             <title>Strengths and Weaknesses of These Measures of Spread</title>
-            <p/>
+            <p>
+              We have already said that
+              <term>the range<idx>range</idx> is extremely sensitive to outliers</term><idx>sensitive to outliers</idx>.<idx>outlier</idx>
+            </p>
+
+            <p>
+              The <m>IQR</m>,<idx><h>notation</h><h><m>IQR</m>, inter-quartile range</h></idx><idx>inter-quartile range, <m>IQR</m></idx>
+              however, is built up out of medians<idx>median</idx>, used in different ways, so
+              <term>the <m>IQR</m> is insensitive to outliers</term><idx>insensitive to outliers</idx>.<idx>outlier</idx>
+            </p>
+
+            <p>
+              The variance<idx>variance</idx>, both sample and population, is built using a
+              process quite like a mean<idx>mean</idx>, and in fact also has the mean itself
+              in the defining formula.  Since the standard deviation<idx>standard deviation</idx>
+              in both cases is simply the square root of the variance, it follows that
+              <term>the sample and population variances and standard deviations
+              are all sensitive to outliers</term>.<idx>sensitive to outliers</idx><idx>outlier</idx>
+            </p>
+
+            <p>
+              This differing sensitivity and insensitivity to outliers<idx>outlier</idx> is the
+              main difference between the different measures of spread<idx>spread of a histogram, dataset, or distribution</idx> that we
+              have discussed in this section.
+            </p>
+
+            <p>
+              One other weakness, in a certain sense, of the
+              <m>IQR</m><idx><h>notation</h><h><m>IQR</m>, inter-quartile range</h></idx> is that there are several
+              different definitions in use of the quartiles, based upon whether the median
+              value is included or not when dividing up the data.  These are called, for
+              example, <c>QUARTILE.INC</c><idx><h>QUARTILE.INC</h><h>quartile computation in spreadsheets</h></idx> and <c>QUARTILE.EXC</c><idx><h>QUARTILE.EXC</h><h>quartile computation in spreadsheets</h></idx> on some spreadsheets.  It
+              can then be confusing which one to use.
+            </p>
           </subsection>
           <subsection xml:id="ssec-AFDoO">
-            <title>A Formal Definition of Outliers -- the 1.5 IQR Rule</title>
-            <p/>
+            <title>A Formal Definition of Outliers<mdash/>the <m>1.5\,IQR</m> Rule</title>
+            <p>
+              So far, we have said that outliers<idx>outlier</idx> are simply data that are
+              <em>atypical</em>.  We need a precise definition that can be carefully checked.
+              What we will use is a formula (well, actually two formulæ) that describe
+              that idea of an outlier being <em>far away from the rest of data</em>.
+            </p>
+
+            <p>
+              Actually, since outliers should be far away either in being significantly
+              bigger than the rest of the data or in being significantly smaller, we should
+              take a value on the upper side of the rest of the data, and another on the
+              lower side, as the starting points for this <em>far away</em>.  We can't pick
+              the <m>x_{max}</m><idx><h>notation</h><h><m>x_{max}</m>, maximum value in dataset</h></idx> and
+              <m>x_{min}</m><idx><h>notation</h><h><m>x_{min}</m>, minimum value in dataset</h></idx> as those starting
+              points, since they will be the outliers themselves, as we have noticed.  So
+              we will use our earlier idea of a value which is typical for the larger part
+              of the data, the quartile<idx>quartile</idx> <m>Q_3</m><idx><h>notation</h><h><m>Q_3</m>, third quartile</h></idx>,
+              and <m>Q_1</m><idx><h>notation</h><h><m>Q_1</m>, first quartile</h></idx> for the corresponding
+              lower part of the data.
+            </p>
+
+            <p>
+              Now we need to decide how far is <em>far enough away</em> from those quartiles
+              to count as an outlier.  If the data already has a lot of variation, then a
+              new data value would have to be quite far in order for us to be sure that it
+              is not out there just because of the variation already in the data.  So our
+              measure of <em>far enough</em> should be in terms of a measure of
+              spread<idx>spread of a histogram, dataset, or distribution</idx> of the data.
+            </p>
+
+            <p>
+              Looking at the last section, we see that only the
+              <m>IQR</m><idx><h>notation</h><h><m>IQR</m>, inter-quartile range</h></idx> is a measure of
+              spread<idx>spread of a histogram, dataset, or distribution</idx> which is insensitive to outliers<idx>insensitive to outliers</idx><mdash/>and we definitely
+              don't want to use a measure which is sensitive to the outliers<idx>sensitive to outliers</idx>, one which
+              would have been affected by the very outliers we are trying to define.
+            </p>
+
+            <p>
+              All this goes together in the following
+            </p>
+
+            <definition xml:id="def-outlier">
+              <idx>outlier</idx>
+              <idx><m>1.5\,IQR</m> Rule for Outliers</idx>
+              <title>The <m>1.5\,IQR</m> Rule for Outliers</title>
+              <statement>
+                <p>
+                  Starting with a quantitative dataset whose first and third
+                  quartiles<idx>quartile</idx> are <m>Q_1</m><idx><h>notation</h><h><m>Q_1</m>, first quartile</h></idx> and
+                  <m>Q_3</m> and whose inter-quartile range is <m>IQR</m>, a data value <m>x</m> is
+                  [officially, from now on] called an <term>outlier</term> if <m>x&lt;Q_1-1.5\,IQR</m> or
+                  <m>x>Q_3+1.5\,IQR</m>.
+                </p>
+              </statement>
+            </definition>
+
+            <p>
+              Notice this means that <m>x</m> is not an outlier if it satisfies
+              <m>Q_1-1.5\,IQR\le x\le Q_3+1.5\,IQR</m>.
+            </p>
+
+            <example xml:id="eg-outliers1">
+              <statement>
+                <p>
+                  Let's see if there were any outliers in the test score dataset from
+                  <xref ref="eg-stemandleafplot"/>.  We found the quartiles and <m>IQR</m>
+                  in <xref ref="eg-iqr1"/>, so from the <m>1.5\,IQR</m> Rule, a data value <m>x</m> will
+                  be an outlier if
+                  <me>
+                    x&lt;Q_1-1.5\,IQR=70-1.5\cdot18=43
+                  </me>
+                  or if
+                  <me>
+                    x>Q_3+1.5\,IQR=88+1.5\cdot18=115\ .
+                  </me>
+                  Looking at the stemplot in <xref ref="tab-stemplot1"/>, we conclude that the data
+                  values <m>25</m>, <m>25</m>, and <m>40</m> are the outliers in this dataset.
+                </p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-outliers2">
+              <statement>
+                <p>
+                  Applying the same method to the data in <xref ref="eg-subscriptssums"/>, using
+                  the quartiles and <m>IQR</m> from <xref ref="eg-iqr2"/>, the condition for an
+                  outlier <m>x</m> is
+                  <me>
+                    x&lt;Q_1-1.5\,IQR=-1.19575-1.5\cdot10.69575=-17.239375
+                  </me>
+                  or
+                  <me>
+                    x>Q_3+1.5\,IQR=9.5+1.5\cdot10.69575=25.543625\ .
+                  </me>
+                  Since none of the data values satisfy either of these conditions, there are
+                  no outliers in this dataset.
+                </p>
+              </statement>
+            </example>
           </subsection>
           <subsection xml:id="ssec-TF-NSaB">
             <title>The Five-Number Summary and Boxplots</title>
-            <p/>
+            <p>
+              We have seen that numerical summaries of quantitative data can be very useful
+              for quickly understanding (some things about) the data.  It is therefore
+              convenient for a nice package of several of these
+            </p>
+
+            <definition xml:id="def-fivenumbersum">
+              <idx>five-number summary</idx>
+              <statement>
+                <p>
+                  Given a quantitative dataset <m>\{x_1, \dots, x_n\}</m>, the
+                  <term>five-number summary</term><fn>Which might write 5N<m>\Sigma</m>ary for short.</fn>
+                  of this data is the set of values
+                  <me>
+                    \left\{x_{min},\ \ Q_1,\ \ \text{median},\ \ Q_3,\ \ x_{max}\right\}
+                  </me>
+                  <idx><h>notation</h><h><m>x_{min}</m>, minimum value in dataset</h></idx><idx><h>notation</h><h><m>Q_1</m>, first quartile</h></idx><idx>median</idx><idx>quartile</idx><idx><h>notation</h><h><m>Q_3</m>, third quartile</h></idx><idx><h>notation</h><h><m>x_{max}</m>, maximum value in dataset</h></idx>
+                </p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-5num1">
+              <statement>
+                <p>
+                  Why not write down the five-number summary for the same test score data we
+                  saw in <xref ref="eg-stemandleafplot"/>?  We've already done most of the
+                  work, such as calculating the min and max in <xref ref="eg-spread1"/>, the
+                  quartiles in <xref ref="eg-iqr1"/>, and the median in <xref ref="eg-median2"/>,
+                  so the five-number summary is
+                  <md>
+                    <mrow>x_{min}\amp=25</mrow>
+                    <mrow>Q_1\amp=70</mrow>
+                    <mrow>\text{median}\amp=76.5</mrow>
+                    <mrow>Q_3\amp=88</mrow>
+                    <mrow>x_{max}\amp=100</mrow>
+                  </md>
+                </p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-5num2">
+              <statement>
+                <p>
+                  And, for completeness, the five number summary for the made-up data in
+                  <xref ref="eg-subscriptssums"/> is
+                  <md>
+                    <mrow>x_{min}\amp=-3.1415</mrow>
+                    <mrow>Q_1\amp=-1.9575</mrow>
+                    <mrow>\text{median}\amp=1</mrow>
+                    <mrow>Q_3\amp=9.5</mrow>
+                    <mrow>x_{max}\amp=17</mrow>
+                  </md>
+                  where we got the min and max from <xref ref="eg-spread2"/>, the median from
+                  <xref ref="eg-median1"/>, and the quartiles from <xref ref="eg-iqr2"/>.
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              As we have seen already several times, it is nice to have a both a numeric and
+              a graphical/visual version of everything.  The graphical equivalent of the
+              five-number summary<idx>five-number summary</idx> is
+            </p>
+
+            <definition xml:id="def-boxplot">
+              <idx>boxplot, box-and-whisker plot</idx>
+              <statement>
+                <p>
+                  Given some quantitative data, a <term>boxplot</term> [sometimes
+                  <term>box-and-whisker plot</term>] is a graphical depiction of the five-number
+                  summary, as follows:
+                </p>
+                <ul>
+                  <li><p>an axis is drawn, labelled with the variable of the study</p></li>
+                  <li><p>tick marks and numbers are put on the axis, enough to allow the
+                  following visual features to be located numerically</p></li>
+                  <li><p>a rectangle (the <em>box</em>) is drawn parallel to the axis, stretching
+                  from values <m>Q_1</m><idx><h>notation</h><h><m>Q_1</m>, first quartile</h></idx> to
+                  <m>Q_3</m><idx><h>notation</h><h><m>Q_3</m>, third quartile</h></idx> on the axis</p></li>
+                  <li><p>an addition line is drawn, parallel to the sides of the box at locations
+                  <m>x_{min}</m> and <m>x_{max}</m>, at the axis coordinate of the median<idx>median</idx> of
+                  the data</p></li>
+                  <li><p>lines are drawn parallel to the axis from the middle of sides of the box
+                  at the locations <m>x_{min}</m> and <m>x_{max}</m> 
+                  out to the axis coordinates
+                  <m>x_{min}</m><idx><h>notation</h><h><m>x_{min}</m>, minimum value in dataset</h></idx> and
+                  <m>x_{max}</m><idx><h>notation</h><h><m>x_{max}</m>, maximum value in dataset</h></idx>, where these
+                  <em>whiskers</em> terminate in <q>T</q>s.</p></li>
+                </ul>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-boxplot1">
+              <statement>
+                <p>
+                  A boxplot for the test score data we started using in
+                  <xref ref="eg-stemandleafplot"/> is easy to make after we found the
+                  corresponding five-number summary in <xref ref="eg-5num1"/>:
+                </p>
+                <p>
+                  [PLACEHOLDER: Figure showing boxplot for test score data]
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              Sometimes it is nice to make a version of the boxplot which is less sensitive
+              to outliers<idx>sensitive to outliers</idx><idx>outlier</idx>.  Since the endpoints of the whiskers are the only
+              parts of the boxplot which are sensitive in this way, they are all we have to
+              change:
+            </p>
+
+            <definition xml:id="def-boxplotwithOLs">
+              <idx><h>boxplot, box-and-whisker plot</h><h>showing outliers</h></idx>
+              <statement>
+                <p>
+                  Given some quantitative data, a <term>boxplot showing outliers</term> [sometimes
+                  <term>box-and-whisker plot showing outliers</term>] is minor modification of the
+                  regular boxplot, as follows
+                </p>
+                <ul>
+                  <li><p>the whiskers only extend as far as the largest and smallest non-outlier
+                  data values</p></li>
+                  <li><p>dots are put along the lines of the whiskers at the axis coordinates of
+                  any outliers in the dataset</p></li>
+                </ul>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-boxplot2">
+              <statement>
+                <p>
+                  A boxplot showing outliers for the test score data we started using in
+                  <xref ref="eg-stemandleafplot"/> is only a small modification of the one we
+                  just made in <xref ref="eg-boxplot1"/>
+                </p>
+                <p>
+                  [PLACEHOLDER: Figure showing boxplot with outliers for test score data]
+                </p>
+              </statement>
+            </example>
           </subsection>
         </section>
         <section xml:id="sec-one-variable-exercises">
