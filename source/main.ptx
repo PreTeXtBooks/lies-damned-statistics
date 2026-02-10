@@ -2002,7 +2002,7 @@
           </example>
           <p>
             There is one quite important difference between the two examples above: in
-            one case (the cost), knowing the length of the side of a box give us a hint
+            one case (the cost), knowing the length of the side of a box gives us a hint
             about how much it costs (bigger boxes cost more, smaller boxes cost less) but
             this knowledge is imperfect (sometimes a big box is cheap, sometimes a small
             box is expensive); while in the other case (the volume), knowing the length of
@@ -2145,7 +2145,7 @@
               <li><p><m>r</m> is the same no matter what units are used for the variables <m>x</m> and
                     <m>y</m> <mdash/> meaning that if we change the units in either variable, <m>r</m> will
                     not change</p></li>
-              <li><p><m>r</m> is the same no matter which variable is begin used as the explanatory
+              <li><p><m>r</m> is the same no matter which variable is being used as the explanatory
                     and which as the response variable <mdash/> meaning that if we switch the roles
                     of the <m>x</m> and the <m>y</m> in our dataset, <m>r</m> will not change.</p></li>
             </ol>
@@ -2158,14 +2158,14 @@
           </p>
           <p>
             Many electronic tools which compute the correlation coefficient <m>r</m> of a
-            dataset also report its square, <m>r^2</m>.  There reason is explained in the
+            dataset also report its square, <m>r^2</m>.  The reason is explained in the
             following
           </p>
           <assemblage xml:id="fact-rsquared">
             <title>Fact</title>
             <p>
               If <m>r</m> is the correlation coefficient between two variables <m>x</m> and <m>y</m> in some
-              quantitative dataset, then its square <m>r^2</m> it the fraction (often described as
+              quantitative dataset, then its square <m>r^2</m> is the fraction (often described as
               a percentage) of the variation of <m>y</m> which is associated with variation in <m>x</m>.
             </p>
           </assemblage>
