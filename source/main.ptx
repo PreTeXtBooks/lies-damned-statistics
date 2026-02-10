@@ -2964,48 +2964,999 @@
 
       <chapter xml:id="chap-probability-theory">
         <title>Probability Theory</title>
+
+        <p>We want to imagine doing an experiment in which there is no way to predict what the outcome will be. Of course, if we stop our imagination there, there would be nothing we could say and no point in trying to do any further analysis: the outcome would just be whatever it wanted to be, with no pattern.</p>
+
+        <p>So let us add the additional assumption that while we <em>cannot predict</em> what will happen any particular time we do the experiment, we <em>can predict</em> general trends, in the long run, if we repeat the experiment many times. To be more precise, we assume that, for any collection <m>E</m> of possible outcomes of the experiment there is a number <m>p(E)</m> such that, no matter who does the experiment, no matter when they do it, if they repeat the experiment many times, the fraction of times they would have seen any of the outcomes of <m>E</m> would be close to that number <m>p(E)</m>.</p>
+
+        <p>This is called the <term>frequentist</term><idx>frequentist approach to probability</idx> approach to the idea of probability. While it is not universally accepted <mdash/> the <term>Bayesian</term><idx>Bayesian</idx> alternative does in fact have many adherents <mdash/> it has the virtue of being the most internally consistent way of building a foundation for probability. For that reason, we will follow the frequentist description of probability in this text.</p>
+
+        <p>Before we jump into the mathematical formalities, we should motivate two pieces of what we just said. First, why talk about <em>sets</em> of outcomes of the experiment instead of talking about individual outcomes? The answer is that we are often interested in sets of outcomes, as we shall see later in this book, so it is nice to set up the machinery from the very start to work with such sets. Or, to give a particular concrete example, suppose you were playing a game of cards and could see your hand but not the other players' hands. You might be very interested in how likely is it that your hand is a winning hand, <em>i.e.</em>, what is the likelihood of the set of all possible configurations of all the rest of the cards in the deck and in your opponents' hands for which what you have will be the winning hand? It is situations like this which motivate an approach based on <em>sets</em> of outcomes of the random experiment.</p>
+
+        <p>Another question we might ask is: where does our uncertainty about the experimental results come from? From the beginnings of the scientific method through the turn of the <m>20^{\text{th}}</m> century, it was thought that this uncertainty came from our incomplete knowledge of the system on which we were experimenting. So if the experiment was, say, flipping a coin, the precise amount of force used to propel the coin up into the air, the precise angular motion imparted to the coin by its position just so on the thumbnail of the person doing the flipping, the precise drag that the coin felt as it tumbled through the air caused in part by eddies in the air currents coming from the flap of a butterfly's wings<idx>butterfly in the Amazon rainforest</idx> in the Amazon rainforest <mdash/> all of these things could significantly contribute to changing whether the coin would eventually come up <em>heads</em> or <em>tails</em>. Unless the coin-flipper was a robot operating in a vacuum, then, there would just be no way to know all of these physical details with enough accuracy to predict the toss.</p>
+
+        <p>After the turn of the <m>20^{\text{th}}</m> century, matters got even worse (at least for physical determinists): a new theory of physics came along then, called <term>Quantum Mechanics</term><idx>quantum mechanics</idx>, according to which true randomness is built into the laws of the universe. For example, if you have a very dim light source, which produces the absolutely smallest possible <q>chunks</q> of light (called <term>photons</term><idx>photon</idx>), and you shine it through first one polarizing filter and then see if it goes through a second filter at a <m>45^\circ</m> angle to the first, then half the photons will get through the second filter, but there is <em>absolutely no way ever to predict whether any particular photon will get though or not</em>. Quantum mechanics is full of very weird, non-intuitive ideas, but it is one of the most well-tested theories in the history of science, and it has passed every test.</p>
+
         <section xml:id="sec-defsforprob">
           <title>Definitions for Probability</title>
-          <p/>
           <subsection xml:id="ssec-SSSOaPMs">
             <title>Sample Spaces, Set Operations, and Probability Models</title>
-            <p/>
+            
+            <p>Let's get right to the definitions.</p>
+
+            <definition xml:id="def-outcomesamplespace">
+              <statement>
+                <p>Suppose we have a repeatable experiment we want to investigate probabilistically. The things that happen when we do the experiment, the results of running it, are called the [<term>experimental</term>] <term>outcomes</term><idx>outcome of an experiment</idx>. The set of all outcomes is called the <term>sample space</term><idx>sample space</idx> of the experiment. We almost always use the symbol <m>S</m> for this sample space.</p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-sampspace1">
+              <statement>
+                <p>Suppose the experiment we are doing is <q>flip a coin.</q> Then the sample space would be <m>S=\{H, T\}</m>.</p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-sampspace2">
+              <statement>
+                <p>For the experiment <q>roll a [normal, six-sided] die,</q> the sample space would be <m>S=\{1, 2, 3, 4, 5, 6\}</m>.</p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-sampspace3">
+              <statement>
+                <p>For the experiment <q>roll two dice,</q> the sample space would be
+                <md>
+                  <mrow>S=\{&amp;11, 12, 13, 14, 15, 16,</mrow>
+                  <mrow>&amp;21, 22, 23, 24, 25, 26,</mrow>
+                  <mrow>&amp;31, 32, 33, 34, 35, 36,</mrow>
+                  <mrow>&amp;41, 42, 43, 44, 45, 46,</mrow>
+                  <mrow>&amp;51, 52, 53, 54, 55, 56,</mrow>
+                  <mrow>&amp;61, 62, 63, 64, 65, 66\}</mrow>
+                </md>
+                where the notation <q><m>nm</m></q> means <q><m>1^{\text{st}}</m> roll resulted in an <m>n</m>, <m>2^{\text{nd}}</m> in an <m>m</m>.</q></p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-samspace4">
+              <statement>
+                <p>Consider the experiment <q>flip a coin as many times as necessary to see the first <em>Head</em>.</q> This would have the infinite sample space
+                <me>
+                  S=\{H, TH, TTH, TTTH, TTTTH, \dots \}.
+                </me></p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-sampspace5">
+              <statement>
+                <p>Finally, suppose the experiment is <q>point a Geiger counter at a lump of radioactive material and see how long you have to wait until the next click.</q> Then the sample space <m>S</m> is the set of all positive real numbers, because potentially the waiting time could be any positive amount of time.</p>
+              </statement>
+            </example>
+
+            <p>As mentioned in the chapter introduction, we are more interested in</p>
+
+            <definition xml:id="def-event">
+              <statement>
+                <p>Given a repeatable experiment with sample space <m>S</m>, an <term>event</term><idx>event</idx> is any collection of [some, all, or none of the] outcomes in <m>S</m>; <em>i.e.,</em> an event is any <term>subset</term><idx>subset, <m>\subset</m></idx> <m>E</m> of <m>S</m>, written <m>E\subset S</m><idx><h>subset</h><h>notation</h></idx>.</p>
+              </statement>
+            </definition>
+
+            <p>There is one special set which is a subset of any other set, and therefore is an event in any sample space.</p>
+
+            <definition xml:id="def-emptyset">
+              <statement>
+                <p>The set <m>\{\}</m> with no elements is called the <term>empty set</term><idx>empty set, <m>\emptyset</m></idx><idx><h>empty set</h><h>notation</h></idx>, for which we use the notation <m>\emptyset</m>.</p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-events1">
+              <statement>
+                <p>Looking at the sample space <m>S=\{H, T\}</m> in <xref ref="eg-sampspace1"/>, it's pretty clear that the following are all the subsets of <m>S</m>:
+                <md>
+                  <mrow>&amp;\emptyset</mrow>
+                  <mrow>&amp;\{H\}</mrow>
+                  <mrow>&amp;\{T\}</mrow>
+                  <mrow>&amp;S\ [=\{H, T\}]</mrow>
+                </md></p>
+              </statement>
+            </example>
+
+            <p>Two parts of that example are always true: <m>\emptyset</m> and <m>S</m> are always subsets of any set <m>S</m>.</p>
+
+            <p>Since we are going to be working a lot with events, which are subsets of a larger set, the sample space, it is nice to have a few basic terms from set theory:</p>
+
+            <definition xml:id="def-complement">
+              <statement>
+                <p>Given a subset <m>E\subset S</m> of a larger set <m>S</m>, the <term>complement of <m>E</m></term><idx>complement, <m>E^c</m></idx><idx><h>complement</h><h>notation</h></idx>, is the set <m>E^c=\{\text{all the elements of } S \text{ which are not in } E\}</m>.</p>
+              </statement>
+            </definition>
+
+            <p>If we describe an event <m>E</m> in words as all outcomes satisfies some property <m>X</m>, the complementary event, consisting of all the outcomes not in <m>E</m>, can be described as all outcomes which <em>don't</em> satisfy <m>X</m>. In other words, we often describe the event <m>E^c</m> as the event <q><term>not</term> <m>E</m>.</q><idx>not, for an event</idx></p>
+
+            <definition xml:id="def-union">
+              <statement>
+                <p>Given two sets <m>A</m> and <m>B</m>, their <term>union</term><idx>union, <m>\cup</m></idx><idx><h>union</h><h>notation</h></idx> is the set
+                <me>
+                  A\cup B = \{\text{all elements which are in } A \text{ or } B \text{ [or both]}\}.
+                </me></p>
+              </statement>
+            </definition>
+
+            <p>Now if event <m>A</m> is those outcomes having property <m>X</m> and <m>B</m> is those with property <m>Y</m>, the event <m>A\cup B</m>, with all outcomes in <m>A</m> together with all outcomes in <m>B</m> can be described as all outcomes satisfying <m>X</m> or <m>Y</m>, thus we sometimes pronounce the event <q><m>A\cup B</m></q> as <q><m>A</m> <term>or</term><idx>or, for events</idx> <m>B</m>.</q></p>
+
+            <definition xml:id="def-intersection">
+              <statement>
+                <p>Given two sets <m>A</m> and <m>B</m>, their <term>intersection</term><idx>intersection, <m>\cap</m></idx><idx><h>intersection</h><h>notation</h></idx> is the set
+                <me>
+                  A\cap B = \{\text{all elements which are in both } A \text{ and } B\}.
+                </me></p>
+              </statement>
+            </definition>
+
+            <p>If, as before, event <m>A</m> consists of those outcomes having property <m>X</m> and <m>B</m> is those with property <m>Y</m>, the event <m>A\cap B</m> will consist of those outcomes which satisfy both <m>X</m> and <m>Y</m>. In other words, <q><m>A\cap B</m></q> can be described as <q><m>A</m> <term>and</term><idx>and, for events</idx> <m>B</m>.</q></p>
+
+            <p>Putting together the idea of intersection with the idea of that special subset <m>\emptyset</m> of any set, we get the</p>
+
+            <definition xml:id="def-disjointME">
+              <statement>
+                <p>Two sets <m>A</m> and <m>B</m> are called <term>disjoint</term><idx>disjoint events</idx> if <m>A\cap B=\emptyset</m>. In other words, sets are disjoint if they have nothing in common.</p>
+
+                <p>A exact synonym for disjoint that some authors prefer is <term>mutually exclusive</term><idx>mutually exclusive events</idx>. We will use both terms interchangeably in this book.</p>
+              </statement>
+            </definition>
+
+            <p>Now we are ready for the basic structure of probability.</p>
+
+            <definition xml:id="def-probmodel">
+              <statement>
+                <p>Given a sample space <m>S</m>, a <term>probability model</term><idx>probability model</idx> on <m>S</m> is a choice of a real number <m>P(E)</m> for every event <m>E\subset S</m> which satisfies
+                <ol>
+                  <li><p>For all events <m>E</m>, <m>0\le P(E)\le 1</m>.</p></li>
+                  <li><p><m>P(\emptyset)=0</m> and <m>P(S)=1</m>.</p></li>
+                  <li xml:id="item-complementrule"><p>For all events <m>E</m>, <m>P(E^c)=1-P(E)</m>.</p></li>
+                  <li><p>If <m>A</m> and <m>B</m> are any two <em>disjoint</em><idx>disjoint events</idx> events, then <m>P(A\cup B)=P(A)+P(B)</m>. [This is called the <term>addition rule for disjoint events</term><idx>addition rule for disjoint events</idx>.]</p></li>
+                </ol></p>
+              </statement>
+            </definition>
           </subsection>
           <subsection xml:id="ssec-VDs">
             <title>Venn Diagrams</title>
-            <p/>
+
+            <p>Venn diagrams<idx>Venn diagram</idx> are a simple way to display subsets<idx>subset, <m>\subset</m></idx> of a fixed set and to show the relationships between these subsets and even the results of various set operations (like <em>complement</em><idx>complement, <m>E^c</m></idx>, <em>union</em><idx>union, <m>\cup</m></idx>, and <em>intersection</em><idx>intersection, <m>\cap</m></idx>) on them. The primary use we will make of Venn diagrams is for events<idx>event</idx> in a certain sample space<idx>sample space</idx>, so we will use that terminology [even though the technique has much wider application].</p>
+
+            <p>To make a Venn Diagram<idx>Venn diagram</idx>, <em>always start out by making a rectangle to represent the whole sample space</em><idx>sample space</idx>:</p>
+
+            <p><em>[Figure: Rectangle representing sample space]</em></p>
+
+            <p>Within that rectangle, we make circles, ovals, or just blobs, to indicate that portion of the sample space<idx>sample space</idx> which is some event <m>E</m>:</p>
+
+            <p><em>[Figure: Rectangle with one circle labeled E inside]</em></p>
+
+            <p>Sometimes, if the outcomes in the sample space<idx>sample space</idx> <m>S</m> and in the event<idx>event</idx> <m>A</m> might be indicated in the different parts of the Venn diagram<idx>Venn diagram</idx>. So, if <m>S=\{a, b, c, d\}</m> and <m>A=\{a, b\}\subset S</m>, we might draw this as</p>
+
+            <p><em>[Figure: Rectangle with circle A containing points a and b, and points c and d outside the circle]</em></p>
+
+            <p>The <em>complement</em><idx>complement, <m>E^c</m></idx> <m>E^c</m> of an event<idx>event</idx> <m>E</m> is easy to show on a Venn diagram<idx>Venn diagram</idx>, since it is simply everything which is not in <m>E</m>:</p>
+
+            <p><em>[Figure: Two diagrams side by side - left showing filled circle E, right showing filled exterior region representing E^c]</em></p>
+
+            <p>This can actually be helpful in figuring out what must be in <m>E^c</m>. In the example above with <m>S=\{a, b, c, d\}</m> and <m>A=\{a, b\}\subset S</m>, by looking at what is in the shaded exterior part for our picture of <m>E^c</m>, we can see that for that <m>A</m>, we would get <m>A^c=\{c, d\}</m>.</p>
+
+            <p>Moving now to set operations that work with two events<idx>event</idx>, suppose we want to make a Venn diagram<idx>Venn diagram</idx> with events <m>A</m> and <m>B</m>. If we know these events are disjoint<idx>disjoint events</idx>, then we would make the diagram as follows:</p>
+
+            <p><em>[Figure: Rectangle with two non-overlapping circles A and B]</em></p>
+
+            <p>while if they are known not to be disjoint, we would use instead this diagram:</p>
+
+            <p><em>[Figure: Rectangle with two overlapping circles A and B]</em></p>
+
+            <p>For example, it <m>S=\{a, b, c, d\}</m>, <m>A=\{a, b\}</m>, and <m>B=\{b, c\}</m>, we would have</p>
+
+            <p><em>[Figure: Rectangle with two overlapping circles, A containing a and b, B containing b and c, with b in the overlap]</em></p>
+
+            <p>When in doubt, it is probably best to use the version with overlap, which then could simply not have any points in it (or could have zero probability, when we get to that, below).</p>
+
+            <p>Venn diagrams<idx>Venn diagram</idx> are very good at showing unions<idx>union, <m>\cup</m></idx>, and intersection<idx>intersection, <m>\cap</m></idx>:</p>
+
+            <p><em>[Figure: Four diagrams showing - left: filled circle A, middle-left: filled circle B, middle-right: both circles filled for A∪B, right: only overlap filled for A∩B]</em></p>
+
+            <p>Another nice thing to do with Venn diagrams<idx>Venn diagram</idx> is to use them as a visual aid for probability computations. The basic idea is to make a diagram showing the various events<idx>event</idx> sitting inside the usual rectangle, which stands for the sample space<idx>sample space</idx>, and to put numbers in various parts of the diagram showing the probabilities of those events, or of the results of operations (unions<idx>union, <m>\cup</m></idx>, intersection<idx>intersection, <m>\cap</m></idx>, and complement<idx>complement, <m>E^c</m></idx>) on those events.</p>
+
+            <p>For example, if we are told that an event<idx>event</idx> <m>A</m> has probability <m>P(A)=.4</m>, then we can immediately fill in the <m>.4</m> as follows:</p>
+
+            <p><em>[Figure: Rectangle with circle A labeled with .4 inside]</em></p>
+
+            <p>But we can also put a number in the exterior of that circle which represents <m>A</m>, taking advantage of the fact that that exterior is <m>A^c</m> and the rule for probabilities of complements (point <xref ref="item-complementrule"/> in <xref ref="def-probmodel"/>) to conclude that the appropriate number is <m>1-.4=.6</m>:</p>
+
+            <p><em>[Figure: Rectangle with circle A showing .4 inside and .6 outside]</em></p>
+
+            <p>We recommend that, in a Venn diagram<idx>Venn diagram</idx> showing probability values, <em>you always put a number in the region exterior to all of the events</em><idx>event</idx> [but inside the rectangle indicating the sample space<idx>sample space</idx>, of course].</p>
+
+            <p>Complicating a little this process of putting probability numbers in the regions of a Venn diagram<idx>Venn diagram</idx> is the situation where we are giving for both an event<idx>event</idx> and a subset<idx>subset, <m>\subset</m></idx> of that event. This most often happens when we are told probabilities both of some events and of their intersection(s)<idx>intersection, <m>\cap</m></idx>. Here is an example:</p>
+
+            <example xml:id="eg-probnumsinVDs">
+              <statement>
+                <p>Suppose we are told that we have two events <m>A</m> and <m>B</m> in the sample space <m>S</m>, which satisfy <m>P(A)=.4</m>, <m>P(B)=.5</m>, and <m>P(A\cap B)=.1</m>. First of all, we know that <m>A</m> and <m>B</m> are not disjoint, since if they were disjoint, that would mean (by definition) that <m>A\cap B=\emptyset</m>, and since <m>P(\emptyset)=0</m> but <m>P(A\cap B)\neq 0</m>, that is not possible. So we draw a Venn diagram that we've see before:</p>
+
+                <p><em>[Figure: Two overlapping circles A and B]</em></p>
+
+                <p>However, it would be unwise simply to write those given numbers <m>.4</m>, <m>.5</m>, and <m>.1</m> into the three central regions of this diagram. The reason is that the number <m>.1</m> is the probability of <m>A\cap B</m>, which is a part of <m>A</m> already, so if we simply write <m>.4</m> in the rest of <m>A</m>, we would be counting that <m>.1</m> for the <m>A\cap B</m> twice. Therefore, before we write a number in the rest of <m>A</m>, outside of <m>A\cap B</m>, we have to subtract the <m>.1</m> for <m>P(A\cap B)</m>. That means that the number which goes in the rest of <m>A</m> should be <m>.4-.1=.3</m>. A similar reasoning tells us that the number in the part of <m>B</m> outside of <m>A\cap B</m>, should be <m>.5-.1=.4</m>. That means the Venn diagram with all probabilities written in would be:</p>
+
+                <p><em>[Figure: Venn diagram with .3 in A only, .1 in overlap, .4 in B only, .2 outside both circles]</em></p>
+              </statement>
+            </example>
+
+            <p>The approach in the above example is our second important recommendation for who to put numbers in a Venn diagram<idx>Venn diagram</idx> showing probability values: <em>always put a number in each region which corresponds to the probability of that smallest connected region containing the number, not any larger region</em>.</p>
+
+            <p>One last point we should make, using the same argument as in the above example. Suppose we have events<idx>event</idx> <m>A</m> and <m>B</m> in a sample space<idx>sample space</idx> <m>S</m> (again). Suppose we are not sure if <m>A</m> and <m>B</m> are disjoint<idx>disjoint events</idx>, so we cannot use the addition rule for disjoint events to compute <m>P(A\cup B)</m>. But notice that the events <m>A</m> and <m>A^c</m> are disjoint, so that <m>A\cap B</m> and <m>A^c\cap B</m> are also disjoint and
+            <me>
+              A = A\cap S = A\cap\left(B\cup B^c\right) = \left(A\cap B\right)\cup\left(A\cap B^c\right)
+            </me>
+            is a decomposition of the event <m>A</m> into the two disjoint events <m>A\cap B</m> and <m>A^c\cap B</m>. From the addition rule for disjoint events, this means that
+            <me>
+              P(A)=P(A\cap B)+P(A\cap B^c).
+            </me></p>
+
+            <p>Similar reasoning tells us both that
+            <me>
+              P(B)=P(A\cap B)+P(A^c\cap B)
+            </me>
+            and that
+            <me>
+              A\cup B=\left(A\cap B^c\right)\cup\left(A\cap B\right)\cup\left(A^c\cap B\right)
+            </me>
+            is a decomposition of <m>A\cup B</m> into disjoint pieces, so that
+            <me>
+              P(A\cup B)=P(A\cap B^c)+P(A\cap B)+P(A^c\cap B).
+            </me>
+            Combining all of these equations, we conclude that
+            <md>
+              <mrow>P(A)+P(B)-P(A\cap B) &amp;=P(A\cap B)+P(A\cap B^c)+P(A\cap B)+P(A^c\cap B)-P(A\cap B)</mrow>
+              <mrow>&amp;= P(A\cap B^c)+P(A\cap B)+P(A^c\cap B) + P(A\cap B)-P(A\cap B)</mrow>
+              <mrow>&amp;= P(A\cap B^c)+P(A\cap B)+P(A^c\cap B)</mrow>
+              <mrow>&amp;= P(A\cup B).</mrow>
+            </md>
+            This is important enough to state as a</p>
+
+            <assemblage xml:id="fact-probnondisjevents">
+              <title>Fact: The Addition Rule for General Events</title>
+              <p><idx>Addition Rule for General Events</idx>If <m>A</m> and <m>B</m> are events<idx>event</idx> in a sample space<idx>sample space</idx> <m>S</m> then we have the addition rule for their probabilities
+              <me>
+                P(A\cup B) = P(A) + P(B) - P(A\cap B).
+              </me>
+              This rule is true whether or not <m>A</m> and <m>B</m> are disjoint<idx>disjoint events</idx>.</p>
+            </assemblage>
           </subsection>
           <subsection xml:id="ssec-FPMs">
             <title>Finite Probability Models</title>
-            <p/>
+
+            <p>Here is a nice situation in which we can easily calculate a lot of probabilities fairly easily: if the sample space <m>S</m> of some experiment is <em>finite</em>.<idx>finite probability models</idx></p>
+
+            <p>So let's suppose the sample space consists of just the outcomes <m>S=\{o_1, o_2, \dots, o_n\}</m>. For each of the outcomes, we can compute the probability:
+            <md>
+              <mrow>p_1 =&amp;  P(\{o_1\})</mrow>
+              <mrow>p_2 =&amp;  P(\{o_2\})</mrow>
+              <mrow>&amp;\vdots</mrow>
+              <mrow>p_n =&amp;  P(\{o_n\})</mrow>
+            </md>
+            Let's think about what the rules for probability models tell us about these numbers <m>p_1, p_2, \dots, p_n</m>. First of all, since they are each the probability of an event, we see that
+            <md>
+              <mrow>0\le &amp;p_1\le 1</mrow>
+              <mrow>0\le &amp;p_2\le 1</mrow>
+              <mrow>&amp;\ \vdots</mrow>
+              <mrow>0\le &amp;p_n\le 1</mrow>
+            </md>
+            Furthermore, since <m>S=\{o_1, o_2, \dots, o_n\}=\{o_1\}\cup\{o_2\}\cup \dots \cup\{o_n\}</m> and all of the events <m>\{o_1\}, \{o_2\}, \dots, \{o_n\}</m> are disjoint, by the addition rule for disjoint events we have
+            <md>
+              <mrow>1=P(S)&amp;=P(\{o_1, o_2, \dots, o_n\})</mrow>
+              <mrow>&amp;=P(\{o_1\}\cup\{o_2\}\cup \dots \cup\{o_n\})</mrow>
+              <mrow>&amp;=P(\{o_1\})+P(\{o_2\})+ \dots +P(\{o_n\})</mrow>
+              <mrow>&amp;=p_1+p_2+ \dots +p_n.</mrow>
+            </md></p>
+
+            <p>The final thing to notice about this situation of a finite sample space is that if <m>E\subset S</m> is any event, then <m>E</m> will be just a collection of some of the outcomes from <m>\{o_1, o_2, \dots, o_n\}</m> (maybe none, maybe all, maybe an intermediate number). Since, again, the events like <m>\{o_1\}</m> and <m>\{o_2\}</m> and so on are disjoint, we can compute
+            <md>
+              <mrow>P(E) &amp;= P(\{\text{the outcomes } o_j \text{ which make up } E\})</mrow>
+              <mrow>&amp;= \sum \{\text{the } p_j\text{'s for the outcomes in } E\}.</mrow>
+            </md></p>
+
+            <p>In other words</p>
+
+            <assemblage xml:id="fact-finitemodel">
+              <title>Fact</title>
+              <p>A probability model on a sample space <m>S</m> with a finite number, <m>n</m>, of outcomes, is nothing other than a choice of real numbers <m>p_1, p_2, \dots, p_n</m>, all in the range from <m>0</m> to <m>1</m> and satisfying <m>p_1+p_2+ \dots +p_n=1</m>. For such a choice of numbers, we can compute the probability of any event <m>E\subset S</m> as
+              <me>
+                P(E) = \sum \{\text{the } p_j\text{'s corresponding to the outcomes } o_j \text{ which make up } E\}.
+              </me></p>
+            </assemblage>
+
+            <example xml:id="eg-finiteprobmod1">
+              <statement>
+                <p>For the coin flip of <xref ref="eg-sampspace1"/>, there are only the two outcomes <m>H</m> and <m>T</m> for which we need to pick two probabilities, call them <m>p</m> and <m>q</m>. In fact, since the total must be <m>1</m>, we know that <m>p+q=1</m> or, in other words, <m>q=1-p</m>. The the probabilities for all events (which we listed in <xref ref="eg-events1"/>) are
+                <md>
+                  <mrow>P(\emptyset) &amp;= 0</mrow>
+                  <mrow>P(\{H\}) &amp;= p</mrow>
+                  <mrow>P(\{T\}) &amp;= q = 1-p</mrow>
+                  <mrow>P(\{H,T\}) &amp;= p + q = 1</mrow>
+                </md></p>
+
+                <p>What we've described here is, potentially, a <term>biased coin</term><idx>biased coin</idx><idx><h>coin</h><h>biased</h></idx>, since we are not assuming that <m>p=q</m> <mdash/> the probabilities of getting a head and a tail are not assumed to be the same. The alternative is to assume that we have a <term>fair coin</term><idx>fair coin</idx><idx><h>coin</h><h>fair</h></idx>, meaning that <m>p=q</m>. Note that in such a case, since <m>p+q=1</m>, we have <m>2p=1</m> and so <m>p=1/2</m>. That is, the probability of a head (and, likewise, the probability of a tail) in a single throw of a fair coin is <m>1/2</m>.</p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-finiteprobmod2">
+              <statement>
+                <p>As in the previous example, we can consider the die of <xref ref="eg-sampspace2"/> to a <term>fair die</term>, meaning that the individual face probabilities are all the same. Since they must also total to <m>1</m> (as we saw for all finite probability models), it follows that
+                <me>
+                  p_1 = p_2 = p_3 = p_4 = p_5 = p_6 = 1/6.
+                </me>
+                We can then use this basic information and the formula (for <m>P(E)</m>) in <xref ref="fact-finitemodel"/> to compute the probability of any event of interest, such as
+                <me>
+                  P(\text{``roll was even''}) = P(\{2, 4, 6\}) = \frac16 + \frac16 + \frac16 = \frac36 = \frac12.
+                </me></p>
+              </statement>
+            </example>
+
+            <p>We should immortalize these last two examples with a</p>
+
+            <definition xml:id="def-fair">
+              <statement>
+                <p>When we are talking about dice, coins, individuals for some task, or another small, practical, finite experiment, we use the term <term>fair</term><idx>fair, in general</idx> to indicate that the probabilities of all individual outcomes are equal (and therefore all equal to the the number <m>1/n</m>, where <m>n</m> is the number of outcomes in the sample space). A more technical term for the same idea is <term>equiprobable</term><idx>equiprobable</idx>, while a more casual term which is often used for this in very informal settings is <q><term>at random</term></q><idx>at random</idx> (such as <q>pick a card <em>at random</em> from this deck</q> or <q>pick a random patient from the study group to give the new treatment to<ellipsis/></q>).</p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-finiteprobmod3">
+              <statement>
+                <p>Suppose we look at the experiment of <xref ref="eg-sampspace3"/> and add the information that the two dice we are rolling are <em>fair</em>. This actually isn't quite enough to figure out the probabilities, since we also have to assure that the fair rolling of the first die doesn't in any way affect the rolling of the second die. This is technically the requirement that the two rolls be <em>independent</em><idx>independent events</idx>, but since we won't investigate that carefully until <xref ref="sec-condprob"/>, below, let us instead here simply say that we assume the two rolls are fair and are in fact completely uninfluenced by anything around them in the world including each other.</p>
+
+                <p>What this means is that, in the long run, we would expect the first die to show a <m>1</m> roughly <m>{\frac16}^{\text{th}}</m> of the time, and in the very long run, the second die would show a <m>1</m> roughly <m>{\frac16}^{\text{th}}</m> of <em>those</em> times. This means that the outcome of the <q>roll two dice</q> experiment should be <m>11</m> with probability <m>\frac{1}{36}</m> <mdash/> and the same reasoning would show that all of the outcomes have that probability. In other words, this is an equiprobable sample space with <m>36</m> outcomes each having probability <m>\frac{1}{36}</m>. Which in turn enables us to compute any probability we might like, such as
+                <md>
+                  <mrow>P(\text{``sum of the two rolls is } 4\text{''}) &amp;= P(\{13, 22, 31\})</mrow>
+                  <mrow>&amp;= \frac{1}{36} + \frac{1}{36} + \frac{1}{36}</mrow>
+                  <mrow>&amp;= \frac{3}{36}</mrow>
+                  <mrow>&amp;= \frac{1}{12}.</mrow>
+                </md></p>
+              </statement>
+            </example>
           </subsection>
         </section>
         <section xml:id="sec-condprob">
           <title>Conditional Probability</title>
-          <p/>
+
+          <p>We have described the whole foundation of the theory of probability as coming from <em>imperfect knowledge</em><idx>imperfect knowledge</idx>, in the sense that we don't know for sure if an event <m>A</m> will happen any particular time we do the experiment but we do know, in the long run, in what fraction of times <m>A</m> will happen. Or, at least, we claim that there is some number <m>P(A)</m> such that after running the experiment <m>N</m> times, out of which <m>n_A</m> of these times are when <m>A</m> happened, <m>P(A)</m> is approximately <m>n_A/N</m> (and this ratio gets closer and closer to <m>P(A)</m> as <m>N</m> gets bigger and bigger).</p>
+
+          <p>But what if we have <em>some</em> knowledge? In particular, what happens if we know for sure that the event <m>B</m> has happened <mdash/> will that influence our knowledge of whether <m>A</m> happens or not? As before, when there is randomness involved, we cannot tell for sure if <m>A</m> will happen, but we hope that, given the knowledge that <m>B</m> happened, we can make a more accurate guess about the probability of <m>A</m>.</p>
+
+          <example xml:id="eg-condprob1">
+            <statement>
+              <p>If you pick a person at random in a certain country on a particular date, you might be able to estimate the probability that the person had a certain height if you knew enough about the range of heights of the whole population of that country. [In fact, below we will make estimates of this kind.] That is, if we define the event
+              <me>
+                A=\text{``the random person is taller than } 1.829 \text{ meters (}6\text{ feet)''}
+              </me>
+              then we might estimate <m>P(A)</m>.</p>
+
+              <p>But consider the event
+              <me>
+                B=\text{``the random person's parents were both taller than } 1.829 \text{ meters''}.
+              </me>
+              Because there is a genetic component to height, if you know that <m>B</m> happened, it would change your idea of how likely, given that knowledge, that <m>A</m> happened. Because genetics are not the only thing which determines a person's height, you would not be certain that <m>A</m> happened, even given the knowledge of <m>B</m>.</p>
+            </statement>
+          </example>
+
+          <p>Let us use the frequentist approach to derive a formula for this kind of <em>probability of <m>A</m> given that <m>B</m> is known to have happened</em>. So think about doing the repeatable experiment many times, say <m>N</m> times. Out of all those times, some times <m>B</m> happens, say it happens <m>n_B</m> times. Out of <em>those</em> times, the ones where <m>B</m> happened, sometimes <m>A</m> also happened. These are the cases where both <m>A</m> and <m>B</m> happened <mdash/> or, converting this to a more mathematical descriptions, the times that <m>A\cap B</m> happened <mdash/> so we will write it <m>n_{A\cap B}</m>.</p>
+
+          <p>We know that the probability of <m>A</m> happening in the cases where we know for sure that <m>B</m> happened is approximately <m>n_{A\cap B}/n_B</m>. Let's do that favorite trick of multiplying and dividing by the same number, so finding that the probability in which we are interested is approximately
+          <me>
+            \frac{n_{A\cap B}}{n_B} = \frac{n_{A\cap B}\cdot N}{N\cdot n_B} = \frac{n_{A\cap B}}{N}\cdot\frac{N}{n_B} = \frac{n_{A\cap B}}{N} \Bigg/ \frac{n_B}{N} \approx P(A\cap B) \Big/ P(B)
+          </me></p>
+
+          <p>Which is why we make the</p>
+
+          <definition xml:id="def-condprob">
+            <statement>
+              <p>The <term>conditional probability</term><idx>conditional probability, <m>P(A\mid B)</m></idx> <term>of the event <m>A</m> given</term><idx>given, the known event in conditional probability</idx> <term>the event <m>B</m></term> is
+              <me>
+                P(A|B) = \frac{P(A\cap B)}{P(B)}.
+              </me><idx><h>conditional probability</h><h>notation</h></idx>
+              Here <m>P(A|B)</m> is pronounced <em>the probability of <m>A</m> given <m>B</m></em>.</p>
+            </statement>
+          </definition>
+
+          <p>Let's do a simple</p>
+
+          <example xml:id="eg-condprob2">
+            <statement>
+              <p>Building off of <xref ref="eg-finiteprobmod2"/>, note that the probability of rolling a <m>2</m> is <m>P(\{2\})=1/6</m> (as is the probability of rolling any other face <mdash/> it's a <em>fair die</em>). But suppose that you were told that the roll was even, which is the event <m>\{2, 4, 6\}</m>, and asked for the probability that the roll was a <m>2</m> given this prior knowledge. The answer would be
+              <me>
+                P(\{2\}\mid\{2, 4, 6\})=\frac{P(\{2\}\cap\{2, 4, 6\})}{P(\{2, 4, 6\})} =\frac{P(\{2\})}{P(\{2, 4, 6\})} = \frac{1/6}{1/2} = 1/3.
+              </me>
+              In other words, the probability of rolling a <m>2</m> on a fair die with no other information is <m>1/6</m>, which the probability of rolling a <m>2</m> given that we rolled an even number is <m>1/3</m>. So the probability doubled with the given information.</p>
+
+              <p>Sometimes the probability changes even more than merely doubling: the probability that we rolled a <m>1</m> with no other knowledge is <m>1/6</m>, while the probability that we rolled a <m>1</m> given that we rolled an even number is
+              <me>
+                P(\{1\}\mid\{2, 4, 6\})=\frac{P(\{1\}\cap\{2, 4, 6\})}{P(\{2, 4, 6\})} =\frac{P(\emptyset)}{P(\{2, 4, 6\})} = \frac{0}{1/2} = 0.
+              </me></p>
+            </statement>
+          </example>
+
+          <p>But, actually, sometimes the conditional probability for some event is the same as the unconditioned probability. In other words, sometimes knowing that <m>B</m> happened doesn't change our estimate of the probability of <m>A</m> at all, they are no really related events, at least from the point of view of probability. This motivates the</p>
+
+          <definition xml:id="def-independent">
+            <statement>
+              <p>Two events <m>A</m> and <m>B</m> are called <term>independent</term><idx>independent events</idx> if <m>P(A\mid B)=P(A)</m>.</p>
+            </statement>
+          </definition>
+
+          <p>Plugging the defining formula for <m>P(A\mid B)</m> into the definition of <em>independent</em>, it is easy to see that</p>
+
+          <assemblage xml:id="fact-indepevents">
+            <title>Fact</title>
+            <p>Events <m>A</m> and <m>B</m> are independent if and only if <m>P(A\cap B)=P(A)\cdot P(B)</m>.</p>
+          </assemblage>
+
+          <example xml:id="eg-condprob3">
+            <statement>
+              <p>Still using the situation of <xref ref="eg-finiteprobmod2"/>, we saw in <xref ref="eg-condprob2"/> that the events <m>\{2\}</m> and <m>\{2, 3, 4\}</m> are not independent since
+              <me>
+                P(\{2\}) = 1/6 \neq 1/3 = P(\{2\}\mid\{2, 4, 6\})
+              </me>
+              nor are <m>\{1\}</m> and <m>\{2, 3, 4\}</m>, since
+              <me>
+                P(\{1\}) = 1/6 \neq 0 = P(\{1\}\mid\{2, 4, 6\}).
+              </me>
+              However, look at the events <m>\{1, 2\}</m> and <m>\{2, 4, 6\}</m>:
+              <md>
+                <mrow>P(\{1, 2\}) = P(\{1\}) + P(\{2\}) &amp;= 1/6 + 1/6</mrow>
+                <mrow>&amp;= 1/3</mrow>
+                <mrow>&amp;= \frac{1/6}{1/2}</mrow>
+                <mrow>&amp;= \frac{P(\{2\})}{P(\{2, 4, 6\})}</mrow>
+                <mrow>&amp;= \frac{P(\{1, 2\}\cap\{2, 4, 6\})}{P(\{2, 4, 6\})}</mrow>
+                <mrow>&amp;= P(\{1, 2\}\mid\{2, 4, 6\})</mrow>
+              </md>
+              which means that they are independent!</p>
+            </statement>
+          </example>
+
+          <example xml:id="eg-condprob4">
+            <statement>
+              <p>We can now fully explain what was going on in <xref ref="eg-finiteprobmod3"/>. The two fair dice were supposed to be rolled in a way that the first roll had no effect on the second <mdash/> this exactly means that the dice were rolled <em>independently</em>. As we saw, this then means that each individual outcome of sample space <m>S</m> had probability <m>\frac{1}{36}</m>. But the first roll having any particular value is independent of the second roll having another, <em>e.g.</em>, if <m>A=\{11, 12, 13, 14, 15, 16\}</m> is the event in that sample space of getting a <m>1</m> on the first roll and <m>B=\{14, 24, 34, 44, 54, 64\}</m> is the event of getting a <m>4</m> on the second roll, then events <m>A</m> and <m>B</m> are independent, as we check by using <xref ref="fact-indepevents"/>:
+              <md>
+                <mrow>P(A\cap B) &amp;= P(\{14\})</mrow>
+                <mrow>&amp;= \frac{1}{36}</mrow>
+                <mrow>&amp;= \frac16\cdot\frac16</mrow>
+                <mrow>&amp;= \frac{6}{36}\cdot\frac{6}{36}</mrow>
+                <mrow>&amp;=P(A)\cdot P(B).</mrow>
+              </md>
+              On the other hand, the event <q>the sum of the rolls is <m>4</m>,</q> which is <m>C=\{13, 22, 31\}</m> as a set, <em>is not independent</em> of the value of the first roll, since <m>P(A\cap C)=P(\{13\})=\frac{1}{36}</m> but <m>P(A)\cdot P(C)=\frac{6}{36}\cdot\frac{3}{36}=\frac16\cdot\frac{1}{12}=\frac{1}{72}</m>.</p>
+            </statement>
+          </example>
         </section>
         <section xml:id="sec-RVs">
           <title>Random Variables</title>
           <p/>
           <subsection xml:id="ssec-DoRVsaFEs">
             <title>Definition and First Examples</title>
-            <p/>
+            
+            <p>Suppose we are doing a random experiment and there is some consequence of the result in which we are interested that can be measured by a number. The experiment might be playing a game of chance and the result could be how much you win or lose depending upon the outcome, or the experiment could be which part of the drivers' manual you randomly choose to study and the result how many points we get on the driver's license test we make the next day, or the experiment might be giving a new drug to a random patient in medical study and the result would be some medical measurement you make after treatment (blood pressure, white blood cell count, whatever), <em>etc.</em> There is a name for this situation in mathematics</p>
+
+            <definition xml:id="def-RV">
+              <statement>
+                <p>A choice of a number for each outcome of a random experiment is called a <term>random variable</term><idx>random variable, RV</idx><idx>RV, random variable</idx> [<term>RV</term>]. If the values an RV takes can be counted, because they are either finite or countably infinite<idx>countably infinite</idx> in number, the RV is called <term>discrete</term><idx>discrete random variable</idx>; if, instead, the RV takes on all the values in an interval of real numbers, the RV is called <term>continuous</term><idx>continuous random variable</idx>.</p>
+                
+                <p>We usually use capital letters to denote RVs and the corresponding lowercase letter to indicate a particular numerical value the RV might have, like <m>X</m> and <m>x</m>.</p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-RV1">
+              <statement>
+                <p>Suppose we play a silly game where you pay me $5 to play, then I flip a fair coin<idx>fair coin</idx><idx><h>coin</h><h>fair</h></idx> and I give you $10 if the coin comes up heads and $0 if it comes up tails. Then your net winnings, which would be +$5 or -$5 each time you play, are a random variable. Having only two possible values, this RV is certainly discrete.</p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-RV2">
+              <statement>
+                <p>Weather phenomena vary so much, due to such small effects <mdash/> such as the famous butterfly flapping its wings in the Amazon rain forest causing a hurricane in North America <mdash/> that they appear to be a random phenomenon. Therefore, observing the temperature at some weather station is a continuous random variable whose value can be any real number in some range like <m>-100</m> to <m>100</m> (we're doing <em>science</em>, so we use <m>{}^\circ C</m>).</p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-RV3">
+              <statement>
+                <p>Suppose we look at the <q><em>roll two fair dice independently</em></q> experiment from Example <xref ref="eg-condprob4"/> and Example <xref ref="eg-finiteprobmod3"/>, which was based on the probability model in Example <xref ref="eg-finiteprobmod3"/> and sample space in Example <xref ref="eg-sampspace3"/>. Let us consider in this situation the random variable <m>X</m> whose value for some pair of dice rolls is the sum of the two numbers showing on the dice. So, for example, <m>X(11)=2</m>, <m>X(12)=3</m>, <em>etc.</em></p>
+                
+                <p>In fact, let's make a table of all the values of <m>X</m>:
+                <md>
+                  <mrow>X(11) &amp;= 2</mrow>
+                  <mrow>X(21) = X(12) &amp;= 3</mrow>
+                  <mrow>X(31) = X(22) = X(13) &amp;=4</mrow>
+                  <mrow>X(41) = X(32) = X(23) = X(14) &amp;= 5</mrow>
+                  <mrow>X(51) = X(42) = X(33) = X(24) = X(15) &amp;= 6</mrow>
+                  <mrow>X(61) = X(52) = X(43) = X(34) = X(25) = X(16) &amp;= 7</mrow>
+                  <mrow>X(62) = X(53) = X(44) = X(35) = X(26) &amp;= 8</mrow>
+                  <mrow>X(63) = X(54) = X(45) = X(36) &amp;= 9</mrow>
+                  <mrow>X(64) = X(55) = X(46) &amp;= 10</mrow>
+                  <mrow>X(65) = X(56) &amp;= 11</mrow>
+                  <mrow>X(66) &amp;= 12</mrow>
+                </md></p>
+              </statement>
+            </example>
           </subsection>
           <subsection xml:id="ssec-D4DRVs">
             <title>Distributions for Discrete RVs</title>
-            <p/>
+            
+            <p>The first thing we do with a random variable, usually, is talk about the probabilities associate with it.</p>
+            
+            <definition xml:id="def-RVdistribution">
+              <statement>
+                <p>Given a discrete RV <m>X</m>, its <term>distribution</term><idx>distribution</idx> is a list of all of the values <m>X</m> takes on, together with the probability of it taking that value.</p>
+              </statement>
+            </definition>
+            
+            <p>[Note this is quite similar to Definition <xref ref="def-distribution"/> <mdash/> because it is essentially the same thing.]</p>
+
+            <example xml:id="eg-distribution1">
+              <statement>
+                <p>Let's look at the RV, which we will call <m>X</m>, in the silly betting game of Example <xref ref="eg-RV1"/>. As we noticed when we first defined that game, there are two possible values for this RV, $5 and -$5. We can actually think of <q><m>X=5</m></q> as describing an event, consisting of the set of all outcomes of the coin-flipping experiment which give you a net gain of $5. Likewise, <q><m>X=-5</m></q> describes the event consisting of the set of all outcomes which give you a net gain of -$5. These events are as follows:</p>
+                
+                <p><em>[Table showing: <m>x</m> column with values 5 and -5, and corresponding outcomes column with {H} and {T}]</em></p>
+                
+                <p>Since it is a fair coin<idx>fair coin</idx><idx><h>coin</h><h>fair</h></idx> so the probabilities of these events are known (and very simple), we conclude that the distribution of this RV is the table</p>
+                
+                <p><em>[Distribution table: <m>x</m> = 5 with <m>P(X=x) = 1/2</m>, and <m>x</m> = -5 with <m>P(X=x) = 1/2</m>]</em></p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-distribution2">
+              <statement>
+                <p>What about the <m>X=\text{``sum of the face values''}</m> RV on the <q><em>roll two fair dice, independently</em></q> random experiment from Example <xref ref="eg-RV3"/>? We have actually already done most of the work, finding out what values the RV can take and which outcomes cause each of those values. To summarize what we found:</p>
+                
+                <p><em>[Table showing outcomes for each sum value from 2 to 12]</em></p>
+                
+                <p>But we have seen that this is an equiprobable situation, where the probability of any event <m>A</m> contain <m>n</m> outcomes is <m>P(A)=n\cdot1/36</m>, so we can instantly fill in the distribution table for this RV as</p>
+                
+                <p><em>[Distribution table showing probabilities:
+                <md>
+                  <mrow>x=2: &amp; P(X=x) = \frac{1}{36}</mrow>
+                  <mrow>x=3: &amp; P(X=x) = \frac{2}{36}=\frac{1}{18}</mrow>
+                  <mrow>x=4: &amp; P(X=x) = \frac{3}{36}=\frac{1}{12}</mrow>
+                  <mrow>x=5: &amp; P(X=x) = \frac{4}{36}=\frac{1}{6}</mrow>
+                  <mrow>x=6: &amp; P(X=x) = \frac{5}{36}</mrow>
+                  <mrow>x=7: &amp; P(X=x) = \frac{6}{36}=\frac{1}{6}</mrow>
+                  <mrow>x=8: &amp; P(X=x) = \frac{5}{36}</mrow>
+                  <mrow>x=9: &amp; P(X=x) = \frac{4}{36}=\frac{1}{6}</mrow>
+                  <mrow>x=10: &amp; P(X=x) = \frac{3}{36}=\frac{1}{12}</mrow>
+                  <mrow>x=11: &amp; P(X=x) = \frac{2}{36}=\frac{1}{18}</mrow>
+                  <mrow>x=12: &amp; P(X=x) = \frac{1}{36}</mrow>
+                </md>]</em></p>
+              </statement>
+            </example>
+
+            <p>One thing to notice about distributions is that if we make a preliminary table, as we just did, of the events consisting of all outcomes which give a particular value when plugged into the RV, then we will have a collection of disjoint events which exhausts all of the sample space. What this means is that the sum of the probability values in the distribution table of an RV is the probability of the whole sample space of that RV's experiment. Therefore</p>
+            
+            <assemblage xml:id="fact-distssum2one">
+              <title>Fact</title>
+              <p>The sum of the probabilities in a distribution table for a random variable must always equal <m>1</m>.</p>
+            </assemblage>
+            
+            <p>It is quite a good idea, whenever you write down a distribution, to check that this Fact is true in your distribution table, simply as a sanity check against simple arithmetic errors.</p>
           </subsection>
           <subsection xml:id="ssec-expectation4DRVs">
             <title>Expectation for Discrete RVs</title>
-            <p/>
+            
+            <p>Since we cannot predict what exactly will be the outcome each time we perform a random experiment, we cannot predict with precision what will be the value of an RV on that experiment, each time. But, as we did with the basic idea of probability, maybe we can at least learn something from the long-term trends. It turns out that it is relatively easy to figure out the mean value of an RV over a large number of runs of the experiment.</p>
+
+            <p>Say <m>X</m> is a discrete RV, for which the distribution tells us that <m>X</m> takes the values <m>x_1, \dots, x_n</m>, each with corresponding probability <m>p_1, \dots, p_n</m>. Then the frequentist view of probability says that the probability <m>p_i</m> that <m>X=x_i</m> is (approximately) <m>n_i/N</m>, where <m>n_i</m> is the number of times <m>X=x_i</m> out of a large number <m>N</m> of runs of the experiment. But if
+            <me>
+              p_i = n_i/N
+            </me>
+            then, multiplying both sides by <m>N</m>,
+            <me>
+              n_i = p_i\,N \ .
+            </me>
+            That means that, out of the <m>N</m> runs of the experiment, <m>X</m> will have the value <m>x_1</m> in <m>p_1\,N</m> runs, the value <m>x_2</m> in <m>p_2\,N</m> runs, <em>etc.</em> So the sum of <m>X</m> over those <m>N</m> runs will be
+            <me>
+              (p_1\,N)x_1+(p_2\,N)x_2 + \dots + (p_n\,N)x_n\ .
+            </me>
+            Therefore the mean value of <m>X</m> over these <m>N</m> runs will be the total divided by <m>N</m>, which is <m>p_1\,x_1 + \dots + p_n x_n</m>. This motivates the definition</p>
+            
+            <definition xml:id="def-expectation">
+              <statement>
+                <p>Given a discrete RV <m>X</m> which takes on the values <m>x_1, \dots, x_n</m> with probabilities <m>p_1, \dots, p_n</m>, the <term>expectation</term><idx>expectation</idx> [sometimes also called the <term>expected value</term><idx>expected value</idx>] of <m>X</m> is the value
+                <me>
+                  E(X) = \sum p_i\,x_i\ .
+                </me></p>
+              </statement>
+            </definition>
+
+            <p>By what we saw just before this definition, we have the following</p>
+            
+            <assemblage xml:id="fact-RVmean">
+              <title>Fact</title>
+              <p>The expectation of a discrete RV is the mean of its values over many runs of the experiment.</p>
+            </assemblage>
+
+            <p><em>Note:</em> The attentive reader will have noticed that we dealt above only with the case of a finite RV, not the case of a countably infinite one. It turns out that all of the above works quite well in that more complex case as well, so long as one is comfortable with a bit of mathematical technology called <q><em>summing an infinite series</em>.</q> We do not assume such a comfort level in our readers at this time, so we shall pass over the details of expectations of infinite, discrete RVs.</p>
+
+            <example xml:id="eg-expect1">
+              <statement>
+                <p>Let's compute the expectation of net profit RV <m>X</m> in the silly betting game of Example <xref ref="eg-RV1"/>, whose distribution we computed in Example <xref ref="eg-distribution1"/>. Plugging straight into the definition, we see
+                <me>
+                  E(X)=\sum p_i\,x_i = \frac12\cdot5 + \frac12\cdot(-5)=2.5-2.5 = 0 \ .
+                </me>
+                In other words, your average net gain playing this silly game many times will be <term>zero</term>. Note that does not mean anything like <q><em>if you lose enough times in a row, the chances of starting to win again will go up</em>,</q> as many gamblers seem to believe, it just means that, in the very long run, we can expect the average winnings to be approximately zero <mdash/> but no one knows how long that run has to be before the balancing of wins and losses happens.</p>
+              </statement>
+            </example>
+
+            <p>A more interesting example is</p>
+            
+            <example xml:id="eg-expect2">
+              <statement>
+                <p>In Example <xref ref="eg-distribution2"/> we computed the distribution of the random variable <m>X=\text{``sum of the face values''}</m> on the <q><em>roll two fair dice, independently</em></q> random experiment from Example <xref ref="eg-RV3"/>. It is therefore easy to plug the values of the probabilities and RV values from the distribution table into the formula for expectation, to get
+                <md>
+                  <mrow>E(X) &amp;=\sum p_i\,x_i</mrow>
+                  <mrow>&amp;= \frac1{36}\cdot2 + \frac2{36}\cdot3 + \frac3{36}\cdot4 + \frac4{36}\cdot5 + \frac5{36}\cdot6 + \frac6{36}\cdot7 + \frac5{36}\cdot8</mrow>
+                  <mrow>&amp;\hphantom{= \frac1{36}\cdot2 + \frac2{36}\cdot3 + \frac3{36}\cdot4 + \frac4{36}\cdot5 + \frac5{36}\cdot6 + \frac6{36}\cdot7 + \frac5{36}\cdot8\ } + \frac4{36}\cdot9 + \frac3{36}\cdot10 + \frac2{36}\cdot11 + \frac1{36}\cdot12</mrow>
+                  <mrow>&amp;= \frac{2\cdot1 + 3\cdot2 + 4\cdot3 + 5\cdot4 + 6\cdot5 + 7\cdot6 + 8\cdot5 + 9\cdot4 + 10\cdot3 + 11\cdot2 + 12\cdot1}{36}</mrow>
+                  <mrow>&amp;= 7</mrow>
+                </md>
+                So if you roll two fair dice independently and add the numbers which come up, then do this process many times and take the average, in the long run that average will be the value <m>7</m>.</p>
+              </statement>
+            </example>
           </subsection>
           <subsection xml:id="ssec-DF4CRVs">
             <title>Density Functions for Continuous RVs</title>
-            <p/>
+            
+            <p>What about continuous random variables? Definition <xref ref="def-RVdistribution"/> of <em>distribution</em><idx>distribution</idx> explicitly excluded the case of continuous RVs, so does that mean we cannot do probability calculations in that case?</p>
+
+            <p>There is, when we think about it, something of a problem here. A distribution is supposed to be a list of possible values of the RV and the probability of each such value. But if some continuous RV has values which are an interval of real numbers, there is just no way to list all such numbers <mdash/> it has been known since the late 1800s that there is no way to make a list like that. In addition, the chance of some random process producing a real number that is <em>exactly</em> equal to some particular value really is zero: for two real numbers to be precisely equal requires infinite accuracy <ellipsis/> think of all of those decimal digits, marching off in orderly rows to infinity, which must match between the two numbers.</p>
+
+            <p>Rather than a distribution, we do the following:</p>
+            
+            <definition xml:id="def-densitycurve">
+              <statement>
+                <p>Let <m>X</m> be a continuous random variable whose values are the real interval <m>[x_{min},x_{max}]</m>, where either <m>x_{min}</m> or <m>x_{max}</m> or both may be <m>\infty</m>. A [<term>probability</term><idx>probability density function, for a continuous random variable</idx>] <term>density function</term><idx>density function, for a continuous random variable</idx> for <m>X</m> is a function <m>f(x)</m> defined for <m>x</m> in <m>[x_{min},x_{max}]</m>, meaning it is a curve with one <m>y</m> value for each <m>x</m> in that interval, with the property that
+                <me>
+                  P(a&lt;X&lt;b) = \left\{\begin{matrix}\text{the area in the } xy\text{-plane above the } x\text{-axis,}\\
+                  \text{below the curve } y=f(x) \text{ and between } x=a \text{ and } x=b.\end{matrix}\right.\ .
+                </me></p>
+              </statement>
+            </definition>
+
+            <p>Graphically, what is going on here is</p>
+            
+            <p><em>[Figure: A probability density function showing the area under the curve between <m>a</m> and <m>b</m> representing <m>P(a&lt;X&lt;b)</m>]</em></p>
+
+            <p>Because of what we know about probabilities, the following is true (and fairly easy to prove):</p>
+            
+            <assemblage xml:id="fact-probDistFuncts">
+              <title>Fact</title>
+              <p>Suppose <m>f(x)</m> is a density function for the continuous RV <m>X</m> defined on the real interval <m>[x_{min},x_{max}]</m>. Then</p>
+              <ul>
+                <li><p>For all <m>x</m> in <m>[x_{min},x_{max}]</m>, <m>f(x)\ge0</m>.</p></li>
+                <li><p>The total area under the curve <m>y=f(x)</m>, above the <m>x</m>-axis, and between <m>x=x_{min}</m> and <m>x=x_{max}</m> is <m>1</m>.</p></li>
+              </ul>
+            </assemblage>
+
+            <p>If we want the idea of <em>picking a real number on the interval <m>[x_{min},x_{max}]</m> at random</em>, where <em>at random</em><idx><h>at random</h></idx> means that all numbers have the same chance of being picked (along the lines of <em>fair</em> in Definition <xref ref="def-fair"/>, the height of the density function must be the same at all <m>x</m>. In other words, the density function <m>f(x)</m> must be a constant <m>c</m>. In fact, because of the above Fact <xref ref="fact-probDistFuncts"/>, that constant must have the value <m>\frac1{x_{max}-x_{min}}</m>. There is a name for this:</p>
+            
+            <definition xml:id="def-uniformdistr">
+              <statement>
+                <p>The <term>uniform distribution on <m>[x_{min},x_{max}]</m></term><idx>uniform distribution on <m>[x_{min},x_{max}]</m></idx> is the distribution for the continuous RV whose values are the interval <m>[x_{min},x_{max}]</m> and whose density function is the constant function <m>f(x)=\frac1{x_{max}-x_{min}}</m>.</p>
+              </statement>
+            </definition>
+
+            <example xml:id="eg-unifdistr1">
+              <statement>
+                <p>Suppose you take a bus to school every day and because of a chaotic home life (and, let's face it, you don't like mornings), you get to the bus stop at a pretty nearly perfectly random time. The bus also doesn't stick perfectly to its schedule <mdash/> but it is guaranteed to come at least every <m>30</m> minutes. What this adds up to is the idea that your waiting time at the bus stop is a uniformly distributed RV on the interval <m>[0,30]</m>.</p>
+
+                <p>If you wonder one morning how likely it then is that you will wait for less than <m>10</m> minutes, you can simply compute the area of the rectangle whose base is the interval <m>[0,10]</m> on the <m>x</m>-axis and whose height is <m>\frac1{30}</m>, which will be
+                <me>
+                  P(0&lt;X&lt;10)=\text{base}\cdot\text{height}=10\cdot\frac1{30}=\frac13\ .
+                </me></p>
+                
+                <p><em>[Figure: Bus waiting time uniform distribution showing shaded area from 0 to 10 minutes]</em></p>
+                
+                <p>where the area of the shaded region represents the probability of having a waiting time from <m>0</m> to <m>10</m> minutes.</p>
+              </statement>
+            </example>
+
+            <p>One technical thing that can be confusing about continuous RVs and their density functions is the question of whether we should write <m>P(a&lt;X&lt;b)</m> or <m>P(a\le X\le b)</m>. But if you think about it, we really have three possible events here:
+            <md>
+              <mrow>A &amp;= \{\text{outcomes such that } X=a\},</mrow>
+              <mrow>M &amp;= \{\text{outcomes such that } a&lt;X&lt;b\},\text{ and}</mrow>
+              <mrow>B &amp;= \{\text{outcomes such that } X=b\}\ .</mrow>
+            </md>
+            Since <m>X</m> always takes on exactly one value for any particular outcome, there is no overlap between these events: they are all disjoint. That means that
+            <me>
+              P(A\cup M\cup B) = P(A)+P(M)+P(B) = P(M)
+            </me>
+            where the last equality is because, as we said above, the probability of a continuous RV taking on exactly one particular value, as it would in events <m>A</m> and <m>B</m>, is <m>0</m>. The same would be true if we added merely one endpoint of the interval <m>(a,b)</m>. To summarize:</p>
+            
+            <assemblage xml:id="fact-LTvsLE4cRVs">
+              <title>Fact</title>
+              <p>If <m>X</m> is a continuous RV with values forming the interval <m>[x_{min},x_{max}]</m> and <m>a</m> and <m>b</m> are in this interval, then
+              <me>
+                P(a&lt;X&lt;b) = P(a&lt;X\le b) = P(a\le X&lt;b) = P(a\le X\le b)\ .
+              </me></p>
+            </assemblage>
+            
+            <p>As a consequence of this fact, some authors write probability formulæ about continuous RVs with <q><m>&lt;</m></q> and some with <q><m>\le</m></q> and <em>it makes no difference</em>.</p>
+
+            <p>Let's do a slightly more interesting example than the uniform distribution:</p>
+            
+            <example xml:id="eg-triangleDistr">
+              <statement>
+                <p>Suppose you repeatedly throw darts at a dartboard. You're not a machine, so the darts hit in different places every time and you think of this as a repeatable random experiment whose outcomes are the locations of the dart on the board. You're interested in the probabilities of getting close to the center of the board, so you decide for each experimental outcome (location of a dart you threw) to measure its distance to the center <mdash/> this will be your RV <m>X</m>.</p>
+
+                <p>Being good at this game, you hit near the center more than near the edge and you never completely miss the board, whose radius is <m>10cm</m> <mdash/> so <m>X</m> is more likely to be near <m>0</m> than near <m>10</m>, and it is never greater than <m>10</m>. What this means is that the RV has values forming the interval <m>[0,10]</m> and the density function, defined on the same interval, should have its maximum value at <m>x=0</m> and should go down to the value <m>0</m> when <m>x=10</m>.</p>
+
+                <p>You decide to model this situation with the simplest density function you can think of that has the properties we just noticed: a straight line from the highest point of the density function when <m>x=0</m> down to the point <m>(10,0)</m>. The figure that will result will be a triangle, and since the total area must be <m>1</m> and the base is <m>10</m> units long, the height must be <m>.2</m> units. [To get that, we solved the equation <m>1=\frac12bh=\frac1210h=5h</m> for <m>h</m>.] So the graph must be</p>
+                
+                <p><em>[Figure: Triangular density function for dart hitting distance]</em></p>
+                
+                <p>and the equation of this linear density function would be <m>y=-\frac1{50}x+.2</m> [why? <mdash/> think about the slope and <m>y</m>-intercept!].</p>
+
+                <p>To the extent that you trust this model, you can now calculate the probabilities of events like, for example, <q><em>hitting the board within that center bull's-eye of radius <m>1.5cm</m></em>,</q> which probability would be the area of the shaded region in this graph:</p>
+                
+                <p><em>[Figure: Dart hitting bull's-eye probability shown as shaded trapezoid]</em></p>
+                
+                <p>The upper-right corner of this shaded region is at <m>x</m>-coordinate <m>1.5</m> and is on the line, so its <m>y</m>-coordinate is <m>-\frac1{50}1.5+.2=.17</m>. Since the region is a trapezoid, its area is the distance between the two parallel sides times the average of the lengths of the other two sides, giving
+                <me>
+                  P(0&lt;X&lt;1.5) = 1.5\cdot\frac{.2+.17}2 = .2775\ .
+                </me>
+                In other words, the probability of hitting the bull's-eye, assuming this model of your dart-throwing prowess, is about <m>28</m>%.</p>
+
+                <p>If you don't remember the formula for the area of a trapezoid, you can do this problem another way: compute the probability of the complementary event, and then take one minus that number. The reason to do this would be that the complementary event corresponds to the shaded region here</p>
+                
+                <p><em>[Figure: Complementary event showing triangular region]</em></p>
+                
+                <p>which is a triangle! Since we surely do remember the formula for the area of a triangle, we find that
+                <me>
+                  P(1.5&lt;X&lt;10)=\frac12bh=\frac{1}{2}.17\cdot8.5=.7225
+                </me>
+                and therefore <m>P(0&lt;X&lt;1.5)=1-P(1.5&lt;X&lt;10)=1-.7225=.2775</m>. [It's nice that we got the same number this way, too!]</p>
+              </statement>
+            </example>
           </subsection>
           <subsection xml:id="ssec-TND">
             <title>The Normal Distribution</title>
-            <p/>
+            
+            <p>We've seen some examples of continuous RVs, but we have yet to meet the most important one of all.</p>
+            
+            <definition xml:id="def-generalNormalDist">
+              <statement>
+                <p>The <term>Normal distribution with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m></term><idx>Normal distribution with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m></idx> is the continuous RV which takes on all real values and is governed by the probability density function<idx>probability density function, for a continuous random variable</idx><idx>density function, for a continuous random variable</idx>
+                <me>
+                  \rho(x)=\frac1{\sqrt{2\sigma_X^2\pi}}e^{-\frac{(x-\mu_X)^2}{2\sigma_X^2}}\ .
+                </me>
+                If <m>X</m> is a random variable which follows this distribution, then we say that <term><m>X</m> is Normally distributed with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m></term><idx>Normally distributed with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m>, <m>N(\mu_X, \sigma_X)</m></idx> or, in symbols, <term><m>X</m> is <m>N(\mu_X, \sigma_X)</m></term><idx><h><m>N(\mu_X, \sigma_X)</m></h><h>Normally distributed with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m></h></idx>.</p>
+              </statement>
+            </definition>
+            
+            <p>[More technical works also call this the <em>Gaussian distribution</em><idx>Gaussian distribution</idx>, named after the great mathematician <em>Carl Friedrich Gauss</em><idx>Gauss, Carl Friedrich</idx>. But we will not use that term again in this book after this sentence ends.]</p>
+
+            <p>The good news about this complicated formula is that we don't really have to do anything with it. We will collect some properties of the Normal distribution which have been derived from this formula, but these properties are useful enough, and other tools such as modern calculators<idx>calculator</idx> and computers which can find specific areas we need under the graph of <m>y=\rho(x)</m>, that we won't need to work directly with the above formula for <m>\rho(x)</m> again. It is nice to know that <m>N(\mu_X, \sigma_X)</m> does correspond to a specific, known density function, though, isn't it?</p>
+
+            <p>It helps to start with an image of what the Normal distribution looks like. Here is the density function for <m>\mu_X=17</m> and <m>\sigma_X=3</m>:</p>
+            
+            <p><em>[Figure: Normal distribution with mean 17 and standard deviation 3]</em></p>
+
+            <p>Now let's collect some of these useful facts about the Normal distributions.</p>
+            
+            <assemblage xml:id="fact-NormalIsDensityFcn">
+              <title>Fact</title>
+              <p>The density function <m>\rho</m> for the Normal distribution <m>N(\mu_X, \sigma_X)</m> is a positive function for all values of <m>x</m> and the total area under the curve <m>y=\rho(x)</m> is <m>1</m>.</p>
+            </assemblage>
+            
+            <p>This simply means that <m>\rho</m> is a good candidate for the probability density function for some continuous RV.</p>
+
+            <assemblage xml:id="fact-NormalIsUnimodal">
+              <title>Fact</title>
+              <p>The density function <m>\rho</m> for the Normal distribution <m>N(\mu_X, \sigma_X)</m> is unimodal with maximum at <m>x</m>-coordinate <m>\mu_X</m>.</p>
+            </assemblage>
+            
+            <p>This means that <m>N(\mu_X, \sigma_X)</m> is a possible model for an RV <m>X</m> which tends to have one main, central value, and less often has other values farther away. That center is at the location given by the parameter <m>\mu_X</m>, so wherever we want to put the center of our model for <m>X</m>, we just use that for <m>\mu_X</m>.</p>
+
+            <assemblage xml:id="fact-NormalIsSymmetric">
+              <title>Fact</title>
+              <p>The density function <m>\rho</m> for the Normal distribution <m>N(\mu_X, \sigma_X)</m> is is symmetric when reflected across the line <m>x=\mu_X</m>.</p>
+            </assemblage>
+            
+            <p>This means that the amount <m>X</m> misses its center, <m>\mu_X</m>, tends to be about the same when it misses above <m>\mu_X</m> and when it misses below <m>\mu_X</m>. This would correspond to situations were you hit as much to the right as to the left of the center of a dartboard. Or when randomly picked people are as likely to be taller than the average height as they are to be shorter. Or when the time it takes a student to finish a standardized test is as likely to be less than the average as it is to be more than the average. Or in many, many other useful situations.</p>
+
+            <assemblage xml:id="fact-NormalHasThinTails">
+              <title>Fact</title>
+              <p>The density function <m>\rho</m> for the Normal distribution <m>N(\mu_X, \sigma_X)</m> has has tails in both directions which are quite thin, in fact get extremely thin as <m>x\to\pm\infty</m>, but never go all the way to <m>0</m>.</p>
+            </assemblage>
+            
+            <p>This means that <m>N(\mu_X, \sigma_X)</m> models situations where the amount <m>X</m> deviates from its average has no particular cut-off in the positive or negative direction. So you are throwing darts at a dart board, for example, and there is no way to know how far your dart may hit to the right or left of the center, maybe even way off the board and down the hall <mdash/> although that may be very unlikely. Or perhaps the time it takes to complete some task is usually a certain amount, but every once and a while it might take much more time, so much more that there is really no natural limit you might know ahead of time.</p>
+
+            <p>At the same time, those tails of the Normal distribution are so thin, for values far away from <m>\mu_X</m>, that it can be a good model even for a situation where there is a natural limit to the values of <m>X</m> above or below <m>\mu_X</m>. For example, heights of adult males (in inches) in the United States are fairly well approximated by <m>N(69, 2.8)</m>, even though heights can never be less than <m>0</m> and <m>N(69, 2.8)</m> has an infinitely long tail to the left <mdash/> because while that tail is non-zero all the way as <m>x\to-\infty</m>, it is very, very thin.</p>
+
+            <p>All of the above Facts are clearly true on the first graph we saw of a Normal distribution density function.</p>
+
+            <assemblage xml:id="fact-NormalEffectOfSigma">
+              <title>Fact</title>
+              <p>The graph of the density function <m>\rho</m> for the Normal distribution <m>N(\mu_X, \sigma_X)</m> has a taller and narrower peak if <m>\sigma_X</m> is smaller, and a lower and wider peak if <m>\sigma_X</m> is larger.</p>
+            </assemblage>
+            
+            <p>This allows the statistician to adjust how much variation there typically is in a normally distributed RV: By making <m>\sigma_X</m> small, we are saying that an RV <m>X</m> which is <m>N(\mu_X, \sigma_X)</m> is very likely to have values quite close to its center, <m>\mu_X</m>. If we make <m>\sigma_X</m> large, however, <m>X</m> is more likely to have values all over the place <mdash/> still, centered at <m>\mu_X</m>, but more likely to wander farther away.</p>
+
+            <p>Let's make a few versions of the graph we saw for <m>\rho</m> when <m>\mu_X</m> was <m>17</m> and <m>\sigma_X</m> was <m>3</m>, but now with different values of <m>\sigma_X</m>. First, if <m>\sigma_X=1</m>, we get</p>
+            
+            <p><em>[Figure: Normal distribution with mean 17 and standard deviation 1]</em></p>
+            
+            <p>If, instead, <m>\sigma_X=5</m>, then we get</p>
+            
+            <p><em>[Figure: Normal distribution with mean 17 and standard deviation 5]</em></p>
+
+            <p>Finally, let's superimpose all of the above density functions on each other, for one, combined graph:</p>
+            
+            <p><em>[Figure: Three Normal distributions with mean 17 and standard deviations 1, 3, and 5 superimposed]</em></p>
+
+            <p>This variety of Normal distributions (one for each <m>\mu_X</m> and <m>\sigma_X</m>) is a bit bewildering, so traditionally, we concentrate on one particularly nice one.</p>
+            
+            <definition xml:id="def-standardNormalDist">
+              <statement>
+                <p>The Normal distribution with mean <m>\mu_X=0</m> and standard deviation <m>\sigma_X=1</m> is called the <term>standard Normal distribution</term><idx>standard Normal distribution, <m>N(0, 1)</m></idx> and an RV [often written with the variable <m>Z</m>] that is <m>N(0, 1)</m><idx><h><m>N(0, 1)</m></h><h>the standard Normal distribution</h></idx> is described as a <term>standard Normal RV</term><idx>standard Normal RV</idx>.</p>
+              </statement>
+            </definition>
+            
+            <p>Here is what the standard Normal probability density function looks like:</p>
+            
+            <p><em>[Figure: Standard Normal distribution with mean 0 and standard deviation 1]</em></p>
+
+            <p>One nice thing about the standard Normal is that all other Normal distributions can be related to the standard.</p>
+            
+            <assemblage xml:id="fact-standardization">
+              <title>Fact</title>
+              <p>If <m>X</m> is <m>N(\mu_X, \sigma_X)</m>, then <m>Z=(X-\mu_X)/\sigma_X</m> is standard Normal.</p>
+            </assemblage>
+            
+            <p>This has a name.</p>
+            
+            <definition xml:id="def-standardization">
+              <statement>
+                <p>The process of replacing a random variable <m>X</m> which is <m>N(\mu_X, \sigma_X)</m> with the standard normal RV <m>Z=(X-\mu_X)/\sigma_X</m> is called <term>standardizing a Normal RV</term><idx>standardizing a Normal RV</idx>.</p>
+              </statement>
+            </definition>
+
+            <p>It used to be that standardization was an important step in solving problems with Normal RVs. A problem would be posed with information about some data that was modelled by a Normal RV with given mean <m>\mu_X</m> and standardization <m>\sigma_X</m>. Then questions about probabilities for that data could be answered by standardizing the RV and looking up values in a single table of areas under the standard Normal curve.</p>
+
+            <p>Today, with electronic tools such as statistical calculators<idx>calculator</idx> and computers, the standardization step is not really necessary.</p>
+            
+            <example xml:id="eg-normalcomp">
+              <statement>
+                <p>As we noted above, the heights of adult men in the United States, when measured in inches, give a RV <m>X</m> which is <m>N(69, 2.8)</m>. What percentage of the population, then, is taller than <m>6</m> feet?</p>
+
+                <p>First of all, the frequentist point of view on probability tells us that what we are interested in is the probability that a randomly chosen adult American male will be taller than <m>6</m> feet <mdash/> that will be the same as the percentage of the population this tall. In other words, we must find the probability that <m>X&gt;72</m>, since in inches, <m>6</m> feet becomes <m>72</m>. As <m>X</m> is a continuous RV, we must find the area under its density curve, which is the <m>\rho</m> for <m>N(69, 2.8)</m>, between <m>72</m> and <m>\infty</m>.</p>
+
+                <p>That <m>\infty</m> is a little intimidating, but since the tails of the Normal distribution are very thin, we can stop measuring area when <m>x</m> is some large number and we will have missed only a very tiny amount of area, so we will have a very good approximation. Let's therefore find the area under <m>\rho</m> from <m>x=72</m> up to <m>x=1000</m>. This can be done in many ways:</p>
+                
+                <ul>
+                  <li><p>With a wide array of online tools <mdash/> just search for <q>online normal probability calculator.</q> One of these yields the value <m>.142</m>.</p></li>
+                  
+                  <li><p>With a <term>TI-8x</term> calculator<idx>calculator</idx>, by typing
+                  <me>
+                    \text{normalcdf(72, 1000, 69, 2.8)}
+                  </me>
+                  <idx><h>normalcdf</h><h>the cumulative Normal distribution on a TI-8x calculator</h></idx> which yields the value <m>.1419884174</m>. The general syntax here is
+                  <me>
+                    \text{normalcdf}(a, b, \mu_X, \sigma_X)
+                  </me>
+                  to find <m>P(a&lt;X&lt;b)</m> when <m>X</m> is <m>N(\mu_X, \sigma_X)</m>. Note you get <term>normalcdf</term> by typing [2ND] → [VARS] → 2</p></li>
+                  
+                  <li><p>Spreadsheets like <term>LibreOffice Calc</term><idx>LibreOffice Calc</idx><idx><h>Calc</h><h>LibreOffice</h></idx> and <term>Microsoft Excel</term><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx><h>Excel</h><h>Microsoft</h></idx> will compute this by putting the following in a cell
+                  <me>
+                    \text{=1-NORM.DIST(72, 69, 2.8, 1)}
+                  </me>
+                  <idx><h>NORM.DIST</h><h>the cumulative Normal distribution in spreadsheets</h></idx> giving the value 0.1419883859. Here we are using the command
+                  <me>
+                    \text{NORM.DIST}(b, \mu_X, \sigma_X, 1)
+                  </me>
+                  which computes the area under the density function for <m>N(\mu_X, \sigma_X)</m> from <m>-\infty</m> to <m>b</m>. [The last input of <q>1</q> to NORM.DIST just tells it that we want to compute the area under the curve. If we used <q>0</q> instead, it would simple tell us the particular value of <m>\rho(b)</m>, which is of very direct little use in probability calculations.] Therefore, by doing <m>1-NORM.DIST(72, 69, 2.8, 1)</m>, we are taking the total area of 1 and subtracting the area to the left of 72, yielding the area to the right, as we wanted.</p>
+                  
+                  <p>Therefore, if you want the area between <m>a</m> and <m>b</m> on an <m>N(\mu_X, \sigma_X)</m> RV using a spreadsheet, you would put
+                  <me>
+                    \text{=NORM.DIST}(b, \mu_X, \sigma_X, 1) - \text{NORM.DIST}(a, \mu_X, \sigma_X, 1)
+                  </me>
+                  in a cell.</p></li>
+                </ul>
+              </statement>
+            </example>
+
+            <p>While standardizing<idx>standardizing a Normal RV</idx> a non-standard Normal RV and then looking up values in a table is an old-fashioned method that is tedious and no longer really needed, one old technique still comes in handy some times. It is based on the following:</p>
+            
+            <assemblage xml:id="fact-68-95-99-7">
+              <title>Fact</title>
+              <p><term>The 68-95-99.7 Rule</term><idx>68-95-99.7 Rule</idx>: Let <m>X</m> be an <m>N(\mu_X, \sigma_X)</m> RV. Then some special values of the area under the graph of the density curve <m>\rho</m> for <m>X</m> are nice to know:</p>
+              <ul>
+                <li><p>The area under the graph of <m>\rho</m> from <m>x=\mu_X-\sigma_X</m> to <m>x=\mu_X+\sigma_X</m>, also known as <m>P(\mu_X-\sigma_X&lt;X&lt;\mu_X+\sigma_X)</m>, is <term>.68</term>.</p></li>
+                <li><p>The area under the graph of <m>\rho</m> from <m>x=\mu_X-2\sigma_X</m> to <m>x=\mu_X+2\sigma_X</m>, also known as <m>P(\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X)</m>, is <term>.95</term>.</p></li>
+                <li><p>The area under the graph of <m>\rho</m> from <m>x=\mu_X-3\sigma_X</m> to <m>x=\mu_X+3\sigma_X</m>, also known as <m>P(\mu_X-3\sigma_X&lt;X&lt;\mu_X+3\sigma_X)</m>, is <term>.997</term>.</p></li>
+              </ul>
+            </assemblage>
+            
+            <p>This is also called <term>The Empirical Rule</term><idx>Empirical Rule</idx> by some authors. Visually:</p>
+            
+            <p><em>[Figure: The 68-95-99.7 Rule illustrated on a Normal distribution curve]</em></p>
+
+            <p>In order to use the 68-95-99.7 Rule<idx>68-95-99.7 Rule</idx> in understanding a particular situation, it is helpful to keep an eye out for the numbers that it talks about. Therefore, when looking at a problem, one should notice if the numbers <m>\mu_X+\sigma_X</m>, <m>\mu_X-\sigma_X</m>, <m>\mu_X+2\sigma_X</m>, <m>\mu_X-2\sigma_X</m>, <m>\mu_X+3\sigma_X</m>, or <m>\mu_X-3\sigma_X</m> are ever mentioned. If so, perhaps this Rule can help.</p>
+            
+            <example xml:id="eg-use68-95-99-7-1">
+              <statement>
+                <p>In Example <xref ref="eg-normalcomp"/>, we needed to compute <m>P(X&gt;72)</m> where <m>X</m> was known to be <m>N(69, 2.8)</m>. Is 72 one of the numbers for which we should be looking, to use the Rule? Well, it's greater than <m>\mu_X=69</m>, so we could hope that it was <m>\mu_X+\sigma_X</m>, <m>\mu_X+2\sigma_X</m>, or <m>\mu_X+3\sigma_X</m>. But values are
+                <md>
+                  <mrow>\mu_X+\sigma_X&amp;=69+2.8=71.8,</mrow>
+                  <mrow>\mu_X+2\sigma_X&amp;=69+5.6=74.6, \text{ and}</mrow>
+                  <mrow>\mu_X+3\sigma_X&amp;=69+8.4=77.4,</mrow>
+                </md>
+                none of which is what we need.</p>
+
+                <p>Well, it is true that <m>72\approx71.8</m>, so we could use that fact and accept that we are only getting an approximate answer <mdash/> an odd choice, given the availability of tools which will give us extremely precise answers, but let's just go with it for a minute.</p>
+
+                <p>Let's see, the above Rule tells us that
+                <me>
+                  P(66.2&lt;X&lt;71.8)=P(\mu_X-\sigma_X&lt;X&lt;\mu_X+\sigma_X)=.68\ .
+                </me>
+                Now since the total area under any density curve is 1,
+                <me>
+                  P(X&lt;66.2\text{ or }X&gt;71.8) = 1 - P(66.2&lt;X&lt;71.8) = 1- .68 = .32\ .
+                </me>
+                Since the event <q><m>X&lt;66.2</m></q> is disjoint from the event <q><m>X&gt;71.8</m></q> (<m>X</m> only takes on one value at a time, so it cannot be simultaneously less than 66.2 and greater than 71.8), we can use the simple rule for addition of probabilities:
+                <me>
+                  .32 = P(X&lt;66.2\text{ or }X&gt;71.8) = P(X&lt;66.2) + P(X&gt;71.8)\ .
+                </me>
+                Now, since the density function of the Normal distribution is symmetric around the line <m>x=\mu_X</m>, the two terms on the right in the above equation are equal, which means that
+                <me>
+                  P(X&gt;71.8) = \frac12\left(P(X&lt;66.2) + P(X&gt;71.8)\right) = \frac12 .32 = .16\ .
+                </me>
+                It might help to visualize the symmetry here as the equality of the two shaded areas in the following graph</p>
+                
+                <p><em>[Figure: Symmetric shaded areas showing equal tail probabilities]</em></p>
+                
+                <p>Now, using the fact that <m>72\approx71.8</m>, we may say that
+                <me>
+                  P(X&gt;72)\approx P(X&gt;71.8) = .16
+                </me>
+                which, since we know that in fact <m>P(X&gt;72)=.1419883859</m>, is not a completely terrible approximation.</p>
+              </statement>
+            </example>
+
+            <example xml:id="eg-use68-95-99-7-2">
+              <statement>
+                <p>Let's do one more computation in the context of the heights of adult American males, as in the immediately above Example <xref ref="eg-use68-95-99-7-1"/>, but now one in which the 68-95-99.7 Rule<idx>68-95-99.7 Rule</idx> gives a more precise answer.</p>
+
+                <p>So say we are asked this time what proportion of adult American men are shorter than 63.4 inches. Why that height, in particular? Well, it's how tall archaeologists have determined King Tut was in life. [No, that's made up. It's just a good number for this problem.]</p>
+
+                <p>Again, looking through the values <m>\mu_X\pm\sigma_X</m>, <m>\mu_X\pm2\sigma_X</m>, and <m>\mu_X\pm3\sigma_X</m>, we notice that
+                <me>
+                  63.4=69-5.6=\mu_X-2\sigma_X\ .
+                </me>
+                Therefore, to answer what fraction of adult American males are shorter than 63.4 inches amounts to asking what is the value of <m>P(X&lt;\mu_X-2\sigma_X)</m>.</p>
+
+                <p>What we know about <m>\mu_X\pm2\sigma_X</m> is that the probability of <m>X</m> being between those two values is <m>P(\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X)=.95</m>. As in the previous Example, the complementary event to <q><m>\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X</m>,</q> which will have probability <m>.05</m>, consists of two pieces <q><m>X&lt;\mu_X-2\sigma_X</m></q> and <q><m>X&gt;\mu_X+2\sigma_X</m>,</q> which have the same area by symmetry. Therefore
+                <md>
+                  <mrow>P(X&lt;63.4)&amp;=P(X&lt;\mu_X-2\sigma_X)</mrow>
+                  <mrow>&amp;=\frac12\left[P(X&lt;\mu_X-2\sigma_X)+P(X&gt;\mu_X+2\sigma_X)\right]</mrow>
+                  <mrow>&amp;=\frac12P(X&lt;\mu_X-2\sigma_X\text{ or }X&gt;\mu_X+2\sigma_X)\text{ since they're disjoint}</mrow>
+                  <mrow>&amp;=\frac12P((\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X)^c)</mrow>
+                  <mrow>&amp;=\frac12\left[1-P(\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X)\right]\text{ by prob. for complements}</mrow>
+                  <mrow>&amp;=\frac12\,.05</mrow>
+                  <mrow>&amp;=.025</mrow>
+                </md></p>
+              </statement>
+            </example>
+
+            <p>Just the way finding the particular <m>X</m> values <m>\mu_X\pm\sigma_X</m>, <m>\mu_X\pm2\sigma_X</m>, and <m>\mu_X\pm3\sigma_X</m> in a particular situation would tell us the 68-95-99.7 Rule<idx>68-95-99.7 Rule</idx> might be useful, so also would finding the probability values <m>.68</m>, <m>.95</m>, <m>99.7</m>, or their complements <m>.32</m>, <m>.05</m>, or <m>.003</m>, <mdash/> or even half of one of those numbers, using the symmetry.</p>
+
+            <example xml:id="eg-use68-95-99-7-3">
+              <statement>
+                <p>Continuing with the scenario of Example <xref ref="eg-use68-95-99-7-1"/>, let us now figure out what is the height above which there will only be .15% of the population.</p>
+
+                <p>Notice that .15%, or the proportion .0015, is not one of the numbers in the 68-95-99.7 Rule<idx>68-95-99.7 Rule</idx>, nor is it one of their complements <mdash/> but it is half of one of the complements, being half of .003. Now, .003 is the complementary probability to .997, which was the probability in the range <m>\mu_X\pm3\sigma_X</m>. As we have seen already (twice), the complementary area to that in the region between <m>\mu_X\pm3\sigma_X</m> consists of two thin tails which are of equal area, each of these areas being <m>\frac12(1-.997)=.0015</m>. This all means that the beginning of that upper tail, above which value lies .15% of the population, is the <m>X</m> value <m>\mu_X+3\sigma_X = 68 + 3\cdot2.8 = 77.4</m>.</p>
+
+                <p>Therefore .15% of adult American males are taller than 77.4 inches.</p>
+              </statement>
+            </example>
           </subsection>
         </section>
         <section xml:id="sec-probability-exercises">
