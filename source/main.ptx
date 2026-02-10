@@ -2276,7 +2276,7 @@
               <m>m</m> is the <em>slope</em><idx>slope of a line</idx>, which tells how much the
               line goes up (increasing <m>y</m>) for every unit you move over to the right
               (increasing <m>x</m>) <mdash/> we often say that the value of the slope is
-              <m>m=\frac{rise}{run}</m><idx><h>rise over run</h><see>slope of a line</see></idx>.  It can be
+              <m>m=\frac{rise}{run}</m><idx><h>rise over run</h><see>slope of a line</see></idx>.  The slope can be:
             </p>
             <ul>
               <li>
@@ -2849,7 +2849,7 @@
               <statement>
                 <p>
                   Suppose we collect data on two sections of a statistics course, in particular
-                  on how many hours per work the individual students study for the course and
+                  on how many hours per week the individual students study for the course and
                   how they do in the course, measured by their total course points at the end of
                   the semester.  It is possible that there is a strong positive correlation
                   between these variables for each section by itself, but there is a strong
