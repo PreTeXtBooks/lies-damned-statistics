@@ -868,7 +868,7 @@
                   numbers in increasing (or at least non-decreasing) order, so that
                   <m>x_1\le x_2\le \dots \le x_n</m>.  Then if <m>n</m> is odd, the <term>median</term> of
                   the dataset is the middle value, <m>x_{(n+1)/2}</m>, while if <m>n</m> is even,
-                  the median is the mean  of the two middle numbers,
+                  the median is the mean of the two middle numbers,
                   <m>\frac{x_{n/2}+x_{(n/2)+1}}{2}</m>.
                 </p>
               </statement>
@@ -991,10 +991,10 @@
 
                 <p>
                   If instead we take the data of <xref ref="eg-stemandleafplot"/> and simply add
-                  another value, 1000, without taking away the 100, that does change the media:
+                  another value, 1000, without taking away the 100, that does change the median:
                   there are now an odd number of data values, so the median is the middle one
                   after they are put in order, which is 78.  So the median has changed by only
-                  half a point, from 77.5 to 78.   And his would even be true if the value we
+                  half a point, from 77.5 to 78.   And this would even be true if the value we
                   were adding to the dataset were 1000000 and not just 1000!
                 </p>
               </statement>
@@ -1068,7 +1068,7 @@
 
                 <p>
                   So when a politician uses the evidence of the average (mean) as suggested here,
-                  it is possible they are trying to hide from the pubic the reality of what is
+                  it is possible they are trying to hide from the public the reality of what is
                   happening to the rich and the not-so-rich.  It is also possible that this
                   politician is simply poorly educated in statistics and doesn't realize what is
                   going on.  You be the judge ... but pay attention so you know what to ask about.
