@@ -2253,37 +2253,708 @@
 
       <chapter xml:id="chap-linear-regression">
         <title>Linear Regression</title>
+        
+        <p>
+          Quick review of equations for lines:
+        </p>
+        
+        <p>
+          Recall the equation of a line is usually in the form <m>y=mx+b</m>, where <m>x</m> and
+          <m>y</m> are variables and <m>m</m> and <m>b</m> are numbers.  Some basic facts about lines:
+        </p>
+        
+        <ul>
+          <li>
+            <p>
+              If you are given a number for <m>x</m>, you can plug it in to the equation
+              <m>y=mx+b</m> to get a number for <m>y</m>, which together give you a point with
+              coordinates <m>(x,y)</m> that is on the line.
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>m</m> is the <em>slope</em><idx>slope of a line</idx>, which tells how much the
+              line goes up (increasing <m>y</m>) for every unit you move over to the right
+              (increasing <m>x</m>) <mdash/> we often say that the value of the slope is
+              <m>m=\frac{rise}{run}</m><idx><h>rise over run</h><see>slope of a line</see></idx>.  It can be
+            </p>
+            <ul>
+              <li>
+                <p>
+                  <em>positive</em>, if the line is tilted up,
+                </p>
+              </li>
+              <li>
+                <p>
+                  <em>negative</em>, if the line is tilted down,
+                </p>
+              </li>
+              <li>
+                <p>
+                  <em>zero</em>, if the line is horizontal, and
+                </p>
+              </li>
+              <li>
+                <p>
+                  <em>undefined</em>, if the line is vertical.
+                </p>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <p>
+              You can calculate the slope by finding the coordinates <m>(x_1,y_1)</m> and
+              <m>(x_2,y_2)</m> of any two points on the line and then <m>m=\frac{y_2-y_1}{x_2-x_1}</m>.
+            </p>
+          </li>
+          <li>
+            <p>
+              In particular, <m>x_2-x_1=1</m>, then <m>m=\frac{y_2-y_1}{1}=y_2-y_1</m> <mdash/> so
+              if you look at how much the line goes up in each step of one unit to the right,
+              that number will be the slope <m>m</m> (and if it goes <em>down</em>, the slope <m>m</m> will
+              simply be negative).  In other words, the slope answers the question <q>for
+              each step to the right, how much does the line increase (or decrease)?</q>
+            </p>
+          </li>
+          <li>
+            <p>
+              <m>b</m> is the
+              <em><m>y</m>-intercept</em><idx><h>y-intercept of a line</h></idx>, which
+              tells the <m>y</m>-coordinate of the point where the line crosses the <m>y</m>-axis.
+              Another way of saying that is that <m>b</m> is the <m>y</m> value of the line when the
+              <m>x</m> is <m>0</m>.
+            </p>
+          </li>
+        </ul>
+        
         <section xml:id="sec-TLSRL">
           <title>The Least Squares Regression Line</title>
-          <p/>
+          
+          <p>
+            Suppose we have some bivariate quantitative data
+            <m>\{(x_1,y_1), \dots , (x_n,y_n)\}</m> for which the correlation coefficient
+            indicates some linear association.  It is natural to want to write down
+            explicitly the equation of the best line through the data <mdash/> the question is
+            what is this line.  The most common meaning given to <em>best</em> in this
+            search for the line is <em>the line whose total square error is the smallest
+            possible.</em>  We make this notion precise in two steps
+          </p>
+          
+          <definition xml:id="def-residual">
+            <idx>residual, for data values and LSRLs</idx>
+            <statement>
+              <p>
+                Given a bivariate quantitative dataset
+                <m>\{(x_1,y_1), \dots , (x_n,y_n)\}</m> and a candidate line <m>\widehat{y}=mx+b</m>
+                passing through this dataset, a <term>residual</term> is the difference in
+                <m>y</m>-coordinates of an actual data point <m>(x_i,y_i)</m> and the line's <m>y</m> value at
+                the same <m>x</m>-coordinate.  That is, if the <m>y</m>-coordinate of the line when
+                <m>x=x_i</m> is <m>\widehat{y}_i=mx_i+b</m>, then the residual is the measure of error
+                given by <m>error_i=y_i-\widehat{y}_i</m>.
+              </p>
+            </statement>
+          </definition>
+          
+          <p>
+            Note we use the convention here and elsewhere of writing
+            <m>\widehat{y}</m><idx><m>\widehat{y}</m>, <m>y</m> values on an approximating line</idx>
+            for the <m>y</m>-coordinate on an approximating line, while the plain <m>y</m> variable
+            is left for actual data values, like <m>y_i</m>.
+          </p>
+          
+          <p>
+            Here is an example of what residuals look like
+          </p>
+          
+          <p>
+            [Figure: residual.eps - placeholder for residuals illustration]
+          </p>
+          
+          <p>
+            Now we are in the position to state the
+          </p>
+          
+          <definition xml:id="def-LSRL">
+            <idx>least squares regression line, LSRL</idx>
+            <idx>LSRL, least squares regression line</idx>
+            <statement>
+              <p>
+                Given a bivariate quantitative dataset the <term>least square regression line</term>,
+                almost always abbreviated to <term>LSRL</term>, is the line for which the sum of the
+                squares of the residuals is the smallest possible.
+              </p>
+            </statement>
+          </definition>
+          
+          <assemblage xml:id="fact-LSRLproperties">
+            <title>Fact</title>
+            <p>
+              If a bivariate quantitative dataset <m>\{(x_1,y_1), \dots , (x_n,y_n)\}</m> has LSRL
+              given by <m>\widehat{y}=mx+b</m>, then
+            </p>
+            <ol>
+              <li>
+                <p>
+                  The slope of the LSRL is given by <m>m=r\frac{s_y}{s_x}</m>, where <m>r</m> is the
+                  correlation coefficient of the dataset.
+                </p>
+              </li>
+              <li>
+                <p>
+                  The LSRL passes through the point <m>(\overline{x},\overline{y})</m><idx><h>sample mean</h><h><m>\overline{x}</m></h></idx><idx><h>mean</h><h>sample</h></idx><idx><m>\overline{x}</m>, sample mean</idx>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  It follows that the <m>y</m>-intercept of the LSRL is given by
+                  <m>b=\overline{y}-\overline{x}\,m=\overline{y}-\overline{x}\,r\,\frac{s_y}{s_x}</m><idx><h>sample mean</h><h><m>\overline{x}</m></h></idx><idx><h>mean</h><h>sample</h></idx><idx><m>\overline{x}</m>, sample mean</idx>.
+                </p>
+              </li>
+            </ol>
+          </assemblage>
+          
+          <p>
+            It is possible to find the (coefficients of the) LSRL using the above
+            information, but it is often more convenient to use a
+            calculator<idx>calculator</idx> or other electronic tool.  Such tools also make
+            it very easy to graph the LSRL right on top of the scatterplot <mdash/> although it
+            is often fairly easy to sketch what the LSRL will likely look like by just
+            making a good guess, using visual intuition, if the linear association is
+            strong (as will be indicated by the correlation coefficient).
+          </p>
+          
+          <example xml:id="eg-LSRL">
+            <statement>
+              <p>
+                Here is some data where the individuals are 23 students in a statistics class,
+                the independent variable is the students' total score on their homeworks, while
+                the dependent variable is their final total course points, both out of 100.
+              </p>
+              <me>
+                \begin{matrix}
+                x:\amp 65\amp 65\amp 50\amp 53\amp 59\amp 92\amp 86\amp 84\amp 29\\
+                y:\amp 74\amp 71\amp 65\amp 60\amp 83\amp 90\amp 84\amp 88\amp 48\\
+                \ \\
+                x:\amp 29\amp  9\amp 64\amp 31\amp 69\amp 10\amp 57\amp 81\amp 81\\
+                y:\amp 54\amp 25\amp 79\amp 58\amp 81\amp 29\amp 81\amp 94\amp 86\\
+                \ \\
+                x:\amp 80\amp 70\amp 60\amp 62\amp 59\\
+                y:\amp 95\amp 68\amp 69\amp 83\amp 70\\
+                \end{matrix}
+              </me>
+              <p>
+                Here is the resulting scatterplot, made with
+                <term>LibreOffice Calc</term><idx>LibreOffice Calc</idx><idx><h>Calc</h><h>LibreOffice</h></idx> (a free equivalent of
+                <term>Microsoft Excel</term><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx><h>Excel</h><h>Microsoft</h></idx>)
+              </p>
+              <p>
+                [Figure: scatter1.eps - placeholder for scatterplot]
+              </p>
+              <p>
+                It seems pretty clear that there is quite a strong linear association between
+                these two variables, as is born out by the correlation coefficient,
+                <m>r=.935</m> (computed with <term>LibreOffice Calc</term>'s <c>CORREL</c><idx>CORREL, correlation coefficient in LibreOffice Calc and MS Excel</idx>).  Using then
+                <c>STDEV.S</c><idx>STDEV.S, sample standard deviation in spreadsheets</idx> and <c>AVERAGE</c><idx>AVERAGE, sample mean in spreadsheets</idx>, we find that the coefficients of the LSRL for this data,
+                <m>\widehat{y}=mx+b</m> are
+              </p>
+              <me>
+                m=r\frac{s_y}{s_x}=.935\frac{18.701}{23.207}=.754\qquad{\rm and}\qquad b=\overline{y}-\overline{x}\,m=71-58\cdot .754=26.976
+              </me>
+              <p>
+                We can also use <term>LibreOffice Calc</term><idx>LibreOffice Calc</idx><idx><h>Calc</h><h>LibreOffice</h></idx>'s <c>Insert Trend Line</c><idx>Insert Trend Line, display LSRL in spreadsheet scatterplots</idx>, with <c>Show Equation</c><idx>Show Equation, display LSRL equation in spreadsheets</idx>, to get all this done
+                automatically.  Note that when <term>LibreOffice Calc</term> writes the equation of
+                the LSRL, it uses <m>f(x)</m> in place of <m>\widehat{y}</m>, as we would.
+              </p>
+              <p>
+                [Figure: scatter2.eps - placeholder for scatterplot with LSRL]
+              </p>
+            </statement>
+          </example>
+          
         </section>
         <section xml:id="sec-AaIoLSRLs">
           <title>Applications and Interpretations of LSRLs</title>
-          <p/>
+          
+          <p>
+            Suppose that we have a bivariate quantitative dataset
+            <m>\{(x_1,y_1), \dots , (x_n,y_n)\}</m> and we have computed its correlation
+            coefficient <m>r</m> and (the coefficients of) its LSRL <m>\widehat{y}=mx+b</m>.
+            What is this information good for?
+          </p>
+          
+          <p>
+            The main use of the LSRL is described in the following
+          </p>
+          
+          <definition xml:id="def-interpolation">
+            <idx>interpolation</idx>
+            <statement>
+              <p>
+                Given a bivariate quantitative dataset and associated LSRL with equation
+                <m>\widehat{y}=mx+b</m>, the process of guessing that the value of the dependent
+                variable in this relationship to have the value <m>mx_0+b</m>, for <m>x_0</m> any
+                value for the independent variable which satisfies <m>x_{min}\le x_0\le x_{max}</m>,
+                is called <term>interpolation</term>.
+              </p>
+            </statement>
+          </definition>
+          
+          <p>
+            The idea of interpolation is that we think the LSRL describes as well as
+            possible the relationship between the independent and dependent variables, so
+            that if we have a new <m>x</m> value, we'll use the LSRL equation to predict what
+            would be our best guess of what would be the corresponding <m>y</m>.  Note we
+            might have a new value of <m>x</m> because we simply lost part of our dataset and
+            are trying to fill it in as best we can.  Another reason might be that a new
+            individual came along whose value of the independent variable, <m>x_0</m>, was
+            typical of the rest of the dataset <mdash/> so the the very least
+            <m>x_{min}\le x_0\le x_{max}</m> <mdash/> and we want to guess what will be the value of the
+            dependent variable for this individual before we measure it.  (Or maybe we
+            cannot measure it for some reason.)
+          </p>
+          
+          <p>
+            A common (but naive) alternate approach to interpolation for a value <m>x_0</m> as
+            above might be to find two values <m>x_i</m> and <m>x_j</m> in the dataset which were
+            as close to <m>x_0</m> as possible, and on either side of it (so <m>x_i\lt x_0\lt x_j</m>),
+            and simply to guess that the <m>y</m>-value for <m>x_0</m> would be the average of
+            <m>y_i</m> and <m>y_j</m>.  This is not a terrible idea, but it is not as effective as
+            using the LSRL as described above, since we use the entire dataset when we
+            build the coefficients of the LSRL.  So the LSRL will give, by the process of
+            interpolation, the best guess for what should be that missing <m>y</m>-value based
+            on everything we know, while the <q>average of <m>y_i</m> and <m>y_j</m></q> method only
+            pays attention to those two nearest data points and thus may give a very bad
+            guess for the corresponding <m>y</m>-value if those two points are not perfectly
+            typical, if they have any randomness, any variation in their <m>y</m>-values which
+            is not due to the variation of the <m>x</m>.
+          </p>
+          
+          <p>
+            It is thus always best to use interpolation as described above.
+          </p>
+          
+          <example xml:id="eg-interpolation">
+            <statement>
+              <p>
+                Working with the statistics students' homework and total course points data
+                from Example <xref ref="eg-LSRL"/>, suppose the gradebook of the course instructor
+                was somewhat corrupted and the instructor lost the final course points of
+                the student Janet.  If Janet's homework points of 77 were not in the corrupted
+                part of the gradebook, the instructor might use interpolation to guess what
+                Janet's total course point probably were.  To do this, the instructor would
+                have plugged in <m>x=77</m> into the equation of the LSRL, <m>\widehat{y}=mx+b</m>
+                to get the estimated total course points of <m>.754\cdot77+26.976=85.034</m>.
+              </p>
+            </statement>
+          </example>
+          
+          <p>
+            Another important use of the (coefficients of the) LSRL is to use the
+            underlying meanings of the slope and <m>y</m>-intercept.  For this, recall that
+            in the equation <m>y=mx+b</m>, the slope <m>m</m> tells us how much the line goes up
+            (or down, if the slope is negative) for each increase of the <m>x</m> by one unit,
+            while the <m>y</m>-intercept <m>b</m> tells us what would be the <m>y</m> value where the
+            line crosses the <m>y</m>-axis, so when the <m>x</m> has the value 0.  In each particular
+            situation that we have bivariate quantitative data and compute an LSRL, we
+            can then use these interpretations to make statements about the relationship
+            between the independent and dependent variables.
+          </p>
+          
+          <example xml:id="eg-LSRLinterpretation">
+            <statement>
+              <p>
+                Look one more time at the data on students' homework and total course points
+                in a statistics class from Example <xref ref="eg-LSRL"/>, and the the LSRL computed
+                there.  We said that the slope of the LSRL was <m>m=.754</m> and the <m>y</m>-intercept
+                was <m>b=26.976</m>.  In context, what this means, is that <em>On average, each
+                additional point of homework corresponded to an increase of <m>.754</m> total
+                course points.</em>  We may hope that this is actually a causal relationship,
+                that the extra work a student does to earn that additional point of homework
+                score helps the student learn more statistics and therefore get <m>.75</m> more
+                total course points.  But the mathematics here does not require that
+                causation, it merely tells us the increase in <m>x</m> is <em>associated</em> with
+                that much increase in <m>y</m>.
+              </p>
+              <p>
+                Likewise, we can also conclude from the LSRL that <em>In general, a student
+                who did no homework at all would earn about <m>26.976</m> total course points.</em>
+                Again, we cannot conclude that doing no homework <em>causes</em> that terrible
+                final course point total, only that there is an association.
+              </p>
+            </statement>
+          </example>
+          
         </section>
         <section xml:id="sec-Cs">
           <title>Cautions</title>
-          <p/>
+          
           <subsection xml:id="ssec-S2O">
             <title>Sensitivity to Outliers</title>
-            <p/>
+            
+            <p>
+              The correlation coefficient and the (coefficients of the) LSRL are built out
+              of means and standard deviations and therefore the following fact is completely
+              unsurprising
+            </p>
+            
+            <assemblage xml:id="fact-LSRLsensitive2outliers">
+              <title>Fact</title>
+              <p>
+                The correlation coefficient and the (coefficients of the) LSRL are very
+                sensitive to outliers<idx>sensitive to outliers</idx>.
+              </p>
+            </assemblage>
+            
+            <p>
+              What perhaps is surprising here is that the outliers for bivariate data are
+              a little different from those for 1-variable data.
+            </p>
+            
+            <definition xml:id="def-bivariateoutlier">
+              <idx><h>outlier</h><h>bivariate</h></idx>
+              <statement>
+                <p>
+                  An <term>outlier</term> for a bivariate quantitative dataset
+                  is one which is far away from the curve which has been identified as
+                  underlying the shape of the scatterplot of that data.  In particular, a point
+                  <m>(x,y)</m> can be a bivariate outlier even if both <m>x</m> is not an outlier for the
+                  independent variable data considered alone and <m>y</m> is not an outlier for the
+                  dependent variable data alone.
+                </p>
+              </statement>
+            </definition>
+            
+            <example xml:id="eg-LSRLsensitive">
+              <statement>
+                <p>
+                  Suppose we add one more point <m>(90,30)</m> to the dataset in Example <xref ref="eg-LSRL"/>.
+                  Neither the <m>x</m>- nor <m>y</m>-coordinates of this point are outliers with respect to
+                  their respective single-coordinate datasets, but it is nevertheless clearly a
+                  bivariate outlier, as can be seen in the new scatterplot
+                </p>
+                <p>
+                  [Figure: scatter3.eps - placeholder for scatterplot with outlier]
+                </p>
+                <p>
+                  In fact recomputing the correlation coefficient and LSRL, we find quite a
+                  change from what we found before, in Example <xref ref="eg-LSRL"/>:
+                </p>
+                <me>
+                  r=.704\qquad\text{\textit{[which used to be $.935$]}}
+                </me>
+                <p>
+                  and
+                </p>
+                <me>
+                  \widehat{y}=.529x+38.458\qquad\text{\textit{[which used to be $.754x+26.976$]}}
+                </me>
+                <p>
+                  all because of one additional point!
+                </p>
+              </statement>
+            </example>
+            
           </subsection>
+          
           <subsection xml:id="ssec-causation">
             <title>Causation</title>
-            <p/>
+            
+            <p>
+              The attentive reader will have noticed that we started our discussion of
+              bivariate data by saying we hoped to study when one thing <em>causes</em> another.
+              However, what we've actually done instead is find <em>correlation</em> between
+              variables, which is quite a different thing.
+            </p>
+            
+            <p>
+              Now philosophers have discussed what exactly causation <em>is</em> for
+              millennia, so certainly it is a subtle issue that we will not resolve here.
+              In fact, careful statisticians usually dodge the complexities by talking about
+              <em>relationships</em>, <em>association</em>, and, of course, the
+              <em>correlation coefficient</em>, being careful always not to commit to
+              <em>causation</em><idx>causation</idx> <mdash/> at least based only on an analysis of the
+              statistical data.
+            </p>
+            
+            <p>
+              As just one example, where we spoke about the meaning of the square <m>r^2</m> of
+              the correlation coefficient (we called it Fact <xref ref="fact-rsquared"/>), we were
+              careful to say that <m>r^2</m> measures the variation of the dependent variable
+              which is <em>associated</em> with the variation of the independent variable.
+              A more reckless description would have been to say that one <em>caused</em> the
+              other <mdash/> but don't fall into that trap!
+            </p>
+            
+            <p>
+              This would be a bad idea because (among other reasons) the correlation
+              coefficient is symmetric in the choice of explanatory and response variables
+              (meaning <m>r</m> is the same no matter which is chosen for which role), while any
+              reasonable notion of causation is asymmetric.  <em>E.g.,</em> while the
+              correlation is exactly the same very large value with either variable being
+              <m>x</m> and which <m>y</m>, most people would say that <em>smoking causes cancer</em> and
+              not the other way!
+            </p>
+            
+            <p>
+              We do need to make one caution about this caution, however.  If there is a
+              causal relationship between two variables that are being studied carefully,
+              then there will be correlation.  So, to quote the great data scientist
+              Edward Tufte<idx>Tufte, Edward</idx>,
+            </p>
+            
+            <blockquote>
+              <p>
+                <em>Correlation is not causation but it sure is a
+                hint.</em><idx><h>correlation is not causation</h><h>but it sure is a hint</h></idx>
+              </p>
+            </blockquote>
+            
+            <p>
+              The first part of this quote (up to the <q>but</q>) is much more famous and, as
+              a very first step, is a good slogan to live by.  Those with a bit more
+              statistical sophistication might instead learn this version, though.  A more
+              sophisticated-sounding version, again due to Tufte,
+              is
+            </p>
+            
+            <blockquote>
+              <p>
+                <em>Empirically observed covariation is a necessary but not sufficient
+                condition for causality.</em>
+              </p>
+            </blockquote>
+            
           </subsection>
+          
           <subsection xml:id="ssec-extrapolation">
             <title>Extrapolation</title>
-            <p/>
+            
+            <p>
+              We have said that visual intuition often allows humans to sketch fairly good
+              approximations of the LSRL on a scatterplot, so long as the correlation
+              coefficient tells us there is a strong linear association.  If the diligent
+              reader did that with the first scatterplot in Example <xref ref="eg-LSRL"/>, probably
+              the resulting line looked much like the line which <term>LibreOffice Calc</term><idx>LibreOffice Calc</idx><idx><h>Calc</h><h>LibreOffice</h></idx> produced
+              <mdash/> except humans usually sketch their line all the way to the left and right
+              edges of the graphics box.  Automatic tools like <term>LibreOffice Calc</term> do not do
+              that, for a reason.
+            </p>
+            
+            <definition xml:id="def-extrapolation">
+              <idx>extrapolation</idx>
+              <statement>
+                <p>
+                  Given a bivariate quantitative dataset and associated LSRL with equation
+                  <m>\widehat{y}=mx+b</m>, the process of guessing that the value of the dependent
+                  variable in this relationship to have the value <m>mx_0+b</m>, for <m>x_0</m> any
+                  value for the independent variable which <em>does not satisfy</em>
+                  <m>x_{min}\le x_0\le x_{max}</m> [so, instead, either <m>x_0\lt x_{min}</m> or <m>x_0>x_{max}</m>],
+                  is called <term>extrapolation</term>.
+                </p>
+              </statement>
+            </definition>
+            
+            <p>
+              Extrapolation is considered a bad, or at least risky, practice.  The idea is
+              that we used the evidence in the dataset <m>\{(x_1,y_1), \dots , (x_n,y_n)\}</m> to
+              build the LSRL, but, by definition, all of this data lies in the interval on
+              the <m>x</m>-axis from <m>x_{min}</m> to <m>x_{max}</m>.  There is literally no evidence from
+              this dataset about what the relationship between our chosen explanatory and
+              response variables will be for <m>x</m> outside of this interval.  So in the absence
+              of strong reasons to believe that the precise linear relationship described
+              by the LSRL will continue for more <m>x</m>'s, we should not assume that it does,
+              and therefore we should not use the LSRL equation to guess values by
+              extrapolation.
+            </p>
+            
+            <p>
+              The fact is, however, that often the best thing we can do with available
+              information when we want to make predictions out into uncharted territory on
+              the <m>x</m>-axis is extrapolation.  So while it is perilous, it is reasonable to
+              extrapolate, so long as you are clear about what exactly you are doing.
+            </p>
+            
+            <example xml:id="eg-extrapolation">
+              <statement>
+                <p>
+                  Using again the statistics students' homework and total course points data
+                  from Example <xref ref="eg-LSRL"/>, suppose the course instructor wanted to predict
+                  what would be the total course points for a student who had earned a perfect
+                  <m>100</m> points on their homework.  Plugging into the LSRL, this would have
+                  yielded a guess of <m>.754\cdot100+26.976=102.376</m>.  Of course, this would
+                  have been impossible, since the maximum possible total course score was <m>100</m>.
+                  Moreover, making this guess is an example of extrapolation, since the <m>x</m>
+                  value of <m>100</m> is beyond the largest <m>x</m> value of <m>x_{max}=92</m> in the dataset.
+                  Therefore we should not rely on this guess <mdash/> as makes sense, since it is
+                  invalid by virtue of being larger than <m>100</m>.
+                </p>
+              </statement>
+            </example>
+            
           </subsection>
+          
           <subsection xml:id="ssec-SP">
             <title>Simpson's Paradox</title>
-            <p/>
+            
+            <p>
+              Our last caution is not so much a way using the LSRL can go wrong, but
+              instead a warning to be ready for something very counter-intuitive to happen
+              <mdash/> so counter-intuitive, in fact, that it is called a paradox.
+            </p>
+            
+            <p>
+              It usually seems reasonable that if some object is cut into two pieces, both
+              of which have a certain property, then probably the whole object also has
+              that same property.  But if the object in question is <em>a population</em> and
+              the property is <em>has positive correlation</em>, then maybe the unreasonable
+              thing happens.
+            </p>
+            
+            <definition xml:id="def-simpsonsparadox">
+              <idx>Simpson's Paradox</idx>
+              <statement>
+                <p>
+                  Suppose we have a population for which we have a bivariate quantitative
+                  dataset.  Suppose further that the population is broken into two (or more)
+                  subpopulations for all of which the correlation between the two variables
+                  is <em>positive</em>, but the correlation of the variables for the whole dataset
+                  is <em>negative</em>.  Then this situation is called <term>Simpson's Paradox</term>.
+                  [It's also called Simpson's Paradox if the role of <em>positive</em> and
+                  <em>negative</em> is reversed in our assumptions.]
+                </p>
+              </statement>
+            </definition>
+            
+            <p>
+              The bad news is that Simpson's paradox can happen.
+            </p>
+            
+            <example xml:id="eg-simpsons1">
+              <statement>
+                <p>
+                  Let <m>\mathbb{P}=\{(0,1), (1,0), (9,10), (10,9)\}</m> be a bivariate dataset, which is
+                  broken into the two subpopulations <m>\mathbb{P}_1=\{(0,1), (1,0)\}</m> and
+                  <m>\mathbb{P}_2=\{(9,10), (10,9)\}</m>.  Then the correlation coefficients of both <m>\mathbb{P}_1</m>
+                  and <m>\mathbb{P}_2</m> are <m>r=-1</m>, but the correlation of all of <m>\mathbb{P}</m> is <m>r=.9756</m>.
+                  This is Simpson's Paradox!
+                </p>
+              </statement>
+            </example>
+            
+            <p>
+              Or, in applications, we can have situations like
+            </p>
+            
+            <example xml:id="eg-simpsons2">
+              <statement>
+                <p>
+                  Suppose we collect data on two sections of a statistics course, in particular
+                  on how many hours per work the individual students study for the course and
+                  how they do in the course, measured by their total course points at the end of
+                  the semester.  It is possible that there is a strong positive correlation
+                  between these variables for each section by itself, but there is a strong
+                  negative correlation when we put all the students into one dataset.  In other
+                  words, it is possible that the rational advice, based on both individual
+                  sections, is <em>study more and you will do better in the course</em>, but that
+                  the rational advice based on all the student data put together is
+                  <em>study less and you will do better</em>.
+                </p>
+              </statement>
+            </example>
+            
           </subsection>
+          
         </section>
         <section xml:id="sec-linear-regression-exercises">
           <title>Exercises</title>
-          <p/>
+          
+          <exercise>
+            <statement>
+              <p>
+                The age (<m>x</m>) and resting heart rate (RHR, <m>y</m>) were measured
+                for nine men, yielding this dataset:
+              </p>
+              <me>
+                \begin{matrix}
+                x:\amp 20\amp 23\amp 30\amp 37\amp 35\amp 45\amp 51\amp 60\amp 63\\
+                y:\amp 72\amp 71\amp 73\amp 74\amp 74\amp 73\amp 75\amp 75\amp 77
+                \end{matrix}
+              </me>
+              <p>
+                Make a scatterplot of these data.
+              </p>
+              <p>
+                Based on the scatterplot, what do you think the correlation coefficient <m>r</m> will
+                be?
+              </p>
+              <p>
+                Now compute <m>r</m>.
+              </p>
+              <p>
+                Compute the LSRL for these data, write down its equation, and sketch it on top
+                of your scatterplot.
+              </p>
+              <p>
+                [You may, of course, do as much of this with electronic tools as you
+                like.  However, you should explain what tool you are using, how you used it,
+                and what it must have been doing behind the scenes to get the results which it
+                displayed and you are turning in.]
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Continuing with the data and computations of the previous
+                problem:
+              </p>
+              <p>
+                What percentage of the variation in RHR is associated with variation in age?
+              </p>
+              <p>
+                Write the following sentences with blanks filled in: <q>If I measured the RHR of
+                a 55 year-old man, I would expect it to be <m>\underline{\hphantom{XXXX}}</m>.
+                Making an estimate like this is called <m>\underline{\hphantom{XXXXXXXXXXX}}</m>.</q>
+              </p>
+              <p>
+                Just looking at the equation of the LSRL, what does it suggest should be the
+                RHR of a newborn baby?  Explain.
+              </p>
+              <p>
+                Also explain what an estimate like yours for the RHR of a baby is called.  This
+                kind of estimate is considered a bad idea in many cases <mdash/> explain why in
+                general, and also use specifics from this particular case.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Write down a bivariate quantitative dataset for a population
+                of only two individuals whose LSRL is <m>\widehat{y}=2x-1</m>.
+              </p>
+              <p>
+                What is the correlation coefficient of your dataset?
+              </p>
+              <p>
+                Next, add one more point to the dataset in such a way that you don't change the
+                LSRL or correlation coefficient.
+              </p>
+              <p>
+                Finally, can your find a dataset with the same LSRL but having a larger
+                correlation coefficient than you just had?
+              </p>
+              <p>
+                [Hint: fool around with modifications or additions to the datasets in
+                you already found in this problem, using an electronic tool to do all the
+                computational work.  When you find a good one, write it down and explain what
+                you thinking was as you searched for it.]
+              </p>
+            </statement>
+          </exercise>
+          
         </section>
       </chapter>
     </part>
