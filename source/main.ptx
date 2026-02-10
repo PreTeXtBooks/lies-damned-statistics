@@ -2309,7 +2309,7 @@
           </li>
           <li>
             <p>
-              In particular, <m>x_2-x_1=1</m>, then <m>m=\frac{y_2-y_1}{1}=y_2-y_1</m> <mdash/> so
+              In particular, if <m>x_2-x_1=1</m>, then <m>m=\frac{y_2-y_1}{1}=y_2-y_1</m> <mdash/> so
               if you look at how much the line goes up in each step of one unit to the right,
               that number will be the slope <m>m</m> (and if it goes <em>down</em>, the slope <m>m</m> will
               simply be negative).  In other words, the slope answers the question <q>for
@@ -2640,13 +2640,13 @@
                   change from what we found before, in Example <xref ref="eg-LSRL"/>:
                 </p>
                 <me>
-                  r=.704\qquad\text{\textit{[which used to be $.935$]}}
+                  r=.704\qquad\text{[which used to be $.935$]}
                 </me>
                 <p>
                   and
                 </p>
                 <me>
-                  \widehat{y}=.529x+38.458\qquad\text{\textit{[which used to be $.754x+26.976$]}}
+                  \widehat{y}=.529x+38.458\qquad\text{[which used to be $.754x+26.976$]}
                 </me>
                 <p>
                   all because of one additional point!
@@ -2943,7 +2943,7 @@
                 LSRL or correlation coefficient.
               </p>
               <p>
-                Finally, can your find a dataset with the same LSRL but having a larger
+                Finally, can you find a dataset with the same LSRL but having a larger
                 correlation coefficient than you just had?
               </p>
               <p>
