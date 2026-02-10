@@ -271,7 +271,6 @@
               </statement>
             </example>
           </subsection>
-          </subsection>
           <subsection xml:id="ssec-BCIIRFC">
             <title>Bar Charts II: Relative Frequency Charts</title>
             <p>
@@ -296,7 +295,6 @@
                 </p>
               </statement>
             </example>
-          </subsection>
           </subsection>
           <subsection xml:id="ssec-BCIIIC">
             <title>Bar Charts III: Cautions</title>
@@ -353,7 +351,6 @@
               and so on).
             </p>
           </subsection>
-          </subsection>
           <subsection xml:id="ssec-PC">
             <title>Pie Charts</title>
             <p>
@@ -394,26 +391,304 @@
               categorical data apply, mostly in exactly the same way, for pie charts.
             </p>
           </subsection>
-          </subsection>
         </section>
         <section xml:id="sec-VRoDIIQV">
           <title>Visual Representation of Data, II: Quantitative Variables</title>
-          <p/>
+          <p>
+            Now suppose we have a population and <em>quantitative</em>
+            variable in which we
+            are interested. We get a sample, which could be large or small, and look at
+            the values of our variable for the individuals in that sample. There are
+            two ways we tend to make pictures of datasets like this: <em>stem-and-leaf
+            plots</em> and <em>histograms</em>.
+          </p>
           <subsection xml:id="ssec-SalP">
             <title>Stem-and-leaf Plots</title>
-            <p/>
+            <idx>stem, in stemplot</idx>
+            <idx>leaf, in stemplot</idx>
+            <idx>stem-and-leaf plot, stemplot</idx>
+            <p>
+              One somewhat old-fashioned way to handle a modest amount of quantitative data
+              produces something between simply a list of all the data values and a graph.
+              It's not a bad technique to know about in case one has to write down a dataset
+              by hand, but very tedious <mdash/> and quite unnecessary, if one uses modern
+              electronic tools instead <mdash/> if the dataset has more than a couple dozen values.
+              The easiest case of this technique is where the data are all whole numbers in
+              the range <m>0-99</m>. In that case, one can take off the tens place of each
+              number <mdash/> call it the <term>stem</term> <mdash/> and put it on the
+              left side of a vertical bar, and then line up all the ones places <mdash/> each is a
+              <term>leaf</term> <mdash/> to the right of that stem. The whole
+              thing is called a <term>stem-and-leaf plot</term>
+              or, sometimes, just a <term>stemplot</term>.
+            </p>
+
+            <p>
+              It's important not to skip any stems which are in the middle of the dataset,
+              even if there are no corresponding leaves. It is also a good idea to allow
+              repeated leaves, if there are repeated numbers in the dataset, so that the
+              length of the row of leaves will give a good representation of how much
+              data is in that general group of data values.
+            </p>
+
+            <example xml:id="eg-stemandleafplot">
+              <idx>stem-and-leaf plot, stemplot</idx>
+              <statement>
+                <p>
+                  Here is a list of the scores of 30 students on a statistics test:
+                </p>
+                <me>
+                  \begin{matrix}
+                  86 &amp; 80 &amp; 25 &amp; 77 &amp; 73 &amp; 76 &amp; 88 &amp; 90 &amp; 69 &amp; 93\\
+                  90 &amp; 83 &amp; 70 &amp; 73 &amp; 73 &amp; 70 &amp; 90 &amp; 83 &amp; 71 &amp; 95\\
+                  40 &amp; 58 &amp; 68 &amp; 69 &amp; 100 &amp; 78 &amp; 87 &amp; 25 &amp; 92 &amp; 74
+                  \end{matrix}
+                </me>
+                <p>
+                  As we said, using the tens place (and the hundreds place as well, for the
+                  data value <m>100</m>) as the stem and the ones place as the leaf, we get
+                </p>
+                <p>
+                  <em>[Table showing stem-and-leaf plot of students' scores, Key: <m>1 | 7 = 17</m> would go here]</em>
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              One nice feature stem-and-leaf plots have is that <em>they contain
+              all of the data values</em>, they do not lose anything (unlike our next
+              visualization method, for example).
+            </p>
           </subsection>
           <subsection xml:id="ssec-FHistograms">
             <title>[Frequency] Histograms</title>
-            <p/>
+            <idx>histogram</idx>
+            <idx>bins, in a histogram</idx>
+            <idx>classes, in a histogram</idx>
+            <p>
+              The most important visual representation of quantitative data is a
+              <term>histogram</term>. Histograms actually look a lot like a stem-and-leaf plot,
+              except turned on its side and with the row of numbers turned into a vertical
+              bar, like a bar graph. The height of each of these bars would be how many
+            </p>
+
+            <p>
+              Another way of saying that is that we would be making bars whose heights were
+              determined by how many scores were in each group of ten. Note there is still
+              a question of into which bar a value right on the edge would count: <em>e.g.,</em>
+              does the data value <m>50</m> count in the bar to the left of that number, or the
+              bar to the right? It doesn't actually matter which side, but it is important
+              to state which choice is being made.
+            </p>
+
+            <example xml:id="eg-scoreshistbytens">
+              <idx>histogram</idx>
+              <statement>
+                <p>
+                  Continuing with the score data in Example <xref ref="eg-stemandleafplot"/> and
+                  putting all data values <m>x</m> satisfying <m>20\le x&lt;30</m> in the first bar,
+                  values <m>x</m> satisfying <m>30\le x&lt;40</m> in the second,
+                  values <m>x</m> satisfying <m>40\le x&lt;50</m> in the second, <em>etc.</em> <mdash/> that is,
+                  put data values on the edges in the bar to the right <mdash/> we get the
+                  figure
+                </p>
+                <p>
+                  <em>[Figure showing scores histogram with binwidth 10 would go here]</em>
+                </p>
+              </statement>
+            </example>
+
+            <p>
+              Actually, there is no reason that the bars always have to be ten units wide:
+              it is important that they are all the same size and that how they handle the
+              edge cases (whether the left or right bar gets a data value on edge), but
+              they could be any size. We call the successive ranges of the <m>x</m> coordinates
+              which get put together for each bar the called
+              <term>bins</term> or
+              <term>classes</term>, and it is up to the statistician
+              to chose whichever bins <mdash/> where they start and how wide they are <mdash/> shows the
+              data best.
+            </p>
+
+            <p>
+              Typically, the smaller the bin size, the more variation (precision) can be
+              seen in the bars <ellipsis/> but sometimes there is so much variation that the result
+              seems to have a lot of random jumps up and down, like static on the radio.
+              On the other hand, using a large bin size makes the picture smoother <ellipsis/> but
+              sometimes, it is so smooth that very little information is left. Some of this
+              is shown in the following
+            </p>
+
+            <example xml:id="eg-scoreshistvariousbins">
+              <idx>histogram</idx>
+              <statement>
+                <p>
+                  Continuing with the score data in Example <xref ref="eg-stemandleafplot"/> and now
+                  using the bins
+                  with <m>x</m> satisfying <m>10\le x&lt;12</m>, then <m>12\le x&lt;14</m>, <em>etc.</em>,
+                  we get the histogram with bins of width 2:
+                </p>
+                <p>
+                  <em>[Figure showing scores histogram with binwidth 2 would go here]</em>
+                </p>
+
+                <p>
+                  If we use the bins with <m>x</m> satisfying <m>10\le x&lt;15</m>, then <m>15\le x&lt;20</m>,
+                  <em>etc.</em>, we get the histogram with bins of width 5:
+                </p>
+                <p>
+                  <em>[Figure showing scores histogram with binwidth 5 would go here]</em>
+                </p>
+
+                <p>
+                  If we use the bins with <m>x</m> satisfying <m>20\le x&lt;40</m>, then <m>40\le x&lt;60</m>,
+                  <em>etc.</em>, we get the histogram with bins of width 20:
+                </p>
+                <p>
+                  <em>[Figure showing scores histogram with binwidth 20 would go here]</em>
+                </p>
+
+                <p>
+                  Finally, if we use the bins with <m>x</m> satisfying <m>0\le x&lt;50</m>, then
+                  <m>50\le x&lt;100</m>, and then <m>100\le x&lt;150</m>, we get the histogram with bins of
+                  width 50:
+                </p>
+                <p>
+                  <em>[Figure showing scores histogram with binwidth 50 would go here]</em>
+                </p>
+              </statement>
+            </example>
           </subsection>
           <subsection xml:id="ssec-RFHistograms">
             <title>[Relative Frequency] Histograms</title>
-            <p/>
+            <idx><h>histogram</h><h>relative frequency</h></idx>
+            <p>
+              Just as we could have bar charts with absolute (<xref ref="ssec-BCIFC"/>) or
+              relative (<xref ref="ssec-BCIIRFC"/>) frequencies, we can do the same for
+              histograms. Above, in
+              <xref ref="ssec-FHistograms"/>, we made absolute frequency histograms. If, instead,
+              we divide each of the counts used to determine the heights of the bars by the
+              total sample size, we will get fractions or percents <mdash/> <em>relative</em>
+              frequencies. We should then change the label on the <m>y</m>-axis and the
+              tick-marks numbers on the <m>y</m>-axis, but otherwise the graph will look exactly
+              the same (as it did with relative frequency bar charts compared with absolute
+              frequency bar chars).
+            </p>
+
+            <example xml:id="eg-scoresRFhistbytens">
+              <idx><h>histogram</h><h>relative frequency</h></idx>
+              <statement>
+                <p>
+                  Let's make the relative frequency histogram corresponding to the absolute
+                  frequency histogram in Example <xref ref="eg-scoreshistbytens"/>, based on the data
+                  from Example <xref ref="eg-stemandleafplot"/> <mdash/> all we have to do is change the
+                  numbers used to make heights of the bars in the graph by dividing them by
+                  the sample size, 30, and then also change the <m>y</m>-axis label and tick mark
+                  numbers.
+                </p>
+                <p>
+                  <em>[Figure showing scores relative frequency histogram with binwidth 10 would go here]</em>
+                </p>
+              </statement>
+            </example>
           </subsection>
           <subsection xml:id="ssec-HtTAH">
             <title>How to Talk About Histograms</title>
-            <p/>
+            <idx>distribution</idx>
+            <idx><h>shape</h><h>histogram</h></idx>
+            <idx>center of a histogram, dataset, or distribution</idx>
+            <idx>spread of a histogram, dataset, or distribution</idx>
+            <idx>symmetric histogram, dataset, or distribution</idx>
+            <idx>skewed histogram, dataset, or distribution</idx>
+            <idx>unimodal histogram, dataset, or distribution</idx>
+            <idx>multimodal histogram, dataset, or distribution</idx>
+            <p>
+              Histograms of course tell us what the data values are <mdash/> the location along
+              the <m>x</m> value of a bar is the value of the variable <mdash/> and how many of them
+              have each particular value <mdash/> the height of the bar tells how many data values
+              are in that bin. This is also given a technical name
+            </p>
+
+            <definition xml:id="def-distribution">
+              <idx>distribution</idx>
+              <statement>
+                <p>
+                  Given a variable defined on a population, or at least on a sample, the
+                  <term>distribution</term> of that variable is a list of all the values the variable
+                  actually takes on and how many times it takes on these values.
+                </p>
+              </statement>
+            </definition>
+
+            <p>
+              The reason we like the visual version of a distribution, its histogram, is
+              that our visual intuition can then help us answer general, qualitative
+              questions about what those data must be telling us. The first questions we
+              usually want to answer quickly about the data are
+            </p>
+            <ul>
+              <li>
+                <p>
+                  What is the <em>shape</em> of the histogram?
+                </p>
+              </li>
+              <li>
+                <p>
+                  Where is its <em>center</em>?
+                </p>
+              </li>
+              <li>
+                <p>
+                  How much <em>variability</em> [also called
+                  <em>spread</em>] does it show?
+                </p>
+              </li>
+            </ul>
+
+            <p>
+              When we talk about the general shape of a histogram, we often use the terms
+            </p>
+
+            <definition xml:id="def-symmskew">
+              <idx>symmetric histogram, dataset, or distribution</idx>
+              <idx>skewed histogram, dataset, or distribution</idx>
+              <idx>unimodal histogram, dataset, or distribution</idx>
+              <idx>multimodal histogram, dataset, or distribution</idx>
+              <statement>
+                <p>
+                  A histogram is <term>symmetric</term> if the left half is (approximately) the mirror
+                  image of the right half.
+                </p>
+
+                <p>
+                  We say a histogram is <term>skewed left</term> if the tail on the left side is longer
+                  than on the right. In other words, left skew is when the left half of the
+                  histogram <mdash/> half in the sense that the total of the bars in this left part
+                  is half of the size of the dataset <mdash/> extends farther to the left than the
+                  right does to the right. Conversely, the histogram is <term>skewed right</term> if
+                  the right half extends farther to the right than the left does to the left.
+                </p>
+
+                <p>
+                  If the shape of the histogram has one significant peak, then we say it is
+                  <term>unimodal</term>, while if it has several such, we say it is <term>multimodal</term>.
+                </p>
+              </statement>
+            </definition>
+
+            <p>
+              It is often easy to point to where the center of a distribution <em>looks
+              like</em> it lies, but it is hard to be precise. It is particularly difficult
+              if the histogram is <q>noisy,</q> maybe multimodal. Similarly, looking at a
+              histogram, it is often easy to say it is <q>quite spread out</q> or <q>very
+              concentrated in the center,</q> but it is then hard to go beyond this general
+              sense.
+            </p>
+
+            <p>
+              Precision in our discussion of the center and spread of a dataset will
+              only be possible in the next section, when we work with numerical measures
+              of these features.
+            </p>
           </subsection>
         </section>
         <section xml:id="sec-NDoDIMotC">
