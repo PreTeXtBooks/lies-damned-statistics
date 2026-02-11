@@ -5275,7 +5275,7 @@
         </p>
         
         <p>
-          This simple case of these tool is based, for both of them, on a beautiful and
+          This simple case of these tools is based, for both of them, on a beautiful and
           amazing theorem called the
           <em>Central Limit Theorem</em><idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx>, which is therefore the subject of the first section of the
           chapter.  The following sections then build the ideas and formulæ first
@@ -5472,8 +5472,6 @@
             population on which there is defined a quantitative
             RV<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx><idx>quantitative variable</idx> <m>X</m>.  The
             population mean <m>\mu_X</m><idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> is unknown, and we want to estimate it.
-            world, unchanging but also probably unknown, simply because to compute it we
-            would have to have access to the values of <m>X</m> for the entire population.
           </p>
           
           <p>
@@ -5733,7 +5731,7 @@
                   all first-year students by calculating the margin of
                   error<idx>margin of error</idx> to be
                   <me>
-                    E==z_L^*\sigma_X/\sqrt{n} = 2.576\cdot8.5/\sqrt{463} = 1.01759
+                    E=z_L^*\sigma_X/\sqrt{n} = 2.576\cdot8.5/\sqrt{463} = 1.01759
                   </me>
                   and then noting that the confidence interval goes from
                   <me>
@@ -5944,7 +5942,7 @@
               </me>
               or
               <me>
-                H_o: \mu_X=17
+                H_0: \mu_X=17
               </me>
               (we always use the latter in this book).
             </p>
