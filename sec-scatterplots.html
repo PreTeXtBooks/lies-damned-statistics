@@ -257,10 +257,10 @@ window.MathJax = {
 <div class="toc-item"><a href="sec-NDoDIMoS.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Numerical Descriptions of Data, II: Measures of Spread</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-Range" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Range</span></a></div></li>
-<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-QuartilesIQR" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Quartiles and the IQR</span></a></div></li>
+<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-QuartilesIQR" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Quartiles and the <span class="process-math">\(IQR\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-VarStdDev" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Variance and Standard Deviation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-SaWoTMoS" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Strengths and Weaknesses of These Measures of Spread</span></a></div></li>
-<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-AFDoO" class="internal"><span class="codenumber">1.5.5</span> <span class="title">A Formal Definition of Outliers -- the 1.5 IQR Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-AFDoO" class="internal"><span class="codenumber">1.5.5</span> <span class="title">A Formal Definition of Outliers—the <span class="process-math">\(1.5\,IQR\)</span> Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-TF-NSaB" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Five-Number Summary and Boxplots</span></a></div></li>
 </ul>
 </li>
@@ -378,7 +378,21 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-scatterplots"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.2</span> <span class="title">Scatterplots</span>
 </h2>
-<div class="para" id="p-28"></div></section></div>
+<div class="para" id="p-234">When we have bivariate data, the first thing we should always do is draw a graph of this data, to get some feeling about what the data is showing us and what statistical methods it makes sense to try to use.  The way to do this is as follows</div>
+<article class="definition definition-like" id="def-scatterplot"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.1</span><span class="period">.</span>
+</h3> <div class="para" id="p-235">Given bivariate quantitative data, we make the <dfn class="terminology">scatterplot</dfn> of this data as follows:  Draw an <span class="process-math">\(x\)</span>- and a <span class="process-math">\(y\)</span>-axis, and label them with descriptions of the independent and dependent variables, respectively.  Then, for each individual in the dataset, put a dot on the graph at location <span class="process-math">\((x,y)\text{,}\)</span> if <span class="process-math">\(x\)</span> is the value of that individual’s independent variable and <span class="process-math">\(y\)</span> the value of its dependent variable.</div></article><div class="para" id="p-236">After making a scatterplot, we usually describe it qualitatively in three respects:</div>
+<article class="definition definition-like" id="def-scattershape"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.2</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-237">If the cloud of data points in a scatterplot generally lies near some curve, we say that the scatterplot has [approximately] that <dfn class="terminology">shape</dfn>.</div> <div class="para" id="p-238">A common shape we tend to find in scatterplots is that it is <dfn class="terminology">linear</dfn>
+</div> <div class="para" id="p-239">If there is no visible shape, we say the scatterplot is <dfn class="terminology">amorphous</dfn>, or <dfn class="terminology">has no clear shape</dfn>.</div></article><article class="definition definition-like" id="def-scatterstrength"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.3</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-240">When a scatterplot has some visible shape — so that we do not describe it as amorphous — how close the cloud of data points is to that curve is called the <dfn class="terminology">strength</dfn> of that association.  In this context, a <dfn class="terminology">strong</dfn> [linear, <em class="emphasis">e.g.,</em>] association means that the dots are close to the named curve [line, <em class="emphasis">e.g.,</em>], while a <dfn class="terminology">weak</dfn> association means that the points do not lie particularly close to any of the named curves [line, <em class="emphasis">e.g.,</em>].</div></article><article class="definition definition-like" id="def-scatterdirection"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.2.4</span><span class="period">.</span>
+</h3>
+<div class="para" id="p-241">In case a scatterplot has a fairly strong linear association, the <dfn class="terminology">direction</dfn> of the association described whether the line is increasing or decreasing.  We say the association is <dfn class="terminology">positive</dfn> if the line is increasing and <dfn class="terminology">negative</dfn> if it is decreasing.</div></article><div class="para" id="p-242">[Note that the words <em class="emphasis">positive</em> and <em class="emphasis">negative</em> here can be thought of as describing the <em class="emphasis">slope</em> of the line which we are saying is the underlying relationship in the scatterplot.]</div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-TERoID.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-correlation.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

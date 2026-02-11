@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.20</span><span class="period">.</span>
+</h4>
+<div class="para">Let’s do one more computation in the context of the heights of adult American males, as in the immediately above Example <a href="" class="xref" data-knowl="./knowl/eg-use68-95-99-7-1.html" title="Example 4.3.19">Example 4.3.19</a>, but now one in which the 68-95-99.7 Rule gives a more precise answer.</div> <div class="para">So say we are asked this time what proportion of adult American men are shorter than 63.4 inches. Why that height, in particular? Well, it’s how tall archaeologists have determined King Tut was in life. [No, that’s made up. It’s just a good number for this problem.]</div> <div class="para logical">
+<div class="para">Again, looking through the values <span class="process-math">\(\mu_X\pm\sigma_X\text{,}\)</span> <span class="process-math">\(\mu_X\pm2\sigma_X\text{,}\)</span> and <span class="process-math">\(\mu_X\pm3\sigma_X\text{,}\)</span> we notice that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+63.4=69-5.6=\mu_X-2\sigma_X\ .
+\end{equation*}
+</div>
+<div class="para">Therefore, to answer what fraction of adult American males are shorter than 63.4 inches amounts to asking what is the value of <span class="process-math">\(P(X&lt;\mu_X-2\sigma_X)\text{.}\)</span>
+</div>
+</div> <div class="para logical">
+<div class="para">What we know about <span class="process-math">\(\mu_X\pm2\sigma_X\)</span> is that the probability of <span class="process-math">\(X\)</span> being between those two values is <span class="process-math">\(P(\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X)=.95\text{.}\)</span> As in the previous Example, the complementary event to “<span class="process-math">\(\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X\text{,}\)</span>” which will have probability <span class="process-math">\(.05\text{,}\)</span> consists of two pieces “<span class="process-math">\(X&lt;\mu_X-2\sigma_X\)</span>” and “<span class="process-math">\(X&gt;\mu_X+2\sigma_X\text{,}\)</span>” which have the same area by symmetry. Therefore</div>
+<div class="displaymath process-math">
+\begin{align*}
+P(X&lt;63.4)&amp;=P(X&lt;\mu_X-2\sigma_X)\\
+&amp;=\frac12\left[P(X&lt;\mu_X-2\sigma_X)+P(X&gt;\mu_X+2\sigma_X)\right]\\
+&amp;=\frac12P(X&lt;\mu_X-2\sigma_X\text{ or }X&gt;\mu_X+2\sigma_X)\text{ since they're disjoint}\\
+&amp;=\frac12P((\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X)^c)\\
+&amp;=\frac12\left[1-P(\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X)\right]\text{ by prob. for complements}\\
+&amp;=\frac12\,.05\\
+&amp;=.025
+\end{align*}
+</div>
+</div></article><span class="incontext"><a href="sec-RVs.html#eg-use68-95-99-7-2" class="internal">in-context</a></span>
+</body>
+</html>

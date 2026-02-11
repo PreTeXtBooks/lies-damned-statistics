@@ -257,10 +257,10 @@ window.MathJax = {
 <div class="toc-item"><a href="sec-NDoDIMoS.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Numerical Descriptions of Data, II: Measures of Spread</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-Range" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Range</span></a></div></li>
-<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-QuartilesIQR" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Quartiles and the IQR</span></a></div></li>
+<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-QuartilesIQR" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Quartiles and the <span class="process-math">\(IQR\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-VarStdDev" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Variance and Standard Deviation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-SaWoTMoS" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Strengths and Weaknesses of These Measures of Spread</span></a></div></li>
-<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-AFDoO" class="internal"><span class="codenumber">1.5.5</span> <span class="title">A Formal Definition of Outliers -- the 1.5 IQR Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-AFDoO" class="internal"><span class="codenumber">1.5.5</span> <span class="title">A Formal Definition of Outliers—the <span class="process-math">\(1.5\,IQR\)</span> Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-TF-NSaB" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Five-Number Summary and Boxplots</span></a></div></li>
 </ul>
 </li>
@@ -378,7 +378,24 @@ window.MathJax = {
 <main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-correlation"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">2.3</span> <span class="title">Correlation</span>
 </h2>
-<div class="para" id="p-29"></div></section></div>
+<div class="para" id="p-243">As before (in §§<a href="sec-NDoDIMotC.html" class="internal" title="Section 1.4: Numerical Descriptions of Data, I: Measures of the Center">Section 1.4</a> and <a href="sec-NDoDIMoS.html" class="internal" title="Section 1.5: Numerical Descriptions of Data, II: Measures of Spread">Section 1.5</a>), when we moved from describing histograms with words (like <em class="emphasis">symmetric</em>) to describing them with numbers (like the <em class="emphasis">mean</em>), we now will build a numeric measure of the strength and direction of a linear association in a scatterplot.</div>
+<article class="definition definition-like" id="def-corrcoeff"><h3 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">2.3.1</span><span class="period">.</span>
+</h3> <div class="para" id="p-244">Given bivariate quantitative data <span class="process-math">\(\{(x_1,y_1), \dots , (x_n,y_n)\}\)</span> the <dfn class="terminology">[Pearson] correlation coefficient</dfn> of this dataset is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+r=\frac{1}{n-1}\sum \frac{(x_i-\overline{x})}{s_x}\frac{(y_i-\overline{y})}{s_y}
+\end{equation*}
+</div>
+<div class="para" id="p-245">where <span class="process-math">\(s_x\)</span> and <span class="process-math">\(s_y\)</span> are the standard deviations of the <span class="process-math">\(x\)</span> and <span class="process-math">\(y\text{,}\)</span> respectively, datasets by themselves.</div></article><article class="assemblage assemblage-like" id="fact-corrcoefff"><h3 class="heading"><span class="title">Fact.</span></h3>
+<div class="para" id="p-246">For any bivariate quantitative dataset <span class="process-math">\(\{(x_1,y_1), \dots ,(x_n,y_n)\}\)</span> with correlation coefficient <span class="process-math">\(r\text{,}\)</span> we have</div></article><div class="para" id="p-253">It is also nice to have some examples of correlation coefficients, such as</div>
+<div class="para" id="p-254">[Figure: Scatterplot range showing various correlation coefficients - placeholder for converted figure]</div>
+<div class="para" id="p-255">Many electronic tools which compute the correlation coefficient <span class="process-math">\(r\)</span> of a dataset also report its square, <span class="process-math">\(r^2\text{.}\)</span>  The reason is explained in the following</div>
+<article class="assemblage assemblage-like" id="fact-rsquared"><h3 class="heading"><span class="title">Fact.</span></h3>
+<div class="para" id="p-256">If <span class="process-math">\(r\)</span> is the correlation coefficient between two variables <span class="process-math">\(x\)</span> and <span class="process-math">\(y\)</span> in some quantitative dataset, then its square <span class="process-math">\(r^2\)</span> is the fraction (often described as a percentage) of the variation of <span class="process-math">\(y\)</span> which is associated with variation in <span class="process-math">\(x\text{.}\)</span>
+</div></article><article class="example example-like" id="eg-rsquared"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-rsquared"><h3 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">2.3.2</span><span class="period">.</span>
+</h3></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-rsquared"><article class="example example-like"><div class="para" id="p-257">If the square of the correlation coefficient between the independent variable <em class="emphasis">how many hours a week a student studies statistics</em> and the dependent variable <em class="emphasis">how many points the student gets on the statistics final exam</em> is <span class="process-math">\(.64\text{,}\)</span> then 64% of the variation in scores for that class is cause by variation in how much the students study.  The remaining 36% of the variation in scores is due to other random factors like whether a student was coming down with a cold on the day of the final, or happened to sleep poorly the night before the final because of neighbors having a party, or some other issues different just from studying time.</div></article></div></section></div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-scatterplots.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-bivariate-exercises.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

@@ -257,10 +257,10 @@ window.MathJax = {
 <div class="toc-item"><a href="sec-NDoDIMoS.html" class="internal"><span class="codenumber">1.5</span> <span class="title">Numerical Descriptions of Data, II: Measures of Spread</span></a></div>
 <ul class="structural">
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-Range" class="internal"><span class="codenumber">1.5.1</span> <span class="title">Range</span></a></div></li>
-<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-QuartilesIQR" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Quartiles and the IQR</span></a></div></li>
+<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-QuartilesIQR" class="internal"><span class="codenumber">1.5.2</span> <span class="title">Quartiles and the <span class="process-math">\(IQR\)</span></span></a></div></li>
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-VarStdDev" class="internal"><span class="codenumber">1.5.3</span> <span class="title">Variance and Standard Deviation</span></a></div></li>
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-SaWoTMoS" class="internal"><span class="codenumber">1.5.4</span> <span class="title">Strengths and Weaknesses of These Measures of Spread</span></a></div></li>
-<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-AFDoO" class="internal"><span class="codenumber">1.5.5</span> <span class="title">A Formal Definition of Outliers -- the 1.5 IQR Rule</span></a></div></li>
+<li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-AFDoO" class="internal"><span class="codenumber">1.5.5</span> <span class="title">A Formal Definition of Outliers—the <span class="process-math">\(1.5\,IQR\)</span> Rule</span></a></div></li>
 <li><div class="toc-item"><a href="sec-NDoDIMoS.html#ssec-TF-NSaB" class="internal"><span class="codenumber">1.5.6</span> <span class="title">The Five-Number Summary and Boxplots</span></a></div></li>
 </ul>
 </li>
@@ -375,29 +375,251 @@ window.MathJax = {
 </li></ul>
 </li>
 </ul></nav></div>
-<main class="ptx-main"><div id="ptx-content" class="ptx-content"><section class="section" id="sec-NDoDIMoS"><h2 class="heading hide-type">
+<main class="ptx-main"><div id="ptx-content" class="ptx-content">
+<section class="section" id="sec-NDoDIMoS"><h2 class="heading hide-type">
 <span class="type">Section</span> <span class="codenumber">1.5</span> <span class="title">Numerical Descriptions of Data, II: Measures of Spread</span>
 </h2>
-<div class="para" id="p-19"></div>
 <section class="subsection" id="ssec-Range"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.5.1</span> <span class="title">Range</span>
 </h3>
-<div class="para" id="p-20"></div></section><section class="subsection" id="ssec-QuartilesIQR"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.5.2</span> <span class="title">Quartiles and the IQR</span>
+<div class="para" id="p-127">The simplest—and least useful—measure of the spread of some data is literally how much space on the <span class="process-math">\(x\)</span>-axis the histogram takes up. To define this, first a bit of convenient notation:</div>
+<article class="definition definition-like" id="def-xminxmax"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.1</span><span class="period">.</span>
+</h4> <div class="para" id="p-128">Suppose <span class="process-math">\(x_1, \dots, x_n\)</span> is some quantitative dataset.  We shall write <span class="process-math">\(x_{min}\)</span> for the smallest and <span class="process-math">\(x_{max}\)</span> for the largest values in the dataset.</div></article><div class="para" id="p-129">With this, we can define our first measure of spread</div>
+<article class="definition definition-like" id="def-range"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.2</span><span class="period">.</span>
+</h4> <div class="para" id="p-130">Suppose <span class="process-math">\(x_1, \dots, x_n\)</span> is some quantitative dataset.  The <dfn class="terminology">range</dfn> of this data is the number <span class="process-math">\(x_{max}-x_{min}\text{.}\)</span>
+</div></article><article class="example example-like" id="eg-spread1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-spread1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.3</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-spread1"><article class="example example-like"><div class="para" id="p-131">Using again the statistics test scores data from <a href="" class="xref" data-knowl="./knowl/eg-stemandleafplot.html" title="Example 1.3.1">Example 1.3.1</a>, we can read off from the stem-and-leaf plot that <span class="process-math">\(x_{min}=25\)</span> and <span class="process-math">\(x_{max}=100\text{,}\)</span> so the range is <span class="process-math">\(75(=100-25)\text{.}\)</span>
+</div></article></div>
+<article class="example example-like" id="eg-spread2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-spread2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.4</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-spread2"><article class="example example-like"><div class="para" id="p-132">Working now with the made-up data in <a href="" class="xref" data-knowl="./knowl/eg-subscriptssums.html" title="Example 1.4.2">Example 1.4.2</a>, which was put into increasing order in <a href="" class="xref" data-knowl="./knowl/eg-median1.html" title="Example 1.4.9">Example 1.4.9</a>, we can see that <span class="process-math">\(x_{min}=-3.1415\)</span> and <span class="process-math">\(x_{max}=17\text{,}\)</span> so the range is <span class="process-math">\(20.1415(=17-(-3.1415))\text{.}\)</span>
+</div></article></div>
+<div class="para" id="p-133">The thing to notice here is that since the idea of outliers is that they are outside of the normal behavior of the dataset, if there are any outliers they will definitely be what value gets called <span class="process-math">\(x_{min}\)</span> or <span class="process-math">\(x_{max}\)</span> (or both).  So <dfn class="terminology">the range is supremely sensitive to outliers</dfn>: if there are any outliers, the range will be determined exactly by them, and not by what the typical data is doing.</div></section><section class="subsection" id="ssec-QuartilesIQR"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.5.2</span> <span class="title">Quartiles and the <span class="process-math">\(IQR\)</span></span>
 </h3>
-<div class="para" id="p-21"></div></section><section class="subsection" id="ssec-VarStdDev"><h3 class="heading hide-type">
+<div class="para" id="p-134">Let’s try to find a substitute for the range which is not so sensitive to outliers.  We want to see how far apart not the maximum and minimum of the whole dataset are, but instead how far apart are the typical larger values in the dataset and the typical smaller values.  How can we measure these typical larger and smaller?  One way is to define these in terms of the typical—central—value of the upper half of the data and the typical value of the lower half of the data.  Here is the definition we shall use for that concept:</div>
+<article class="definition definition-like" id="def-quartile"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.5</span><span class="period">.</span>
+</h4> <div class="para" id="p-135">Imagine that we have put the values of a dataset <span class="process-math">\(\{x_1, \dots, x_n\}\)</span> of <span class="process-math">\(n\)</span> numbers in increasing (or at least non-decreasing) order, so that <span class="process-math">\(x_1\le
+x_2\le \dots \le x_n\text{.}\)</span>  If <span class="process-math">\(n\)</span> is odd, call the <dfn class="terminology">lower half data</dfn> all the values <span class="process-math">\(\{x_1, \dots, x_{(n-1)/2}\}\)</span> and the <dfn class="terminology">upper half data</dfn> all the values <span class="process-math">\(\{x_{(n+3)/2}, \dots, x_n\}\text{;}\)</span> if <span class="process-math">\(n\)</span> is even, the <dfn class="terminology">lower half data</dfn> will be the values <span class="process-math">\(\{x_1, \dots, x_{n/2}\}\)</span> and the <dfn class="terminology">upper half data</dfn> all the values <span class="process-math">\(\{x_{(n/2)+1}, \dots, x_n\}\text{.}\)</span>
+</div> <div class="para" id="p-136">Then the <dfn class="terminology">first quartile</dfn>, written <span class="process-math">\(Q_1\)</span>, is the median of the lower half data, and the <dfn class="terminology">third quartile</dfn>, written <span class="process-math">\(Q_3\)</span>, is the median of the upper half data.</div></article><div class="para" id="p-137">Note that the first quartile is halfway through the lower half of the data. In other words, it is a value such that one quarter of the data is smaller. Similarly, the third quartile is halfway through the upper half of the data, so it is a value such that three quarters of the data is small. Hence the names “first” and “third quartiles.”</div>
+<div class="para" id="p-138">We can build a outlier-insensitive measure of spread out of the quartiles.</div>
+<article class="definition definition-like" id="def-IQR"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.6</span><span class="period">.</span>
+</h4> <div class="para" id="p-139">Given a quantitative dataset, its <dfn class="terminology">inter-quartile range</dfn> or <dfn class="terminology"><span class="process-math">\(IQR\)</span></dfn> is defined by <span class="process-math">\(IQR=Q_3-Q_1\text{.}\)</span>
+</div></article><article class="example example-like" id="eg-iqr1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-iqr1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.7</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-iqr1"><article class="example example-like"><div class="para logical" id="p-140">
+<div class="para">Yet again working with the statistics test scores data from <a href="" class="xref" data-knowl="./knowl/eg-stemandleafplot.html" title="Example 1.3.1">Example 1.3.1</a>, we can count off the lower and upper half datasets from the stem-and-leaf plot, being respectively</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-stemandleafplot.html">
+\begin{equation*}
+\text{Lower}=\{25, 25, 40, 58, 68, 69, 69, 70, 70, 71, 73, 73, 73, 74, 76\}
+\end{equation*}
+</div>
+<div class="para">and</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-stemandleafplot.html">
+\begin{equation*}
+\text{Upper} = \{77, 78, 80, 83, 83, 86, 87, 88, 90, 90, 90, 92, 93, 95, 100\}\ .
+\end{equation*}
+</div>
+<div class="para">It follows that, for these data, <span class="process-math">\(Q_1=70\)</span> and <span class="process-math">\(Q_3=88\text{,}\)</span> so <span class="process-math">\(IQR=18(=88-70)\text{.}\)</span>
+</div>
+</div></article></div>
+<article class="example example-like" id="eg-iqr2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-iqr2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.8</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-iqr2"><article class="example example-like"><div class="para" id="p-141">Working again with the made-up data in <a href="" class="xref" data-knowl="./knowl/eg-subscriptssums.html" title="Example 1.4.2">Example 1.4.2</a>, which was put into increasing order in <a href="" class="xref" data-knowl="./knowl/eg-median1.html" title="Example 1.4.9">Example 1.4.9</a>, we can see that the lower half data is <span class="process-math">\(\{-3.1415, .75\}\text{,}\)</span> the upper half is <span class="process-math">\(\{2, 17\}\text{,}\)</span> <span class="process-math">\(Q_1=-1.19575(=\frac{-3.1415+.75}{2})\text{,}\)</span> <span class="process-math">\(Q_3=9.5(=\frac{2+17}{2})\text{,}\)</span> and <span class="process-math">\(IQR=10.69575(=9.5-(-1.19575))\text{.}\)</span>
+</div></article></div></section><section class="subsection" id="ssec-VarStdDev"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.5.3</span> <span class="title">Variance and Standard Deviation</span>
 </h3>
-<div class="para" id="p-22"></div></section><section class="subsection" id="ssec-SaWoTMoS"><h3 class="heading hide-type">
+<div class="para" id="p-142">We’ve seen a crude measure of spread, like the crude measure “mode” of central tendency.  We’ve also seen a better measure of spread, the <span class="process-math">\(IQR\)</span>, which is insensitive to outliers like the median (and built out of medians).  It seems that, to fill out the parallel triple of measures, there should be a measure of spread which is similar to the mean.  Let’s try to build one.</div>
+<div class="para" id="p-143">Suppose the data is sample data.  Then how far a particular data value <span class="process-math">\(x_i\)</span> is from the sample mean <span class="process-math">\(\overline{x}\)</span> is just <span class="process-math">\(x_i-\overline{x}\text{.}\)</span>  So the mean displacement from the mean, the mean of <span class="process-math">\(x_i-\overline{x}\text{,}\)</span> should be a good measure of variability, shouldn’t it?</div>
+<div class="para" id="p-144">Unfortunately, it turns out that the mean of <span class="process-math">\(x_i-\overline{x}\)</span> is always 0.  This is because when <span class="process-math">\(x_i&gt;\overline{x}\text{,}\)</span> <span class="process-math">\(x_i-\overline{x}\)</span> is positive, while when <span class="process-math">\(x_i&lt;\overline{x}\text{,}\)</span> <span class="process-math">\(x_i-\overline{x}\)</span> is negative, and it turns out that the positives always exactly cancel the negatives (see if you can prove this algebraically, it’s not hard).</div>
+<div class="para" id="p-145">We therefore need to make the numbers <span class="process-math">\(x_i-\overline{x}\)</span> positive before taking their mean.  One way to do this is to square them all.  Then we take something which is almost the mean of these squared numbers to get another measure of spread or variability:</div>
+<article class="definition definition-like" id="def-varstddevsamp"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.9</span><span class="period">.</span>
+</h4> <div class="para logical" id="p-146">
+<div class="para">Given sample data <span class="process-math">\(x_1, \dots, x_n\)</span> from a sample of size <span class="process-math">\(n\text{,}\)</span> the <dfn class="terminology">sample variance</dfn> is defined as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S_x^2 = \frac{\sum \left(x_i-\overline{x}\right)^2}{n-1} .
+\end{equation*}
+</div>
+<div class="para"> Out of this, we then define the <dfn class="terminology">sample standard deviation</dfn>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+S_x = \sqrt{S_x^2} = \sqrt{\frac{\sum \left(x_i-\overline{x}\right)^2}{n-1}} .
+\end{equation*}
+</div>
+</div></article><div class="para" id="p-147">Why do we take the square root in that sample standard deviation?  The answer is that the measure we build should have the property that if all the numbers are made twice as big, then the measure of spread should also be twice as big.  Or, for example, if we first started working with data measured in feet and then at some point decided to work in inches, the numbers would all be 12 times as big, and it would make sense if the measure of spread were also 12 times as big.</div>
+<div class="para" id="p-148">The variance does not have this property: if the data are all doubled, the variance increases by a factor of 4.  Or if the data are all multiplied by 12, the variance is multiplied by a factor of 144.</div>
+<div class="para" id="p-149">If we take the square root of the variance, though, we get back to the nice property of doubling data doubles the measure of spread, <em class="emphasis">etc.</em>  For this reason, while we have defined the variance on its own and some calculators, computers, and on-line tools will tell the variance whenever you ask them to computer 1-variable statistics, we will in this class only consider the variance a stepping stone on the way to the real measure of spread of data, the standard deviation.</div>
+<div class="para" id="p-150">One last thing we should define in this section.  For technical reasons that we shall not go into now, the definition of standard deviation is slightly different if we are working with population data and not sample data:</div>
+<article class="definition definition-like" id="def-varstddevpop"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.10</span><span class="period">.</span>
+</h4> <div class="para logical" id="p-151">
+<div class="para">Given data <span class="process-math">\(x_1, \dots, x_n\)</span> from an entire population of size <span class="process-math">\(n\text{,}\)</span> the <dfn class="terminology">population variance</dfn> is defined as</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sigma_X^2 = \frac{\sum \left(x_i-\mu_X\right)^2}{n} .
+\end{equation*}
+</div>
+<div class="para">Out of this, we then define the <dfn class="terminology">population standard deviation</dfn>
+</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\sigma_X = \sqrt{\sigma_X^2} =
+\sqrt{\frac{\sum \left(x_i-\mu_X\right)^2}{n}} .
+\end{equation*}
+</div>
+</div></article><div class="para" id="p-152">[This letter <span class="process-math">\(\sigma\)</span> is the lower-case Greek letter sigma, whose upper case <span class="process-math">\(\Sigma\)</span> you’ve seen elsewhere.]</div>
+<div class="para" id="p-153">Now for some examples.  Notice that to calculate these values, we shall always use an electronic tool like a calculator or a spreadsheet that has a built-in variance and standard deviation program—experience shows that it is nearly impossible to get all the calculations entered correctly into a non-statistical calculator, so we shall not even try.</div>
+<article class="example example-like" id="eg-varstd1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-varstd1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.11</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-varstd1"><article class="example example-like"><div class="para logical" id="p-154">
+<div class="para">For the statistics test scores data from <a href="" class="xref" data-knowl="./knowl/eg-stemandleafplot.html" title="Example 1.3.1">Example 1.3.1</a>, entering them into a spreadsheet and using <code class="code-inline tex2jax_ignore">VAR.S</code> and <code class="code-inline tex2jax_ignore">STDEV.S</code> for the sample variance and standard deviation and <code class="code-inline tex2jax_ignore">VAR.P</code> and <code class="code-inline tex2jax_ignore">STDEV.P</code> for population variance and population standard deviation, we get</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-stemandleafplot.html" id="md-1">
+\begin{align*}
+S_x^2 \amp = 331.98\\
+S_x \amp = 18.22\\
+\sigma_X^2 \amp = 330.92\\
+\sigma_X \amp = 17.91
+\end{align*}
+</div>
+</div></article></div>
+<article class="example example-like" id="eg-varstd2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-varstd2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.12</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-varstd2"><article class="example example-like"><div class="para logical" id="p-155">
+<div class="para">Similarly, for the data in <a href="" class="xref" data-knowl="./knowl/eg-subscriptssums.html" title="Example 1.4.2">Example 1.4.2</a>, we find in the same way that</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-subscriptssums.html" id="md-2">
+\begin{align*}
+S_x^2 \amp = 60.60\\
+S_x \amp = 7.78\\
+\sigma_X^2 \amp = 48.48\\
+\sigma_X \amp = 6.96
+\end{align*}
+</div>
+</div></article></div></section><section class="subsection" id="ssec-SaWoTMoS"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.5.4</span> <span class="title">Strengths and Weaknesses of These Measures of Spread</span>
 </h3>
-<div class="para" id="p-23"></div></section><section class="subsection" id="ssec-AFDoO"><h3 class="heading hide-type">
-<span class="type">Subsection</span> <span class="codenumber">1.5.5</span> <span class="title">A Formal Definition of Outliers -- the 1.5 IQR Rule</span>
+<div class="para" id="p-156">We have already said that <dfn class="terminology">the range is extremely sensitive to outliers</dfn>.</div>
+<div class="para" id="p-157">The <span class="process-math">\(IQR\text{,}\)</span> however, is built up out of medians, used in different ways, so <dfn class="terminology">the <span class="process-math">\(IQR\)</span> is insensitive to outliers</dfn>.</div>
+<div class="para" id="p-158">The variance, both sample and population, is built using a process quite like a mean, and in fact also has the mean itself in the defining formula.  Since the standard deviation in both cases is simply the square root of the variance, it follows that <dfn class="terminology">the sample and population variances and standard deviations are all sensitive to outliers</dfn>.</div>
+<div class="para" id="p-159">This differing sensitivity and insensitivity to outliers is the main difference between the different measures of spread that we have discussed in this section.</div>
+<div class="para" id="p-160">One other weakness, in a certain sense, of the <span class="process-math">\(IQR\)</span> is that there are several different definitions in use of the quartiles, based upon whether the median value is included or not when dividing up the data.  These are called, for example, <code class="code-inline tex2jax_ignore">QUARTILE.INC</code> and <code class="code-inline tex2jax_ignore">QUARTILE.EXC</code> on some spreadsheets.  It can then be confusing which one to use.</div></section><section class="subsection" id="ssec-AFDoO"><h3 class="heading hide-type">
+<span class="type">Subsection</span> <span class="codenumber">1.5.5</span> <span class="title">A Formal Definition of Outliers—the <span class="process-math">\(1.5\,IQR\)</span> Rule</span>
 </h3>
-<div class="para" id="p-24"></div></section><section class="subsection" id="ssec-TF-NSaB"><h3 class="heading hide-type">
+<div class="para" id="p-161">So far, we have said that outliers are simply data that are <em class="emphasis">atypical</em>.  We need a precise definition that can be carefully checked. What we will use is a formula (well, actually two formulæ) that describe that idea of an outlier being <em class="emphasis">far away from the rest of data</em>.</div>
+<div class="para" id="p-162">Actually, since outliers should be far away either in being significantly bigger than the rest of the data or in being significantly smaller, we should take a value on the upper side of the rest of the data, and another on the lower side, as the starting points for this <em class="emphasis">far away</em>.  We can’t pick the <span class="process-math">\(x_{max}\)</span> and <span class="process-math">\(x_{min}\)</span> as those starting points, since they will be the outliers themselves, as we have noticed.  So we will use our earlier idea of a value which is typical for the larger part of the data, the quartile <span class="process-math">\(Q_3\)</span>, and <span class="process-math">\(Q_1\)</span> for the corresponding lower part of the data.</div>
+<div class="para" id="p-163">Now we need to decide how far is <em class="emphasis">far enough away</em> from those quartiles to count as an outlier.  If the data already has a lot of variation, then a new data value would have to be quite far in order for us to be sure that it is not out there just because of the variation already in the data.  So our measure of <em class="emphasis">far enough</em> should be in terms of a measure of spread of the data.</div>
+<div class="para" id="p-164">Looking at the last section, we see that only the <span class="process-math">\(IQR\)</span> is a measure of spread which is insensitive to outliers—and we definitely don’t want to use a measure which is sensitive to the outliers, one which would have been affected by the very outliers we are trying to define.</div>
+<div class="para" id="p-165">All this goes together in the following</div>
+<article class="definition definition-like" id="def-outlier"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.13</span><span class="period">.</span><span class="space"> </span><span class="title">The <span class="process-math">\(1.5\,IQR\)</span> Rule for Outliers.</span>
+</h4>  <div class="para" id="p-166">Starting with a quantitative dataset whose first and third quartiles are <span class="process-math">\(Q_1\)</span> and <span class="process-math">\(Q_3\)</span> and whose inter-quartile range is <span class="process-math">\(IQR\text{,}\)</span> a data value <span class="process-math">\(x\)</span> is [officially, from now on] called an <dfn class="terminology">outlier</dfn> if <span class="process-math">\(x&lt;Q_1-1.5\,IQR\)</span> or <span class="process-math">\(x&gt;Q_3+1.5\,IQR\text{.}\)</span>
+</div></article><div class="para" id="p-167">Notice this means that <span class="process-math">\(x\)</span> is not an outlier if it satisfies <span class="process-math">\(Q_1-1.5\,IQR\le x\le Q_3+1.5\,IQR\text{.}\)</span>
+</div>
+<article class="example example-like" id="eg-outliers1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-outliers1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.14</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-outliers1"><article class="example example-like"><div class="para logical" id="p-168">
+<div class="para">Let’s see if there were any outliers in the test score dataset from <a href="" class="xref" data-knowl="./knowl/eg-stemandleafplot.html" title="Example 1.3.1">Example 1.3.1</a>.  We found the quartiles and <span class="process-math">\(IQR\)</span> in <a href="" class="xref" data-knowl="./knowl/eg-iqr1.html" title="Example 1.5.7">Example 1.5.7</a>, so from the <span class="process-math">\(1.5\,IQR\)</span> Rule, a data value <span class="process-math">\(x\)</span> will be an outlier if</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-stemandleafplot.html ./knowl/eg-iqr1.html ./knowl/eg-stemandleafplot.html">
+\begin{equation*}
+x&lt;Q_1-1.5\,IQR=70-1.5\cdot18=43
+\end{equation*}
+</div>
+<div class="para">or if</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-stemandleafplot.html ./knowl/eg-iqr1.html ./knowl/eg-stemandleafplot.html">
+\begin{equation*}
+x&gt;Q_3+1.5\,IQR=88+1.5\cdot18=115\ .
+\end{equation*}
+</div>
+<div class="para">Looking at the stemplot in <a href="" class="xref" data-knowl="./knowl/eg-stemandleafplot.html" title="Example 1.3.1">Example 1.3.1</a>, we conclude that the data values <span class="process-math">\(25\text{,}\)</span> <span class="process-math">\(25\text{,}\)</span> and <span class="process-math">\(40\)</span> are the outliers in this dataset.</div>
+</div></article></div>
+<article class="example example-like" id="eg-outliers2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-outliers2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.15</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-outliers2"><article class="example example-like"><div class="para logical" id="p-169">
+<div class="para">Applying the same method to the data in <a href="" class="xref" data-knowl="./knowl/eg-subscriptssums.html" title="Example 1.4.2">Example 1.4.2</a>, using the quartiles and <span class="process-math">\(IQR\)</span> from <a href="" class="xref" data-knowl="./knowl/eg-iqr2.html" title="Example 1.5.8">Example 1.5.8</a>, the condition for an outlier <span class="process-math">\(x\)</span> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-subscriptssums.html ./knowl/eg-iqr2.html">
+\begin{equation*}
+x&lt;Q_1-1.5\,IQR=-1.19575-1.5\cdot10.69575=-17.239375
+\end{equation*}
+</div>
+<div class="para">or</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-subscriptssums.html ./knowl/eg-iqr2.html">
+\begin{equation*}
+x&gt;Q_3+1.5\,IQR=9.5+1.5\cdot10.69575=25.543625\ .
+\end{equation*}
+</div>
+<div class="para">Since none of the data values satisfy either of these conditions, there are no outliers in this dataset.</div>
+</div></article></div></section><section class="subsection" id="ssec-TF-NSaB"><h3 class="heading hide-type">
 <span class="type">Subsection</span> <span class="codenumber">1.5.6</span> <span class="title">The Five-Number Summary and Boxplots</span>
 </h3>
-<div class="para" id="p-25"></div></section></section></div>
+<div class="para" id="p-170">We have seen that numerical summaries of quantitative data can be very useful for quickly understanding (some things about) the data.  It is therefore convenient for a nice package of several of these</div>
+<article class="definition definition-like" id="def-fivenumbersum"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.16</span><span class="period">.</span>
+</h4> <div class="para logical" id="p-171">
+<div class="para">Given a quantitative dataset <span class="process-math">\(\{x_1, \dots, x_n\}\text{,}\)</span> the <dfn class="terminology">five-number summary</dfn><a href="" data-knowl="" class="id-ref fn-knowl original" data-refid="hk-fn-4" id="fn-4"><sup> 1 </sup></a> of this data is the set of values</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\left\{x_{min},\ \ Q_1,\ \ \text{median},\ \ Q_3,\ \ x_{max}\right\}
+\end{equation*}
+</div>
+</div></article><article class="example example-like" id="eg-5num1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-5num1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.17</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-5num1"><article class="example example-like"><div class="para logical" id="p-172">
+<div class="para">Why not write down the five-number summary for the same test score data we saw in <a href="" class="xref" data-knowl="./knowl/eg-stemandleafplot.html" title="Example 1.3.1">Example 1.3.1</a>?  We’ve already done most of the work, such as calculating the min and max in <a href="" class="xref" data-knowl="./knowl/eg-spread1.html" title="Example 1.5.3">Example 1.5.3</a>, the quartiles in <a href="" class="xref" data-knowl="./knowl/eg-iqr1.html" title="Example 1.5.7">Example 1.5.7</a>, and the median in <a href="" class="xref" data-knowl="./knowl/eg-median2.html" title="Example 1.4.10">Example 1.4.10</a>, so the five-number summary is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-stemandleafplot.html ./knowl/eg-spread1.html ./knowl/eg-iqr1.html ./knowl/eg-median2.html" id="md-3">
+\begin{align*}
+x_{min}\amp=25\\
+Q_1\amp=70\\
+\text{median}\amp=76.5\\
+Q_3\amp=88\\
+x_{max}\amp=100
+\end{align*}
+</div>
+</div></article></div>
+<article class="example example-like" id="eg-5num2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-5num2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.18</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-5num2"><article class="example example-like"><div class="para logical" id="p-173">
+<div class="para">And, for completeness, the five number summary for the made-up data in <a href="" class="xref" data-knowl="./knowl/eg-subscriptssums.html" title="Example 1.4.2">Example 1.4.2</a> is</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-subscriptssums.html ./knowl/eg-spread2.html ./knowl/eg-median1.html ./knowl/eg-iqr2.html" id="md-4">
+\begin{align*}
+x_{min}\amp=-3.1415\\
+Q_1\amp=-1.19575\\
+\text{median}\amp=1\\
+Q_3\amp=9.5\\
+x_{max}\amp=17
+\end{align*}
+</div>
+<div class="para">where we got the min and max from <a href="" class="xref" data-knowl="./knowl/eg-spread2.html" title="Example 1.5.4">Example 1.5.4</a>, the median from <a href="" class="xref" data-knowl="./knowl/eg-median1.html" title="Example 1.4.9">Example 1.4.9</a>, and the quartiles from <a href="" class="xref" data-knowl="./knowl/eg-iqr2.html" title="Example 1.5.8">Example 1.5.8</a>.</div>
+</div></article></div>
+<div class="para" id="p-174">As we have seen already several times, it is nice to have a both a numeric and a graphical/visual version of everything.  The graphical equivalent of the five-number summary is</div>
+<article class="definition definition-like" id="def-boxplot"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.19</span><span class="period">.</span>
+</h4> <div class="para" id="p-175">Given some quantitative data, a <dfn class="terminology">boxplot</dfn> [sometimes <dfn class="terminology">box-and-whisker plot</dfn>] is a graphical depiction of the five-number summary, as follows:</div> <ul class="disc">
+<li id="li-6"><div class="para" id="p-176">an axis is drawn, labelled with the variable of the study</div></li>
+<li id="li-7"><div class="para" id="p-177">tick marks and numbers are put on the axis, enough to allow the following visual features to be located numerically</div></li>
+<li id="li-8"><div class="para" id="p-178">a rectangle (the <em class="emphasis">box</em>) is drawn parallel to the axis, stretching from values <span class="process-math">\(Q_1\)</span> to <span class="process-math">\(Q_3\)</span> on the axis</div></li>
+<li id="li-9"><div class="para" id="p-179">an additional line is drawn, parallel to the sides of the box, at the axis coordinate of the median of the data</div></li>
+<li id="li-10"><div class="para" id="p-180">lines are drawn parallel to the axis from the middle of the sides of the box (at the locations <span class="process-math">\(Q_1\)</span> and <span class="process-math">\(Q_3\)</span>) out to the axis coordinates <span class="process-math">\(x_{min}\)</span> and <span class="process-math">\(x_{max}\)</span>, where these <em class="emphasis">whiskers</em> terminate in “T”s.</div></li>
+</ul></article><article class="example example-like" id="eg-boxplot1"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-boxplot1"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.20</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-boxplot1"><article class="example example-like"><div class="para" id="p-181">A boxplot for the test score data we started using in <a href="" class="xref" data-knowl="./knowl/eg-stemandleafplot.html" title="Example 1.3.1">Example 1.3.1</a> is easy to make after we found the corresponding five-number summary in <a href="" class="xref" data-knowl="./knowl/eg-5num1.html" title="Example 1.5.17">Example 1.5.17</a>:</div> <div class="para" id="p-182">[PLACEHOLDER: Figure showing boxplot for test score data]</div></article></div>
+<div class="para" id="p-183">Sometimes it is nice to make a version of the boxplot which is less sensitive to outliers.  Since the endpoints of the whiskers are the only parts of the boxplot which are sensitive in this way, they are all we have to change:</div>
+<article class="definition definition-like" id="def-boxplotwithOLs"><h4 class="heading">
+<span class="type">Definition</span><span class="space"> </span><span class="codenumber">1.5.21</span><span class="period">.</span>
+</h4> <div class="para" id="p-184">Given some quantitative data, a <dfn class="terminology">boxplot showing outliers</dfn> [sometimes <dfn class="terminology">box-and-whisker plot showing outliers</dfn>] is minor modification of the regular boxplot, as follows</div> <ul class="disc">
+<li id="li-11"><div class="para" id="p-185">the whiskers only extend as far as the largest and smallest non-outlier data values</div></li>
+<li id="li-12"><div class="para" id="p-186">dots are put along the lines of the whiskers at the axis coordinates of any outliers in the dataset</div></li>
+</ul></article><article class="example example-like" id="eg-boxplot2"><a href="" data-knowl="" class="id-ref example-knowl original" data-refid="hk-eg-boxplot2"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">1.5.22</span><span class="period">.</span>
+</h4></a></article><div class="hidden-content tex2jax_ignore" id="hk-eg-boxplot2"><article class="example example-like"><div class="para" id="p-187">A boxplot showing outliers for the test score data we started using in <a href="" class="xref" data-knowl="./knowl/eg-stemandleafplot.html" title="Example 1.3.1">Example 1.3.1</a> is only a small modification of the one we just made in <a href="" class="xref" data-knowl="./knowl/eg-boxplot1.html" title="Example 1.5.20">Example 1.5.20</a>
+</div> <div class="para" id="p-188">[PLACEHOLDER: Figure showing boxplot with outliers for test score data]</div></article></div></section></section><div class="hidden-content tex2jax_ignore" id="hk-fn-4"><div class="fn">Which might write 5N<span class="process-math">\(\Sigma\)</span>ary for short.</div></div>
+</div>
 <div class="ptx-content-footer">
 <a class="previous-button button" href="sec-NDoDIMotC.html" title="Previous"><span class="icon">&lt;</span><span class="name">Prev</span></a><a class="top-button button" href="#" title="Top"><span class="icon">^</span><span class="name">Top</span></a><a class="next-button button" href="sec-one-variable-exercises.html" title="Next"><span class="name">Next</span><span class="icon">&gt;</span></a>
 </div></main>

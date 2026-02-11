@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="li"><h5 class="heading">
+<span class="type">Item</span><span class="period">.</span>
+</h5>
+<div class="para logical">
+<div class="para">Spreadsheets like <dfn class="terminology">LibreOffice Calc</dfn> and <dfn class="terminology">Microsoft Excel</dfn> will compute this by putting the following in a cell</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{=1-NORM.DIST(72, 69, 2.8, 1)}
+\end{equation*}
+</div>
+<div class="para"> giving the value 0.1419883859. Here we are using the command</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{NORM.DIST}(b, \mu_X, \sigma_X, 1)
+\end{equation*}
+</div>
+<div class="para">which computes the area under the density function for <span class="process-math">\(N(\mu_X, \sigma_X)\)</span> from <span class="process-math">\(-\infty\)</span> to <span class="process-math">\(b\text{.}\)</span> [The last input of “1” to NORM.DIST just tells it that we want to compute the area under the curve. If we used “0” instead, it would simple tell us the particular value of <span class="process-math">\(\rho(b)\text{,}\)</span> which is of very direct little use in probability calculations.] Therefore, by doing <span class="process-math">\(1-NORM.DIST(72, 69, 2.8, 1)\text{,}\)</span> we are taking the total area of 1 and subtracting the area to the left of 72, yielding the area to the right, as we wanted.</div>
+</div>
+<div class="para logical">
+<div class="para">Therefore, if you want the area between <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> on an <span class="process-math">\(N(\mu_X, \sigma_X)\)</span> RV using a spreadsheet, you would put</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{=NORM.DIST}(b, \mu_X, \sigma_X, 1) - \text{NORM.DIST}(a, \mu_X, \sigma_X, 1)
+\end{equation*}
+</div>
+<div class="para">in a cell.</div>
+</div></article><span class="incontext"><a href="sec-RVs.html#li-44" class="internal">in-context</a></span>
+</body>
+</html>

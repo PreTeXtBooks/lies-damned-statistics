@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.14</span><span class="period">.</span>
+</h4>
+<div class="para">Suppose you repeatedly throw darts at a dartboard. You’re not a machine, so the darts hit in different places every time and you think of this as a repeatable random experiment whose outcomes are the locations of the dart on the board. You’re interested in the probabilities of getting close to the center of the board, so you decide for each experimental outcome (location of a dart you threw) to measure its distance to the center — this will be your RV <span class="process-math">\(X\text{.}\)</span>
+</div> <div class="para">Being good at this game, you hit near the center more than near the edge and you never completely miss the board, whose radius is <span class="process-math">\(10cm\)</span> — so <span class="process-math">\(X\)</span> is more likely to be near <span class="process-math">\(0\)</span> than near <span class="process-math">\(10\text{,}\)</span> and it is never greater than <span class="process-math">\(10\text{.}\)</span> What this means is that the RV has values forming the interval <span class="process-math">\([0,10]\)</span> and the density function, defined on the same interval, should have its maximum value at <span class="process-math">\(x=0\)</span> and should go down to the value <span class="process-math">\(0\)</span> when <span class="process-math">\(x=10\text{.}\)</span>
+</div> <div class="para">You decide to model this situation with the simplest density function you can think of that has the properties we just noticed: a straight line from the highest point of the density function when <span class="process-math">\(x=0\)</span> down to the point <span class="process-math">\((10,0)\text{.}\)</span> The figure that will result will be a triangle, and since the total area must be <span class="process-math">\(1\)</span> and the base is <span class="process-math">\(10\)</span> units long, the height must be <span class="process-math">\(.2\)</span> units. [To get that, we solved the equation <span class="process-math">\(1=\frac12bh=\frac1210h=5h\)</span> for <span class="process-math">\(h\text{.}\)</span>] So the graph must be</div> <div class="para"><em class="emphasis">[Figure: Triangular density function for dart hitting distance]</em></div> <div class="para">and the equation of this linear density function would be <span class="process-math">\(y=-\frac1{50}x+.2\)</span> [why? — think about the slope and <span class="process-math">\(y\)</span>-intercept!].</div> <div class="para">To the extent that you trust this model, you can now calculate the probabilities of events like, for example, “<em class="emphasis">hitting the board within that center bull’s-eye of radius <span class="process-math">\(1.5cm\)</span></em>,” which probability would be the area of the shaded region in this graph:</div> <div class="para"><em class="emphasis">[Figure: Dart hitting bull’s-eye probability shown as shaded trapezoid]</em></div> <div class="para logical">
+<div class="para">The upper-right corner of this shaded region is at <span class="process-math">\(x\)</span>-coordinate <span class="process-math">\(1.5\)</span> and is on the line, so its <span class="process-math">\(y\)</span>-coordinate is <span class="process-math">\(-\frac1{50}1.5+.2=.17\text{.}\)</span> Since the region is a trapezoid, its area is the distance between the two parallel sides times the average of the lengths of the other two sides, giving</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(0&lt;X&lt;1.5) = 1.5\cdot\frac{.2+.17}2 = .2775\ .
+\end{equation*}
+</div>
+<div class="para">In other words, the probability of hitting the bull’s-eye, assuming this model of your dart-throwing prowess, is about <span class="process-math">\(28\)</span>%.</div>
+</div> <div class="para">If you don’t remember the formula for the area of a trapezoid, you can do this problem another way: compute the probability of the complementary event, and then take one minus that number. The reason to do this would be that the complementary event corresponds to the shaded region here</div> <div class="para"><em class="emphasis">[Figure: Complementary event showing triangular region]</em></div> <div class="para logical">
+<div class="para">which is a triangle! Since we surely do remember the formula for the area of a triangle, we find that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(1.5&lt;X&lt;10)=\frac12bh=\frac{1}{2}.17\cdot8.5=.7225
+\end{equation*}
+</div>
+<div class="para">and therefore <span class="process-math">\(P(0&lt;X&lt;1.5)=1-P(1.5&lt;X&lt;10)=1-.7225=.2775\text{.}\)</span> [It’s nice that we got the same number this way, too!]</div>
+</div></article><span class="incontext"><a href="sec-RVs.html#eg-triangleDistr" class="internal">in-context</a></span>
+</body>
+</html>

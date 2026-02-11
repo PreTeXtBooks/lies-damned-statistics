@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math">
+<article class="example example-like"><h4 class="heading">
+<span class="type">Example</span><span class="space"> </span><span class="codenumber">4.3.18</span><span class="period">.</span>
+</h4>
+<div class="para">As we noted above, the heights of adult men in the United States, when measured in inches, give a RV <span class="process-math">\(X\)</span> which is <span class="process-math">\(N(69, 2.8)\text{.}\)</span> What percentage of the population, then, is taller than <span class="process-math">\(6\)</span> feet?</div> <div class="para">First of all, the frequentist point of view on probability tells us that what we are interested in is the probability that a randomly chosen adult American male will be taller than <span class="process-math">\(6\)</span> feet — that will be the same as the percentage of the population this tall. In other words, we must find the probability that <span class="process-math">\(X&gt;72\text{,}\)</span> since in inches, <span class="process-math">\(6\)</span> feet becomes <span class="process-math">\(72\text{.}\)</span> As <span class="process-math">\(X\)</span> is a continuous RV, we must find the area under its density curve, which is the <span class="process-math">\(\rho\)</span> for <span class="process-math">\(N(69, 2.8)\text{,}\)</span> between <span class="process-math">\(72\)</span> and <span class="process-math">\(\infty\text{.}\)</span>
+</div> <div class="para">That <span class="process-math">\(\infty\)</span> is a little intimidating, but since the tails of the Normal distribution are very thin, we can stop measuring area when <span class="process-math">\(x\)</span> is some large number and we will have missed only a very tiny amount of area, so we will have a very good approximation. Let’s therefore find the area under <span class="process-math">\(\rho\)</span> from <span class="process-math">\(x=72\)</span> up to <span class="process-math">\(x=1000\text{.}\)</span> This can be done in many ways:</div> <ul class="disc">
+<li><div class="para">With a wide array of online tools — just search for “online normal probability calculator.” One of these yields the value <span class="process-math">\(.142\text{.}\)</span>
+</div></li>
+<li><div class="para logical">
+<div class="para">With a <dfn class="terminology">TI-8x</dfn> calculator, by typing</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{normalcdf(72, 1000, 69, 2.8)}
+\end{equation*}
+</div>
+<div class="para"> which yields the value <span class="process-math">\(.1419884174\text{.}\)</span> The general syntax here is</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{normalcdf}(a, b, \mu_X, \sigma_X)
+\end{equation*}
+</div>
+<div class="para">to find <span class="process-math">\(P(a&lt;X&lt;b)\)</span> when <span class="process-math">\(X\)</span> is <span class="process-math">\(N(\mu_X, \sigma_X)\text{.}\)</span> Note you get <dfn class="terminology">normalcdf</dfn> by typing [2ND] → [VARS] → 2</div>
+</div></li>
+<li>
+<div class="para logical">
+<div class="para">Spreadsheets like <dfn class="terminology">LibreOffice Calc</dfn> and <dfn class="terminology">Microsoft Excel</dfn> will compute this by putting the following in a cell</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{=1-NORM.DIST(72, 69, 2.8, 1)}
+\end{equation*}
+</div>
+<div class="para"> giving the value 0.1419883859. Here we are using the command</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{NORM.DIST}(b, \mu_X, \sigma_X, 1)
+\end{equation*}
+</div>
+<div class="para">which computes the area under the density function for <span class="process-math">\(N(\mu_X, \sigma_X)\)</span> from <span class="process-math">\(-\infty\)</span> to <span class="process-math">\(b\text{.}\)</span> [The last input of “1” to NORM.DIST just tells it that we want to compute the area under the curve. If we used “0” instead, it would simple tell us the particular value of <span class="process-math">\(\rho(b)\text{,}\)</span> which is of very direct little use in probability calculations.] Therefore, by doing <span class="process-math">\(1-NORM.DIST(72, 69, 2.8, 1)\text{,}\)</span> we are taking the total area of 1 and subtracting the area to the left of 72, yielding the area to the right, as we wanted.</div>
+</div>
+<div class="para logical">
+<div class="para">Therefore, if you want the area between <span class="process-math">\(a\)</span> and <span class="process-math">\(b\)</span> on an <span class="process-math">\(N(\mu_X, \sigma_X)\)</span> RV using a spreadsheet, you would put</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\text{=NORM.DIST}(b, \mu_X, \sigma_X, 1) - \text{NORM.DIST}(a, \mu_X, \sigma_X, 1)
+\end{equation*}
+</div>
+<div class="para">in a cell.</div>
+</div>
+</li>
+</ul></article><span class="incontext"><a href="sec-RVs.html#eg-normalcomp" class="internal">in-context</a></span>
+</body>
+</html>

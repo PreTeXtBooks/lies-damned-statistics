@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="example example-like"><div class="para logical">
+<div class="para">In Example <a href="" class="xref" data-knowl="./knowl/eg-normalcomp.html" title="Example 4.3.18">Example 4.3.18</a>, we needed to compute <span class="process-math">\(P(X&gt;72)\)</span> where <span class="process-math">\(X\)</span> was known to be <span class="process-math">\(N(69, 2.8)\text{.}\)</span> Is 72 one of the numbers for which we should be looking, to use the Rule? Well, it’s greater than <span class="process-math">\(\mu_X=69\text{,}\)</span> so we could hope that it was <span class="process-math">\(\mu_X+\sigma_X\text{,}\)</span> <span class="process-math">\(\mu_X+2\sigma_X\text{,}\)</span> or <span class="process-math">\(\mu_X+3\sigma_X\text{.}\)</span> But values are</div>
+<div class="displaymath process-math" data-contains-math-knowls="./knowl/eg-normalcomp.html">
+\begin{align*}
+\mu_X+\sigma_X&amp;=69+2.8=71.8,\\
+\mu_X+2\sigma_X&amp;=69+5.6=74.6, \text{ and}\\
+\mu_X+3\sigma_X&amp;=69+8.4=77.4,
+\end{align*}
+</div>
+<div class="para">none of which is what we need.</div>
+</div> <div class="para">Well, it is true that <span class="process-math">\(72\approx71.8\text{,}\)</span> so we could use that fact and accept that we are only getting an approximate answer — an odd choice, given the availability of tools which will give us extremely precise answers, but let’s just go with it for a minute.</div> <div class="para logical">
+<div class="para">Let’s see, the above Rule tells us that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(66.2&lt;X&lt;71.8)=P(\mu_X-\sigma_X&lt;X&lt;\mu_X+\sigma_X)=.68\ .
+\end{equation*}
+</div>
+<div class="para">Now since the total area under any density curve is 1,</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(X&lt;66.2\text{ or }X&gt;71.8) = 1 - P(66.2&lt;X&lt;71.8) = 1- .68 = .32\ .
+\end{equation*}
+</div>
+<div class="para">Since the event “<span class="process-math">\(X&lt;66.2\)</span>” is disjoint from the event “<span class="process-math">\(X&gt;71.8\)</span>” (<span class="process-math">\(X\)</span> only takes on one value at a time, so it cannot be simultaneously less than 66.2 and greater than 71.8), we can use the simple rule for addition of probabilities:</div>
+<div class="displaymath process-math">
+\begin{equation*}
+.32 = P(X&lt;66.2\text{ or }X&gt;71.8) = P(X&lt;66.2) + P(X&gt;71.8)\ .
+\end{equation*}
+</div>
+<div class="para">Now, since the density function of the Normal distribution is symmetric around the line <span class="process-math">\(x=\mu_X\text{,}\)</span> the two terms on the right in the above equation are equal, which means that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(X&gt;71.8) = \frac12\left(P(X&lt;66.2) + P(X&gt;71.8)\right) = \frac12 .32 = .16\ .
+\end{equation*}
+</div>
+<div class="para">It might help to visualize the symmetry here as the equality of the two shaded areas in the following graph</div>
+</div> <div class="para"><em class="emphasis">[Figure: Symmetric shaded areas showing equal tail probabilities]</em></div> <div class="para logical">
+<div class="para">Now, using the fact that <span class="process-math">\(72\approx71.8\text{,}\)</span> we may say that</div>
+<div class="displaymath process-math">
+\begin{equation*}
+P(X&gt;72)\approx P(X&gt;71.8) = .16
+\end{equation*}
+</div>
+<div class="para">which, since we know that in fact <span class="process-math">\(P(X&gt;72)=.1419883859\text{,}\)</span> is not a completely terrible approximation.</div>
+</div></article></body>
+</html>

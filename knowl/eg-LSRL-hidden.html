@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr">
+<!--********************************************-->
+<!--*       Generated from PreTeXt source      *-->
+<!--*                                          *-->
+<!--*         https://pretextbook.org          *-->
+<!--*                                          *-->
+<!--********************************************-->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body class="ignore-math"><article class="example example-like"><div class="para">Here is some data where the individuals are 23 students in a statistics class, the independent variable is the students’ total score on their homeworks, while the dependent variable is their final total course points, both out of 100.</div>
+<div class="displaymath process-math">
+\begin{equation*}
+\begin{matrix}
+x:\amp 65\amp 65\amp 50\amp 53\amp 59\amp 92\amp 86\amp 84\amp 29\\
+y:\amp 74\amp 71\amp 65\amp 60\amp 83\amp 90\amp 84\amp 88\amp 48\\
+\ \\
+x:\amp 29\amp  9\amp 64\amp 31\amp 69\amp 10\amp 57\amp 81\amp 81\\
+y:\amp 54\amp 25\amp 79\amp 58\amp 81\amp 29\amp 81\amp 94\amp 86\\
+\ \\
+x:\amp 80\amp 70\amp 60\amp 62\amp 59\\
+y:\amp 95\amp 68\amp 69\amp 83\amp 70\\
+\end{matrix}
+\end{equation*}
+</div>
+<div class="para">Here is the resulting scatterplot, made with <dfn class="terminology">LibreOffice Calc</dfn> (a free equivalent of <dfn class="terminology">Microsoft Excel</dfn>)</div> <div class="para">[Figure: scatter1.eps - placeholder for scatterplot]</div> <div class="para">It seems pretty clear that there is quite a strong linear association between these two variables, as is born out by the correlation coefficient, <span class="process-math">\(r=.935\)</span> (computed with <dfn class="terminology">LibreOffice Calc</dfn>’s <code class="code-inline tex2jax_ignore">CORREL</code>).  Using then <code class="code-inline tex2jax_ignore">STDEV.S</code> and <code class="code-inline tex2jax_ignore">AVERAGE</code>, we find that the coefficients of the LSRL for this data, <span class="process-math">\(\widehat{y}=mx+b\)</span> are</div>
+<div class="displaymath process-math">
+\begin{equation*}
+m=r\frac{s_y}{s_x}=.935\frac{18.701}{23.207}=.754\qquad{\rm and}\qquad b=\overline{y}-\overline{x}\,m=71-58\cdot .754=26.976
+\end{equation*}
+</div>
+<div class="para">We can also use <dfn class="terminology">LibreOffice Calc</dfn>’s <code class="code-inline tex2jax_ignore">Insert Trend Line</code>, with <code class="code-inline tex2jax_ignore">Show Equation</code>, to get all this done automatically.  Note that when <dfn class="terminology">LibreOffice Calc</dfn> writes the equation of the LSRL, it uses <span class="process-math">\(f(x)\)</span> in place of <span class="process-math">\(\widehat{y}\text{,}\)</span> as we would.</div> <div class="para">[Figure: scatter2.eps - placeholder for scatterplot with LSRL]</div></article></body>
+</html>
