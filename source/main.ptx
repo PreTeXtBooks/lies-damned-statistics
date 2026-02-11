@@ -2532,6 +2532,7 @@
       <chapter xml:id="chap-linear-regression">
         <title>Linear Regression</title>
         
+        <introduction>
         <p>
           Quick review of equations for lines:
         </p>
@@ -2604,6 +2605,7 @@
             </p>
           </li>
         </ul>
+        </introduction>
         
         <section xml:id="sec-TLSRL">
           <title>The Least Squares Regression Line</title>
@@ -3299,6 +3301,7 @@
       <chapter xml:id="chap-probability-theory">
         <title>Probability Theory</title>
 
+        <introduction>
         <p>We want to imagine doing an experiment in which there is no way to predict what the outcome will be. Of course, if we stop our imagination there, there would be nothing we could say and no point in trying to do any further analysis: the outcome would just be whatever it wanted to be, with no pattern.</p>
 
         <p>So let us add the additional assumption that while we <em>cannot predict</em> what will happen any particular time we do the experiment, we <em>can predict</em> general trends, in the long run, if we repeat the experiment many times. To be more precise, we assume that, for any collection <m>E</m> of possible outcomes of the experiment there is a number <m>p(E)</m> such that, no matter who does the experiment, no matter when they do it, if they repeat the experiment many times, the fraction of times they would have seen any of the outcomes of <m>E</m> would be close to that number <m>p(E)</m>.</p>
@@ -3310,6 +3313,7 @@
         <p>Another question we might ask is: where does our uncertainty about the experimental results come from? From the beginnings of the scientific method through the turn of the <m>20^{\text{th}}</m> century, it was thought that this uncertainty came from our incomplete knowledge of the system on which we were experimenting. So if the experiment was, say, flipping a coin, the precise amount of force used to propel the coin up into the air, the precise angular motion imparted to the coin by its position just so on the thumbnail of the person doing the flipping, the precise drag that the coin felt as it tumbled through the air caused in part by eddies in the air currents coming from the flap of a butterfly's wings<idx>butterfly in the Amazon rainforest</idx> in the Amazon rainforest <mdash/> all of these things could significantly contribute to changing whether the coin would eventually come up <em>heads</em> or <em>tails</em>. Unless the coin-flipper was a robot operating in a vacuum, then, there would just be no way to know all of these physical details with enough accuracy to predict the toss.</p>
 
         <p>After the turn of the <m>20^{\text{th}}</m> century, matters got even worse (at least for physical determinists): a new theory of physics came along then, called <term>Quantum Mechanics</term><idx>quantum mechanics</idx>, according to which true randomness is built into the laws of the universe. For example, if you have a very dim light source, which produces the absolutely smallest possible <q>chunks</q> of light (called <term>photons</term><idx>photon</idx>), and you shine it through first one polarizing filter and then see if it goes through a second filter at a <m>45^\circ</m> angle to the first, then half the photons will get through the second filter, but there is <em>absolutely no way ever to predict whether any particular photon will get though or not</em>. Quantum mechanics is full of very weird, non-intuitive ideas, but it is one of the most well-tested theories in the history of science, and it has passed every test.</p>
+        </introduction>
 
         <section xml:id="sec-defsforprob">
           <title>Definitions for Probability</title>
@@ -4591,6 +4595,7 @@
 
       <chapter xml:id="chap-bringing-home-data">
         <title>Bringing Home the Data</title>
+        <introduction>
         <p>
           In this chapter, we start to get very practical on the matter of tracking down
           good data in the wild and bringing it home. This is actually a very large and
@@ -4641,6 +4646,7 @@
           such guidelines for ethical experimentation on human subjects is the topic of
           the third and last section of this chapter.
         </p>
+        </introduction>
         
         <section xml:id="sec-SoaSPC">
           <title>Studies of a Population Parameter</title>
@@ -5790,6 +5796,7 @@
 
       <chapter xml:id="chap-IS">
         <title>Basic Inferences</title>
+        <introduction>
         <p>
           The purpose of this chapter is to introduce two basic but powerful tools of
           inferential statistics, the
@@ -5834,6 +5841,7 @@
           samples<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx>,
           since by now we know that those are the best kind.
         </p>
+        </introduction>
         
         <section xml:id="sec-CLT">
           <title>The Central Limit Theorem</title>
