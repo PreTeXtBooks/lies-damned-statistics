@@ -18,11 +18,17 @@ This project uses the PreTeXt CLI to build the book. To build locally:
 
 3. View the output in the `output/web` directory.
 
-## Automatic Deployment
+## Continuous Integration
+
+### Pull Request Builds
+
+Every pull request automatically triggers a build to verify that the book compiles without errors. This ensures that changes can be safely merged.
+
+### Automatic Deployment
 
 This repository uses GitHub Actions to automatically build and deploy the book to GitHub Pages when changes are pushed to the `main` branch.
 
-The workflow:
+The deployment workflow:
 1. Installs Python and PreTeXt dependencies
 2. Builds the web target
 3. Deploys to GitHub Pages
