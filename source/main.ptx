@@ -6309,7 +6309,7 @@
               Note that the hypotheses <m>H_0</m><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx> and <m>H_a</m><idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx><idx><m>H_a</m>, alternative hypothesis</idx> are <em>statements</em>, not numbers.  So
               <em><term>don't</term> write something like</em> <m>H_0=\mu_X=17</m>; you might use
               <me>
-                H_0=\text{``}\mu_X=17\text{''}
+                H_0=\text{"}\mu_X=17\text{"}
               </me>
               or
               <me>
