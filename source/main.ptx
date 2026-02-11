@@ -6200,7 +6200,7 @@
                           </li>
                           <li>
                             <p>
-                              <c>NORM.DIST(<m>\overline{X}</m>, <m>\mu_0</m>, <m>\sigma_X</m>/SQRT(<m>n</m>), 1)</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
+                              <c>NORM.DIST(x̄, μ₀, σ_X/SQRT(n), 1)</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
                             </p>
                           </li>
                         </ol>
@@ -6224,7 +6224,7 @@
                           </li>
                           <li>
                             <p>
-                              <c>1-NORM.DIST(<m>\overline{X}</m>, <m>\mu_0</m>, <m>\sigma_X</m>/SQRT(<m>n</m>), 1)</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
+                              <c>1-NORM.DIST(x̄, μ₀, σ_X/SQRT(n), 1)</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
                             </p>
                           </li>
                         </ol>
@@ -6254,7 +6254,7 @@
                                 </li>
                                 <li>
                                   <p>
-                                    <c>2<nbsp/>*<nbsp/>NORM.DIST(<m>\overline{X}</m>, <m>\mu_0</m>, <m>\sigma_X</m>/SQRT(<m>n</m>), 1)</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
+                                    <c>2 * NORM.DIST(x̄, μ₀, σ_X/SQRT(n), 1)</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
                                   </p>
                                 </li>
                               </ol>
@@ -6278,7 +6278,7 @@
                                 </li>
                                 <li>
                                   <p>
-                                    <c>2<nbsp/>*<nbsp/>(1-NORM.DIST(<m>\overline{X}</m>, <m>\mu_0</m>, <m>\sigma_X</m>/SQRT(<m>n</m>), 1))</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
+                                    <c>2 * (1-NORM.DIST(x̄, μ₀, σ_X/SQRT(n), 1))</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
                                   </p>
                                 </li>
                               </ol>
