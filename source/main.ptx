@@ -14,11 +14,130 @@
     <frontmatter>
       <preface xml:id="release-notes">
         <title>Release Notes</title>
-        <p/>
+        
+        <paragraphs>
+          <title>Note on PreTeXt Version</title>
+          <p>
+            This is a PreTeXt version of the book <em>Lies, Damned Lies, or Statistics: How to Tell the Truth with Statistics</em> 
+            originally authored by Jonathan A. Poritz. The original work was created in LaTeX format and is licensed under the 
+            Creative Commons Attribution-ShareAlike 4.0 International License.
+          </p>
+          <p>
+            This PreTeXt adaptation was created to make the book more accessible in multiple formats (web, PDF, EPUB, etc.) 
+            while maintaining full fidelity to the original content. Full attribution and credit go to the original author, 
+            Jonathan A. Poritz (<email>jonathan@poritz.net</email>, <url href="http://www.poritz.net/jonathan"/>).
+          </p>
+          <p>
+            The original LaTeX source and additional information can be found at the author's website. This PreTeXt version 
+            maintains the same CC BY-SA 4.0 license as the original work.
+          </p>
+        </paragraphs>
+
+        <p>
+          This is a first draft of a free (as in speech, not as in beer) (although it is free as in beer as well) textbook
+          for a one-semester, undergraduate statistics course. It was used for Math 156
+          at Colorado State University<mdash/>Pueblo in the spring semester of 2017.
+        </p>
+
+        <p>
+          Thanks are hereby offered to the students in that class who offered
+          many useful suggestions and found numerous typos. In particular, Julie
+          Berogan has an eagle eye, and found a nearly uncountably infinite number of
+          mistakes, both small and large<mdash/>thank you!
+        </p>
+
+        <p>
+          This work is released under a <term>CC BY-SA 4.0</term> license, which allows anyone
+          who is interested to <term>share</term> (copy and redistribute in any medium or
+          format) and <term>adapt</term> (remix, transform, and build upon this work for any
+          purpose, even commercially). These rights cannot be revoked, so long as users
+          follow the license terms, which require <term>attribution</term> (giving
+          appropriate credit, linking to the license, and indicating if changes were
+          made) to be given and <term>share-alike</term> (if you remix or transform this
+          work, you must distribute your contributions under the same license as this
+          one) imposed. See <url href="https://creativecommons.org/licenses/by-sa/4.0/">creativecommons.org/licenses/by-sa/4.0</url> for all the
+          details.
+        </p>
+
+        <p>
+          Original version: Time-stamp: &lt;13 May 2017 23:15MDT&gt;
+        </p>
+
+        <p>
+          <line>Jonathan A. Poritz</line>
+          <line>Spring Semester, 2017</line>
+          <line>Pueblo, CO, USA</line>
+        </p>
       </preface>
+      
       <preface xml:id="preface">
         <title>Preface</title>
-        <p/>
+        
+        <p>
+          Mark Twain's<idx>Twain, Mark [Samuel Clemens]</idx><idx>Clemens, Samuel [Mark Twain]</idx>
+          autobiography modestly questions his own
+          reporting of the numbers of hours per day he sat down to write, and of the
+          number of words he wrote in that time, saying
+        </p>
+
+        <blockquote>
+          <p>
+            <em>Figures often beguile me, particularly when I have the arranging of
+            them myself; in which case the remark attributed to Disraeli would often apply
+            with justice and force:</em>
+          </p>
+          <p>
+            <q><alert>There are three kinds of lies: lies, damned lies, and statistics.</alert></q>
+            <idx>lies</idx><idx>lies, damned</idx>
+          </p>
+          <p>
+            [emphasis added]
+          </p>
+        </blockquote>
+
+        <p>
+          Here Twain gives credit for this pithy tripartite classification of lies to
+          Benjamin Disraeli<idx>Disraeli, Benjamin</idx>, who was Prime Minister of the
+          United Kingdom in 1868 (under Queen Victoria), although modern scholars find
+          no evidence that Disraeli was the actual originator of the phrase. But
+          whoever actually deserves credit for the phrase, it does seem that statistics
+          are often used to conceal the truth, rather than to reveal it. So much so,
+          for example, that the wonderful book <term>How to Lie with
+          Statistics</term><idx>How to Lie with Statistics</idx>, by Darrell
+          Huff<idx>Huff, Darrell</idx>, gives many, many examples of misused statistics,
+          and yet merely scratches the surface.
+        </p>
+
+        <p>
+          We contend, however, that statistics are not a type of lie, but rather, when
+          used carefully, are an <em>alternative</em> to lying. For this reason, we use
+          <q>or</q> in the title of this book, where Twain/Disraeli used <q>and,</q> to
+          underline how we are thinking of statistics, correctly applied, as standing
+          in opposition to lies and damned lies.
+        </p>
+
+        <p>
+          But why use such a complicated method of telling the truth as statistics, rather
+          than, say, telling a good story or painting a moving picture? The answer, we
+          believe, is simply that there are many concrete, specific questions that humans
+          have about the world which are best answered by carefully collecting some data
+          and using a modest amount of mathematics and a fair bit of logic to analyze
+          them. The thing about the Scientific Method is that it just seems to work. So
+          why not learn how to use it?
+        </p>
+
+        <p>
+          Learning better techniques of critical thinking seems particularly important
+          at this moment of history when our politics in the United States (and
+          elsewhere) are so divisive, and different parties cannot agree about the most
+          basic facts. A lot of commentators from all parts of the political spectrum
+          have speculated about the impact of so-called
+          <em>fake news</em><idx>fake news</idx><idx>news, fake</idx> on the outcomes of
+          recent elections and other political debates. It is therefore the goal of
+          this book to help you learn <term>How to Tell the Truth with Statistics</term> and,
+          therefore, how to tell when others are telling the truth<ellipsis/> or are faking
+          their <q>news.</q>
+        </p>
       </preface>
     </frontmatter>
 
