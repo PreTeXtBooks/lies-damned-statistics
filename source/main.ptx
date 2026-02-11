@@ -25,6 +25,23 @@
     <part xml:id="part-DS">
       <title>Descriptive Statistics</title>
 
+      <p>
+        The first instinct of the scientist should be to organize carefully a
+        question of interest, and to collect some data about this question. How to
+        collect good data is a real and important issue, but one we discuss later.
+        Let us instead assume for the moment that we have some data, good or bad, and
+        first consider what to do with them. In particular, we want to
+        describe them, both graphically and with numbers that summarize some of their
+        features.
+      </p>
+
+      <p>
+        We will start by making some basic definitions of terminology <mdash/> words like
+        <em>individual</em>, <em>population</em>, <em>variable</em>, <em>mean</em>, <em>median</em>,
+        etc. <mdash/> which it will be important for the student to understand
+        clearly and precisely.
+      </p>
+
       <chapter xml:id="chap-1VS">
         <title>One-Variable Statistics: Basics</title>
         <section xml:id="sec-TIPVS">
@@ -2962,6 +2979,40 @@
     <part xml:id="part-GD">
       <title>Good Data</title>
 
+      <p>
+        It is something of an aphorism among statisticians that
+      </p>
+
+      <blockquote>
+        <p>
+          <em>The plural of anecdote is not data.</em>
+        </p>
+      </blockquote>
+
+      <p>
+        The distinction being emphasized here is between the information we might get
+        from a personal experience or a friend's funny story <mdash/> an anecdote <mdash/> and the
+        cold, hard, objective information on which we want to base our scientific
+        investigations of the world <mdash/> data.
+      </p>
+
+      <p>
+        In this Part, our goal is to discuss aspects of getting good data. It may
+        seem counter-intuitive, but the first step in that direction is to develop
+        some of the foundations of
+        <em>probability theory</em>, the mathematical study of
+        systems which are non-deterministic <mdash/> random <mdash/> but in a consistent way.
+        The reason for this is that the easiest and most reliable way to ensure
+        objectivity in data, to suppress personal choices which may
+        result in biased information from which we cannot draw universal,
+        scientific conclusions, is to collect your data <em>randomly</em>.
+        Randomness is a tool which the scientist introduces
+        intentionally and carefully, as barrier against bias, in the collection of
+        high quality data. But this strategy only works if we can understand how to
+        extract precise information even in the presence of randomness <mdash/> hence the
+        need to study probability theory.
+      </p>
+
       <chapter xml:id="chap-probability-theory">
         <title>Probability Theory</title>
 
@@ -5261,6 +5312,31 @@
 
     <part xml:id="part-IS">
       <title>Inferential Statistics</title>
+
+      <p>
+        We are now ready to make (some) inferences about the real world based on data
+        <mdash/> this subject is called
+        <term>inferential statistics</term>. We have seen how
+        to display and interpret 1- and 2-variable data. We have seen how to design
+        experiments, particularly experiments whose results might tell us something
+        about cause and effect in the real world. We even have some
+        principles to help us do such experimentation ethically, should our subjects
+        be human beings. Our experimental design principles use randomness (to avoid
+        bias), and we have even studied the basics of probability theory,
+        which will allow us to draw the best possible conclusions in the presence of
+        randomness.
+      </p>
+
+      <p>
+        What remains to do in this part is to start putting the pieces together.
+        In particular, we shall be interested in drawing the best possible conclusions
+        about some population parameter of interest, based
+        on data from a sample. Since we know always to seek simple
+        random samples
+        (again, to avoid bias), our inferences will be never be completely
+        sure, instead they will be built on (a little bit of) probability
+        theory.
+      </p>
 
       <chapter xml:id="chap-IS">
         <title>Basic Inferences</title>
