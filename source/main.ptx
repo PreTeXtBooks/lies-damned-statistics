@@ -144,6 +144,62 @@
     <part xml:id="part-DS">
       <title>Descriptive Statistics</title>
 
+      <introduction>
+        <p>
+          The first instinct of the scientist should be to organize carefully a
+          question of interest, and to collect some data about this question. How to
+          collect good data is a real and important issue, but one we discuss later.
+          Let us instead assume for the moment that we have some data, good or bad, and
+          first consider what to do with them. In particular, we want to
+          describe them, both graphically and with numbers that summarize some of their
+          features.
+        </p>
+
+        <p>
+          We will start by making some basic definitions of terminology <mdash/> words like
+          <em>individual</em>, <em>population</em>, <em>variable</em>, <em>mean</em>, <em>median</em>,
+          etc. <mdash/> which it will be important for the student to understand
+          carefully and completely. So let's briefly discuss what a definition
+          <em>is</em>, in mathematics.
+        </p>
+
+        <p>
+          Mathematical definitions should be perfectly
+          precise because they do not <em>describe</em> something which is observed out
+          there in the world, since such descriptive definitions might have fuzzy
+          edges. In biology, for example, whether a virus is considered <q>alive</q>
+          could be subject to some debate: viruses have some of the characteristics of
+          life, but not others. This makes a mathematician nervous.
+        </p>
+
+        <p>
+          When we look at math, however, we should always know exactly which objects
+          satisfy some definition and which do not. For example, an <em>even
+          number</em>
+          is a whole number which is two times some other whole number. We can always
+          tell whether some number <m>n</m> is even, then, by simply checking if there is
+          some other number <m>k</m> for which the arithmetic statement <m>n=2k</m> is true: if
+          so, <m>n</m> is even, if not, <m>n</m> is not even. If you claim a number <m>n</m> is even,
+          you need just state what is the corresponding <m>k</m>; if you claim it is not even,
+          you have to somehow give a convincing, detailed explanation (dare we call it
+          a <q>proof</q>) that such a <m>k</m> simply does not exist.
+        </p>
+
+        <p>
+          So it is important to learn mathematical definitions carefully, to know what
+          the criteria are for a definition, to know examples that satisfy some
+          definition and other examples which do not.
+        </p>
+
+        <p>
+          Note, finally, that in statistics, since we are using mathematics in the real
+          world, there will be some terms (like <em>individual</em> and <em>population</em>)
+          which will not be exclusively in the mathematical realm and will therefore
+          have less perfectly mathematical definitions. Nevertheless, students should
+          try to be as clear and precise as possible.
+        </p>
+      </introduction>
+
       <chapter xml:id="chap-1VS">
         <title>One-Variable Statistics: Basics</title>
         <section xml:id="sec-TIPVS">
@@ -3081,6 +3137,58 @@
     <part xml:id="part-GD">
       <title>Good Data</title>
 
+      <introduction>
+        <p>
+          It is something of an aphorism among statisticians that
+        </p>
+
+        <blockquote>
+          <p>
+            <em>The plural of anecdote is not data.</em>
+          </p>
+        </blockquote>
+
+        <p>
+          The distinction being emphasized here is between the information we might get
+          from a personal experience or a friend's funny story <mdash/> an anecdote <mdash/> and the
+          cold, hard, objective information on which we want to base our scientific
+          investigations of the world <mdash/> data.
+        </p>
+
+        <p>
+          In this Part, our goal is to discuss aspects of getting good data. It may
+          seem counter-intuitive, but the first step in that direction is to develop
+          some of the foundations of
+          <em>probability theory</em>, the mathematical study of
+          systems which are non-deterministic <mdash/> random <mdash/> but in a consistent way.
+          The reason for this is that the easiest and most reliable way to ensure
+          objectivity in data, to suppress personal choices which may
+          result in biased information from which we cannot draw universal,
+          scientific conclusions, is to collect your data <em>randomly</em>.
+          Randomness is a tool which the scientist introduces
+          intentionally and carefully, as barrier against bias, in the collection of
+          high quality data. But this strategy only works if we can understand how to
+          extract precise information even in the presence of randomness <mdash/> hence the
+          importance of studying probability theory.
+        </p>
+
+        <p>
+          After a chapter on probability, we move on to a discussion of some
+          fundamentals of <em>experimental design</em> <mdash/>
+          starting, not surprisingly, with <em>randomization</em>, but finishing with the
+          gold standard for experiments (on humans, at least):
+          <em>randomized, placebo-controlled, double-blind experiments [RCTs]</em>. Experiments
+          whose subjects are not humans share some, but not all, of these design goals.
+        </p>
+
+        <p>
+          It turns out that, historically, a number of experiments with human subjects
+          have had very questionable moral foundations, so it is very important to stop,
+          as we do in the last chapter of this Part, to build an outline of
+          <em>experimental ethics</em>.
+        </p>
+      </introduction>
+
       <chapter xml:id="chap-probability-theory">
         <title>Probability Theory</title>
 
@@ -5380,6 +5488,47 @@
 
     <part xml:id="part-IS">
       <title>Inferential Statistics</title>
+
+      <introduction>
+        <p>
+          We are now ready to make (some) inferences about the real world based on data
+          <mdash/> this subject is called
+          <term>inferential statistics</term>. We have seen how
+          to display and interpret 1- and 2-variable data. We have seen how to design
+          experiments, particularly experiments whose results might tell us something
+          about cause and effect in the real world. We even have some
+          principles to help us do such experimentation ethically, should our subjects
+          be human beings. Our experimental design principles use randomness (to avoid
+          bias), and we have even studied the basics of probability theory,
+          which will allow us to draw the best possible conclusions in the presence of
+          randomness.
+        </p>
+
+        <p>
+          What remains to do in this part is to start putting the pieces together.
+          In particular, we shall be interested in drawing the best possible conclusions
+          about some population parameter of interest, based
+          on data from a sample. Since we know always to seek simple
+          random samples
+          (again, to avoid bias), our inferences will never be completely
+          sure, instead they will be built on (a little bit of) probability
+          theory.
+        </p>
+
+        <p>
+          The basic tools we describe for this inferential
+          statistics are the
+          <em>confidence interval</em> and the
+          <em>hypothesis test</em> (also called
+          <em>test of significance</em>). In the first chapter
+          of this Part, we start with the easiest cases of these tools, when they
+          are applied to inferences about the population mean of a quantitative
+          RV. Before we do
+          that, we have to discuss the
+          <em>Central Limit Theorem [CLT]</em>, which is both crucial to those tools and one of the
+          most powerful and subtle theorems of statistics.
+        </p>
+      </introduction>
 
       <chapter xml:id="chap-IS">
         <title>Basic Inferences</title>
