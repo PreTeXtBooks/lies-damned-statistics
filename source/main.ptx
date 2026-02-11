@@ -2433,19 +2433,19 @@
             It is also nice to have some examples of correlation coefficients, such as
           </p>
           <figure xml:id="fig-correlation-example-1">
-            <caption>Scatterplot example showing correlation</caption>
+            <caption>Scatterplot example with positive correlation</caption>
             <image source="images/fig-1-2-1.png" width="75%"/>
           </figure>
           <figure xml:id="fig-correlation-example-2">
-            <caption>Scatterplot example showing correlation</caption>
+            <caption>Scatterplot example with negative correlation</caption>
             <image source="images/fig-1-2-2.png" width="75%"/>
           </figure>
           <figure xml:id="fig-correlation-example-3">
-            <caption>Scatterplot example showing correlation</caption>
+            <caption>Scatterplot example with weak correlation</caption>
             <image source="images/fig-1-2-3.png" width="75%"/>
           </figure>
           <figure xml:id="fig-correlation-example-4">
-            <caption>Scatterplot example showing correlation</caption>
+            <caption>Scatterplot example with no correlation</caption>
             <image source="images/fig-1-2-4.png" width="75%"/>
           </figure>
           <p>
@@ -3500,7 +3500,7 @@
             <p>The <em>complement</em><idx>complement, <m>E^c</m></idx> <m>E^c</m> of an event<idx>event</idx> <m>E</m> is easy to show on a Venn diagram<idx>Venn diagram</idx>, since it is simply everything which is not in <m>E</m>:</p>
 
             <figure xml:id="fig-complement-illustration">
-              <caption>Two diagrams side by side - left showing filled circle E, right showing filled exterior region representing E^c</caption>
+              <caption>Composite figure: Two diagrams side by side showing event E (left) and its complement E^c (right)</caption>
               <image source="images/fig-2-1-4.png" width="75%"/>
             </figure>
 
@@ -3532,7 +3532,7 @@
             <p>Venn diagrams<idx>Venn diagram</idx> are very good at showing unions<idx>union, <m>\cup</m></idx>, and intersection<idx>intersection, <m>\cap</m></idx>:</p>
 
             <figure xml:id="fig-union-intersection-illustration">
-              <caption>Four diagrams showing - left: filled circle A, middle-left: filled circle B, middle-right: both circles filled for A∪B, right: only overlap filled for A∩B</caption>
+              <caption>Composite figure: Four diagrams illustrating union and intersection - filled circle A, filled circle B, both circles filled for A∪B, and only overlap filled for A∩B</caption>
               <image source="images/fig-2-1-8.png" width="75%"/>
             </figure>
 
