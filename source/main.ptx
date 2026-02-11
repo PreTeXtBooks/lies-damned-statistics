@@ -9,6 +9,14 @@
         <middlename>A.</middlename>
         <surname>Poritz</surname>
       </personname>
+      <department>Department of Mathematics and Physics</department>
+      <institution>Colorado State University, Pueblo</institution>
+      <address>
+        <line>2200 Bonforte Blvd.</line>
+        <line>Pueblo, CO 81001, USA</line>
+      </address>
+      <email>jonathan@poritz.net</email>
+      <url href="http://poritz.net/jonathan">poritz.net/jonathan</url>
     </author>
 
     <frontmatter>
