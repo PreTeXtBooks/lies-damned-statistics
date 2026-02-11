@@ -440,9 +440,10 @@
                   heads<mdash/>write it as <q>H</q><mdash/>and 6 came up tails, T. Then the corresponding
                   bar chart would show bars for H with height 4 and T with height 6.
                 </p>
-                <p>
-                  <em>[Figure showing frequency bar chart with H at 4 and T at 6 would go here]</em>
-                </p>
+                <figure xml:id="fig-flipsbarchartfreq">
+                  <caption>Frequency bar chart for coin flip results</caption>
+                  <image source="images/fig-1-1-1.png" width="75%"/>
+                </figure>
               </statement>
             </example>
           </subsection>
@@ -465,9 +466,10 @@
                   <xref ref="eg-flipsbarchartfreq"/> would show bars for H at height 0.4 (or 40%)
                   and T at height 0.6 (or 60%).
                 </p>
-                <p>
-                  <em>[Figure showing relative frequency bar chart would go here]</em>
-                </p>
+                <figure xml:id="fig-flipsbarchartrelfreq">
+                  <caption>Relative frequency bar chart for coin flip results</caption>
+                  <image source="images/fig-1-1-2.png" width="75%"/>
+                </figure>
               </statement>
             </example>
           </subsection>
@@ -507,9 +509,10 @@
                   was trying to claim, deceptively, that the coin was not fair might have shown
                   only a portion of the <m>y</m>-axis, making the difference appear much more dramatic.
                 </p>
-                <p>
-                  <em>[Figure showing bar chart with restricted y-axis from 0.3 to 0.6 would go here]</em>
-                </p>
+                <figure xml:id="fig-flipsbarchartrelfreqbadyaxis">
+                  <caption>Misleading bar chart with restricted y-axis</caption>
+                  <image source="images/fig-1-1-3.png" width="75%"/>
+                </figure>
                 <p>
                   This is actually, in a strictly technical sense, a correct graph. But, looking
                   at it, one might conclude that T seems to occur more than twice as often as
@@ -542,9 +545,10 @@
                   <xref ref="eg-flipsbarchartrelfreq"/>. It would show a pie divided into two
                   wedges: one for H taking up 40% of the pie, and one for T taking up 60%.
                 </p>
-                <p>
-                  <em>[Figure showing pie chart would go here]</em>
-                </p>
+                <figure xml:id="fig-flipspiechart">
+                  <caption>Pie chart for coin flip results</caption>
+                  <image source="images/fig-1-1-4.png" width="60%"/>
+                </figure>
               </statement>
             </example>
 
@@ -713,9 +717,10 @@
                   put data values on the edges in the bar to the right <mdash/> we get the
                   figure
                 </p>
-                <p>
-                  <em>[Figure showing scores histogram with binwidth 10 would go here]</em>
-                </p>
+                <figure xml:id="fig-scoreshistbytens">
+                  <caption>Histogram of test scores with bins of width 10</caption>
+                  <image source="images/fig-1-1-5.png" width="75%"/>
+                </figure>
               </statement>
             </example>
 
@@ -749,34 +754,38 @@
                   with <m>x</m> satisfying <m>10\le x&lt;12</m>, then <m>12\le x&lt;14</m>, <em>etc.</em>,
                   we get the histogram with bins of width 2:
                 </p>
-                <p>
-                  <em>[Figure showing scores histogram with binwidth 2 would go here]</em>
-                </p>
+                <figure xml:id="fig-scoreshistbytwo">
+                  <caption>Histogram of test scores with bins of width 2</caption>
+                  <image source="images/fig-1-1-6.png" width="75%"/>
+                </figure>
 
                 <p>
                   If we use the bins with <m>x</m> satisfying <m>10\le x&lt;15</m>, then <m>15\le x&lt;20</m>,
                   <em>etc.</em>, we get the histogram with bins of width 5:
                 </p>
-                <p>
-                  <em>[Figure showing scores histogram with binwidth 5 would go here]</em>
-                </p>
+                <figure xml:id="fig-scoreshistbyfive">
+                  <caption>Histogram of test scores with bins of width 5</caption>
+                  <image source="images/fig-1-1-7.png" width="75%"/>
+                </figure>
 
                 <p>
                   If we use the bins with <m>x</m> satisfying <m>20\le x&lt;40</m>, then <m>40\le x&lt;60</m>,
                   <em>etc.</em>, we get the histogram with bins of width 20:
                 </p>
-                <p>
-                  <em>[Figure showing scores histogram with binwidth 20 would go here]</em>
-                </p>
+                <figure xml:id="fig-scoreshistbytwenty">
+                  <caption>Histogram of test scores with bins of width 20</caption>
+                  <image source="images/fig-1-1-8.png" width="75%"/>
+                </figure>
 
                 <p>
                   Finally, if we use the bins with <m>x</m> satisfying <m>0\le x&lt;50</m>, then
                   <m>50\le x&lt;100</m>, and then <m>100\le x&lt;150</m>, we get the histogram with bins of
                   width 50:
                 </p>
-                <p>
-                  <em>[Figure showing scores histogram with binwidth 50 would go here]</em>
-                </p>
+                <figure xml:id="fig-scoreshistbyfifty">
+                  <caption>Histogram of test scores with bins of width 50</caption>
+                  <image source="images/fig-1-1-9.png" width="75%"/>
+                </figure>
               </statement>
             </example>
           </subsection>
@@ -807,9 +816,10 @@
                   the sample size, 30, and then also change the <m>y</m>-axis label and tick mark
                   numbers.
                 </p>
-                <p>
-                  <em>[Figure showing scores relative frequency histogram with binwidth 10 would go here]</em>
-                </p>
+                <figure xml:id="fig-scoresRFhistbytens">
+                  <caption>Relative frequency histogram of test scores with bins of width 10</caption>
+                  <image source="images/fig-1-1-10.png" width="75%"/>
+                </figure>
               </statement>
             </example>
           </subsection>
@@ -1920,9 +1930,10 @@
                   <xref ref="eg-stemandleafplot"/> is easy to make after we found the
                   corresponding five-number summary in <xref ref="eg-5num1"/>:
                 </p>
-                <p>
-                  [PLACEHOLDER: Figure showing boxplot for test score data]
-                </p>
+                <figure xml:id="fig-boxplot1">
+                  <caption>Boxplot of test score data</caption>
+                  <image source="images/fig-1-1-11.png" width="75%"/>
+                </figure>
               </statement>
             </example>
 
@@ -1957,9 +1968,10 @@
                   <xref ref="eg-stemandleafplot"/> is only a small modification of the one we
                   just made in <xref ref="eg-boxplot1"/>
                 </p>
-                <p>
-                  [PLACEHOLDER: Figure showing boxplot with outliers for test score data]
-                </p>
+                <figure xml:id="fig-boxplot2">
+                  <caption>Boxplot showing outliers for test score data</caption>
+                  <image source="images/fig-1-1-12.png" width="75%"/>
+                </figure>
               </statement>
             </example>
           </subsection>
