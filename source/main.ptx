@@ -16,10 +16,27 @@
         <line>Pueblo, CO 81001, USA</line>
       </address>
       <email>jonathan@poritz.net</email>
-      <url href="http://poritz.net/jonathan">poritz.net/jonathan</url>
+      <url href="https://poritz.net/jonathan">poritz.net/jonathan</url>
     </author>
 
     <frontmatter>
+      <colophon>
+        <copyright>
+          <year>2017</year>
+          <holder>Jonathan A. Poritz</holder>
+          <minilicense>CC BY-SA 4.0 License</minilicense>
+        </copyright>
+        <p>
+          <line>Jonathan A. Poritz</line>
+          <line>Department of Mathematics and Physics</line>
+          <line>Colorado State University, Pueblo</line>
+          <line>2200 Bonforte Blvd.</line>
+          <line>Pueblo, CO 81001, USA</line>
+          <line>Email: <email>jonathan@poritz.net</email></line>
+          <line>Web: <url href="https://poritz.net/jonathan">poritz.net/jonathan</url></line>
+        </p>
+      </colophon>
+      
       <preface xml:id="release-notes">
         <title>Release Notes</title>
         
