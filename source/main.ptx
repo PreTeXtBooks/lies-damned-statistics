@@ -34,7 +34,7 @@
         </paragraphs>
 
         <p>
-          This is a first draft of a free (as in speech, not as in beer) (although it is free as in beer as well) textbook
+          This is a first draft of a free (as in speech, not as in beer<xref ref="Sta02"/>) (although it is free as in beer as well) textbook
           for a one-semester, undergraduate statistics course. It was used for Math 156
           at Colorado State University<mdash/>Pueblo in the spring semester of 2017.
         </p>
@@ -75,7 +75,7 @@
         
         <p>
           Mark Twain's<idx>Twain, Mark [Samuel Clemens]</idx><idx>Clemens, Samuel [Mark Twain]</idx>
-          autobiography modestly questions his own
+          autobiography<xref ref="TNA10"/> modestly questions his own
           reporting of the numbers of hours per day he sat down to write, and of the
           number of words he wrote in that time, saying
         </p>
@@ -103,7 +103,7 @@
           whoever actually deserves credit for the phrase, it does seem that statistics
           are often used to conceal the truth, rather than to reveal it. So much so,
           for example, that the wonderful book <term>How to Lie with
-          Statistics</term><idx>How to Lie with Statistics</idx>, by Darrell
+          Statistics</term><idx>How to Lie with Statistics</idx><xref ref="Huf93"/>, by Darrell
           Huff<idx>Huff, Darrell</idx>, gives many, many examples of misused statistics,
           and yet merely scratches the surface.
         </p>
@@ -2977,7 +2977,7 @@
               We do need to make one caution about this caution, however.  If there is a
               causal relationship between two variables that are being studied carefully,
               then there will be correlation.  So, to quote the great data scientist
-              Edward Tufte<idx>Tufte, Edward</idx>,
+              Edward Tufte<idx>Tufte, Edward</idx><xref ref="Tuf06"/>,
             </p>
             
             <blockquote>
@@ -2991,7 +2991,7 @@
               The first part of this quote (up to the <q>but</q>) is much more famous and, as
               a very first step, is a good slogan to live by.  Those with a bit more
               statistical sophistication might instead learn this version, though.  A more
-              sophisticated-sounding version, again due to Tufte,
+              sophisticated-sounding version, again due to Tufte<xref ref="Tuf06"/>,
               is
             </p>
             
@@ -3247,7 +3247,11 @@
 
         <blockquote>
           <p>
-            <em>The plural of anecdote is not data.</em><fn>It is hard to be certain of the true origins of this phrase. The political scientist Raymond Wolfinger is sometimes given credit for a version without the <q>not,</q> actually. Sometime later, then, it became widespread with the <q>not.</q></fn>
+            <em>The plural of anecdote is not data.</em><fn>It is hard to be certain
+            of the true origins of this phrase. The political scientist
+            Raymond Wolfinger is sometimes given credit<xref ref="PB"/><mdash/>
+            for a version <em>without the</em> <q>not,</q> actually. Sometime later, then,
+            it became widespread with the <q>not.</q></fn>
           </p>
         </blockquote>
 
@@ -4062,7 +4066,7 @@
             
             <p>What about continuous random variables? Definition <xref ref="def-RVdistribution"/> of <em>distribution</em><idx>distribution</idx> explicitly excluded the case of continuous RVs, so does that mean we cannot do probability calculations in that case?</p>
 
-            <p>There is, when we think about it, something of a problem here. A distribution is supposed to be a list of possible values of the RV and the probability of each such value. But if some continuous RV has values which are an interval of real numbers, there is just no way to list all such numbers <mdash/> it has been known since the late 1800s that there is no way to make a list like that. In addition, the chance of some random process producing a real number that is <em>exactly</em> equal to some particular value really is zero: for two real numbers to be precisely equal requires infinite accuracy <ellipsis/> think of all of those decimal digits, marching off in orderly rows to infinity, which must match between the two numbers.</p>
+            <p>There is, when we think about it, something of a problem here. A distribution is supposed to be a list of possible values of the RV and the probability of each such value. But if some continuous RV has values which are an interval of real numbers, there is just no way to list all such numbers <mdash/> it has been known since the late 1800s that there is no way to make a list like that<xref ref="Wik17a"/>. In addition, the chance of some random process producing a real number that is <em>exactly</em> equal to some particular value really is zero: for two real numbers to be precisely equal requires infinite accuracy <ellipsis/> think of all of those decimal digits, marching off in orderly rows to infinity, which must match between the two numbers.</p>
 
             <p>Rather than a distribution, we do the following:</p>
             
@@ -4910,7 +4914,7 @@
                 like an interesting measure of the health of that democracy. At the time of
                 this writing, approximately two months after the inauguration of the <m>45^{th}</m>
                 president of the United States, the widely respected Gallup polling
-                organization<idx>Gallup polling organization</idx> reports
+                organization<idx>Gallup polling organization</idx> reports<xref ref="Gal17"/>
                 that <m>56</m>% of the population approve of the job
                 the president is doing and <m>40</m>% disapprove. [Presumably, <m>4</m>% were neutral
                 or had no opinion.]
@@ -5507,7 +5511,7 @@
           <p>
             In fact, history has many (far too many) examples of experiments done on
             human subjects which did not respect their humanity and autonomy<idx>autonomy, value for human test subjects</idx> <mdash/> see, for example, the Wikipedia page on
-            <term>unethical human experimentation</term><idx>unethical human experimentation</idx><idx>ethics, experimental</idx>.
+            <term>unethical human experimentation</term><idx>unethical human experimentation</idx><idx>ethics, experimental</idx><xref ref="Wik17b"/>.
           </p>
           
           <p>
@@ -5534,7 +5538,7 @@
               popular culture to be sworn by all modern doctors, is actually not used much
               at all today in its original form. This is actually not that strange, since
               it sounds quite odd and archaic<fn>It dates from the <m>5^{th}</m> century
-              BCE, and is attributed to Hippocrates of Kos<idx>Hippocrates of Kos</idx>.</fn> to modern ears <mdash/> it begins
+              BCE, and is attributed to Hippocrates of Kos<idx>Hippocrates of Kos</idx><xref ref="US12"/>.</fn> to modern ears <mdash/> it begins
             </p>
             
             <blockquote>
@@ -7186,5 +7190,63 @@
         </section>
       </chapter>
     </part>
+    
+    <backmatter>
+      <references xml:id="bibliography">
+        <title>References</title>
+        
+        <biblio type="raw" xml:id="Gal17">
+          Gallup, <title>Presidential Job Approval Center</title>, 2017,
+          <url href="https://www.gallup.com/interactives/185273/presidential-job-approval-center.aspx"/>,
+          Accessed: 2 April 2017.
+        </biblio>
+        
+        <biblio type="raw" xml:id="Huf93">
+          Darrell Huff, <title>How to Lie with Statistics</title>, W.W. Norton &amp; Company, 1993.
+        </biblio>
+        
+        <biblio type="raw" xml:id="PB">
+          Emily Pedersen and Alexander Barreira,
+          <title>Former UC Berkeley political science professor Raymond Wolfinger dies at 83</title>,
+          The Daily Californian, 11 February 2015,
+          <url href="https://dailycal.org/2015/02/11/former-uc-berkeley-political-science-professor-raymond-wolfinger-dies-83/"/>,
+          Accessed: 21 February 2017.
+        </biblio>
+        
+        <biblio type="raw" xml:id="Sta02">
+          Richard Stallman, <title>Free Software, Free Society: Selected Essays of Richard M. Stallman</title>,
+          Free Software Foundation, 2002.
+        </biblio>
+        
+        <biblio type="raw" xml:id="TNA10">
+          Mark Twain, Charles Neider, and Michael Anthony,
+          <title>The Autobiography of Mark Twain</title>, Wiley Online Library, 2010.
+        </biblio>
+        
+        <biblio type="raw" xml:id="Tuf06">
+          Edward Tufte, <title>The Cognitive Style of PowerPoint: Pitching Out Corrupts Within</title>,
+          (2nd ed.), Graphics Press, Cheshire, CT, USA, 2006.
+        </biblio>
+        
+        <biblio type="raw" xml:id="US12">
+          US National Library of Medicine, <title>Greek medicine</title>, 2012,
+          <url href="https://www.nlm.nih.gov/hmd/greek/"/>,
+          Accessed: 11 April 2017.
+        </biblio>
+        
+        <biblio type="raw" xml:id="Wik17a">
+          Wikipedia, <title>Cantor's diagonal argument</title>, 2017,
+          <url href="https://en.wikipedia.org/wiki/Cantor%27s_diagonal_argument"/>,
+          Accessed: 5 March 2017.
+        </biblio>
+        
+        <biblio type="raw" xml:id="Wik17b">
+          Wikipedia, <title>Unethical human experimentation</title>, 2017,
+          <url href="https://en.wikipedia.org/wiki/Unethical_human_experimentation"/>,
+          Accessed: 7 April 2017.
+        </biblio>
+        
+      </references>
+    </backmatter>
   </book>
 </pretext>
