@@ -3621,7 +3621,7 @@
                 </me>
                 We can then use this basic information and the formula (for <m>P(E)</m>) in <xref ref="fact-finitemodel" text="title"/> to compute the probability of any event of interest, such as
                 <me>
-                  P(\text{``roll was even''}) = P(\{2, 4, 6\}) = \frac16 + \frac16 + \frac16 = \frac36 = \frac12.
+                  P(\text{"roll was even"}) = P(\{2, 4, 6\}) = \frac16 + \frac16 + \frac16 = \frac36 = \frac12.
                 </me></p>
               </statement>
             </example>
@@ -3640,7 +3640,7 @@
 
                 <p>What this means is that, in the long run, we would expect the first die to show a <m>1</m> roughly <m>{\frac16}^{\text{th}}</m> of the time, and in the very long run, the second die would show a <m>1</m> roughly <m>{\frac16}^{\text{th}}</m> of <em>those</em> times. This means that the outcome of the <q>roll two dice</q> experiment should be <m>11</m> with probability <m>\frac{1}{36}</m> <mdash/> and the same reasoning would show that all of the outcomes have that probability. In other words, this is an equiprobable sample space with <m>36</m> outcomes each having probability <m>\frac{1}{36}</m>. Which in turn enables us to compute any probability we might like, such as
                 <md>
-                  <mrow>P(\text{``sum of the two rolls is } 4\text{''}) &amp;= P(\{13, 22, 31\})</mrow>
+                  <mrow>P(\text{"sum of the two rolls is 4"}) &amp;= P(\{13, 22, 31\})</mrow>
                   <mrow>&amp;= \frac{1}{36} + \frac{1}{36} + \frac{1}{36}</mrow>
                   <mrow>&amp;= \frac{3}{36}</mrow>
                   <mrow>&amp;= \frac{1}{12}.</mrow>
@@ -3660,13 +3660,13 @@
             <statement>
               <p>If you pick a person at random in a certain country on a particular date, you might be able to estimate the probability that the person had a certain height if you knew enough about the range of heights of the whole population of that country. [In fact, below we will make estimates of this kind.] That is, if we define the event
               <me>
-                A=\text{``the random person is taller than } 1.829 \text{ meters (}6\text{ feet)''}
+                A=\text{"the random person is taller than 1.829 meters (6 feet)"}
               </me>
               then we might estimate <m>P(A)</m>.</p>
 
               <p>But consider the event
               <me>
-                B=\text{``the random person's parents were both taller than } 1.829 \text{ meters''}.
+                B=\text{"the random person's parents were both taller than 1.829 meters"}.
               </me>
               Because there is a genetic component to height, if you know that <m>B</m> happened, it would change your idea of how likely, given that knowledge, that <m>A</m> happened. Because genetics are not the only thing which determines a person's height, you would not be certain that <m>A</m> happened, even given the knowledge of <m>B</m>.</p>
             </statement>
@@ -3769,7 +3769,7 @@
 
             <definition xml:id="def-RV">
               <statement>
-                <p>A choice of a number for each outcome of a random experiment is called a <term>random variable</term><idx>random variable, RV</idx><idx>RV, random variable</idx> [<term>RV</term>]. If the values an RV takes can be counted, because they are either finite or countably infinite<idx>countably infinite</idx> in number, the RV is called <term>discrete</term><idx>discrete random variable</idx>; if, instead, the RV takes on all the values in an interval of real numbers, the RV is called <term>continuous</term><idx>continuous random variable</idx>.</p>
+                <p>A choice of a number for each outcome of a random experiment is called a <term>random variable</term><idx>random variable, RV</idx><idx>RV, random variable</idx> [<term>RV</term>]. If the values an RV takes can be counted, because they are either finite or countably infinite<idx>countably infinite</idx><fn>A set is countably infinite if its elements can be put into a one-to-one correspondence with the natural numbers <m>1, 2, 3, \ldots</m>. For example, the set of all even positive integers <m>\{2, 4, 6, \ldots\}</m> is countably infinite.</fn> in number, the RV is called <term>discrete</term><idx>discrete random variable</idx>; if, instead, the RV takes on all the values in an interval of real numbers, the RV is called <term>continuous</term><idx>continuous random variable</idx>.</p>
                 
                 <p>We usually use capital letters to denote RVs and the corresponding lowercase letter to indicate a particular numerical value the RV might have, like <m>X</m> and <m>x</m>.</p>
               </statement>
@@ -3910,7 +3910,7 @@
                 <me>
                   E(X)=\sum p_i\,x_i = \frac12\cdot5 + \frac12\cdot(-5)=2.5-2.5 = 0 \ .
                 </me>
-                In other words, your average net gain playing this silly game many times will be <term>zero</term>. Note that does not mean anything like <q><em>if you lose enough times in a row, the chances of starting to win again will go up</em>,</q> as many gamblers seem to believe, it just means that, in the very long run, we can expect the average winnings to be approximately zero <mdash/> but no one knows how long that run has to be before the balancing of wins and losses happens.</p>
+                In other words, your average net gain playing this silly game many times will be <term>zero</term>. Note that does not mean anything like <q><em>if you lose enough times in a row, the chances of starting to win again will go up</em>,</q> as many gamblers seem to believe, it just means that, in the very long run, we can expect the average winnings to be approximately zero <mdash/> but no one knows how long that run has to be before the balancing of wins and losses happens.<fn>This is related to the Law of Large Numbers, which states that as the number of trials increases, the average of the results will converge to the expected value. However, there is no predetermined point at which this convergence must occur, and short-term deviations from the expected value are entirely normal.</fn></p>
               </statement>
             </example>
 
