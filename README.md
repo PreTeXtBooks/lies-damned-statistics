@@ -1,20 +1,13 @@
 # Lies, Damned Lies, or Statistics
 ## How to Tell the Truth with Statistics
 
-A free and open-source textbook for undergraduate statistics courses, authored by **Jonathan A. Poritz** (Colorado State University, Pueblo).
+A free and open-source textbook for undergraduate statistics courses, authored by **Jonathan A. Poritz** (Colorado State University, Pueblo). The book is available at: `https://pretextbooks.github.io/lies-damned-statistics/`
 
 ## About This Book
 
 *Lies, Damned Lies, or Statistics* is a comprehensive introduction to statistics designed for a one-semester undergraduate course. This textbook emphasizes understanding statistical concepts and using statistics to tell the truth, rather than deceive.
 
 The book was originally created in LaTeX and has been converted to PreTeXt format to provide multiple accessible formats (web, PDF, EPUB, etc.) while maintaining full fidelity to the original content.
-
-### Key Features
-
-- **Free and Open**: Licensed under CC BY-SA 4.0, allowing anyone to share and adapt
-- **Comprehensive Coverage**: From descriptive statistics to inferential statistics
-- **Practical Examples**: Real-world applications and exercises throughout
-- **Multiple Formats**: Available as interactive web pages, PDF, and more
 
 ## Table of Contents
 
@@ -83,12 +76,3 @@ The deployment workflow:
 3. Deploys to GitHub Pages
 
 You can also manually trigger a deployment from the Actions tab in GitHub.
-
-## GitHub Pages Setup
-
-To enable GitHub Pages deployment:
-1. Go to the repository Settings
-2. Navigate to Pages in the left sidebar
-3. Under "Source", select "GitHub Actions"
-
-The book will be available at: `https://pretextbooks.github.io/lies-damned-statistics/`
