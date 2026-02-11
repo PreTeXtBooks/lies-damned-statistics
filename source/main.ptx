@@ -3901,7 +3901,7 @@
               </statement>
             </definition>
             
-            <p>[Note this is quite similar to Definition <xref ref="def-distribution"/> <mdash/> because it is essentially the same thing.]</p>
+            <p>[Note this is quite similar to <xref ref="def-distribution"/> <mdash/> because it is essentially the same thing.]</p>
 
             <example xml:id="eg-distribution1">
               <statement>
@@ -4142,7 +4142,7 @@
           <subsection xml:id="ssec-DF4CRVs">
             <title>Density Functions for Continuous RVs</title>
             
-            <p>What about continuous random variables? Definition <xref ref="def-RVdistribution"/> of <em>distribution</em><idx>distribution</idx> explicitly excluded the case of continuous RVs, so does that mean we cannot do probability calculations in that case?</p>
+            <p>What about continuous random variables? <xref ref="def-RVdistribution"/> of <em>distribution</em><idx>distribution</idx> explicitly excluded the case of continuous RVs, so does that mean we cannot do probability calculations in that case?</p>
 
             <p>There is, when we think about it, something of a problem here. A distribution is supposed to be a list of possible values of the RV and the probability of each such value. But if some continuous RV has values which are an interval of real numbers, there is just no way to list all such numbers <mdash/> it has been known since the late 1800s that there is no way to make a list like that<xref ref="Wik17a"/>. In addition, the chance of some random process producing a real number that is <em>exactly</em> equal to some particular value really is zero: for two real numbers to be precisely equal requires infinite accuracy <ellipsis/> think of all of those decimal digits, marching off in orderly rows to infinity, which must match between the two numbers.</p>
 
@@ -4176,7 +4176,7 @@
               </ul>
             </assemblage>
 
-            <p>If we want the idea of <em>picking a real number on the interval <m>[x_{min},x_{max}]</m> at random</em>, where <em>at random</em><idx><h>at random</h></idx> means that all numbers have the same chance of being picked (along the lines of <em>fair</em> in Definition <xref ref="def-fair"/>, the height of the density function must be the same at all <m>x</m>. In other words, the density function <m>f(x)</m> must be a constant <m>c</m>. In fact, because of the above <xref ref="fact-probDistFuncts" text="title"/>, that constant must have the value <m>\frac1{x_{max}-x_{min}}</m>. There is a name for this:</p>
+            <p>If we want the idea of <em>picking a real number on the interval <m>[x_{min},x_{max}]</m> at random</em>, where <em>at random</em><idx><h>at random</h></idx> means that all numbers have the same chance of being picked (along the lines of <em>fair</em> in <xref ref="def-fair"/>, the height of the density function must be the same at all <m>x</m>. In other words, the density function <m>f(x)</m> must be a constant <m>c</m>. In fact, because of the above <xref ref="fact-probDistFuncts" text="title"/>, that constant must have the value <m>\frac1{x_{max}-x_{min}}</m>. There is a name for this:</p>
             
             <definition xml:id="def-uniformdistr">
               <statement>
@@ -6008,7 +6008,7 @@
           <p>
             Finally and most amazingly, the CLT<idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx> actually tells us exactly what is the shape of the
             distribution for <m>\overline{x}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> <mdash/> and it turns out to be that
-            complicated formula we gave Definition<nbsp/><xref ref="def-generalNormalDist"/>.  This is
+            complicated formula we gave <nbsp/><xref ref="def-generalNormalDist"/>.  This is
             completely unexpected, but somehow the universe knows that formula for the
             Normal<idx>Normal distribution with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m></idx> distribution density function<idx>probability density function, for a continuous random variable</idx><idx>density function, for a continuous random variable</idx> and makes it appear when we construct the histogram of sample means.
           </p>
