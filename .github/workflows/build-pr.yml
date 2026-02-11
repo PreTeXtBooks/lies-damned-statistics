@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# Minimal permissions for PR builds
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
