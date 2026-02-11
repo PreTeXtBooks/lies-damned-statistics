@@ -3515,8 +3515,13 @@
             <p>The <em>complement</em><idx>complement, <m>E^c</m></idx> <m>E^c</m> of an event<idx>event</idx> <m>E</m> is easy to show on a Venn diagram<idx>Venn diagram</idx>, since it is simply everything which is not in <m>E</m>:</p>
 
             <figure xml:id="fig-complement-illustration">
-              <caption>Composite figure: Two diagrams side by side showing event E (left) and its complement E^c (right)</caption>
+              <caption>Composite figure: If the filled part here is E, then the filled part in <xref ref="fig-complement-illustration-2"/> is the complement.</caption>
               <image source="images/fig-2-1-4.png" width="75%"/>
+            </figure>
+
+            <figure xml:id="fig-complement-illustration-2">
+              <caption>Composite figure: If the filled part in  <xref ref="fig-complement-illustration"/> is E, then the filled part here is the complement.</caption>
+              <image source="images/fig-2-1-5.png" width="60%"/>
             </figure>
 
             <p>This can actually be helpful in figuring out what must be in <m>E^c</m>. In the example above with <m>S=\{a, b, c, d\}</m> and <m>A=\{a, b\}\subset S</m>, by looking at what is in the shaded exterior part for our picture of <m>E^c</m>, we can see that for that <m>A</m>, we would get <m>A^c=\{c, d\}</m>.</p>
@@ -3525,21 +3530,21 @@
 
             <figure xml:id="fig-disjoint-events">
               <caption>Rectangle with two non-overlapping circles A and B</caption>
-              <image source="images/fig-2-1-5.png" width="60%"/>
+              <image source="images/fig-2-1-6.png" width="60%"/>
             </figure>
 
             <p>while if they are known not to be disjoint, we would use instead this diagram:</p>
 
             <figure xml:id="fig-overlapping-events">
               <caption>Rectangle with two overlapping circles A and B</caption>
-              <image source="images/fig-2-1-6.png" width="60%"/>
+              <image source="images/fig-2-1-7.png" width="60%"/>
             </figure>
 
             <p>For example, it <m>S=\{a, b, c, d\}</m>, <m>A=\{a, b\}</m>, and <m>B=\{b, c\}</m>, we would have</p>
 
             <figure xml:id="fig-venn-overlap-with-points">
               <caption>Rectangle with two overlapping circles, A containing a and b, B containing b and c, with b in the overlap</caption>
-              <image source="images/fig-2-1-7.png" width="60%"/>
+              <image source="images/fig-2-1-8.png" width="60%"/>
             </figure>
 
             <p>When in doubt, it is probably best to use the version with overlap, which then could simply not have any points in it (or could have zero probability, when we get to that, below).</p>
@@ -3547,8 +3552,11 @@
             <p>Venn diagrams<idx>Venn diagram</idx> are very good at showing unions<idx>union, <m>\cup</m></idx>, and intersection<idx>intersection, <m>\cap</m></idx>:</p>
 
             <figure xml:id="fig-union-intersection-illustration">
-              <caption>Composite figure: Four diagrams illustrating union and intersection - filled circle A, filled circle B, both circles filled for A∪B, and only overlap filled for A∩B</caption>
-              <image source="images/fig-2-1-8.png" width="75%"/>
+              <caption>Composite figure: Four diagrams illustrating union and intersection - filled circle A (top left), filled circle B (top right), both circles filled for A∪B (bottom left), and only overlap filled for A∩B (bottom right)</caption>
+              <image source="images/fig-2-1-9.png" width="75%"/>
+              <image source="images/fig-2-1-10.png" width="75%"/>
+              <image source="images/fig-2-1-11.png" width="75%"/>
+              <image source="images/fig-2-1-12.png" width="75%"/>
             </figure>
 
             <p>Another nice thing to do with Venn diagrams<idx>Venn diagram</idx> is to use them as a visual aid for probability computations. The basic idea is to make a diagram showing the various events<idx>event</idx> sitting inside the usual rectangle, which stands for the sample space<idx>sample space</idx>, and to put numbers in various parts of the diagram showing the probabilities of those events, or of the results of operations (unions<idx>union, <m>\cup</m></idx>, intersection<idx>intersection, <m>\cap</m></idx>, and complement<idx>complement, <m>E^c</m></idx>) on those events.</p>
@@ -3557,14 +3565,14 @@
 
             <figure xml:id="fig-venn-prob-inside">
               <caption>Rectangle with circle A labeled with .4 inside</caption>
-              <image source="images/fig-2-1-9.png" width="60%"/>
+              <image source="images/fig-2-1-13.png" width="60%"/>
             </figure>
 
             <p>But we can also put a number in the exterior of that circle which represents <m>A</m>, taking advantage of the fact that that exterior is <m>A^c</m> and the rule for probabilities of complements (point <xref ref="item-complementrule"/> in <xref ref="def-probmodel"/>) to conclude that the appropriate number is <m>1-.4=.6</m>:</p>
 
             <figure xml:id="fig-venn-prob-complement">
               <caption>Rectangle with circle A showing .4 inside and .6 outside</caption>
-              <image source="images/fig-2-1-10.png" width="60%"/>
+              <image source="images/fig-2-1-14.png" width="60%"/>
             </figure>
 
             <p>We recommend that, in a Venn diagram<idx>Venn diagram</idx> showing probability values, <em>you always put a number in the region exterior to all of the events</em><idx>event</idx> [but inside the rectangle indicating the sample space<idx>sample space</idx>, of course].</p>
@@ -3577,14 +3585,14 @@
 
                 <figure xml:id="fig-venn-two-circles-overlap">
                   <caption>Two overlapping circles A and B</caption>
-                  <image source="images/fig-2-1-11.png" width="60%"/>
+                  <image source="images/fig-2-1-15.png" width="60%"/>
                 </figure>
 
                 <p>However, it would be unwise simply to write those given numbers <m>.4</m>, <m>.5</m>, and <m>.1</m> into the three central regions of this diagram. The reason is that the number <m>.1</m> is the probability of <m>A\cap B</m>, which is a part of <m>A</m> already, so if we simply write <m>.4</m> in the rest of <m>A</m>, we would be counting that <m>.1</m> for the <m>A\cap B</m> twice. Therefore, before we write a number in the rest of <m>A</m>, outside of <m>A\cap B</m>, we have to subtract the <m>.1</m> for <m>P(A\cap B)</m>. That means that the number which goes in the rest of <m>A</m> should be <m>.4-.1=.3</m>. A similar reasoning tells us that the number in the part of <m>B</m> outside of <m>A\cap B</m>, should be <m>.5-.1=.4</m>. That means the Venn diagram with all probabilities written in would be:</p>
 
                 <figure xml:id="fig-venn-probabilities-filled">
                   <caption>Venn diagram with .3 in A only, .1 in overlap, .4 in B only, .2 outside both circles</caption>
-                  <image source="images/fig-2-1-12.png" width="60%"/>
+                  <image source="images/fig-2-1-16.png" width="60%"/>
                 </figure>
               </statement>
             </example>
@@ -4154,7 +4162,7 @@
             
             <figure xml:id="fig-pdf-area">
               <caption>A probability density function showing the area under the curve between a and b representing P(a&lt;X&lt;b)</caption>
-              <image source="images/fig-2-1-13.png" width="75%"/>
+              <image source="images/fig-2-1-17.png" width="75%"/>
             </figure>
 
             <p>Because of what we know about probabilities, the following is true (and fairly easy to prove):</p>
@@ -4187,7 +4195,7 @@
                 
                 <figure xml:id="fig-bus-uniform-distribution">
                   <caption>Bus waiting time uniform distribution showing shaded area from 0 to 10 minutes</caption>
-                  <image source="images/fig-2-1-14.png" width="75%"/>
+                  <image source="images/fig-2-1-18.png" width="75%"/>
                 </figure>
                 
                 <p>where the area of the shaded region represents the probability of having a waiting time from <m>0</m> to <m>10</m> minutes.</p>
@@ -4228,7 +4236,7 @@
                 
                 <figure xml:id="fig-triangular-density">
                   <caption>Triangular density function for dart hitting distance</caption>
-                  <image source="images/fig-2-1-15.png" width="75%"/>
+                  <image source="images/fig-2-1-19.png" width="75%"/>
                 </figure>
                 
                 <p>and the equation of this linear density function would be <m>y=-\frac1{50}x+.2</m> [why? <mdash/> think about the slope and <m>y</m>-intercept!].</p>
@@ -4237,7 +4245,7 @@
                 
                 <figure xml:id="fig-dart-bullseye-prob">
                   <caption>Dart hitting bull's-eye probability shown as shaded trapezoid</caption>
-                  <image source="images/fig-2-1-16.png" width="75%"/>
+                  <image source="images/fig-2-1-20.png" width="75%"/>
                 </figure>
                 
                 <p>The upper-right corner of this shaded region is at <m>x</m>-coordinate <m>1.5</m> and is on the line, so its <m>y</m>-coordinate is <m>-\frac1{50}1.5+.2=.17</m>. Since the region is a trapezoid, its area is the distance between the two parallel sides times the average of the lengths of the other two sides, giving
@@ -4250,7 +4258,7 @@
                 
                 <figure xml:id="fig-complementary-event-triangular">
                   <caption>Complementary event showing triangular region</caption>
-                  <image source="images/fig-2-1-17.png" width="75%"/>
+                  <image source="images/fig-2-1-21.png" width="75%"/>
                 </figure>
                 
                 <p>which is a triangle! Since we surely do remember the formula for the area of a triangle, we find that
@@ -4284,7 +4292,7 @@
             
             <figure xml:id="fig-normal-mean17-sd3">
               <caption>Normal distribution with mean 17 and standard deviation 3</caption>
-              <image source="images/fig-2-1-18.png" width="75%"/>
+              <image source="images/fig-2-1-22.png" width="75%"/>
             </figure>
 
             <p>Now let's collect some of these useful facts about the Normal distributions.</p>
@@ -4332,21 +4340,21 @@
             
             <figure xml:id="fig-normal-mean17-sd1">
               <caption>Normal distribution with mean 17 and standard deviation 1</caption>
-              <image source="images/fig-2-1-19.png" width="75%"/>
+              <image source="images/fig-2-1-23.png" width="75%"/>
             </figure>
             
             <p>If, instead, <m>\sigma_X=5</m>, then we get</p>
             
             <figure xml:id="fig-normal-mean17-sd5">
               <caption>Normal distribution with mean 17 and standard deviation 5</caption>
-              <image source="images/fig-2-1-20.png" width="75%"/>
+              <image source="images/fig-2-1-24.png" width="75%"/>
             </figure>
 
             <p>Finally, let's superimpose all of the above density functions on each other, for one, combined graph:</p>
             
             <figure xml:id="fig-normal-three-distributions">
               <caption>Three Normal distributions with mean 17 and standard deviations 1, 3, and 5 superimposed</caption>
-              <image source="images/fig-2-1-21.png" width="75%"/>
+              <image source="images/fig-2-1-25.png" width="75%"/>
             </figure>
 
             <p>This variety of Normal distributions (one for each <m>\mu_X</m> and <m>\sigma_X</m>) is a bit bewildering, so traditionally, we concentrate on one particularly nice one.</p>
@@ -4361,7 +4369,7 @@
             
             <figure xml:id="fig-standard-normal">
               <caption>Standard Normal distribution with mean 0 and standard deviation 1</caption>
-              <image source="images/fig-2-1-22.png" width="75%"/>
+              <image source="images/fig-2-1-26.png" width="75%"/>
             </figure>
 
             <p>One nice thing about the standard Normal is that all other Normal distributions can be related to the standard.</p>
@@ -4440,7 +4448,7 @@
             
             <figure xml:id="fig-68-95-997-rule">
               <caption>The 68-95-99.7 Rule illustrated on a Normal distribution curve</caption>
-              <image source="images/fig-2-1-23.png" width="75%"/>
+              <image source="images/fig-2-1-27.png" width="75%"/>
             </figure>
 
             <p>In order to use the 68-95-99.7 Rule<idx>68-95-99.7 Rule</idx> in understanding a particular situation, it is helpful to keep an eye out for the numbers that it talks about. Therefore, when looking at a problem, one should notice if the numbers <m>\mu_X+\sigma_X</m>, <m>\mu_X-\sigma_X</m>, <m>\mu_X+2\sigma_X</m>, <m>\mu_X-2\sigma_X</m>, <m>\mu_X+3\sigma_X</m>, or <m>\mu_X-3\sigma_X</m> are ever mentioned. If so, perhaps this Rule can help.</p>
@@ -4477,7 +4485,7 @@
                 
                 <figure xml:id="fig-symmetric-tail-probabilities">
                   <caption>Symmetric shaded areas showing equal tail probabilities</caption>
-                  <image source="images/fig-2-1-24.png" width="75%"/>
+                  <image source="images/fig-2-1-28.png" width="75%"/>
                 </figure>
                 
                 <p>Now, using the fact that <m>72\approx71.8</m>, we may say that
