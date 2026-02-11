@@ -5264,41 +5264,1405 @@
 
       <chapter xml:id="chap-IS">
         <title>Basic Inferences</title>
+        <p>
+          The purpose of this chapter is to introduce two basic but powerful tools of
+          inferential statistics, the
+          <em>confidence interval</em><idx>confidence interval</idx> and the
+          <em>hypothesis test</em><idx>hypothesis test</idx> (also called
+          <em>test of significance</em><idx>test of significance</idx>), in the simplest
+          case of looking for the population mean<idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> of a quantitative
+          RV<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx><idx>quantitative variable</idx>.
+        </p>
+        
+        <p>
+          This simple case of these tool is based, for both of them, on a beautiful and
+          amazing theorem called the
+          <em>Central Limit Theorem</em><idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx>, which is therefore the subject of the first section of the
+          chapter.  The following sections then build the ideas and formulæ first
+          for confidence intervals<idx>confidence interval</idx> and then for hypothesis
+          tests<idx>hypothesis test</idx>.
+        </p>
+        
+        <p>
+          Throughout this chapter, we assume that we are working with some (large)
+          population on which there is defined a quantitative
+          RV<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx><idx>quantitative variable</idx> <m>X</m>.  The
+          population mean <m>\mu_X</m> <idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> is, of course, a fixed number, out in the
+          world, unchanging but also probably unknown, simply because to compute it we
+          would have to have access to the values of <m>X</m> for the entire population.
+        </p>
+        
+        <p>
+          Strangely, we assume in this chapter that while we do not know <m>\mu_X</m>, we do
+          know the population standard deviation <m>\sigma_X</m><idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx>, of <m>X</m>.  This is actually quite a silly assumption <mdash/> how
+          could we know <m>\sigma_X</m> if we didn't already know <m>\mu_X</m>?  But we make this
+          assumption because if makes this first version of
+          <em>confidence intervals</em><idx>confidence interval</idx> and
+          <em>hypothesis tests</em><idx>hypothesis test</idx> particularly simple.  (Later
+          chapters in this Part will remove this silly assumption.)
+        </p>
+        
+        <p>
+          Finally, we always assume in this chapter that the samples we use are simple
+          random
+          samples<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx>,
+          since by now we know that those are the best kind.
+        </p>
+        
         <section xml:id="sec-CLT">
           <title>The Central Limit Theorem</title>
-          <p/>
+          <p>
+            Taking the average<idx>average!see: {mean}</idx> [mean]<idx>mean</idx> of a
+            sample<idx>sample</idx> of quantitative data is actually a very nice process:
+            the arithmetic is simple, and the average often has the nice property of
+            being closer to the center of the data than the values themselves being
+            combined or averaged.  This is because while a random sample may have
+            randomly picked a few particularly large (or particularly small) values from
+            the data, it probably also picked some other small (or large) values, so that
+            the mean will be in the middle.  It turns out that these general observations
+            of how nice a sample mean<idx>sample mean,
+            <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>
+            can be explained and formalized in a very important Theorem:
+          </p>
+          
+          <theorem xml:id="fact-CLT">
+            <title>The Central Limit Theorem [CLT]</title>
+            <idx>Central Limit Theorem, CLT</idx>
+            <idx>CLT, Central Limit Theorem</idx>
+            <statement>
+              <p>
+                Suppose we have a large population<idx>population of a statistical study</idx> on which is defined a
+                quantitative random variable<idx><h>variable</h><h>quantitative</h></idx><idx>quantitative variable</idx><idx>random variable, RV</idx><idx>RV, random variable</idx> <m>X</m> whose population mean<idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> is <m>\mu_X</m> and
+                whose population standard deviation<idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx> is <m>\sigma_X</m>.  Fix a whole number <m>n\ge30</m>.  As we take repeated,
+                independent<idx>independent events</idx>
+                SRSs<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> of size
+                <m>n</m>, the distribution<idx>distribution</idx> of the sample
+                means<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> <m>\overline{x}</m> of these SRSs is approximately
+                <m>N(\mu_X, \sigma_X/\sqrt{n})</m><idx><m>N(\mu_X, \sigma_X)</m>, Normally distributed
+                with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m></idx>.  That is, the distribution
+                of <m>\overline{x}</m> is approximately Normal<idx>Normally distributed with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m>, <m>N(\mu_X, \sigma_X)</m></idx> with mean <m>\mu_X</m> and
+                standard deviation <m>\sigma_X/\sqrt{n}</m>.
+              </p>
+              
+              <p>
+                Furthermore, as <m>n</m> gets bigger, the Normal approximation gets better.
+              </p>
+            </statement>
+          </theorem>
+          
+          <p>
+            Note that the CLT<idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx> has several
+            nice pieces.  First, it tells us that the middle of the histogram of sample
+            means, as we get repeated independent samples, is the same as the mean of the
+            original population <mdash/> <em>the mean of the sample means<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> is
+            the population mean<idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx></em>.  We might write this as <m>\mu_{\overline{x}}=\mu_X</m>.
+          </p>
+          
+          <p>
+            Second, the CLT<idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx> tells us precisely how much less variation there is in the sample
+            means<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> because of the process noted above whereby averages are
+            closer to the middle of some data than are the data values themselves.  The
+            formula is <m>\sigma_{\overline{x}}=\sigma_X/\sqrt{n}</m>.
+          </p>
+          
+          <p>
+            Finally and most amazingly, the CLT<idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx> actually tells us exactly what is the shape of the
+            distribution for <m>\overline{x}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> <mdash/> and it turns out to be that
+            complicated formula we gave Definition<nbsp/><xref ref="def-generalNormalDist"/>.  This is
+            completely unexpected, but somehow the universe knows that formula for the
+            Normal<idx>Normal distribution with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m></idx> distribution density function<idx>probability density function, for a continuous random variable</idx><idx>density function, for a continuous random variable</idx> and makes it appear when we construct the histogram of sample means.
+          </p>
+          
+          <p>
+            Here is an example of how we use the CLT:<idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx>
+          </p>
+          
+          <example xml:id="eg-CLT1">
+            <statement>
+              <p>
+                We have said elsewhere that adult American males' heights in inches are
+                distributed like <m>N(69, 2.8)</m>.  Supposing this is true, let us figure out
+                what is the probability that 52 randomly chosen adult American men, lying
+                down in a row with each one's feet touching the next one's head, stretch the
+                length of a football field.  [Why 52?  Well, an American football team may have
+                up to 53 people on its active roster, and one of them has to remain standing
+                to supervise everyone else's formation lying on the field....]
+              </p>
+              
+              <p>
+                First of all, notice that a football field is 100 yards long, which is 300
+                feet or 3600 inches.  If every single one of our randomly chosen men was
+                exactly the average height for adult men, that would a total of <m>52*69=3588</m>
+                inches, so they would not stretch the whole length.  But there is variation
+                of the heights, so maybe it will happen sometimes....
+              </p>
+              
+              <p>
+                So imagine we have chosen 52 random adult American men.  Measure each of their
+                heights, and call those numbers <m>x_1, x_2, \dots, x_{52}</m>.  What we are trying
+                to figure out is whether <m>\sum x_i \ge 3600</m>.  More precisely, we want to
+                know
+                <me>
+                  P\left(\sum x_i \ge 3600\right)\ .
+                </me>
+                Nothing in that looks familiar, but remember that the 52 adult men were
+                chosen randomly.  The best way to choose some number, call it <m>n=52</m>, of
+                individuals from a population is to choose an
+                SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> of
+                size <m>n</m>.
+              </p>
+              
+              <p>
+                Let's also assume that we did that here.  Now, having an
+                SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx>, we
+                know from the
+                CLT<idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx> that
+                the sample mean <m>\overline{x}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> is <m>N(69, 2.8/\sqrt{52})</m> or, doing the
+                arithmetic, <m>N(69, .38829)</m>.
+              </p>
+              
+              <p>
+                But the question we are considering here doesn't mention <m>\overline{x}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>, you
+                cry!  Well, it almost does: <m>\overline{x}</m> is the sample mean<idx><m>\overline{x}</m>, sample mean</idx><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx>
+                given by
+                <me>
+                  \overline{x} = \frac{\sum x_i}{n} = \frac{\sum x_i}{52} \ .
+                </me>
+                What that means is that the inequality
+                <me>
+                  \sum x_i \ge 3600
+                </me>
+                amounts to exactly the same thing, by dividing both sides by 52, as the
+                inequality
+                <me>
+                  \frac{\sum x_i}{52} \ge \frac{3600}{52}
+                </me>
+                or, in other words,
+                <me>
+                  \overline{x} \ge 69.23077\ .
+                </me>
+                Since these inequalities all amount to the same thing, they have the same
+                probabilities, so
+                <me>
+                  P\left(\sum x_i \ge 3600\right) = P\left(\overline{x} \ge 69.23077\right)\ .
+                </me>
+                But remember <m>\overline{x}</m> was <m>N(69, .38829)</m>, so we can calculate this
+                probability with <term>LibreOffice Calc</term><idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx> or <term>Microsoft Excel</term><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx> as
+                <md>
+                  <mrow>P\left(\overline{x} \ge 69.23077\right)
+                  \amp = 1 - P\left(\overline{x} \lt 69.23077\right)</mrow>
+                  <mrow>\amp = \text{NORM.DIST}(69.23077, 69, .38829, 1)</mrow>
+                  <mrow>\amp = .72385</mrow>
+                </md>
+                where here we first use the probability rule for complements to turn around
+                the inequality into the direction that <c>NORM.DIST</c> calculates.
+              </p>
+              
+              <p>
+                Thus the chance that 52 randomly chosen adult men, lying in one long column,
+                are as long as a football field, is 72.385%.
+              </p>
+            </statement>
+          </example>
         </section>
         <section xml:id="sec-BCIs">
           <title>Basic Confidence Intervals</title>
-          <p/>
+          <p>
+            As elsewhere in this chapter, we assume that we are working with some (large)
+            population on which there is defined a quantitative
+            RV<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx><idx>quantitative variable</idx> <m>X</m>.  The
+            population mean <m>\mu_X</m><idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> is unknown, and we want to estimate it.
+            world, unchanging but also probably unknown, simply because to compute it we
+            would have to have access to the values of <m>X</m> for the entire population.
+          </p>
+          
+          <p>
+            We continue also with our strange assumption that while we do not know <m>\mu_X</m>,
+            we do know the population standard deviation <m>\sigma_X</m><idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx>, of <m>X</m>.
+          </p>
+          
+          <p>
+            Our strategy to estimate <m>\mu_X</m><idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> is to take an
+            SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> of
+            size <m>n</m>, compute the sample mean <m>\overline{x}</m><idx><m>\overline{x}</m>, sample mean</idx><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx> of <m>X</m>, and
+            then to guess that <m>\mu_X\approx\overline{x}</m>.  But this leaves us wondering how
+            good an approximation <m>\overline{x}</m> is of <m>\mu_X</m>.
+          </p>
+          
+          <p>
+            The strategy we take for this is to figure how close <m>\mu_X</m><idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> must be to
+            <m>\overline{x}</m><idx><m>\overline{x}</m>, sample mean</idx><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx> <mdash/> or <m>\overline{x}</m> to <m>\mu_X</m>, it's the same
+            thing, and in fact to be precise enough to say what is the probability that
+            <m>\mu_X</m> is a certain distance from <m>\overline{x}</m>.  That is, if we choose a
+            target probability, call it <m>L</m>, we want to make an interval of real numbers
+            centered on <m>\overline{x}</m> with the probability of <m>\mu_X</m> being in that
+            interval being <m>L</m>.
+          </p>
+          
+          <p>
+            Actually, that is not really a sensible thing to ask for: probability, remember,
+            is the fraction of times something happens in repeated experiments.  But we
+            are not repeatedly choosing <m>\mu_X</m><idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> and seeing if it is in that
+            interval.  Just the opposite, in fact: <m>\mu_X</m> is fixed (although unknown to
+            us), and every time we pick a new SRS <mdash/> that's the repeated experiment,
+            choosing new SRSs!<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> <mdash/> we can compute a new interval and hope that that new interval
+            might contain <m>\mu_X</m>.  The probability <m>L</m> will correspond to what fraction of
+            those newly computed intervals which contain the (fixed, but unknown) <m>\mu_X</m>.
+          </p>
+          
+          <p>
+            How to do even this?
+          </p>
+          
+          <p>
+            Well, the Central Limit Theorem<idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx> tells us that the distribution of <m>\overline{x}</m><idx><m>\overline{x}</m>, sample mean</idx><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx> as we take repeated SRSs<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> <mdash/> exactly the repeatable experiment we are imagining doing <mdash/> is
+            approximately Normal<idx><m>N(\mu_X, \sigma_X)</m>, Normally distributed
+            with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m></idx><idx>Normally distributed with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m>, <m>N(\mu_X, \sigma_X)</m></idx> with mean
+            <m>\mu_X</m><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> and
+            standard deviation<idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx> <m>\sigma_X/\sqrt{n}</m>.  By the 68-95-99.7 Rule<idx>68-95-99.7 Rule</idx>:
+            <ol>
+              <li>
+                <p>
+                  68% of the time we take samples, the resulting <m>\overline{x}</m> will be
+                  within <m>\sigma_X/\sqrt{n}</m> units on the number line of <m>\mu_X</m>.  Equivalently
+                  (since the distance from A to B is the same as the distance from B to A!),
+                  68% of the time we take samples, <m>\mu_X</m> will be within <m>\sigma_X/\sqrt{n}</m> of
+                  <m>\overline{x}</m>.  In other words, 68% of the time we take samples, <m>\mu_X</m> will
+                  happen to lie in the interval from <m>\overline{x}-\sigma_X/\sqrt{n}</m> to
+                  <m>\overline{x}+\sigma_X/\sqrt{n}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Likewise, 95% of the time we take samples, the resulting <m>\overline{x}</m>
+                  will be within <m>2\sigma_X/\sqrt{n}</m> units on the number line of <m>\mu_X</m>.
+                  Equivalently (since the distance from A to B is still the same as the distance
+                  from B to A!), 95% of the time we take samples, <m>\mu_X</m> will be within
+                  <m>2\sigma_X/\sqrt{n}</m> of <m>\overline{x}</m>.  In other words, 95% of the time we
+                  take samples, <m>\mu_X</m> will happen to lie in the interval from
+                  <m>\overline{x}-2\sigma_X/\sqrt{n}</m> to <m>\overline{x}+2\sigma_X/\sqrt{n}</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Likewise, 99.7% of the time we take samples, the resulting <m>\overline{x}</m>
+                  will be within <m>3\sigma_X/\sqrt{n}</m> units on the number line of <m>\mu_X</m>.
+                  Equivalently (since the distance from A to B is still the same as the distance
+                  from B to A!), 99.7% of the time we take samples, <m>\mu_X</m> will be within
+                  <m>3\sigma_X/\sqrt{n}</m> of <m>\overline{x}</m>.  In other words, 99.7% of the time we
+                  take samples, <m>\mu_X</m> will happen to lie in the interval from
+                  <m>\overline{x}-3\sigma_X/\sqrt{n}</m> to <m>\overline{x}+3\sigma_X/\sqrt{n}</m>.
+                </p>
+              </li>
+            </ol>
+          </p>
+          
+          <p>
+            Notice the general shape here is that the interval goes from
+            <m>\overline{x}-z_L^*\sigma_X/\sqrt{n}</m> to <m>\overline{x}+z_L^*\sigma_X/\sqrt{n}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>,
+            where this number <m>z_L^*</m> has a name:
+          </p>
+          
+          <definition xml:id="def-criticalvalue">
+            <title>Critical value <m>z_L^*</m> with probability <m>L</m></title>
+            <idx>critical value, <m>z_L^*</m></idx>
+            <idx><m>z_L^*</m>, critical value</idx>
+            <statement>
+              <p>
+                The <term>critical value <m>z_L^*</m> with probability <m>L</m></term> for the Normal distribution is the number
+                such that the Normal distribution <m>N(\mu_X, \sigma_X)</m><idx><m>N(\mu_X, \sigma_X)</m>, Normally distributed with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m></idx><idx>Normally distributed with mean <m>\mu_X</m> and standard deviation <m>\sigma_X</m>, <m>N(\mu_X, \sigma_X)</m></idx> has probability <m>L</m> between <m>\mu_X-z_L^*\sigma_X</m> and <m>\mu_X+z_L^*\sigma_X</m>.
+              </p>
+              
+              <p>
+                Note the probability <m>L</m> in this definition is usually called the
+                <term>confidence level</term><idx>confidence level</idx>.
+              </p>
+            </statement>
+          </definition>
+          
+          <p>
+            If you think about it, the 68-95-99.7 Rule<idx>68-95-99.7 Rule</idx> is exactly
+            telling us that <m>z_L^*=1</m><idx>critical value, <m>z_L^*</m></idx><idx><m>z_L^*</m>, critical value</idx> if <m>L=.68</m>, <m>z_L^*=2</m> if <m>L=.95</m>, and <m>z_L^*=3</m> if
+            <m>L=.997</m>.  It's actually convenient to make a table of similar values, which
+            can be calculated on a computer from the formula for the Normal distribution.
+          </p>
+          
+          <theorem xml:id="fact-critvaltable">
+            <title>Critical values table</title>
+            <statement>
+              <p>
+                Here is a useful table of critical values for a range of possible confidence
+                levels:
+              </p>
+              
+              <table>
+                <title>Critical Values</title>
+                <tabular halign="center">
+                  <row header="yes" bottom="minor">
+                    <cell><m>L</m></cell>
+                    <cell>.5</cell>
+                    <cell>.8</cell>
+                    <cell>.9</cell>
+                    <cell>.95</cell>
+                    <cell>.99</cell>
+                    <cell>.999</cell>
+                  </row>
+                  <row>
+                    <cell><m>z_L^*</m></cell>
+                    <cell>.674</cell>
+                    <cell>1.282</cell>
+                    <cell>1.645</cell>
+                    <cell>1.960</cell>
+                    <cell>2.576</cell>
+                    <cell>3.291</cell>
+                  </row>
+                </tabular>
+              </table>
+              
+              <p>
+                Note that, oddly, the <m>z_L^*</m> here for <m>L=.95</m> is not <m>2</m>, but rather <m>1.96</m>!
+                This is actually more accurate value to use, which you may choose to use, or
+                you may continue to use <m>z_L^*=2</m> when <m>L=.95</m>, if you like, out of fidelity
+                to the 68-95-99.7 Rule<idx>68-95-99.7 Rule</idx>.
+              </p>
+            </statement>
+          </theorem>
+          
+          <p>
+            Now, using these accurate critical values<idx>critical value, <m>z_L^*</m></idx><idx><m>z_L^*</m>, critical value</idx> we can define an interval which tells us where
+            we expect the value of <m>\mu_X</m><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> to lie.
+          </p>
+          
+          <definition xml:id="def-confint">
+            <title>Confidence interval for <m>\mu_X</m> with confidence level <m>L</m></title>
+            <idx>confidence interval for <m>\mu_X</m> with confidence level <m>L</m></idx>
+            <statement>
+              <p>
+                For a probability value <m>L</m>, called the
+                <term>confidence level</term><idx>confidence level</idx>, the interval of real numbers
+                from <m>\overline{x}-z_L^*\sigma_X/\sqrt{n}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> to
+                <m>\overline{x}+z_L^*\sigma_X/\sqrt{n}</m> is called the
+                <term>confidence interval for <m>\mu_X</m> with confidence level <m>L</m></term>.
+              </p>
+            </statement>
+          </definition>
+          
+          <p>
+            The meaning of <em>confidence</em> here is quite precise (and a little strange):
+          </p>
+          
+          <theorem xml:id="fact-confidence">
+            <statement>
+              <p>
+                Any particular confidence interval<idx>confidence interval for <m>\mu_X</m> with confidence level <m>L</m></idx> with confidence level<idx>confidence level</idx> <m>L</m> might or
+                might not actually contain the sought-after parameter <m>\mu_X</m><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx>.  Rather, what it means to have
+                confidence level <m>L</m> is that if we take repeated, independent
+                SRSs<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> and
+                compute the confidence interval again for each new
+                <m>\overline{x}</m><idx><m>\overline{x}</m>, sample mean</idx><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx> from the new SRSs, then a fraction of size <m>L</m>
+                of these new intervals will contain <m>\mu_X</m>.
+              </p>
+            </statement>
+          </theorem>
+          
+          <p>
+            Note that any particular confidence interval might or might not contain <m>\mu_X</m>
+            not because <m>\mu_X</m> is moving around, but rather the SRSs are different each
+            time, so the <m>\overline{x}</m> is (potentially) different, and hence the
+            interval is moving around.  The <m>\mu_X</m> is fixed (but unknown), while the
+            confidence intervals move.
+          </p>
+          
+          <p>
+            Sometimes the piece we add and subtract from the <m>\overline{x}</m><idx><m>\overline{x}</m>, sample mean</idx><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx>
+            to make a confidence interval is given a name of its own:
+          </p>
+          
+          <definition xml:id="def-marginoferror">
+            <title>Margin of error</title>
+            <idx>margin of error</idx>
+            <idx>sampling error</idx>
+            <statement>
+              <p>
+                When we write a confidence interval for the population mean
+                <m>\mu_X</m><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> of some
+                quantitative variable<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx><idx>quantitative variable</idx>
+                <m>X</m> in the form <m>\overline{x}-E</m> to <m>\overline{x}+E</m>, where
+                <m>E=z_L^*\sigma_X/\sqrt{n}</m>, we call <m>E</m> the
+                <term>margin of error</term> [or, sometimes, the
+                <term>sampling error</term>] of the confidence interval.
+              </p>
+            </statement>
+          </definition>
+          
+          <p>
+            Note that if a confidence interval<idx>confidence interval for <m>\mu_X</m> with confidence level <m>L</m></idx> is given without a stated confidence
+            level<idx>confidence level</idx>, particularly in the popular press, we should
+            assume that the implied level was .95.
+          </p>
+          
           <subsection xml:id="ssec-CIcautions">
             <title>Cautions</title>
-            <p/>
+            <p>
+              The thing that most often goes wrong when using confidence
+              intervals<idx>confidence interval for <m>\mu_X</m> with confidence level <m>L</m></idx> is that
+              the sample data used to compute the sample mean <m>\overline{x}</m><idx><m>\overline{x}</m>, sample mean</idx><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx>
+              and then the endpoints <m>\overline{x}\pm E</m> of the interval is not from a good
+              SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx>.
+              It is hard to get SRSs, so this is not unexpected.  But we nevertheless
+              frequently assume that some sample is an SRS, so that we can use it to make
+              a confidence interval, even of that assumption is not really justified.
+            </p>
+            
+            <p>
+              Another thing that can happen to make confidence
+              intervals<idx>confidence interval for <m>\mu_X</m> with confidence level <m>L</m></idx> less
+              accurate is to choose too small a sample size <m>n</m>.  We have seen that our
+              approach to confidence intervals relies upon the CLT, therefore it typically
+              needs samples of size at least 30.
+            </p>
+            
+            <example xml:id="eg-CI1">
+              <statement>
+                <p>
+                  A survey of 463 first-year students at Euphoria State University [ESU] found
+                  that the [sample] average<idx><m>\overline{x}</m>, sample mean</idx><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx> of how long they reported studying
+                  per week was 15.3 hours.  Suppose somehow we know that the population standard
+                  deviation<idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx> of hours of study per week at ESU is 8.5.  Then we can find a
+                  confidence interval at the 99% confidence level for the mean study per week of
+                  all first-year students by calculating the margin of
+                  error<idx>margin of error</idx> to be
+                  <me>
+                    E==z_L^*\sigma_X/\sqrt{n} = 2.576\cdot8.5/\sqrt{463} = 1.01759
+                  </me>
+                  and then noting that the confidence interval goes from
+                  <me>
+                    \overline{x}-E = 15.3 - 1.01759 = 14.28241
+                  </me>
+                  to
+                  <me>
+                    \overline{x}+E = 15.3 + 1.01759 = 16.31759\,.
+                  </me>
+                </p>
+                
+                <p>
+                  Note that for this calculation to be doing what we want it to do, we must
+                  assume that the 463 first-year students were an SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> out of the entire
+                  population of first-year students at ESU.
+                </p>
+                
+                <p>
+                  Note also that what it means that we have 99% confidence in this interval
+                  from 14.28241 to 16.31759 (or <m>[14.28241, 16.31759]</m> in interval notation) is
+                  not, in fact, that we any confidence at all in those particular numbers.
+                  Rather, we have confidence in the <em>method</em>, in the sense that if we imagine
+                  independently taking many future SRSs<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> of size 463 and recalculating new
+                  confidence intervals, then 99% of these future intervals will contain the
+                  one, fixed, unknown <m>\mu_X</m>.
+                </p>
+              </statement>
+            </example>
           </subsection>
         </section>
         <section xml:id="sec-BHT">
           <title>Basic Hypothesis Testing</title>
-          <p/>
+          <p>
+            Let's start with a motivating example, described somewhat more casually than
+            the rest of the work we usually do, but whose logic is exactly that of the
+            scientific standard for hypothesis testing<idx>hypothesis test</idx>.
+          </p>
+          
+          <example xml:id="eg-faircoinHT">
+            <statement>
+              <p>
+                Suppose someone has a coin which they claim is a fair
+                coin<idx>fair coin</idx><idx><h>coin</h><h>fair</h></idx> (including, in the informal notion of a
+                fair coin, that successive flips are independent<idx>independent events</idx> of
+                each other).  You care about this fairness perhaps because you will use the
+                coin in a betting game.
+              </p>
+              
+              <p>
+                How can you know if the coin really is fair?
+              </p>
+              
+              <p>
+                Obviously, your best approach is to start flipping the coin and see what comes
+                up.  If the first flip shows <em>heads</em> [<em>H</em>], you wouldn't draw any
+                particular conclusion.  If the second was also an <em>H</em>, again, so what?
+                If the third was still <em>H</em>, you're starting to think there's a run going.
+                If you got all the way to ten <em>H</em>s in a row, you would be very suspicious,
+                and if the run went to 100 <em>H</em>s, you would demand that some other coin
+                (or person doing the flipping) be used.
+              </p>
+              
+              <p>
+                Somewhere between two and 100 <em>H</em>s in a row, you would go from bland
+                acceptance of fairness to nearly complete conviction that this coin is not
+                fair <mdash/> why?  After all, the person flipping the coin and asserting its
+                fairness could say, correctly, that it is possible for a fair coin to come
+                up <em>H</em> any number of times in a row.  Sure, you would reply, but it is
+                very unlikely: that is, given that the coin is fair, the conditional
+                probability that those long runs without <em>T</em>s would occur is very small.
+              </p>
+              
+              <p>
+                Which in turn also explains how you would draw the line, between two and 100
+                <em>H</em>s in a row, for when you thought the the improbability of that particular
+                run of straight <em>H</em>s was past the level you would be willing to accept.
+                Other observers might draw the line elsewhere, in fact, so there would not
+                be an absolutely sure conclusion to the question of whether the coin was fair
+                or not.
+              </p>
+            </statement>
+          </example>
+          
+          <p>
+            It might seem that in the above example we only get a probabilistic answer to
+            a yes/no question (is the coin fair or not?) simply because the thing we are
+            asking about is, by nature, a random<idx>randomness</idx> process: we cannot
+            predict how any particular flip of the coin will come out, but the long-term
+            behavior is what we are asking about; no surprise, then, that the answer will
+            involve likelihood.  But perhaps other scientific hypotheses will have more
+            decisive answers, which do not invoke probability.
+          </p>
+          
+          <p>
+            Unfortunately, this will not be the case, because we have seen above that it
+            is wise to introduce probability into an experimental situation, even if it
+            was not there originally, in order to avoid bias<idx>bias</idx>.  Modern
+            theories of science (such as quantum mechanics<idx>quantum mechanics</idx>,
+            and also, although in a different way, epidemiology<idx>epidemiology</idx>,
+            thermodynamics<idx>thermodynamics</idx>, genetics<idx>genetics</idx>, and many other
+            sciences) also have some amount of randomness<idx>randomness</idx> built into
+            their very foundations, so we should expect probability to arise in just
+            about every kind of data.
+          </p>
+          
+          <p>
+            Let's get a little more formal and careful about what we need to do with
+            hypothesis testing.
+          </p>
+          
           <subsection xml:id="ssec-tFSoHT">
             <title>The Formal Steps of Hypothesis Testing</title>
-            <p/>
+            <ol>
+              <li>
+                <p>
+                  State what is the population under study.
+                </p>
+              </li>
+              <li>
+                <p>
+                  State what is the variable of interest for this population.  <em>For us
+                  in this section, that will always be a quantitative variable<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx> <m>X</m>.</em>
+                </p>
+              </li>
+              <li>
+                <p>
+                  State which is the resulting population parameter of interest.  <em>For
+                  us in this section, that will always be the population mean<idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> <m>\mu_X</m> of <m>X</m>.</em>
+                </p>
+              </li>
+              <li>
+                <p>
+                  State two hypotheses about the value of this parameter.  One, called
+                  the <term>null hypothesis</term><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx> and written <m>H_0</m><idx><m>H_0</m>, null hypothesis</idx>, will be a
+                  statement that the parameter of interest has a particular value, so
+                  <me>
+                    H_0: \mu_X = \mu_0
+                  </me>
+                  where <m>\mu_0</m> is some specific number.  The other is the interesting
+                  alternative we are considering for the value of that parameter, and is
+                  thus called the <term>alternative hypothesis</term><idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx>, written
+                  <m>H_a</m><idx><m>H_a</m>, alternative hypothesis</idx>.  The alternative
+                  hypothesis can have one of three forms:
+                  <md>
+                    <mrow>H_a: \mu_X \amp\lt \mu_0\ ,</mrow>
+                    <mrow>\text{or}\quad H_a: \mu_X \amp> \mu_0\ ,\text{ or}</mrow>
+                    <mrow>H_a: \mu_X \amp\neq \mu_0\ ,</mrow>
+                  </md>
+                  where <m>\mu_0</m> is the same specific number as in <m>H_0</m>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  Gather data from an SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> and compute the sample statistic which is best
+                  related to the parameter of interest.  <em>For us in this section, that will
+                  always be the sample mean <m>\overline{X}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx></em>
+                </p>
+              </li>
+              <li>
+                <p>
+                  Compute the following conditional probability
+                  <me>
+                    p=P\left(
+                    \begin{matrix}
+                    \text{getting values of the statistic which are as extreme,}\\
+                    \text{or more extreme, as the ones you did get}
+                    \end{matrix}\ \middle|\ H_0\right)\ .
+                  </me>
+                  This is called the <term><m>p</m>-value of the test</term><idx><m>p</m>-value of a hypothesis test</idx>.
+                </p>
+              </li>
+              <li>
+                <p>
+                  If the <m>p</m>-value is sufficiently small <mdash/> typically, <m>p\lt .05</m> or even
+                  <m>p\lt .01</m> <mdash/> announce
+                </p>
+                <blockquote>
+                  <p>
+                    <em><q>We reject <m>H_0</m>, with <m>p=\langle\text{number here}\rangle</m>.</q></em><idx>We reject the null hypothesis <m>H_0</m>.</idx><idx>rejection of <m>H_0</m></idx><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx>
+                  </p>
+                </blockquote>
+                <p>
+                  Otherwise, announce
+                </p>
+                <blockquote>
+                  <p>
+                    <em><q>We fail to reject <m>H_0</m>, with <m>p=\langle\text{number here}\rangle</m>.</q></em><idx>We fail to reject the null hypothesis <m>H_0</m>.</idx><idx>failure to reject <m>H_0</m></idx><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx>
+                  </p>
+                </blockquote>
+              </li>
+              <li>
+                <p>
+                  Translate the result just announced into the language of the original
+                  question.  As you do this, you can say <em><q>There is strong statistical
+                  evidence<idx>strong statistical evidence</idx> that ...</q></em> if the <m>p</m>-value is
+                  very small, while you should merely say something like
+                  <em><q>There is evidence that...</q></em> if the <m>p</m>-value is small but not
+                  particularly so.
+                </p>
+              </li>
+            </ol>
+            
+            <p>
+              Note that the hypotheses <m>H_0</m><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx> and <m>H_a</m><idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx><idx><m>H_a</m>, alternative hypothesis</idx> are <em>statements</em>, not numbers.  So
+              <em><term>don't</term> write something like</em> <m>H_0=\mu_X=17</m>; you might use
+              <me>
+                H_0=\text{``}\mu_X=17\text{''}
+              </me>
+              or
+              <me>
+                H_o: \mu_X=17
+              </me>
+              (we always use the latter in this book).
+            </p>
           </subsection>
+          
           <subsection xml:id="ssec-HSiSEfpvs">
             <title>How Small is Small Enough, for p-values?</title>
-            <p/>
+            <p>
+              Remember how the <m>p</m>-value<idx><m>p</m>-value of a hypothesis test</idx> is
+              defined:
+              <me>
+                p=P\left(
+                \begin{matrix}
+                \text{getting values of the statistic which are as extreme,}\\
+                \text{or more extreme, as the ones you did get}
+                \end{matrix}\ \middle|\ H_0\right)\ .
+              </me>
+              In other words, if the null hypothesis<idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx> is true, maybe the behavior we saw with
+              the sample<idx>sample</idx> data would sometimes happen, but if the probability
+              is very small, it starts to seem that, under the assumption <m>H_0</m> is true,
+              the sample behavior was a crazy fluke.  If the fluke is crazy enough, we
+              might want simply to say that since the sample behavior actually happened, it
+              makes us doubt that <m>H_0</m> is true at all.
+            </p>
+            
+            <p>
+              For example, if <m>p=.5</m>, that means that under the assumption <m>H_0</m><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx> is true,
+              we would see behavior like that of the sample about every other time we take
+              an SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> and compute the sample statistic.  Not much of a surprise.
+            </p>
+            
+            <p>
+              If the <m>p=.25</m>, that would still be behavior we would expect to see in about
+              one out of every four SRSs<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx>, when the <m>H_0</m><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx> is true.
+            </p>
+            
+            <p>
+              When <m>p</m> gets down to <m>.1</m>, that is still behavior we expect to see about
+              one time in ten, when <m>H_0</m><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx> is true.  That's rare, but we wouldn't want to bet
+              anything important on it.
+            </p>
+            
+            <p>
+              Across science, in legal matters, and definitely for medical studies, we
+              start to reject <m>H_0</m><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx><idx>We reject the null hypothesis <m>H_0</m>.</idx><idx>rejection of <m>H_0</m></idx> when <m>p\lt .05</m>.  After all, if <m>p\lt .05</m> and <m>H_0</m>
+              is true, then we would expect to see results as extreme as the ones we saw in
+              fewer than one SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> out of 20.
+            </p>
+            
+            <p>
+              There is some terminology for these various cut-offs.
+            </p>
+            
+            <definition xml:id="def-siglevel">
+              <title>Statistically significant at level <m>\alpha</m></title>
+              <idx>statistically significant, for data in a hypothesis test</idx>
+              <idx>significance level</idx>
+              <statement>
+                <p>
+                  When we are doing a hypothesis test and get a <m>p</m>-value which satisfies
+                  <m>p\lt \alpha</m>, for some real number <m>\alpha</m>, we say the data are 
+                  <term>statistically significant at level <m>\alpha</m></term>.  Here the value <m>\alpha</m> is called the
+                  <term>significance level</term> of the test, as in the
+                  phrase <em><q>We reject <m>H_0</m> at significance level <m>\alpha</m>,</q></em><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx><idx>We reject the null hypothesis <m>H_0</m>.</idx><idx>rejection of <m>H_0</m></idx> which we would
+                  say if <m>p\lt \alpha</m>.
+                </p>
+              </statement>
+            </definition>
+            
+            <example xml:id="eg-rejectionandfailure">
+              <statement>
+                <p>
+                  If we did a hypothesis test and got a <m>p</m>-value of <m>p=.06</m>, we would say about
+                  it that the result was statistically significant<idx>statistically significant, for data in a hypothesis test</idx> at the <m>\alpha=.1</m> level, but not
+                  statistically significant at the <m>\alpha=.05</m> level.  In other words, we
+                  would say <em><q>We reject the null hypothesis at the <m>\alpha=.1</m> level,</q></em><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx><idx>We reject the null hypothesis <m>H_0</m>.</idx><idx>rejection of <m>H_0</m></idx> but also
+                  <em><q>We fail to reject the null hypothesis at the <m>\alpha=.05</m> level,</q></em><idx>We fail to reject the null hypothesis <m>H_0</m>.</idx><idx>failure to reject <m>H_0</m></idx>.
+                </p>
+              </statement>
+            </example>
+            
+            <theorem xml:id="fact-defaultsiglevel">
+              <statement>
+                <p>
+                  The courts in the United States, as well as the majority of standard scientific
+                  and medical tests which do a formal hypothesis test, use the significance
+                  level<idx>significance level</idx> of <m>\alpha=.05</m>.
+                </p>
+                
+                <p>
+                  In this chapter, when not otherwise specified, we will use that value of
+                  <m>\alpha=.05</m> as a default significance level<idx>significance level</idx><idx>default significance level</idx><idx><h>significance level</h><h>default</h></idx>.
+                </p>
+              </statement>
+            </theorem>
+            
+            <example xml:id="eg-HT1">
+              <statement>
+                <p>
+                  We have said repeatedly in this book that the heights of American males are
+                  distributed like <m>N(69, 2.8)</m>.  Last semester, a statistics student named
+                  Mohammad Wong said he thought that had to be wrong, and decide to do a study
+                  of the question.  MW is a bit shorter than 69 inches, so his conjecture was
+                  that the mean height must be less, also.  He measured the heights of all of
+                  the men in his statistics class, and was surprised to find that the average
+                  of those 16 men's heights was 68 inches (he's only 67 inches tall, and he
+                  thought he was typical, at least for his class<fn>When an experimenter
+                  tends to look for information which supports their prior ideas, it's called
+                  <term>confirmation bias</term><idx>confirmation bias</idx> <mdash/> MW may have been
+                  experiencing a bit of this bias when he mistakenly thought he was average in
+                  height for his class.</fn>).  Does this support his conjecture or not?
+                </p>
+                
+                <p>
+                  Let's do the formal hypothesis test.
+                </p>
+                
+                <p>
+                  The population that makes sense for this study would be all adult American
+                  men today <mdash/> MW isn't sure if the claim of American men's heights having a
+                  population mean <idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> of 69 inches was <em>always</em> wrong, he is just
+                  convinced that it is wrong <em>today</em>.
+                </p>
+                
+                <p>
+                  The quantitative
+                  variable<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx> of interest
+                  on that population is their height, which we'll call <m>X</m>.
+                </p>
+                
+                <p>
+                  The parameter of interest is the population mean
+                  <m>\mu_X</m><idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx>.
+                </p>
+                
+                <p>
+                  The two hypotheses then are
+                  <md>
+                    <mrow>H_0: \mu_X \amp= 69\quad \text{and}</mrow>
+                    <mrow>H_a: \mu_X \amp\lt 69\ ,</mrow>
+                  </md>
+                  where the basic idea in the null hypothesis<idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx> is that the claim
+                  in this book of men's heights having mean 69 is true, while the new idea which
+                  MW hopes to find evidence for, encoded in alternative
+                  hypothesis<idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx><idx><m>H_a</m>, alternative hypothesis</idx>, is that the true mean of
+                  today's men's heights is less than 69 inches (like him).
+                </p>
+                
+                <p>
+                  MW now has to make two bad assumptions: the first is that the 16 students in his
+                  class are an SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> drawn from the population of interest; the second, that the population
+                  standard deviation<idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx> of the
+                  heights of individuals in his population of interest is the same as the
+                  population standard deviation of the group of all adult American males asserted
+                  elsewhere in this book, 2.8.  These are definitely <term>bad assumptions</term> <mdash/>
+                  particularly that MW's male classmates are an SRS of the population of today's
+                  adult American males <mdash/> but he has to make them nevertheless in order to
+                  get somewhere.
+                </p>
+                
+                <p>
+                  The sample mean<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> height <m>\overline{X}</m> for MW's SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> of size
+                  <m>n=16</m> is <m>\overline{X}=68</m>.
+                </p>
+                
+                <p>
+                  MW can now calculate the <m>p</m>-value of this test, using the Central Limit
+                  Theorem<idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx>.
+                  According to the CLT, the distribution of <m>\overline{X}</m> is
+                  <m>N(69, 2.8/\sqrt{16})</m>.  Therefore the <m>p</m>-value is
+                  <me>
+                    p=P\left(
+                    \begin{matrix}
+                    \text{MW would get values of }\overline{X}\text{ which are as}\\
+                    \text{extreme, or more extreme, as the ones he did get}
+                    \end{matrix}\ \middle|\ H_0\right) = P(\overline{X}\lt 69)\ .
+                  </me>
+                  Which, by what we just observed the CLT tells us, is computable by
+                  <me>
+                    \text{normalcdf}(-9999, 68, 69, 2.8/\sqrt{16})
+                  </me><idx>normalcdf, the cumulative Normal distribution on a TI-8x calculator</idx>
+                  on a calculator<idx>calculator</idx>, or
+                  <me>
+                    \text{NORM.DIST(68, 69, 2.8/SQRT(16), 1)}
+                  </me><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>
+                  in a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>, either of which gives a value around .07656.
+                </p>
+                
+                <p>
+                  This means that if MW uses the 5% significance
+                  level<idx>significance level</idx>, as we often
+                  do<idx><h>significance level</h><h>default</h></idx>, the result is not statistically
+                  significant<idx>statistically significant, for data in a hypothesis test</idx>.
+                  Only at the much cruder 10% significance level would MW say that he rejects the null hypothesis<idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx><idx>We reject the null hypothesis <m>H_0</m>.</idx><idx>rejection of <m>H_0</m></idx>.
+                </p>
+                
+                <p>
+                  In other words, he might conclude his project by saying
+                </p>
+                <blockquote>
+                  <p>
+                    <em><q>My research collected data about my conjecture which was statistically
+                    insignificant at the 5% significance level but the data, significant
+                    at the weaker 10% level, did indicate that the average height of American men
+                    is less than the 69 inches we were told it is (<m>p=.07656</m>).</q></em>
+                  </p>
+                </blockquote>
+                <p>
+                  People who talk to MW about his study should have additional concerns about
+                  his assumptions of having an SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> and of the value of the population
+                  standard deviation<idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx>
+                </p>
+              </statement>
+            </example>
           </subsection>
           <subsection xml:id="ssec-calculations-hypothesis-testing-population-means">
             <title>Calculations for Hypothesis Testing of Population Means</title>
-            <p/>
+            <p>
+              We put together the ideas in <xref ref="ssec-tFSoHT"/> above and the conclusions of
+              the Central Limit
+              Theorem<idx>Central Limit Theorem, CLT</idx><idx>CLT, Central Limit Theorem</idx>
+              to summarize what computations are necessary to perform:
+            </p>
+            
+            <theorem xml:id="fact-computationsHT">
+              <statement>
+                <p>
+                  Suppose we are doing a formal hypothesis test<idx>hypothesis test</idx> with
+                  variable <m>X</m> and parameter of interest the population mean <m>\mu_X</m><idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx>.
+                  Suppose that somehow we know the population standard
+                  deviation<idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx> <m>\sigma_X</m> of <m>X</m>.
+                  Suppose the null hypothesis<idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx> is
+                  <me>
+                    H_0: \mu_X = \mu_0
+                  </me>
+                  where <m>\mu_0</m> is a specific number.  Suppose also that we have an SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> of size
+                  <m>n</m> which yielded the sample mean<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> <m>\overline{X}</m>.  Then exactly
+                  one of the following three situations will apply:
+                  <ol>
+                    <li>
+                      <p>
+                        If the alternative hypothesis<idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx><idx><m>H_a</m>, alternative hypothesis</idx> is
+                        <m>H_a:\mu_X\lt \mu_0</m> then the <m>p</m>-value of the test can be calculated in any of
+                        the following ways
+                        <ol>
+                          <li>
+                            <p>
+                              the area to the left of <m>\overline{X}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> under the graph of a <m>N(\mu_0, \sigma_X/\sqrt{n})</m> distribution,
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              <term>normalcdf</term><m>(-9999, \overline{X}, \mu_0, \sigma_X/\sqrt{n})</m><idx>normalcdf, the cumulative Normal distribution on a TI-8x calculator</idx> on a calculator<idx>calculator</idx>, or
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              <c>NORM.DIST(<m>\overline{X}</m>, <m>\mu_0</m>, <m>\sigma_X</m>/SQRT(<m>n</m>), 1)</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
+                            </p>
+                          </li>
+                        </ol>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        If the alternative hypothesis<idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx><idx><m>H_a</m>, alternative hypothesis</idx> is
+                        <m>H_a:\mu_X>\mu_0</m> then the <m>p</m>-value of the test can be calculated in any of the
+                        following ways
+                        <ol>
+                          <li>
+                            <p>
+                              the area to the right of <m>\overline{X}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> under the graph of a <m>N(\mu_0, \sigma_X/\sqrt{n})</m> distribution,
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              <term>normalcdf</term><m>(\overline{X}, 9999, \mu_0, \sigma_X/\sqrt{n})</m><idx>normalcdf, the cumulative Normal distribution on a TI-8x calculator</idx> on a calculator<idx>calculator</idx>, or
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              <c>1-NORM.DIST(<m>\overline{X}</m>, <m>\mu_0</m>, <m>\sigma_X</m>/SQRT(<m>n</m>), 1)</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
+                            </p>
+                          </li>
+                        </ol>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        If the alternative hypothesis<idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx><idx><m>H_a</m>, alternative hypothesis</idx> is
+                        <m>H_a:\mu_X\neq \mu_0</m> then the <m>p</m>-value of the test can be found by using
+                        the approach in exactly one of the following three situations:
+                        <ol>
+                          <li>
+                            <p>
+                              If <m>\overline{X}\lt \mu_0</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> then <m>p</m> is calculated by any of
+                              the following three ways:
+                              <ol>
+                                <li>
+                                  <p>
+                                    two times the area to the left of <m>\overline{X}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> under the graph of a
+                                    <m>N(\mu_0, \sigma_X/\sqrt{n})</m> distribution,
+                                  </p>
+                                </li>
+                                <li>
+                                  <p>
+                                    2<nbsp/>*<nbsp/><term>normalcdf</term><m>(-9999, \overline{X}, \mu_0, \sigma_X/\sqrt{n})</m><idx>normalcdf, the cumulative Normal distribution on a TI-8x calculator</idx> on a calculator<idx>calculator</idx>, or
+                                  </p>
+                                </li>
+                                <li>
+                                  <p>
+                                    <c>2<nbsp/>*<nbsp/>NORM.DIST(<m>\overline{X}</m>, <m>\mu_0</m>, <m>\sigma_X</m>/SQRT(<m>n</m>), 1)</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
+                                  </p>
+                                </li>
+                              </ol>
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              If <m>\overline{X}>\mu_0</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> then <m>p</m> is calculated by any of
+                              the following three ways:
+                              <ol>
+                                <li>
+                                  <p>
+                                    two times the area to the right of <m>\overline{X}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> under the graph of a
+                                    <m>N(\mu_0, \sigma_X/\sqrt{n})</m> distribution,
+                                  </p>
+                                </li>
+                                <li>
+                                  <p>
+                                    2<nbsp/>*<nbsp/><term>normalcdf</term><m>(\overline{X}, 9999, \mu_0, \sigma_X/\sqrt{n})</m><idx>normalcdf, the cumulative Normal distribution on a TI-8x calculator</idx> on a calculator<idx>calculator</idx>, or
+                                  </p>
+                                </li>
+                                <li>
+                                  <p>
+                                    <c>2<nbsp/>*<nbsp/>(1-NORM.DIST(<m>\overline{X}</m>, <m>\mu_0</m>, <m>\sigma_X</m>/SQRT(<m>n</m>), 1))</c><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx> on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>.
+                                  </p>
+                                </li>
+                              </ol>
+                            </p>
+                          </li>
+                          <li>
+                            <p>
+                              If <m>\overline{X}=\mu_0</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> then <m>p=1</m>.
+                            </p>
+                          </li>
+                        </ol>
+                      </p>
+                    </li>
+                  </ol>
+                </p>
+              </statement>
+            </theorem>
+            
+            <p>
+              Note the reason that there is that multiplication by two if the alternative
+              hypothesis<idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx><idx><m>H_a</m>, alternative hypothesis</idx> is <m>H_a:\mu_X\neq \mu_0</m> is that
+              there are two directions <mdash/> the distribution has two tails <mdash/> in which the
+              values can be more extreme than <m>\overline{X}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>.  For this reason we have
+              the following terminology:
+            </p>
+            
+            <definition xml:id="def-1and2tailedtests">
+              <title>One-tailed and two-tailed tests</title>
+              <idx>one-tailed test</idx>
+              <idx>two-tailed test</idx>
+              <statement>
+                <p>
+                  If we are doing a hypothesis test<idx>hypothesis test</idx> and the alternative
+                  hypothesis<idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx><idx><m>H_a</m>, alternative hypothesis</idx> is <m>H_a:\mu_X>\mu_0</m> or
+                  <m>H_a:\mu_X\lt \mu_0</m> then this is called a
+                  <term>one-tailed test</term>.  If, instead, the alternative
+                  hypothesis is <m>H_a:\mu_X\neq\mu_0</m> then this is called a
+                  <term>two-tailed test</term>.
+                </p>
+              </statement>
+            </definition>
+            
+            <example xml:id="eg-HT2">
+              <statement>
+                <p>
+                  Let's do one very straightforward example of a hypothesis
+                  test<idx>hypothesis test</idx>:
+                </p>
+                
+                <p>
+                  A cosmetics company fills its best-selling 8-ounce jars of facial cream by an
+                  automatic dispensing machine. The machine is set to dispense a mean<idx>mean</idx>
+                  of 8.1 ounces per jar. Uncontrollable factors in the process can shift the
+                  mean away from 8.1 and cause either underfill or overfill, both of which are
+                  undesirable. In such a case the dispensing machine is stopped and
+                  recalibrated.  Regardless of the mean amount dispensed, the standard
+                  deviation<idx>standard deviation</idx> of the amount dispensed always has value
+                  .22 ounce. A quality control engineer randomly selects 30 jars from the
+                  assembly line each day to check the amounts filled.  One day, the sample
+                  mean<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> is <m>\overline{X}=8.2</m> ounces.  Let us see if there is
+                  sufficient evidence in this sample<idx>sample</idx> to indicate, at the 1%
+                  level of significance<idx>significance level</idx>, that the machine should be
+                  recalibrated.
+                </p>
+                
+                <p>
+                  The population<idx>population of a statistical study</idx> under study is all of
+                  the jars of facial cream on the day of the 8.2 ounce sample.
+                </p>
+                
+                <p>
+                  The variable<idx>variable</idx> of interest is the weight <m>X</m> of the jar in ounces.
+                </p>
+                
+                <p>
+                  The population
+                  parameter<idx>population parameter</idx><idx>parameter, population</idx> of interest
+                  is the population mean <m>\mu_X</m><idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> of <m>X</m>.
+                </p>
+                
+                <p>
+                  The two hypotheses then are
+                  <md>
+                    <mrow>H_0: \mu_X \amp= 8.1\quad \text{and}</mrow>
+                    <mrow>H_a: \mu_X \amp\neq 8.1\ .</mrow>
+                  </md>
+                </p>
+                
+                <p>
+                  The sample mean<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> is <m>\overline{X}=8.2</m>, and the sample <mdash/> which
+                  we must assume to be an SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> <mdash/> is of size <m>n=30</m>.
+                </p>
+                
+                <p>
+                  Using the case in Fact<nbsp/><xref ref="fact-computationsHT"/> where the alternative hypothesis<idx>alternative hypothesis, <m>H_a</m></idx><idx><h>hypothesis</h><h>alternative, <m>H_a</m></h></idx><idx><m>H_a</m>, alternative hypothesis</idx> is <m>H_a:\mu_X\neq \mu_0</m> and the sub-case
+                  where <m>\overline{X}>\mu_0</m>, we compute the <m>p</m>-value by 
+                  <me>
+                    \text{2\,*\,(1-NORM.DIST(}8.2, 8.1, .22/\text{SQRT(30)}, 1\text{))}
+                  </me><idx>NORM.DIST, the cumulative Normal distribution in spreadsheets</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>
+                  on a spreadsheet<idx>LibreOffice Calc</idx><idx>Calc [LibreOffice]</idx><idx>Microsoft Excel</idx><idx>MS Excel</idx><idx>Excel [Microsoft]</idx>, which yields <m>p=.01278</m>.
+                </p>
+                
+                <p>
+                  Since <m>p</m> is not less than <m>.01</m>, we fail to reject <m>H_0</m><idx>We fail to reject the null hypothesis <m>H_0</m>.</idx><idx>failure to reject <m>H_0</m></idx> at the <m>\alpha=.01</m> level of
+                  significance<idx>significance level</idx>.
+                </p>
+                
+                <p>
+                  The quality control engineer should therefore say to company management
+                </p>
+                <blockquote>
+                  <p>
+                    <em><q>Today's sample<idx>sample</idx>, though off weight, was not
+                    statistically significant<idx>statistically significant, for data in a hypothesis test</idx> at the stringent level of significance<idx>significance level</idx>
+                    of <m>\alpha=.01</m> that we have chosen to use in these tests, that the jar-filling
+                    machine is in need of recalibration today (<m>p=.01278</m>).</q></em>
+                  </p>
+                </blockquote>
+              </statement>
+            </example>
           </subsection>
+          
           <subsection xml:id="ssec-HTcautions">
             <title>Cautions</title>
-            <p/>
+            <p>
+              As we have seen before, the requirement that the sample we are using in our
+              hypothesis test<idx>hypothesis test</idx> is a valid SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> is quite important.  But it is also
+              quite hard to get such a good sample, so this is often something that can be
+              a real problem in practice, and something which we must assume is true with
+              often very little real reason.
+            </p>
+            
+            <p>
+              It should be apparent from the above Facts and Examples that most of the work
+              in doing a hypothesis test<idx>hypothesis test</idx>, after careful initial
+              set-up, comes in computing the <m>p</m>-value.
+            </p>
+            
+            <p>
+              Be careful of the phrase <em>statistically significant</em><idx>statistically significant, for data in a hypothesis test</idx>.  It does not mean that the effect is
+              large!  There can be a very small effect, the <m>\overline{X}</m><idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>
+              might be very close to <m>\mu_0</m> and yet we might reject the null
+              hypothesis<idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx><idx>We reject the null hypothesis <m>H_0</m>.</idx><idx>rejection of <m>H_0</m></idx> if the population
+              standard deviation<idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx> <m>\sigma_X</m>
+              were sufficiently small, or even if the sample size<idx>sample size, <m>n</m></idx><idx><m>n</m>, sample size</idx> <m>n</m> were large enough that <m>\sigma_X/\sqrt{n}</m> became
+              very small.  Thus, oddly enough, a statistically significant result, one where
+              the conclusion of the hypothesis test<idx>hypothesis test</idx> was statistically
+              quite certain,  might not be <em>significant</em> in the sense of mattering very
+              much.  With enough precision, we can be very sure of small effects.
+            </p>
+            
+            <p>
+              Note that the meaning of the <m>p</m>-value<idx><m>p</m>-value of a hypothesis test</idx> is explained above in its definition as a conditional
+              probability<idx>conditional probability, <m>P(A\mid B)</m></idx>.  So <m>p</m> <em><term>does not</term></em> compute the probability that the null hypothesis<idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx>
+              <m>H_0</m> is true, or any such simple thing.  In contrast, the
+              Bayesian<idx>Bayesian</idx> approach to probability, which we chose not to use
+              in the book, in favor of the frequentist approach<idx>frequentist approach to probability</idx>, does have a kind of hypothesis test<idx>hypothesis test</idx>
+              which includes something like the direct probability that <m>H_0</m> is true.  But
+              we did not follow the Bayesian approach here because in many other ways it is
+              more confusing.
+            </p>
+            
+            <p>
+              In particular, one consequence of the real meaning of the
+              <m>p</m>-value<idx><m>p</m>-value of a hypothesis test</idx> as we use it in this
+              book is that sometimes we will reject a true null hypothesis <m>H_0</m><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx><idx>We reject the null hypothesis <m>H_0</m>.</idx><idx>rejection of <m>H_0</m></idx> just out of bad luck.  In fact, if <m>p</m> is just
+              slightly less than <m>.05</m>, we would reject <m>H_0</m> at the <m>\alpha=.05</m> significance
+              level<idx>significance level</idx> even though, in slightly less than one case in
+              20 (meaning 1 SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> out of 20 chosen independently<idx>independent events</idx>), we would do this
+              rejection even though <m>H_0</m> was true.
+            </p>
+            
+            <p>
+              We have a name for this situation.
+            </p>
+            
+            <definition xml:id="def-typeIerror">
+              <title>Type I error</title>
+              <idx>type I error</idx>
+              <idx>false positive</idx>
+              <statement>
+                <p>
+                  When we reject a true null hypothesis <m>H_0</m><idx>null hypothesis, <m>H_0</m></idx><idx><h>hypothesis</h><h>null, <m>H_0</m></h></idx><idx><m>H_0</m>, null hypothesis</idx><idx>We reject the null hypothesis <m>H_0</m>.</idx><idx>rejection of <m>H_0</m></idx> this is called a <term>type I error</term>.  Such an error
+                  is usually (but not always: it depends upon how the
+                  population<idx>population of a statistical study</idx>, variable<idx>variable</idx>,
+                  parameter<idx>population parameter</idx><idx>parameter, population</idx>, and hypotheses<idx>hypothesis</idx> were
+                  set up) a <term>false positive</term>, meaning that something
+                  exciting and new (or scary and dangerous) was found even though it is not
+                  really present in the population.
+                </p>
+              </statement>
+            </definition>
+            
+            <example xml:id="eg-TI1">
+              <statement>
+                <p>
+                  Let us look back at the cosmetic company with a jar-filling machine from
+                  Example<nbsp/><xref ref="eg-HT2"/>.  We don't know what the median<idx>median</idx> of the
+                  SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> data
+                  was, but it wouldn't be surprising if the data were
+                  symmetric<idx>symmetric histogram, dataset, or distribution</idx> and therefore
+                  the median would be the same as the sample mean<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>
+                  <m>\overline{X}=8.2</m>.  That means that there were at least 15 jars with
+                  8.2 ounces of cream in them, even though the jars are all labelled <q>8oz.</q>
+                  The company is giving way at least <m>.2\times15=3</m> ounces of the very valuable
+                  cream <mdash/> in fact, probably much more, since that was simply the overfilling
+                  in that one sample<idx>sample</idx>.
+                </p>
+                
+                <p>
+                  So our intrepid quality assurance engineer might well propose to management
+                  to increase the significance level<idx>significance level</idx> <m>\alpha</m> of the
+                  testing regime in the factory.  It is true that with a larger <m>\alpha</m>, it will
+                  be easier for simple randomness<idx>randomness</idx> to result in type I
+                  errors<idx>type I error</idx>, but unless the recalibration process takes a very
+                  long time (and so results in fewer jars being filled that day), the
+                  cost-benefit analysis probably leans towards fixing the machine slightly too
+                  often, rather than waiting until the evidence is extremely strong it must be
+                  done.
+                </p>
+              </statement>
+            </example>
           </subsection>
         </section>
         <section xml:id="sec-basic-inferences-exercises">
           <title>Exercises</title>
-          <p/>
+          
+          <exercise>
+            <statement>
+              <p>
+                You buy seeds of one particular species to plant in your garden, and the
+                information on the seed packet tells you that, based on years of experience
+                with that species, the mean number of days to germination is 22, with
+                standard deviation 2.3 days.
+              </p>
+              
+              <p>
+                What is the population and variable in that information?  What parameter(s)
+                and/or statistic(s) are they asserting have particular values?  Do you think
+                they can really know the actual parameter(s) and/or statistic's(s') value(s)?
+                Explain.
+              </p>
+              
+              <p>
+                You plant those seeds on a particular day.  What is the probability that the
+                first plant closest to your house will germinate within half a day of the
+                reported mean number of days to germination <mdash/> that is, it will germinate
+                between 21.5 and 22.5 after planting?
+              </p>
+              
+              <p>
+                You are interested in the whole garden, where you planted 160 seeds, as well.
+                What is the probability that the average days to germination of all the plants
+                in your garden is between 21.5 and 22.5 days?  How do you know you can use
+                the Central Limit Theorem to answer this problem <mdash/> what must you assume about
+                those 160 seeds from the seed packet in order for the CLT to apply?
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                You decide to expand your garden and buy a packet of different seeds.  But
+                the printing on the seed packet is smudged so you can see that the standard
+                deviation for the germination time of that species of plant is 3.4 days,
+                but you cannot see what the mean germination time is.
+              </p>
+              
+              <p>
+                So you plant 100 of these new seeds and note how long each of them takes to
+                germinate: the average for those 100 plants is 17 days.
+              </p>
+              
+              <p>
+                What is a 90% confidence interval for the population mean of the germination
+                times of plants of this species?  Show and explain all of your work.  What
+                assumption must you make about those 100 seeds from the packet in order for
+                your work to be valid?
+              </p>
+              
+              <p>
+                What does it mean that the interval you gave had <em>90% confidence</em>?
+                Answer by talking about what would happen if you bought many packets of those
+                kinds of seeds and planted 100 seeds in each of a bunch of gardens around
+                your community.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                An SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> of size 120 is taken from the student population at the very large
+                Euphoria State University [ESU], and their GPAs are computed.  The sample
+                mean GPA is 2.71.  Somehow, we also know that the population standard
+                deviation of GPAs at ESU is .51. Give a confidence interval at the 90%
+                confidence level for the mean GPA of all students at ESU.
+              </p>
+              
+              <p>
+                You show the confidence interval you just computed to a fellow student who is
+                not taking statistics.  They ask, <q>Does that mean that 90% of students at
+                ESU have a GPA which is between <m>a</m> and <m>b</m>?</q> where <m>a</m> and <m>b</m> are the lower
+                and upper ends of the interval you computed.  Answer this question, explaining
+                why if the answer is <em>yes</em> and both why not and what is a better way of
+                explaining this 90% confidence interval, if the answer is <em>no</em>.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                The recommended daily calorie intake for teenage girls is 2200 calories per
+                day. A nutritionist at Euphoria State University believes the average daily
+                caloric intake of girls in her state to be lower because of the advertising
+                which uses underweight models targeted at teenagers.   Our nutritionist finds
+                that the average of daily calorie intake for a random sample of size <m>n=36</m>
+                of teenage girls is 2150.
+              </p>
+              
+              <p>
+                Carefully set up and perform the hypothesis test for this situation and these
+                data.  You may need to know that our nutritionist has been doing studies for
+                years and has found that the standard deviation of calorie intake per day in
+                teenage girls is about 200 calories.
+              </p>
+              
+              <p>
+                Do you have confidence the nutritionist's conclusions?  What does she need
+                to be careful of, or to assume, in order to get the best possible results?
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                The medication most commonly used today for post-operative pain relieve after
+                minor surgery takes an average of 3.5 minutes to ease patients' pain, with
+                a standard deviation of 2.1 minutes.  A new drug is being tested which will
+                hopefully bring relief to patients more quickly.  For the test, 50 patients
+                were randomly chosen in one hospital after minor surgeries.  They were given
+                the new medication and how long until their pain was relieved was timed: the
+                average in this group was 3.1 minutes.  Does this data provide statistically
+                significant evidence, at the 5% significance level, that the new drug acts
+                more quickly than the old?
+              </p>
+              
+              <p>
+                Clearly show and explain all your set-up and work, of course!
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                The average household size in a certain region several years ago was 3.14
+                persons, while the standard deviation was .82 persons.  A sociologist wishes
+                to test, at the 5% level of significance, whether the mean household size is
+                different now. Perform the test using new information collected by the
+                sociologist: in a random sample of 75 households this past year, the average
+                size was 2.98 persons.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                A medical laboratory claims that the mean turn-around time for performance of
+                a battery of tests on blood samples is 1.88 business days. The manager of a
+                large medical practice believes that the actual mean is larger. A random
+                sample of 45 blood samples had a mean of 2.09 days.  Somehow, we know that
+                the population standard deviation of turn-around times is 0.13 day.  Carefully
+                set up and perform the relevant test at the 10% level of significance.
+                Explain everything, of course.
+              </p>
+            </statement>
+          </exercise>
         </section>
       </chapter>
     </part>
