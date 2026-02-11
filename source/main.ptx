@@ -5338,7 +5338,7 @@
           about some population parameter of interest, based
           on data from a sample. Since we know always to seek simple
           random samples
-          (again, to avoid bias), our inferences will be never be completely
+          (again, to avoid bias), our inferences will never be completely
           sure, instead they will be built on (a little bit of) probability
           theory.
         </p>
