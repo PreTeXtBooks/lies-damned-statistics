@@ -2435,24 +2435,23 @@
             <title>Fact</title>
             <p>
               For any bivariate quantitative dataset <m>\{(x_1,y_1), \dots ,(x_n,y_n)\}</m> with
-              correlation coefficient <m>r</m>, we have
-            </p>
-            <ol>
-              <li><p><m>-1\le r\le 1</m> is always true;</p></li>
-              <li><p>if <m>|r|</m> is near <m>1</m> <mdash/> meaning that <m>r</m> is near <m>\pm 1</m> <mdash/> then the
-                    linear association between <m>x</m> and <m>y</m> is <em>strong</em></p></li>
-              <li><p>if <m>r</m> is near <m>0</m> <mdash/> meaning that <m>r</m> is positive or negative, but near
-                    <m>0</m> <mdash/> then the linear association between <m>x</m> and <m>y</m> is <em>weak</em></p></li>
-              <li><p>if <m>r>0</m> then the linear association between <m>x</m> and <m>y</m> is positive,
+              correlation coefficient <m>r</m>, we have<ol>
+              <li><m>-1\le r\le 1</m> is always true;</li>
+              <li>if <m>|r|</m> is near <m>1</m> <mdash/> meaning that <m>r</m> is near <m>\pm 1</m> <mdash/> then the
+                    linear association between <m>x</m> and <m>y</m> is <em>strong</em></li>
+              <li>if <m>r</m> is near <m>0</m> <mdash/> meaning that <m>r</m> is positive or negative, but near
+                     <m>0</m> <mdash/> then the linear association between <m>x</m> and <m>y</m> is <em>weak</em></p></li>
+              <li>if <m>r>0</m> then the linear association between <m>x</m> and <m>y</m> is positive,
                     while if <m>r&lt;0</m> then the linear association between <m>x</m> and <m>y</m> is
-                    negative</p></li>
-              <li><p><m>r</m> is the same no matter what units are used for the variables <m>x</m> and
+                    negative</li>
+              <li><m>r</m> is the same no matter what units are used for the variables <m>x</m> and
                     <m>y</m> <mdash/> meaning that if we change the units in either variable, <m>r</m> will
-                    not change</p></li>
-              <li><p><m>r</m> is the same no matter which variable is being used as the explanatory
+                    not change</li>
+              <li><m>r</m> is the same no matter which variable is being used as the explanatory
                     and which as the response variable <mdash/> meaning that if we switch the roles
-                    of the <m>x</m> and the <m>y</m> in our dataset, <m>r</m> will not change.</p></li>
+                    of the <m>x</m> and the <m>y</m> in our dataset, <m>r</m> will not change.</li>
             </ol>
+          </p>
           </assemblage>
           <p>
             It is also nice to have some examples of correlation coefficients, such as
@@ -2710,27 +2709,18 @@
             <title>Fact</title>
             <p>
               If a bivariate quantitative dataset <m>\{(x_1,y_1), \dots , (x_n,y_n)\}</m> has LSRL
-              given by <m>\widehat{y}=mx+b</m>, then
-            </p>
-            <ol>
-              <li>
-                <p>
-                  The slope of the LSRL is given by <m>m=r\frac{s_y}{s_x}</m>, where <m>r</m> is the
+              given by <m>\widehat{y}=mx+b</m>, then<ol>
+              <li>The slope of the LSRL is given by <m>m=r\frac{s_y}{s_x}</m>, where <m>r</m> is the
                   correlation coefficient of the dataset.
-                </p>
               </li>
               <li>
-                <p>
                   The LSRL passes through the point <m>(\overline{x},\overline{y})</m><idx><h>sample mean</h><h><m>\overline{x}</m></h></idx><idx><h>mean</h><h>sample</h></idx><idx><m>\overline{x}</m>, sample mean</idx>.
-                </p>
               </li>
               <li>
-                <p>
                   It follows that the <m>y</m>-intercept of the LSRL is given by
                   <m>b=\overline{y}-\overline{x}\,m=\overline{y}-\overline{x}\,r\,\frac{s_y}{s_x}</m><idx><h>sample mean</h><h><m>\overline{x}</m></h></idx><idx><h>mean</h><h>sample</h></idx><idx><m>\overline{x}</m>, sample mean</idx>.
-                </p>
               </li>
-            </ol>
+            </ol></p>
           </assemblage>
           
           <p>
@@ -4437,12 +4427,13 @@
             
             <assemblage xml:id="fact-68-95-99-7">
               <title>Fact</title>
-              <p><term>The 68-95-99.7 Rule</term><idx>68-95-99.7 Rule</idx>: Let <m>X</m> be an <m>N(\mu_X, \sigma_X)</m> RV. Then some special values of the area under the graph of the density curve <m>\rho</m> for <m>X</m> are nice to know:</p>
+              <p><term>The 68-95-99.7 Rule</term><idx>68-95-99.7 Rule</idx>: Let <m>X</m> be an <m>N(\mu_X, \sigma_X)</m> RV. Then some special values of the area under the graph of the density curve <m>\rho</m> for <m>X</m> are nice to know:
               <ul>
-                <li><p>The area under the graph of <m>\rho</m> from <m>x=\mu_X-\sigma_X</m> to <m>x=\mu_X+\sigma_X</m>, also known as <m>P(\mu_X-\sigma_X&lt;X&lt;\mu_X+\sigma_X)</m>, is <term>.68</term>.</p></li>
-                <li><p>The area under the graph of <m>\rho</m> from <m>x=\mu_X-2\sigma_X</m> to <m>x=\mu_X+2\sigma_X</m>, also known as <m>P(\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X)</m>, is <term>.95</term>.</p></li>
-                <li><p>The area under the graph of <m>\rho</m> from <m>x=\mu_X-3\sigma_X</m> to <m>x=\mu_X+3\sigma_X</m>, also known as <m>P(\mu_X-3\sigma_X&lt;X&lt;\mu_X+3\sigma_X)</m>, is <term>.997</term>.</p></li>
+                <li>The area under the graph of <m>\rho</m> from <m>x=\mu_X-\sigma_X</m> to <m>x=\mu_X+\sigma_X</m>, also known as <m>P(\mu_X-\sigma_X&lt;X&lt;\mu_X+\sigma_X)</m>, is <term>.68</term>.</li>
+                <li>The area under the graph of <m>\rho</m> from <m>x=\mu_X-2\sigma_X</m> to <m>x=\mu_X+2\sigma_X</m>, also known as <m>P(\mu_X-2\sigma_X&lt;X&lt;\mu_X+2\sigma_X)</m>, is <term>.95</term>.</li>
+                <li>The area under the graph of <m>\rho</m> from <m>x=\mu_X-3\sigma_X</m> to <m>x=\mu_X+3\sigma_X</m>, also known as <m>P(\mu_X-3\sigma_X&lt;X&lt;\mu_X+3\sigma_X)</m>, is <term>.997</term>.</li>
               </ul>
+             </p>
             </assemblage>
             
             <p>This is also called <term>The Empirical Rule</term><idx>Empirical Rule</idx> by some authors. Visually:</p>
