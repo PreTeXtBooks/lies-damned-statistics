@@ -2678,7 +2678,7 @@
             
             <p>
               As just one example, where we spoke about the meaning of the square <m>r^2</m> of
-              the correlation coefficient (we called it Fact <xref ref="fact-rsquared"/>), we were
+              the correlation coefficient (we called it <xref ref="fact-rsquared" text="title"/>), we were
               careful to say that <m>r^2</m> measures the variation of the dependent variable
               which is <em>associated</em> with the variation of the independent variable.
               A more reckless description would have been to say that one <em>caused</em> the
@@ -3289,7 +3289,7 @@
                 <me>
                   p_1 = p_2 = p_3 = p_4 = p_5 = p_6 = 1/6.
                 </me>
-                We can then use this basic information and the formula (for <m>P(E)</m>) in <xref ref="fact-finitemodel"/> to compute the probability of any event of interest, such as
+                We can then use this basic information and the formula (for <m>P(E)</m>) in <xref ref="fact-finitemodel" text="title"/> to compute the probability of any event of interest, such as
                 <me>
                   P(\text{``roll was even''}) = P(\{2, 4, 6\}) = \frac16 + \frac16 + \frac16 = \frac36 = \frac12.
                 </me></p>
@@ -3418,7 +3418,7 @@
 
           <example xml:id="eg-condprob4">
             <statement>
-              <p>We can now fully explain what was going on in <xref ref="eg-finiteprobmod3"/>. The two fair dice were supposed to be rolled in a way that the first roll had no effect on the second <mdash/> this exactly means that the dice were rolled <em>independently</em>. As we saw, this then means that each individual outcome of sample space <m>S</m> had probability <m>\frac{1}{36}</m>. But the first roll having any particular value is independent of the second roll having another, <em>e.g.</em>, if <m>A=\{11, 12, 13, 14, 15, 16\}</m> is the event in that sample space of getting a <m>1</m> on the first roll and <m>B=\{14, 24, 34, 44, 54, 64\}</m> is the event of getting a <m>4</m> on the second roll, then events <m>A</m> and <m>B</m> are independent, as we check by using <xref ref="fact-indepevents"/>:
+              <p>We can now fully explain what was going on in <xref ref="eg-finiteprobmod3"/>. The two fair dice were supposed to be rolled in a way that the first roll had no effect on the second <mdash/> this exactly means that the dice were rolled <em>independently</em>. As we saw, this then means that each individual outcome of sample space <m>S</m> had probability <m>\frac{1}{36}</m>. But the first roll having any particular value is independent of the second roll having another, <em>e.g.</em>, if <m>A=\{11, 12, 13, 14, 15, 16\}</m> is the event in that sample space of getting a <m>1</m> on the first roll and <m>B=\{14, 24, 34, 44, 54, 64\}</m> is the event of getting a <m>4</m> on the second roll, then events <m>A</m> and <m>B</m> are independent, as we check by using <xref ref="fact-indepevents" text="title"/>:
               <md>
                 <mrow>P(A\cap B) &amp;= P(\{14\})</mrow>
                 <mrow>&amp;= \frac{1}{36}</mrow>
@@ -3634,7 +3634,7 @@
               </ul>
             </assemblage>
 
-            <p>If we want the idea of <em>picking a real number on the interval <m>[x_{min},x_{max}]</m> at random</em>, where <em>at random</em><idx><h>at random</h></idx> means that all numbers have the same chance of being picked (along the lines of <em>fair</em> in Definition <xref ref="def-fair"/>, the height of the density function must be the same at all <m>x</m>. In other words, the density function <m>f(x)</m> must be a constant <m>c</m>. In fact, because of the above Fact <xref ref="fact-probDistFuncts"/>, that constant must have the value <m>\frac1{x_{max}-x_{min}}</m>. There is a name for this:</p>
+            <p>If we want the idea of <em>picking a real number on the interval <m>[x_{min},x_{max}]</m> at random</em>, where <em>at random</em><idx><h>at random</h></idx> means that all numbers have the same chance of being picked (along the lines of <em>fair</em> in Definition <xref ref="def-fair"/>, the height of the density function must be the same at all <m>x</m>. In other words, the density function <m>f(x)</m> must be a constant <m>c</m>. In fact, because of the above <xref ref="fact-probDistFuncts" text="title"/>, that constant must have the value <m>\frac1{x_{max}-x_{min}}</m>. There is a name for this:</p>
             
             <definition xml:id="def-uniformdistr">
               <statement>
@@ -4101,7 +4101,6 @@
               <p>How often does he hit the bull's-eye? Remember its radius is <m>1.5cm</m>, meaning that it stretches from <m>x</m> coordinate <m>-1.5</m> to <m>x</m>-coordinate <m>1.5</m>.</p>
             </statement>
           </exercise>
-        </section>
         </section>
       </chapter>
 
