@@ -1,0 +1,37 @@
+name: Build PreTeXt Book (PR Check)
+
+on:
+  pull_request:
+    branches:
+      - main
+
+# Minimal permissions for PR builds
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install PreTeXt
+        run: |
+          pip install -r requirements.txt
+
+      - name: Build web target
+        run: |
+          pretext build web
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: pretext-build
+          path: output/web
+          retention-days: 7
