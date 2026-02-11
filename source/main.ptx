@@ -2440,7 +2440,7 @@
               <li>if <m>|r|</m> is near <m>1</m> <mdash/> meaning that <m>r</m> is near <m>\pm 1</m> <mdash/> then the
                     linear association between <m>x</m> and <m>y</m> is <em>strong</em></li>
               <li>if <m>r</m> is near <m>0</m> <mdash/> meaning that <m>r</m> is positive or negative, but near
-                     <m>0</m> <mdash/> then the linear association between <m>x</m> and <m>y</m> is <em>weak</em></p></li>
+                     <m>0</m> <mdash/> then the linear association between <m>x</m> and <m>y</m> is <em>weak</em></li>
               <li>if <m>r>0</m> then the linear association between <m>x</m> and <m>y</m> is positive,
                     while if <m>r&lt;0</m> then the linear association between <m>x</m> and <m>y</m> is
                     negative</li>
