@@ -4107,57 +4107,1155 @@
 
       <chapter xml:id="chap-bringing-home-data">
         <title>Bringing Home the Data</title>
+        <p>
+          In this chapter, we start to get very practical on the matter of tracking down
+          good data in the wild and bringing it home. This is actually a very large and
+          important subject <mdash/> there are entire courses and books on
+          <em>Experimental Design</em><idx>experimental design</idx>,
+          <em>Survey Methodology</em><idx>survey methodology</idx>, and <em>Research Methods</em>
+          specialized for a range of particular disciplines (medicine, psychology,
+          sociology, criminology, manufacturing reliability, <em>etc.</em>) <mdash/> so in this
+          book we will only give a broad introduction to some of the basic issues and
+          approaches.
+        </p>
+        <p>
+          The first component of this introduction will give several of the important
+          definitions for experimental design in the most direct, simplest context:
+          collecting sample data in an attempt to understand a single number about an
+          entire population. As we have mentioned before, usually a population is too
+          large or simply inaccessible and so to determine an important feature of a
+          population of interest, a researcher must use the accessible, affordable data
+          of a sample. If this approach is to work, the sample must be chosen carefully,
+          so as to avoid the dreaded <em>bias</em><idx>bias</idx>. The basic structure of
+          such studies, the meaning of bias, and some of the methods to select
+          bias-minimizing samples, are the subject of the first section of this chapter.
+        </p>
+        <p>
+          It is more complicated to collect data which will give evidence for <em>causality</em><idx>causality</idx>, for a causal relationship between two variables
+          under study. But we are often interested in such relationships <mdash/> which drug
+          is a more effective treatment for some illness, what advertisement will
+          induce more people to buy a particular product, or what public policy leads
+          to the strongest economy. In order to investigate causal relationships, it
+          is necessary not merely to observe, but to do an actual experiment; for
+          causal questions about human subjects, the gold standard is a
+          <em>randomized, placebo-controlled, double-blind experiment</em><idx>randomized, placebo-controlled, double-blind experiment</idx>, sometimes called simply a
+          <em>randomized, controlled trial [RCT]</em><idx>randomized, controlled trial, RCT</idx>, which we describe in the second section.
+        </p>
+        <p>
+          There is something in the randomized, controlled experiment which makes many
+          people nervous: those in the control group are not getting what the experimenter
+          likely thinks is the best treatment. So, even though society as a whole may
+          benefit from the knowledge we get through RCTs, it almost seems as if some test
+          subjects are being mistreated. While the scientific research community has
+          come to terms with this apparent injustice, there are definitely experiments
+          which could go too far and cross an important
+          ethical<idx>ethics, experimental</idx><idx>experimental ethics</idx> lines. In fact,
+          history has shown that a number of experiments have actually been done which we
+          now consider to be clearly unethical. It is therefore important to state
+          clearly some ethical guidelines which future investigations can follow in order
+          to be confident to avoid mistreatment of test subjects. One particular set of
+          such guidelines for ethical experimentation on human subjects is the topic of
+          the third and last section of this chapter.
+        </p>
+        
         <section xml:id="sec-SoaSPC">
           <title>Studies of a Population Parameter</title>
-          <p/>
+          <p>
+            Suppose we are studying some population<idx>population of a statistical study</idx>, and in particular a
+            variable<idx>variable</idx> defined on that population. We are typically
+            interested in finding out the following kind of characteristic of our
+            population:
+          </p>
+          
+          <definition xml:id="def-popparam">
+            <idx>population parameter</idx>
+            <idx>parameter, population</idx>
+            <statement>
+              <p>
+                A [<term>population</term>] <term>parameter</term> is a number which is computed by knowing the values of a variable
+                for every individual in the population.
+              </p>
+            </statement>
+          </definition>
+          
+          <example xml:id="eg-parameter1">
+            <statement>
+              <p>
+                If <m>X</m> is a quantitative
+                variable<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx> on some
+                population, the population
+                mean<idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> <m>\mu_X</m> of <m>X</m> is a population parameter<idx>population parameter</idx><idx>parameter, population</idx> <mdash/> to compute this mean, you need to add together
+                the values of <m>X</m> for <em>all</em> of individuals in the population. Likewise,
+                the population standard deviation<idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx> <m>\sigma_X</m> of <m>X</m> is another parameter.
+              </p>
+              <p>
+                For example, we asserted in Example<nbsp/><xref ref="eg-normalcomp"/> that the heights of
+                adult American men are <m>N(69, 2.8)</m>. Both the <m>69</m> and <m>2.8</m> are population
+                parameters here.
+              </p>
+            </statement>
+          </example>
+          
+          <example xml:id="eg-parameter2">
+            <statement>
+              <p>
+                If, instead, <m>X</m> were a categorical variable on some population, then the 
+                relative frequency (also called the
+                <term>population proportion</term><idx>population proportion</idx><idx>proportion!population</idx>) of some value <m>A</m> of <m>X</m> <mdash/> the fraction of the population that has that
+                value <mdash/> is another population parameter<idx>population parameter</idx><idx>parameter, population</idx>. After all, to compute this fraction,
+                you have to look at every single individual in the population, all <m>N</m> of them,
+                say, and see how many of them, say <m>N_A</m>, make the <m>X</m> take the value <m>A</m>, then
+                compute the relative frequency <m>N_A/N</m>.
+              </p>
+              <p>
+                Sometimes one doesn't have to look at the specific individuals and compute that
+                fraction <m>n_A/N</m> to find a population proportion<idx>population proportion</idx><idx>proportion!population</idx>. For example, in Example<nbsp/><xref ref="eg-normalcomp"/>, we
+                found that <m>14.1988</m>% of adult American men
+                are taller than <m>6</m> feet, assuming, as stated above, that adult American men's
+                heights are distributed like <m>N(69, 2.8)</m> <mdash/> using, notice, those
+                parameters<idx>population parameter</idx><idx>parameter, population</idx>
+                <m>\mu_X</m> and <m>\sigma_X</m> of the height distribution, for which the entire population
+                must have been examined. What this means is that the relative frequency of the
+                value <em><q>yes</q></em> for the categorical variable <em><q>is this person taller than <m>6</m> feet?</q></em> is <m>.141988</m>. This relative frequency is also a
+                parameter<idx>population parameter</idx><idx>parameter, population</idx> of the same
+                population of adult American males.
+              </p>
+            </statement>
+          </example>
+          
+          <p>
+            Parameters<idx>population parameter</idx><idx>parameter, population</idx> must be
+            thought of as fixed numbers, out there in the world, which
+            have a single, specific value. However, they are very hard for researchers to
+            get their hands on, since to compute a parameter<idx>population parameter</idx><idx>parameter, population</idx>, the variable values for the
+            entire population must be measured. So while the parameter<idx>population parameter</idx><idx>parameter, population</idx> is a single, fixed
+            value, usually that value is <em>unknown.</em>
+          </p>
+          
+          <p>
+            What can (and does change) is a value coming from a sample.
+          </p>
+          
+          <definition xml:id="def-sampstat">
+            <idx>sample statistic</idx>
+            <idx>statistic, sample</idx>
+            <statement>
+              <p>
+                A [<term>sample</term>] <term>statistic</term> is a number which is computed by knowing the values of a variable for the
+                individuals from only a sample.
+              </p>
+            </statement>
+          </definition>
+          
+          <example xml:id="eg-statistic1">
+            <statement>
+              <p>
+                Clearly, if we have a population and quantitative
+                variable<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx> <m>X</m>, then
+                any time we choose a sample out of that population, we get a sample
+                mean<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx>
+                and sample standard deviation<idx><m>S_x</m>, sample standard deviation</idx><idx>standard deviation</idx><idx>sample standard deviation, <m>S_x</m></idx> <m>S_x</m>, both of which are statistics.
+              </p>
+              <p>
+                Similarly, if we instead have a categorical variable <m>Y</m> on some population, we
+                take a sample of size <m>n</m> out of the population and count how many individuals
+                in the sample <mdash/> say <m>n_A</m> <mdash/> have some value <m>A</m> for their value of <m>Y</m>, then
+                the <m>n_A/n</m> is a statistic (which is also called the
+                <term>sample proportion</term><idx>sample proportion</idx><idx>proportion!sample</idx> and
+                frequently denoted <m>\widehat{p}</m>).
+              </p>
+            </statement>
+          </example>
+          
+          <p>
+            Two different researchers will choose different samples and so will almost
+            certainly have different values for the statistics they compute, even if they
+            are using the same formula for their statistic and are looking at the same
+            population. Likewise, one researcher taking repeated samples from the same
+            population will probably get different values each time for the statistics
+            they compute. So we should think of a statistic as an easy, accessible
+            number, changing with each sample we take, that is merely an estimate of the
+            thing we want, the parameter<idx>population parameter</idx><idx>parameter, population</idx>, which is one, fixed number out in the world,
+            but hidden from out knowledge.
+          </p>
+          
+          <p>
+            So while getting sample statistics is practical, we need to be careful that
+            they are good estimates of the corresponding parameters<idx>population parameter</idx><idx>parameter, population</idx>. Here are some ways
+            to get better estimates of this kind:
+          </p>
+          <ol>
+            <li>
+              <p>
+                <em>Pick a larger sample.</em> This seems quite obvious, because the larger
+                is the sample, the closer it is to being the whole population and so the better
+                its approximating statistics will estimate the parameters<idx>population parameter</idx><idx>parameter, population</idx> of interest. But in
+                fact, things are not really quite so simple. In many very practical situations,
+                it would be completely infeasible to collect sample data on a sample which was
+                anything more than a miniscule part of the population of interest. For example,
+                a national news organization might want to survey the American population, but
+                it would be entirely prohibitive to get more than a few thousand sample data
+                values, out of a population of hundreds of millions <mdash/> so, on the order of
+                tenths of a percent.
+              </p>
+              <p>
+                Fortunately, there is a general theorem which tells us that, in the long run,
+                one particular statistic is a good estimator of one particular
+                parameter<idx>population parameter</idx><idx>parameter, population</idx>:
+              </p>
+              
+              <theorem xml:id="fact-LoLNs">
+                <title>The Law of Large Numbers</title>
+                <idx>Law of Large Numbers</idx>
+                <statement>
+                  <p>
+                    Let <m>X</m> be a
+                    quantitative variable<idx>quantitative variable</idx><idx><h>variable</h><h>quantitative</h></idx>
+                    on some population. Then as the sizes of samples (each
+                    made up of individuals chosen randomly and <em>independently</em> from the
+                    population) get bigger and bigger, the corresponding sample means<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> <m>\overline{x}</m>
+                    get closer and closer to the population mean<idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> <m>\mu_X</m>.
+                  </p>
+                </statement>
+              </theorem>
+            </li>
+            <li>
+              <p>
+                <em>Pick a better statistic.</em> It makes sense to use the sample
+                mean<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> as a statistic to
+                estimate the population mean<idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> and the sample
+                proportion<idx>sample proportion</idx><idx>proportion!sample</idx> to estimate the
+                population
+                proportion<idx>population proportion</idx><idx>proportion!population</idx>. But it
+                is less clear where the somewhat odd formula for the sample standard
+                deviation<idx><m>S_x</m>, sample standard deviation</idx><idx>standard deviation</idx><idx>sample standard deviation, <m>S_x</m></idx> came from <mdash/> remember, it differs
+                from the population standard deviation<idx><m>\sigma_X</m>, population standard deviation</idx><idx>standard deviation</idx><idx>population standard deviation, <m>\sigma_X</m></idx> by having an <m>n-1</m> in the denominator instead of an <m>n</m>. The reason,
+                whose proof is too technical to be included here, is that the formula we gave
+                for <m>S_X</m> is a better estimator for <m>\sigma_X</m> than would have be the version
+                which simply had the same <m>n</m> in the denominator.
+              </p>
+              <p>
+                In a larger sense, <q>picking a better statistic</q> is about getting higher
+                quality estimates from your sample. Certainly using a statistic with a
+                clever formula is one way to do that. Another is to make sure that your data
+                is of the highest quality possible. For example, if you are surveying people
+                for their opinions, the way you ask a question can have enormous consequences
+                in how your subjects answer: <em><q>Do you support a woman's right to control
+                her own body and her reproduction?</q></em> and <em><q>Do you want to protect the
+                lives of unborn children?</q></em> are two heavy-handed approaches to asking a
+                question about abortion<idx>abortion</idx>. Collectively, the impacts of how a
+                question is asked are called <term>wording effects</term><idx>wording effects</idx>,
+                and are an important topic social scientists must understand well.
+              </p>
+            </li>
+            <li>
+              <p>
+                <em>Pick a <term>better</term> sample.</em> Sample quality is, in many ways,
+                the most important and hardest issue in this kind of statistical study. What
+                we want, of course, is a sample for which the statistic(s) we can compute give
+                good approximations for the parameters in which we are interested. There is
+                a name for this kind of sample, and one technique which is best able to create
+                these good samples: <em>randomness</em><idx>randomness</idx>.
+              </p>
+            </li>
+          </ol>
+          
+          <definition xml:id="def-representative">
+            <idx>representative sample</idx>
+            <statement>
+              <p>
+                A sample is said to be <term>representative</term> of
+                its population if the values of its sample
+                means<idx>sample mean, <m>\overline{x}</m></idx><idx>mean!sample</idx><idx><m>\overline{x}</m>, sample mean</idx> and sample
+                proportions<idx>sample proportion</idx><idx>proportion!sample</idx> for all
+                variables relevant to the subject of the research project are good
+                approximations of the corresponding population means<idx>population mean, <m>\mu_X</m></idx><idx>mean!population</idx><idx><m>\mu_X</m>, population mean</idx> and
+                proportions<idx>population proportion</idx><idx>proportion!population</idx>.
+              </p>
+            </statement>
+          </definition>
+          
+          <p>
+            It follows almost by definition that a representative sample is a good one to
+            use in the process of, as we have described above, using a sample
+            statistic<idx>sample statistic</idx><idx>statistic, sample</idx> as
+            an estimate of a population
+            parameter<idx>population parameter</idx><idx>parameter, population</idx> in which
+            you are interested. The question is, of course,
+            <em>how to get a representative sample</em>.
+          </p>
+          
+          <p>
+            The answer is that it is extremely hard to build a procedure for choosing
+            samples which guarantees representative samples, but there is a method <mdash/>
+            using randomness<idx>randomness</idx> <mdash/> which at least can reduce as much as
+            possible one specific kind of problem samples might have.
+          </p>
+          
+          <definition xml:id="def-bias">
+            <idx>bias</idx>
+            <statement>
+              <p>
+                Any process in a statistical study which tends to produce results which are
+                <em>systematically different</em> from the true values of the population
+                parameters under investigation is called <term>biased</term>. Such a systematic
+                deviation from correct values is called <term>bias</term>.
+              </p>
+            </statement>
+          </definition>
+          
+          <p>
+            The key word in this definition is <em>systematically:</em> a process which has a
+            lot of variation might be annoying to use, it might require the researcher to
+            collect a huge amount of data to average together, for example, in order for the
+            estimate to settle down on something near the true value <mdash/> but it might
+            nevertheless not be <em>biased</em><idx>bias</idx>. A biased process might have
+            less variation, might seem to get close to some particular value very quickly,
+            with little data, but would never give the correct answer, because of the
+            systematic deviation it contained.
+          </p>
+          
+          <p>
+            The hard part of finding bias<idx>bias</idx> is to figure out what might be
+            causing that systematic deviation in the results. When presented with a
+            sampling method for which we wish to think about sources of possible bias, we
+            have to get creative.
+          </p>
+          
+          <example xml:id="eg-paramstat1">
+            <statement>
+              <p>
+                In a democracy<idx>democracy</idx>, the opinion of citizens about how good a job
+                their elected officials<idx>presidential approval ratings</idx> are doing seems
+                like an interesting measure of the health of that democracy. At the time of
+                this writing, approximately two months after the inauguration of the <m>45^{th}</m>
+                president of the United States, the widely respected Gallup polling
+                organization<idx>Gallup polling organization</idx> reports
+                that <m>56</m>% of the population approve of the job
+                the president is doing and <m>40</m>% disapprove. [Presumably, <m>4</m>% were neutral
+                or had no opinion.]
+              </p>
+              <p>
+                According to the site from which these numbers are taken,
+              </p>
+              <blockquote>
+                <p>
+                  <em><q>Gallup tracks daily the percentage of Americans who approve
+                  or disapprove of the job Donald Trump is doing as president. Daily results are
+                  based on telephone interviews with approximately 1,500 national adults....</q></em>
+                </p>
+              </blockquote>
+              <p>
+                Presumably, Gallup used the sample
+                proportion<idx>sample proportion</idx><idx>proportion!sample</idx> as an estimator
+                computed with the responses from their sample of <m>1500</m> adults. So it was
+                a good statistic for the job, and the sample size is quite respectable, even
+                if not a very large fraction of the entire adult American population, which is
+                presumably the target population of this study. Gallup has the reputation for
+                being a quite neutral and careful organization, so we can also hope that the
+                way they worded their questions did not introduce any bias.
+              </p>
+              <p>
+                A source of bias that does perhaps cause some concern here is that
+                phrase <q>telephone interviews.</q> It is impossible to do telephone interviews
+                with people who don't have telephones, so there is one part of the population
+                they will miss completely. Presumably, also, Gallup knew that if they called
+                during normal working days and hours, they would not get working people at
+                home or even on cell phones. So perhaps they called also, or only, in the
+                evenings and on weekends <mdash/> but this approach would tend systematically to
+                miss people who had to work very long and/or late hours.
+              </p>
+              <p>
+                So we might worry that a strategy of telephone interviews only would be biased
+                against those who work the longest hours, and those people might tend to have
+                similar political views. In the end, that would result in a systematic error
+                in this sampling method.
+              </p>
+              <p>
+                Another potential source of bias is that even when a person is able to answer
+                their phone, it is their choice to do so: there is little reward in taking the
+                time to answer an opinion survey, and it is easy simply not to answer or to
+                hang up. It is likely, then, that only those who have quite strong feelings,
+                either positive or negative, or some other strong personal or emotional reason
+                to take the time, will have provided complete responses to this telephone
+                survey. This is potentially distorting, even if we cannot be sure that the
+                effects are systematically in one direction or the other.
+              </p>
+              <p>
+                [Of course, Gallup pollsters have an enormous amount of experience and have
+                presumably thought the above issues through completely and figure out how to
+                work around it <mdash/> but we have no particular reason to be completely confident
+                in their results other than our faith in their reputation, without more details
+                about what work-arounds they used. In science, doubt is always appropriate.]
+              </p>
+            </statement>
+          </example>
+          
+          <p>
+            One of the issues we just mentioned about the Gallup polling of presidential
+            approval ratings has its own name:
+          </p>
+          
+          <definition xml:id="def-VSB">
+            <idx>voluntary sample bias</idx>
+            <statement>
+              <p>
+                A sample selection method that involves any substantial choice of whether to
+                participate or not suffers from what is called
+                <term>voluntary sample bias</term>.
+              </p>
+            </statement>
+          </definition>
+          
+          <p>
+            Voluntary sample bias is incredibly common, and yet is such a strong source of
+            bias that it should be taken as a reason to disregard completely the supposed
+            results of any study that it affects. Volunteers tend to have strong feelings
+            that drive them to participate, which can have entirely unpredictable but
+            systematic distorting influence on the data they provide. Web-based opinion
+            surveys, numbers of <em>thumbs-up</em> or <em>-down</em> or of positive or negative
+            comments on a social media post, percentages of people who call in to vote for
+            or against some public statement, <em>etc.</em>, <em>etc.</em> <mdash/> such widely used
+            polling methods produce nonsensical results which will be instantly rejected
+            by anyone with even a modest statistical knowledge. Don't fall for them!
+          </p>
+          
+          <p>
+            We did promise above one technique which can robustly combat bias: randomness.
+            Since bias is based on a <em>systematic</em> distortion of data, any method which
+            completely breaks all systematic processes in, for example, sample selection,
+            will avoid bias. The strongest such sampling method is as follows.
+          </p>
+          
+          <definition xml:id="def-SRS">
+            <idx>simple random sample, SRS</idx>
+            <idx>SRS, simple random sample</idx>
+            <statement>
+              <p>
+                A <term>simple random sample</term> [<term>SRS</term>] is a sample of size <m>n</m>, say, chosen from a
+                population by a method which produces all samples of size <m>n</m> from that
+                population with equal probability.
+              </p>
+            </statement>
+          </definition>
+          
+          <p>
+            It is oddly difficult to tell if a particular sample is an SRS. Given just a
+            sample, in fact, there is no way to tell <mdash/> one must ask to see the procedure
+            that had been followed to make that sample and then check to see if that
+            procedure would produce any subset of the population, of the same size as the
+            sample, with equal probability. Often, it is easier to see that a sampling
+            method <em>does not</em> make SRSs, by finding some subsets of the population
+            which have the correct size but which the sampling method <em>would never
+            choose</em>, meaning that they have probability zero of being chosen. That would
+            mean some subsets of the correct size would have zero probability and others
+            would have a positive probability, meaning that not all subsets of that size
+            would have the same probability of being chosen.
+          </p>
+          
+          <p>
+            Note also that in an SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx> it is not that every <em>individual</em> has the same probability of
+            being chosen, it must be that every <em>group of individuals of the size of
+            the desired sample</em> has the same probability of being chosen. These are not
+            the same thing!
+          </p>
+          
+          <example xml:id="eg-notSRS">
+            <statement>
+              <p>
+                Suppose that on Noah's Ark, the animals decide they will form an advisory
+                council consisting of an SRS of 100 animals, to help Noah and his family
+                run a tight ship. So a chimpanzee (because it has good hands) puts many small
+                pieces of paper in a basket, one for each type of animal on the Ark, with the
+                animal's name written on the paper. Then the chimpanzee shakes the basket well
+                and picks fifty names from the basket. Both members of the breeding pair of
+                that named type of animal are then put on the advisory council. Is this an
+                SRS from the entire population of animals on the Ark?
+              </p>
+              <p>
+                First of all, each animal name has a chance of <m>50/N</m>, where <m>N</m> is the total
+                number of types of animals on the Ark, of being chosen. Then both the male and
+                female of that type of animal are put on the council. In other words, every
+                individual animal has the same probability <mdash/> <m>50/N</m> <mdash/> of being on the council.
+                And yet there are certainly collections of <m>100</m> animals from the Ark which do
+                not consist of <m>50</m> breeding pairs: for example, take 50 female birds and 50
+                female mammals; that collection of <m>100</m> animals has no breeding pairs at all.
+              </p>
+              <p>
+                Therefore this is a selection method which picks each individual for the sample
+                with equal probability, but <em>not</em> each collection of <m>100</m> animals with
+                the same probability. So it is not an
+                SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx>.
+              </p>
+            </statement>
+          </example>
+          
+          <p>
+            With a computer, it is fairly quick and easy to generate an SRS:
+          </p>
+          
+          <theorem xml:id="fact-makeSRS">
+            <statement>
+              <p>
+                Suppose we have a population of size <m>N</m> out of which we want to pick an SRS of
+                size <m>n</m>, where <m>n&lt;N</m>. Here is one way to do so: assign every individual in
+                the population a unique ID number, with say <m>d</m> digits (maybe student IDs,
+                Social Security numbers, new numbers from <m>1</m> to <m>N</m> chosen in any way you
+                like <mdash/> randomness not needed here, there is plenty of randomness in the next
+                step). Have a computer generate completely random <m>d</m>-digit number, one after
+                the other. Each time, pick the individual from the population with that ID
+                number as a new member of the sample. If the next random number generated by
+                the computer is a repeat of one seen before, or if it is a <m>d</m>-digit number that
+                doesn't happen to be any individual's ID number, then simply skip to the next
+                random number from the computer. Keep going until you have <m>n</m> individuals in
+                your sample.
+              </p>
+              <p>
+                The sample created in this way will be an
+                SRS<idx>simple random sample, SRS</idx><idx>SRS, simple random sample</idx>.
+              </p>
+            </statement>
+          </theorem>
         </section>
         <section xml:id="sec-SoC">
           <title>Studies of Causality</title>
-          <p/>
+          <p>
+            If we want to draw conclusions about <em>causality</em>, observations are
+            insufficient. This is because simply seeing <em>B</em> always follow <em>A</em>
+            out in the world does not tell us that <em>A</em> causes <em>B</em>. For
+            example, maybe they are both caused by <em>Z</em>, which we didn't notice had
+            always happened before those <em>A</em> and <em>B</em>, and <em>A</em> is simply a
+            bit faster than <em>B</em>, so it seems always to proceed, even to cause,
+            <em>B</em>. If, on the other hand, we go out in the world and do <em>A</em> and
+            then always see <em>B</em>, we would have more convincing evidence that
+            <em>A</em> causes <em>B</em>.
+          </p>
+          
+          <p>
+            Therefore, we distinguish two types of statistical studies
+          </p>
+          
+          <definition xml:id="def-obsexp">
+            <idx>observational study</idx>
+            <idx>experiment</idx>
+            <statement>
+              <p>
+                An <term>observational study</term> is any statistical
+                study in which the researchers merely look at (measure, talk to, <em>etc.</em>)
+                the individuals in which they are interested. If, instead, the researchers
+                also change something in the environment of their test subjects before (and
+                possibly after and during) taking their measurements, then the study is an
+                <term>experiment</term>.
+              </p>
+            </statement>
+          </definition>
+          
+          <example xml:id="eg-obsexp1">
+            <idx>observational study</idx>
+            <idx>push-polling</idx>
+            <idx>experiment</idx>
+            <statement>
+              <p>
+                A simple survey of, for example, opinions of voters about political candidates,
+                is an observational study. If, as is sometimes
+                done, the subject is told something like <q>let me read you a statement about
+                these candidates and then ask you your opinion again</q> [this is an example of
+                something called <term>push-polling</term>], then the study has
+                become an experiment.
+              </p>
+            </statement>
+          </example>
+          
+          <p>
+            Note that to be considered an experiment, it is not necessary that the study
+            use principles of good experimental design, such as those described in this
+            chapter, merely that the researchers <em>do something</em> to their subjects.
+          </p>
+          
+          <example xml:id="eg-obsexp2">
+            <statement>
+              <p>
+                If I slap my brother, notice him yelp with pain, and triumphantly
+                turn to you and say <q>See, slapping hurts!</q> then I've done an experiment,
+                simply because I <em>did something</em>, even if it is a stupid experiment [tiny
+                non-random sample, no comparison, <em>etc., etc.</em>].
+              </p>
+              <p>
+                If I watch you slap someone, who cries out with pain, and then I make the same
+                triumphant announcement, then I've only done an observational study, since the
+                action taken was not by me, the <q>researcher.</q>
+              </p>
+            </statement>
+          </example>
+          
+          <p>
+            When we do an experiment, we typically impose our intentional change on a number
+            of test subjects. In this case, no matter the subject of inquiry, we steal a
+            word from the medical community:
+          </p>
+          
+          <definition xml:id="def-treatment">
+            <idx>treatment, experimental</idx>
+            <idx>experimental treatment</idx>
+            <statement>
+              <p>
+                The thing we do to the test subjects in an experiment is called the
+                <term>treatment</term>.
+              </p>
+            </statement>
+          </definition>
+          
           <subsection xml:id="ssec-CGs">
             <title>Control Groups</title>
-            <p/>
+            <p>
+              If we are doing an experiment to try to understand something in the world,
+              we should not simply do the interesting new treatment to all of our subjects
+              and see what happens. In a certain sense, if we did that, we would simply be
+              changing the whole world (at least the world of all of our test subjects) and
+              then doing an observational study, which, as we have said, can provide only
+              weak evidence of causality. To really do an experiment, we must
+              <em>compare</em> two treatments.
+            </p>
+            
+            <p>
+              Therefore any real experiment involves at least two groups.
+            </p>
+            
+            <definition xml:id="def-expcontrol">
+              <idx>experimental group</idx>
+              <idx>control group</idx>
+              <statement>
+                <p>
+                  In an experiment, the collection of test subjects which gets the new,
+                  interesting treatment is called the
+                  <term>experimental group</term>, while the remaining
+                  subjects, who get some other treatment such as simply the past common practice,
+                  are collectively called the <term>control group</term>.
+                </p>
+              </statement>
+            </definition>
+            
+            <p>
+              When we have to put test subjects into one of these two groups, it is very
+              important to use a selection method which has no bias. The only way to be
+              sure of this is [as discussed before] to use a random assignment of subjects
+              to the experimental or control group.
+            </p>
           </subsection>
+          
           <subsection xml:id="ssec-human-subject-experiments-placebo-effect">
             <title>Human-Subject Experiments: The Placebo Effect</title>
-            <p/>
+            <p>
+              Humans are particularly hard to study, because their awareness of their
+              environments can have surprising effects on what they do and even what happens,
+              physically, to their bodies. This is not because people fake the results:
+              there can be real changes in patients' bodies even when you give them a medicine
+              which is not physiologically effective, and real changes in their performance
+              on tests or in athletic events when you merely convince them that they will
+              do better, <em>etc</em>.
+            </p>
+            
+            <definition xml:id="def-placeboeffect">
+              <idx>Placebo Effect</idx>
+              <idx>placebo</idx>
+              <statement>
+                <p>
+                  A beneficial consequence of some treatment which should not directly
+                  [<em>e.g.</em>, physiologically] cause an improvement is called
+                  the <term>Placebo Effect</term>. Such a <q>fake</q> treatment,
+                  which looks real but has no actual physiological effect, is called a
+                  <term>placebo</term>.
+                </p>
+              </statement>
+            </definition>
+            
+            <p>
+              Note that even though the Placebo Effect is based on giving subjects a <q>fake</q>
+              treatment, the effect itself <em>is not fake</em>. It is due to a complex
+              mind-body connection which really does change the concrete, objectively
+              measurable situation of the test subjects.
+            </p>
+            
+            <p>
+              In the early days of research into the Placebo Effect<idx>Placebo Effect</idx>,
+              the pill that doctors would give as a placebo<idx>placebo</idx> would look like
+              other pills, but would be made just of sugar (glucose), which (in those quite
+              small quantities) has essentially no physiological consequences and so is a
+              sort of neutral dummy pill. We still often call medical placebos <term>sugar
+              pills</term><idx>sugar pill</idx> even though now they are often made of some even
+              more neutral material, like the starch binder which is used as a matrix
+              containing the active ingredient in regular pills <mdash/> but without any active
+              ingredient.
+            </p>
+            
+            <p>
+              Since the Placebo Effect<idx>Placebo Effect</idx> is a real phenomenon with
+              actual, measurable consequences, when making an experimental design and
+              choosing the new treatment and the treatment for the control group, it is
+              important to give the control group <em>something.</em> If they get nothing,
+              they do not have the beneficial consequences of the Placebo Effect, so they
+              will not have as good measurements as the experimental group, even if the
+              experimental treatment had no actual useful effect. So we have to equalize
+              for both groups the benefit provided by the Placebo Effect, and give them
+              both an treatment which looks about the same (compare pills to pills,
+              injections to injections, operations to operations, three-hour study sessions
+              in one format to three-hour sessions in another format, <em>etc.</em>) to the
+              subjects.
+            </p>
+            
+            <definition xml:id="def-placebocontrolled">
+              <idx>placebo-controlled experiment</idx>
+              <statement>
+                <p>
+                  An experiment in which there is a treatment group and a control group, which
+                  control group is given a convincing placebo, is said to be
+                  <term>placebo-controlled</term>.
+                </p>
+              </statement>
+            </definition>
           </subsection>
+          
           <subsection xml:id="ssec-blinding">
             <title>Blinding</title>
-            <p/>
+            <p>
+              We need one last fundamental tool in experimental design, that of keeping
+              subjects and experimenters ignorant of which subject is getting which treatment,
+              experimental or control. If the test subjects are aware of into which group
+              they have been put, that mind-body connection which causes the Placebo Effect
+              may cause a systematic difference in their outcomes: this would be the very
+              definition of bias. So we don't tell the patients, and make sure that their
+              control treatment looks just like the real experimental one.
+            </p>
+            
+            <p>
+              It also could be a problem if the experimenter knew who was getting which
+              treatment. Perhaps if the experimenter knew a subject was only getting the
+              placebo, they would be more compassionate or, alternatively, more dismissive.
+              In either case, the systematically different atmosphere for that group of
+              subjects would again be a possible cause of bias.
+            </p>
+            
+            <p>
+              Of course, when we say that the experimenter doesn't know which treatment a
+              particular patient is getting, we mean that they do not know that at the time
+              of the treatment. Records must be kept somewhere, and at the end of the
+              experiment, the data is divided between control and experimental groups to see
+              which was effective.
+            </p>
+            
+            <definition xml:id="def-blinding">
+              <idx>blinded experiment</idx>
+              <idx>double-blind experiment</idx>
+              <statement>
+                <p>
+                  When one party is kept ignorant of the treatment being administered in an
+                  experiment, we say that the information has been
+                  <term>blinded</term>. If neither subjects nor
+                  experimenters know who gets which treatment until the end of the experiment
+                  (when both must be told, one out of fairness, and one to learn something from
+                  the data that was collected), we say that the experiment was
+                  <term>double-blind</term>.
+                </p>
+              </statement>
+            </definition>
           </subsection>
+          
           <subsection xml:id="ssec-CiaRCTs">
             <title>Combining it all: RCTs</title>
-            <p/>
+            <p>
+              This, then is the gold standard for experimental design: to get reliable,
+              unbiased experimental data which can provide evidence of causality, the
+              design must be as follows:
+            </p>
+            
+            <definition xml:id="def-RCT">
+              <idx>randomized, controlled trial, RCT</idx>
+              <idx>RCT, randomized, controlled trial</idx>
+              <idx>randomized experiment</idx>
+              <idx>placebo-controlled experiment</idx>
+              <idx>double-blind experiment</idx>
+              <statement>
+                <p>
+                  An experiment which is
+                  <ul>
+                    <li>
+                      <p>
+                        <em>randomized</em>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <em>placebo-controlled</em>.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <em>double-blind</em>
+                      </p>
+                    </li>
+                  </ul>
+                  is called, for short, a
+                  <term>randomized, controlled trial</term> [<term>RCT</term>] (where the <q>placebo-</q> and
+                  <q>double-blind</q> are assumed even if not stated).
+                </p>
+              </statement>
+            </definition>
           </subsection>
+          
           <subsection xml:id="ssec-CLVs">
             <title>Confounded Lurking Variables</title>
-            <p/>
+            <p>
+              A couple of last terms in this subject are quite poetic but also very
+              important.
+            </p>
+            
+            <definition xml:id="def-lurking">
+              <idx>lurking variable</idx>
+              <statement>
+                <p>
+                  A <term>lurking variable</term> is a variable which the
+                  experimenter did not put into their investigation.
+                </p>
+              </statement>
+            </definition>
+            
+            <p>
+              So a lurking variable is exactly the thing experimenters most fear: something
+              they didn't think of, which might or might not affect the study they are doing.
+            </p>
+            
+            <p>
+              Next is a situation which also could cause problems for learning from
+              experiments.
+            </p>
+            
+            <definition xml:id="def-confounded">
+              <idx>confounded</idx>
+              <statement>
+                <p>
+                  Two variables are <term>confounded</term> when we cannot
+                  statistically distinguish their effects on the results of our experiments.
+                </p>
+              </statement>
+            </definition>
+            
+            <p>
+              When we are studying something by collecting data and doing statistics,
+              confounded<idx>confounded</idx> variables are a big problem, because we do not
+              know which of them is the real cause<idx>causality</idx> of the phenomenon we are
+              investigating: they are statistically
+              indistinguishable<idx>statistically indistinguishable</idx>.
+            </p>
+            
+            <p>
+              The combination of the two above terms is the worst thing for a research
+              project: what if there is a lurking variable<idx>lurking variable</idx> (one you
+              didn't think to investigate) which is confounded<idx>confounded</idx> with the
+              variable you did study? This would be bad, because then your conclusions
+              would apply equally well (since the variables are statistically identical
+              in their consequences) to that thing you didn't think of ... so your results
+              could well be completely misunderstanding cause and effect<idx>causality</idx>.
+            </p>
+            
+            <p>
+              The problem of confounding<idx>confounded</idx> with lurking
+              variables<idx>lurking variable</idx> is particularly bad with observational
+              studies. In an experiment, you can intentionally choose your
+              subjects very randomly, which means that any lurking variables should be
+              randomly distributed with respect to any lurking variables <mdash/> but controlled
+              with respect to the variables you are studying <mdash/> so if the study finds a
+              causal relationship in your study variables, in cannot be confounded with a
+              lurking variable.
+            </p>
+            
+            <example xml:id="eg-conflurk">
+              <statement>
+                <p>
+                  Suppose you want to investigate whether fancy new athletic shoes make runners
+                  faster. If you just do an observational study<idx>observational study</idx>, you
+                  might find that those athletes with the new shoes do run faster. But a
+                  lurking variable here could be how rich the athletes are, and perhaps if you
+                  looked at rich and poor athletes they would have the same relationship to
+                  slow and fast times as the new- <em>vs</em> old-shoe wearing athletes.
+                  Essentially, the variable <em>what kind of shoe is the athlete wearing</em>
+                  (categorical with the two values <em>new</em> and <em>old</em>) is being
+                  confounded<idx>confounded</idx> with the lurking variable<idx>lurking variable</idx>
+                  <em>how wealthy is the athlete</em>. So the conclusion about
+                  causality<idx>causality</idx> <em>fancy new shoes make them run faster</em> might
+                  be false, and instead the real truth might be <em>wealthy athletes, who have
+                  lots of support, good coaches, good nutrition, and time to devote to their
+                  sport, run faster.</em>
+                </p>
+                <p>
+                  If, instead, we did an experiment<idx>experiment</idx>, we would not have this
+                  problem. We would select athletes at random <mdash/> so some would be wealthy and
+                  some not <mdash/> and give half of them (the experimental
+                  group<idx>experimental group</idx>) the fancy new shoes and the other half (the
+                  control group<idx>control group</idx>) the old type. If the type of
+                  shoe was the real cause of fast running, we would see that in our
+                  experimental outcome. If really it is the lurking
+                  variable<idx>lurking variable</idx> of the athlete's wealth which matters, then
+                  we would see neither group would do better than the other, since they both
+                  have a mixture of wealthy and poor athletes. If the type of shoe really is
+                  the cause<idx>causality</idx> of fast running, then we would see a difference
+                  between the two groups, even though there were rich and poor athletes in both
+                  groups, since only one group had the fancy new shoes.
+                </p>
+              </statement>
+            </example>
+            
+            <p>
+              In short, experiments<idx>experiment</idx> are better at giving evidence for
+              causality<idx>causality</idx> than observational
+              studies<idx>observational studies</idx> in large part because an experiment
+              which finds a causal relationship between two variables cannot be
+              confounding<idx>confounded</idx> the causal variable under study with a lurking
+              variable<idx>lurking variable</idx>.
+            </p>
           </subsection>
         </section>
         <section xml:id="sec-EE">
           <title>Experimental Ethics</title>
-          <p/>
+          <p>
+            Experiments with human subjects are technically hard to do, as we have just
+            seen, because of things like the Placebo Effect<idx>Placebo Effect</idx>. Even
+            beyond these difficulties, they are hard because human subjects just don't do
+            what we tell them, and seem to want to express their free will<idx>free will</idx>
+            and autonomy<idx>autonomy, value for human test subjects</idx>.
+          </p>
+          
+          <p>
+            In fact, history has many (far too many) examples of experiments done on
+            human subjects which did not respect their humanity and autonomy<idx>autonomy, value for human test subjects</idx> <mdash/> see, for example, the Wikipedia page on
+            <term>unethical human experimentation</term><idx>unethical human experimentation</idx><idx>ethics, experimental</idx>.
+          </p>
+          
+          <p>
+            The ethical principles for human subject research which we give below are
+            largely based on the idea of respecting the humanity and
+            autonomy<idx>autonomy, value for human test subjects</idx> of the test subjects,
+            since the lack of that respect seems to be the crucial failure of many of the
+            generally acknowledged unethical experiments in history. Therefore the below
+            principles should always be taken as from the point of view of the test
+            subjects, or as if they were designed to create systems which protect those
+            subjects. In particular, a utilitarian<idx>utilitarianism</idx> calculus of
+            <em>the greatest good for the greatest number</em> might be appealing to some,
+            but modern philosophers of experimental ethics generally do not allow the
+            researchers to make that decision themselves. If, for example, some subjects
+            were willing and chose to experience some negative consequences from being in
+            a study, that might be alright, but it is never to be left up to the
+            researcher.
+          </p>
+          
           <subsection xml:id="ssec-DNH">
             <title>"Do No Harm"</title>
-            <p/>
+            <p>
+              The Hippocratic Oath<idx>Hippocratic Oath</idx>, a version of which is thought in
+              popular culture to be sworn by all modern doctors, is actually not used much
+              at all today in its original form. This is actually not that strange, since
+              it sounds quite odd and archaic<fn>It dates from the <m>5^{th}</m> century
+              BCE, and is attributed to Hippocrates of Kos<idx>Hippocrates of Kos</idx>.</fn> to modern ears <mdash/> it begins
+            </p>
+            
+            <blockquote>
+              <p>
+                <em>I swear by Apollo the physician<idx>Apollo the physician</idx>, and
+                Asclepius<idx>Asclepius</idx>, and Hygieia<idx>Hygieia</idx> and
+                Panacea<idx>Panacea</idx> and all the gods and goddesses as my witnesses that...</em>
+              </p>
+            </blockquote>
+            
+            <p>
+              It also has the odd requirements that physicians not use a knife, and will
+              remain celibate, <em>etc.</em>
+            </p>
+            
+            <p>
+              One feature, often thought to be part of the Oath<idx>Hippocratic Oath</idx>,
+              does not exactly appear in the traditional text but is probably considered
+              the most important promise: <term>First, do no harm</term><idx>first, do no
+              harm</idx><idx>do no harm</idx> [sometimes seen in the Latin version, <term>primum nil
+              nocere</term><idx>primum nil nocere!see: {first, do no harm}</idx>]. This principle is
+              often thought of as constraining doctors and other care-givers, which is why,
+              for example, the
+              <em>American Medical Association</em><idx>American Medical Association</idx>
+              forbids doctors from participation in executions, even when they are legal in
+              certain jurisdictions in the United States.
+            </p>
+            
+            <p>
+              It does seem like good general idea, in any case, that those who have power and
+              authority over others should, at the very least, not harm them. In the case of
+              human subject experimentation, this is thought of as meaning that researchers
+              must never knowingly harm their patients, and must in fact let the patients
+              decide what they consider harm to be.
+            </p>
           </subsection>
+          
           <subsection xml:id="ssec-IC">
             <title>Informed Consent</title>
-            <p/>
+            <p>
+              Continuing with the idea of letting subjects decide what harms they are willing
+              to experience or risk, one of the most important ethical principles for
+              human subject research is that test subjects must be asked for
+              <term>informed consent</term><idx>informed consent</idx>. What this means is that they
+              must be informed of all of the possible consequences, positive and (most
+              importantly) negative, of participation in the study, and then given the right
+              to decide if they want to participate. The information part does not have to
+              tell every detail of the experimental design, but it must give every possible
+              consequence that the researchers can imagine.
+            </p>
+            
+            <p>
+              It is important when thinking about
+              <em>informed consent</em><idx>informed consent</idx> to make sure that the subjects
+              really have the ability to exercise fully free will in their decision to give
+              consent. If, for example, participation in the experiment is the only way to
+              get some good (health care, monetary compensation in a poor neighborhood, a
+              good grade in a class, advancement in their job, <em>etc.</em>) which they really
+              need or want, the situation itself may deprive them of their ability freely to
+              say <em>no</em> <mdash/> and therefore <em>yes</em>, freely.
+            </p>
           </subsection>
+          
           <subsection xml:id="ssec-Confidentiality">
             <title>Confidentiality</title>
-            <p/>
+            <p>
+              The Hippocratic Oath<idx>Hippocratic Oath</idx> does also require healers to
+              protect the privacy of their patients. Continuing with the theme of protecting
+              the autonomy<idx>autonomy, value for human test subjects</idx> of test subjects,
+              then, it is considered to be entirely the choice of subject when and how much
+              information about their participation in the experiment will be made public.
+            </p>
+            
+            <p>
+              The kinds of information protected here run from, of course, the subjects'
+              performance in the experimental activities, all the way to the simple fact of
+              participation itself. Therefore, ethical experimenters must make it possible
+              for subject to sign up for and then do all parts of the experiment without
+              anyone outside the research team knowing this fact, should the subject want this
+              kind of privacy.
+            </p>
+            
+            <p>
+              As a practical matter, something must be revealed about the experimental
+              outcomes in order for the scientific community to be able to learn something
+              from that experiment. Typically this public information will consist of
+              measures like sample means and other data which are
+              <em>aggregated</em><idx>aggregated experimental results, for confidentiality</idx>
+              from many test subjects' results. Therefore, even if it were know what the
+              mean was and that a person participated in the study, the public would not be
+              able to figure out what that person's particular result was.
+            </p>
+            
+            <p>
+              If the researchers want to give more precise information about one particular
+              test subject's experiences, or about the experiences of a small enough number
+              of subjects that individual results could be
+              <em>disaggregated</em><idx>disaggregation of experimental results</idx> from what
+              was published, then the subjects' identities must be hidden, or
+              <term>anonymized</term><idx>anonymization of experimental results</idx>. This is done
+              by removing from scientific reports all
+              <em>personally identifiable information [PII]</em><idx>personally identifiable
+              information, PII</idx><idx>PII, personally identifiable information</idx> such as
+              name, social security or other ID number, address, phone number, email address,
+              <em>etc.</em>
+            </p>
           </subsection>
+          
           <subsection xml:id="ssec-EOIRB">
             <title>External Oversight [IRB]</title>
-            <p/>
+            <p>
+              One last way to protect test subjects and their
+              autonomy<idx>autonomy, value for human test subjects</idx> which is required in
+              ethical human subject experimentation is to give some other, disinterested,
+              external group as much power and information as the researchers themselves.
+              In the US, this is done by requiring all human subject experimentation to get
+              approval from a group of trained and independent observers, called the
+              <term>Institutional Review Board</term><idx>Institutional Review Board, IRB</idx> [<term>IRB</term><idx>IRB, Institutional Review Board</idx>]
+              <em>before the start of the experiment</em>. The IRB is given a complete
+              description of all details of the experimental design and then chooses
+              whether or not to give its approval. In cases when the experiment continues
+              for a long period of time (such as more than one year), progress reports must
+              be given to the IRB and its re-approval sought.
+            </p>
+            
+            <p>
+              Note that the way this IRB requirement is enforced in the US is by requiring
+              approval by a recognized IRB for experimentation by any organization which
+              wants ever to receive US Federal Government monies, in the form of research
+              grants, government contracts, or even student support in schools. IRBs tend
+              to be very strict about following rules, and if the ever see a violation at
+              some such organization, that organization will quickly get excluded from
+              federal funds for a very long time. As a consequence, all universities, NGOs,
+              and research institutes in the US, and even many private organizations or
+              companies, are very careful about proper use of IRBs.
+            </p>
           </subsection>
         </section>
         <section xml:id="sec-bringing-home-exercises">
           <title>Exercises</title>
-          <p/>
+          
+          <exercise>
+            <statement>
+              <p>
+                In practice, <em>wording effects</em><idx>wording effects</idx> are often an
+                extremely strong influence on the answers people give when surveyed. So...
+                Suppose you were doing a survey of American voters opinions of the president.
+                Think of a way of asking a question which would tend to <em>maximize</em> the
+                number of people who said they approved of the job he is doing. Then think
+                of another way of asking a question which would tend to <em>minimize</em> that
+                number [who say they approve of his job performance].
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Think of a survey question you could ask in a survey of the general
+                population of Americans in response to which many [most?] people would <em>lie</em>. State what would be the issue you would be investigating with this survey
+                question, as a clearly defined, formal <em>variable</em> and <em>parameter</em> on
+                the population of all Americans. Also tell exactly what would be the wording
+                of the question you think would get lying responses.
+              </p>
+              <p>
+                Now think of a way to do an observational study which would get more accurate
+                values for this variable and for the parameter of interest. Explain in detail.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Many parents believe that their small children get a bit hyperactive when they
+                eat or drink sweets (candies, sugary sodas, <em>etc.</em>), and so do not let
+                their kids have such things before nap time, for example. A pediatrician at
+                Euphoria State University Teaching Hospital [ESUTH] thinks instead that it is
+                the parents' expectations about the effects of sugar which cause their children
+                to become hyperactive, and not the sugar at all.
+              </p>
+              <p>
+                Describe a randomized, placebo-controlled, double-blind experiment which would
+                collect data about this ESUTH pediatrician's hypothesis. Make sure you are
+                clear about both which part of your experimental procedure addresses each of
+                those important components of good experimental design.
+              </p>
+            </statement>
+          </exercise>
+          
+          <exercise>
+            <statement>
+              <p>
+                Is the experiment you described in the previous exercise an ethical one?
+                What must the ESUTH pediatrician do before, during, and after the experiment
+                to make sure it is ethical? Make sure you discuss (at least) the checklist
+                of ethical guidelines from this chapter and how each point applies to this
+                particular experiment.
+              </p>
+            </statement>
+          </exercise>
         </section>
       </chapter>
     </part>
