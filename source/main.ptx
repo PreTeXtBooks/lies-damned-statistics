@@ -150,7 +150,7 @@
           question of interest, and to collect some data about this question. How to
           collect good data is a real and important issue, but one we discuss later.
           Let us instead assume for the moment that we have some data, good or bad, and
-          first consider what to do with them. In particular, we want to
+          first consider what to do with them.<fn>The use of <q>them</q> to refer to <q>data</q> is intentional here. The word <q>data</q> is the plural of the Latin word <q>datum</q>, meaning <q>given</q>. Although in modern English usage <q>data</q> is often treated as a singular mass noun, in scientific and statistical contexts it is more properly treated as a plural count noun.</fn> In particular, we want to
           describe them, both graphically and with numbers that summarize some of their
           features.
         </p>
@@ -3247,7 +3247,7 @@
 
         <blockquote>
           <p>
-            <em>The plural of anecdote is not data.</em>
+            <em>The plural of anecdote is not data.</em><fn>It is hard to be certain of the true origins of this phrase. The political scientist Raymond Wolfinger is sometimes given credit for a version without the <q>not,</q> actually. Sometime later, then, it became widespread with the <q>not.</q></fn>
           </p>
         </blockquote>
 
