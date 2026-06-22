@@ -3,6 +3,9 @@
   <book xml:id="ldlos">
     <title>Lies, Damned Lies, or Statistics</title>
     <subtitle>How to Tell the Truth with Statistics</subtitle>
+
+    <frontmatter>
+    <titlepage>
     <author>
       <personname>
         <firstname>Jonathan</firstname>
@@ -18,8 +21,8 @@
       <email>jonathan@poritz.net</email>
       <url href="https://poritz.net/jonathan">poritz.net/jonathan</url>
     </author>
+      </titlepage>
 
-    <frontmatter>
       <colophon>
         <copyright>
           <year>2017</year>
