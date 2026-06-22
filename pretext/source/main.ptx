@@ -1,10 +1,17 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<pretext xml:lang="en-US">
-  <book xml:id="ldlos">
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<pretext xmlns:xi="http://www.w3.org/2001/XInclude" xml:lang="en-US">
+  <docinfo>
+    <macros>
+    \newcommand{\R}{\mathbb{R}}
+    </macros>
+  </docinfo>
+
+  <book xml:id="damned-lies-statistics">
     <title>Lies, Damned Lies, or Statistics</title>
     <subtitle>How to Tell the Truth with Statistics</subtitle>
 
-    <frontmatter>
+    <frontmatter xml:id="frontmatter">
     <titlepage>
     <author>
       <personname>
